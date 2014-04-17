@@ -29,16 +29,16 @@
 		1992D3E919011FA100733C9F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3E819011FA100733C9F /* MainViewController.m */; };
 		1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */; };
 		1992D3F2190127D600733C9F /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3F1190127D600733C9F /* MediaViewController.m */; };
-		1992D3FB1901352B00733C9F /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F51901352B00733C9F /* ios-charity.png */; };
-		1992D3FC1901352B00733C9F /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F61901352B00733C9F /* ios-map.png */; };
-		1992D3FD1901352B00733C9F /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F71901352B00733C9F /* ios-media.png */; };
-		1992D3FE1901352B00733C9F /* ios-neighborhood.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F81901352B00733C9F /* ios-neighborhood.png */; };
-		1992D3FF1901352B00733C9F /* ios-participants.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F91901352B00733C9F /* ios-participants.png */; };
-		1992D4001901352B00733C9F /* ios-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3FA1901352B00733C9F /* ios-progress.png */; };
 		1992D4031901354600733C9F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D4021901354600733C9F /* MapViewController.m */; };
 		1992D406190135A900733C9F /* CharityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D405190135A900733C9F /* CharityViewController.m */; };
 		1992D409190135D900733C9F /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D408190135D900733C9F /* ProgressViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+		70C49C0C18FF7C9900D3F1E4 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0618FF7C9900D3F1E4 /* ios-charity.png */; };
+		70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0718FF7C9900D3F1E4 /* ios-map.png */; };
+		70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0818FF7C9900D3F1E4 /* ios-media.png */; };
+		70C49C0F18FF7C9900D3F1E4 /* ios-neighborhood.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0918FF7C9900D3F1E4 /* ios-neighborhood.png */; };
+		70C49C1018FF7C9900D3F1E4 /* ios-participants.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0A18FF7C9900D3F1E4 /* ios-participants.png */; };
+		70C49C1118FF7C9900D3F1E4 /* ios-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0B18FF7C9900D3F1E4 /* ios-progress.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,12 +87,6 @@
 		1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighborhoodViewController.m; sourceTree = "<group>"; };
 		1992D3F0190127D600733C9F /* MediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
 		1992D3F1190127D600733C9F /* MediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
-		1992D3F51901352B00733C9F /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-charity.png"; path = "../../../Downloads/untitled folder/ios-charity.png"; sourceTree = "<group>"; };
-		1992D3F61901352B00733C9F /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-map.png"; path = "../../../Downloads/untitled folder/ios-map.png"; sourceTree = "<group>"; };
-		1992D3F71901352B00733C9F /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-media.png"; path = "../../../Downloads/untitled folder/ios-media.png"; sourceTree = "<group>"; };
-		1992D3F81901352B00733C9F /* ios-neighborhood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-neighborhood.png"; path = "../../../Downloads/untitled folder/ios-neighborhood.png"; sourceTree = "<group>"; };
-		1992D3F91901352B00733C9F /* ios-participants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-participants.png"; path = "../../../Downloads/untitled folder/ios-participants.png"; sourceTree = "<group>"; };
-		1992D3FA1901352B00733C9F /* ios-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-progress.png"; path = "../../../Downloads/untitled folder/ios-progress.png"; sourceTree = "<group>"; };
 		1992D4011901354600733C9F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		1992D4021901354600733C9F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		1992D404190135A900733C9F /* CharityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharityViewController.h; sourceTree = "<group>"; };
@@ -101,6 +95,12 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+		70C49C0618FF7C9900D3F1E4 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-charity.png"; path = "ios-media/ios-charity.png"; sourceTree = "<group>"; };
+		70C49C0718FF7C9900D3F1E4 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-map.png"; path = "ios-media/ios-map.png"; sourceTree = "<group>"; };
+		70C49C0818FF7C9900D3F1E4 /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-media.png"; path = "ios-media/ios-media.png"; sourceTree = "<group>"; };
+		70C49C0918FF7C9900D3F1E4 /* ios-neighborhood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-neighborhood.png"; path = "ios-media/ios-neighborhood.png"; sourceTree = "<group>"; };
+		70C49C0A18FF7C9900D3F1E4 /* ios-participants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-participants.png"; path = "ios-media/ios-participants.png"; sourceTree = "<group>"; };
+		70C49C0B18FF7C9900D3F1E4 /* ios-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-progress.png"; path = "ios-media/ios-progress.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,12 +244,12 @@
 		1992D3ED1901252D00733C9F /* test-images */ = {
 			isa = PBXGroup;
 			children = (
-				1992D3F51901352B00733C9F /* ios-charity.png */,
-				1992D3F61901352B00733C9F /* ios-map.png */,
-				1992D3F71901352B00733C9F /* ios-media.png */,
-				1992D3F81901352B00733C9F /* ios-neighborhood.png */,
-				1992D3F91901352B00733C9F /* ios-participants.png */,
-				1992D3FA1901352B00733C9F /* ios-progress.png */,
+				70C49C0618FF7C9900D3F1E4 /* ios-charity.png */,
+				70C49C0718FF7C9900D3F1E4 /* ios-map.png */,
+				70C49C0818FF7C9900D3F1E4 /* ios-media.png */,
+				70C49C0918FF7C9900D3F1E4 /* ios-neighborhood.png */,
+				70C49C0A18FF7C9900D3F1E4 /* ios-participants.png */,
+				70C49C0B18FF7C9900D3F1E4 /* ios-progress.png */,
 			);
 			name = "test-images";
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 		194B8FDD18FE948C00EA3966 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = InnoYou;
 				TargetAttributes = {
 					194B900518FE948C00EA3966 = {
@@ -331,13 +331,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				194B900118FE948C00EA3966 /* Images.xcassets in Resources */,
-				1992D3FF1901352B00733C9F /* ios-participants.png in Resources */,
-				1992D3FC1901352B00733C9F /* ios-map.png in Resources */,
+				70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */,
+				70C49C1118FF7C9900D3F1E4 /* ios-progress.png in Resources */,
+				70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */,
+				70C49C1018FF7C9900D3F1E4 /* ios-participants.png in Resources */,
+				70C49C0F18FF7C9900D3F1E4 /* ios-neighborhood.png in Resources */,
 				194B8FF318FE948C00EA3966 /* InfoPlist.strings in Resources */,
-				1992D3FE1901352B00733C9F /* ios-neighborhood.png in Resources */,
-				1992D3FB1901352B00733C9F /* ios-charity.png in Resources */,
-				1992D3FD1901352B00733C9F /* ios-media.png in Resources */,
-				1992D4001901352B00733C9F /* ios-progress.png in Resources */,
+				70C49C0C18FF7C9900D3F1E4 /* ios-charity.png in Resources */,
 				194B8FFC18FE948C00EA3966 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,7 +425,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -464,7 +463,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -522,7 +520,6 @@
 		194B901B18FE948C00EA3966 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Glassy.app/Glassy";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -545,7 +542,6 @@
 		194B901C18FE948C00EA3966 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Glassy.app/Glassy";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
