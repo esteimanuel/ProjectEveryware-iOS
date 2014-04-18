@@ -39,6 +39,7 @@
 		70C49C0F18FF7C9900D3F1E4 /* ios-neighborhood.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0918FF7C9900D3F1E4 /* ios-neighborhood.png */; };
 		70C49C1018FF7C9900D3F1E4 /* ios-participants.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0A18FF7C9900D3F1E4 /* ios-participants.png */; };
 		70C49C1118FF7C9900D3F1E4 /* ios-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0B18FF7C9900D3F1E4 /* ios-progress.png */; };
+		70C49C1319016DE700D3F1E4 /* happy-people.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C1219016DE700D3F1E4 /* happy-people.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		70C49C0918FF7C9900D3F1E4 /* ios-neighborhood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-neighborhood.png"; path = "ios-media/ios-neighborhood.png"; sourceTree = "<group>"; };
 		70C49C0A18FF7C9900D3F1E4 /* ios-participants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-participants.png"; path = "ios-media/ios-participants.png"; sourceTree = "<group>"; };
 		70C49C0B18FF7C9900D3F1E4 /* ios-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-progress.png"; path = "ios-media/ios-progress.png"; sourceTree = "<group>"; };
+		70C49C1219016DE700D3F1E4 /* happy-people.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "happy-people.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 		1992D3ED1901252D00733C9F /* test-images */ = {
 			isa = PBXGroup;
 			children = (
+				70C49C1219016DE700D3F1E4 /* happy-people.jpg */,
 				70C49C0618FF7C9900D3F1E4 /* ios-charity.png */,
 				70C49C0718FF7C9900D3F1E4 /* ios-map.png */,
 				70C49C0818FF7C9900D3F1E4 /* ios-media.png */,
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				194B900118FE948C00EA3966 /* Images.xcassets in Resources */,
+				70C49C1319016DE700D3F1E4 /* happy-people.jpg in Resources */,
 				70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */,
 				70C49C1118FF7C9900D3F1E4 /* ios-progress.png in Resources */,
 				70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */,
