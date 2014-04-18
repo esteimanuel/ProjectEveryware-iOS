@@ -14,13 +14,31 @@
 		194B8FF518FE948C00EA3966 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B8FF418FE948C00EA3966 /* main.m */; };
 		194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B8FF818FE948C00EA3966 /* AppDelegate.m */; };
 		194B8FFC18FE948C00EA3966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 194B8FFA18FE948C00EA3966 /* Main.storyboard */; };
-		194B8FFF18FE948C00EA3966 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B8FFE18FE948C00EA3966 /* ViewController.m */; };
 		194B900118FE948C00EA3966 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 194B900018FE948C00EA3966 /* Images.xcassets */; };
 		194B900818FE948C00EA3966 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B900718FE948C00EA3966 /* XCTest.framework */; };
 		194B900918FE948C00EA3966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FE818FE948C00EA3966 /* Foundation.framework */; };
 		194B900A18FE948C00EA3966 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FEC18FE948C00EA3966 /* UIKit.framework */; };
 		194B901218FE948C00EA3966 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 194B901018FE948C00EA3966 /* InfoPlist.strings */; };
 		194B901418FE948C00EA3966 /* GlassyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B901318FE948C00EA3966 /* GlassyTests.m */; };
+		194B902318FEBE2600EA3966 /* NeighborhoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B902218FEBE2600EA3966 /* NeighborhoodView.m */; };
+		194B902918FEBF4D00EA3966 /* MediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B902818FEBF4D00EA3966 /* MediaView.m */; };
+		194B902C18FEBFE200EA3966 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B902B18FEBFE200EA3966 /* MapView.m */; };
+		194B902F18FEC01800EA3966 /* CharityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B902E18FEC01800EA3966 /* CharityView.m */; };
+		194B903218FEC03300EA3966 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B903118FEC03300EA3966 /* ProgressView.m */; };
+		194B903518FEC09500EA3966 /* ParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194B903418FEC09500EA3966 /* ParticipantsView.m */; };
+		1992D3E919011FA100733C9F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3E819011FA100733C9F /* MainViewController.m */; };
+		1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */; };
+		1992D3F2190127D600733C9F /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3F1190127D600733C9F /* MediaViewController.m */; };
+		1992D3FB1901352B00733C9F /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F51901352B00733C9F /* ios-charity.png */; };
+		1992D3FC1901352B00733C9F /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F61901352B00733C9F /* ios-map.png */; };
+		1992D3FD1901352B00733C9F /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F71901352B00733C9F /* ios-media.png */; };
+		1992D3FE1901352B00733C9F /* ios-neighborhood.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F81901352B00733C9F /* ios-neighborhood.png */; };
+		1992D3FF1901352B00733C9F /* ios-participants.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3F91901352B00733C9F /* ios-participants.png */; };
+		1992D4001901352B00733C9F /* ios-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 1992D3FA1901352B00733C9F /* ios-progress.png */; };
+		1992D4031901354600733C9F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D4021901354600733C9F /* MapViewController.m */; };
+		1992D406190135A900733C9F /* CharityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D405190135A900733C9F /* CharityViewController.m */; };
+		1992D409190135D900733C9F /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D408190135D900733C9F /* ProgressViewController.m */; };
+		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +63,44 @@
 		194B8FF718FE948C00EA3966 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		194B8FF818FE948C00EA3966 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		194B8FFB18FE948C00EA3966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		194B8FFD18FE948C00EA3966 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		194B8FFE18FE948C00EA3966 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		194B900018FE948C00EA3966 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		194B900618FE948C00EA3966 /* GlassyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlassyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		194B900718FE948C00EA3966 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		194B900F18FE948C00EA3966 /* GlassyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GlassyTests-Info.plist"; sourceTree = "<group>"; };
 		194B901118FE948C00EA3966 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		194B901318FE948C00EA3966 /* GlassyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlassyTests.m; sourceTree = "<group>"; };
+		194B902118FEBE2600EA3966 /* NeighborhoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighborhoodView.h; sourceTree = "<group>"; };
+		194B902218FEBE2600EA3966 /* NeighborhoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighborhoodView.m; sourceTree = "<group>"; };
+		194B902718FEBF4D00EA3966 /* MediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaView.h; sourceTree = "<group>"; };
+		194B902818FEBF4D00EA3966 /* MediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaView.m; sourceTree = "<group>"; };
+		194B902A18FEBFE200EA3966 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		194B902B18FEBFE200EA3966 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		194B902D18FEC01800EA3966 /* CharityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharityView.h; sourceTree = "<group>"; };
+		194B902E18FEC01800EA3966 /* CharityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharityView.m; sourceTree = "<group>"; };
+		194B903018FEC03300EA3966 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		194B903118FEC03300EA3966 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		194B903318FEC09500EA3966 /* ParticipantsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsView.h; sourceTree = "<group>"; };
+		194B903418FEC09500EA3966 /* ParticipantsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsView.m; sourceTree = "<group>"; };
+		1992D3E719011FA100733C9F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		1992D3E819011FA100733C9F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		1992D3EA190122AE00733C9F /* NeighborhoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighborhoodViewController.h; sourceTree = "<group>"; };
+		1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighborhoodViewController.m; sourceTree = "<group>"; };
+		1992D3F0190127D600733C9F /* MediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
+		1992D3F1190127D600733C9F /* MediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
+		1992D3F51901352B00733C9F /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-charity.png"; path = "../../../Downloads/untitled folder/ios-charity.png"; sourceTree = "<group>"; };
+		1992D3F61901352B00733C9F /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-map.png"; path = "../../../Downloads/untitled folder/ios-map.png"; sourceTree = "<group>"; };
+		1992D3F71901352B00733C9F /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-media.png"; path = "../../../Downloads/untitled folder/ios-media.png"; sourceTree = "<group>"; };
+		1992D3F81901352B00733C9F /* ios-neighborhood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-neighborhood.png"; path = "../../../Downloads/untitled folder/ios-neighborhood.png"; sourceTree = "<group>"; };
+		1992D3F91901352B00733C9F /* ios-participants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-participants.png"; path = "../../../Downloads/untitled folder/ios-participants.png"; sourceTree = "<group>"; };
+		1992D3FA1901352B00733C9F /* ios-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-progress.png"; path = "../../../Downloads/untitled folder/ios-progress.png"; sourceTree = "<group>"; };
+		1992D4011901354600733C9F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		1992D4021901354600733C9F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1992D404190135A900733C9F /* CharityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharityViewController.h; sourceTree = "<group>"; };
+		1992D405190135A900733C9F /* CharityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharityViewController.m; sourceTree = "<group>"; };
+		1992D407190135D900733C9F /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
+		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
+		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
+		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				194B8FFA18FE948C00EA3966 /* Main.storyboard */,
-				194B8FFD18FE948C00EA3966 /* ViewController.h */,
-				194B8FFE18FE948C00EA3966 /* ViewController.m */,
+				194B902618FEBE9800EA3966 /* Views */,
+				194B902018FEBC7C00EA3966 /* ViewControllers */,
 				194B900018FE948C00EA3966 /* Images.xcassets */,
 				194B8FEF18FE948C00EA3966 /* Supporting Files */,
 			);
@@ -124,6 +172,7 @@
 		194B8FEF18FE948C00EA3966 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1992D3ED1901252D00733C9F /* test-images */,
 				194B8FF718FE948C00EA3966 /* AppDelegate.h */,
 				194B8FF818FE948C00EA3966 /* AppDelegate.m */,
 				194B8FF018FE948C00EA3966 /* Glassy-Info.plist */,
@@ -150,6 +199,59 @@
 				194B901018FE948C00EA3966 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		194B902018FEBC7C00EA3966 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1992D3E719011FA100733C9F /* MainViewController.h */,
+				1992D3E819011FA100733C9F /* MainViewController.m */,
+				1992D3EA190122AE00733C9F /* NeighborhoodViewController.h */,
+				1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */,
+				1992D3F0190127D600733C9F /* MediaViewController.h */,
+				1992D3F1190127D600733C9F /* MediaViewController.m */,
+				1992D4011901354600733C9F /* MapViewController.h */,
+				1992D4021901354600733C9F /* MapViewController.m */,
+				1992D404190135A900733C9F /* CharityViewController.h */,
+				1992D405190135A900733C9F /* CharityViewController.m */,
+				1992D407190135D900733C9F /* ProgressViewController.h */,
+				1992D408190135D900733C9F /* ProgressViewController.m */,
+				1992D40A190135FB00733C9F /* ParticipantsViewController.h */,
+				1992D40B190135FB00733C9F /* ParticipantsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		194B902618FEBE9800EA3966 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				194B902118FEBE2600EA3966 /* NeighborhoodView.h */,
+				194B902218FEBE2600EA3966 /* NeighborhoodView.m */,
+				194B902718FEBF4D00EA3966 /* MediaView.h */,
+				194B902818FEBF4D00EA3966 /* MediaView.m */,
+				194B902A18FEBFE200EA3966 /* MapView.h */,
+				194B902B18FEBFE200EA3966 /* MapView.m */,
+				194B902D18FEC01800EA3966 /* CharityView.h */,
+				194B902E18FEC01800EA3966 /* CharityView.m */,
+				194B903018FEC03300EA3966 /* ProgressView.h */,
+				194B903118FEC03300EA3966 /* ProgressView.m */,
+				194B903318FEC09500EA3966 /* ParticipantsView.h */,
+				194B903418FEC09500EA3966 /* ParticipantsView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1992D3ED1901252D00733C9F /* test-images */ = {
+			isa = PBXGroup;
+			children = (
+				1992D3F51901352B00733C9F /* ios-charity.png */,
+				1992D3F61901352B00733C9F /* ios-map.png */,
+				1992D3F71901352B00733C9F /* ios-media.png */,
+				1992D3F81901352B00733C9F /* ios-neighborhood.png */,
+				1992D3F91901352B00733C9F /* ios-participants.png */,
+				1992D3FA1901352B00733C9F /* ios-progress.png */,
+			);
+			name = "test-images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +331,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				194B900118FE948C00EA3966 /* Images.xcassets in Resources */,
+				1992D3FF1901352B00733C9F /* ios-participants.png in Resources */,
+				1992D3FC1901352B00733C9F /* ios-map.png in Resources */,
 				194B8FF318FE948C00EA3966 /* InfoPlist.strings in Resources */,
+				1992D3FE1901352B00733C9F /* ios-neighborhood.png in Resources */,
+				1992D3FB1901352B00733C9F /* ios-charity.png in Resources */,
+				1992D3FD1901352B00733C9F /* ios-media.png in Resources */,
+				1992D4001901352B00733C9F /* ios-progress.png in Resources */,
 				194B8FFC18FE948C00EA3966 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,9 +357,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				194B8FFF18FE948C00EA3966 /* ViewController.m in Sources */,
+				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
+				194B902318FEBE2600EA3966 /* NeighborhoodView.m in Sources */,
+				194B903218FEC03300EA3966 /* ProgressView.m in Sources */,
+				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
+				1992D4031901354600733C9F /* MapViewController.m in Sources */,
+				1992D406190135A900733C9F /* CharityViewController.m in Sources */,
+				1992D409190135D900733C9F /* ProgressViewController.m in Sources */,
+				194B902F18FEC01800EA3966 /* CharityView.m in Sources */,
+				194B902C18FEBFE200EA3966 /* MapView.m in Sources */,
+				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
+				194B902918FEBF4D00EA3966 /* MediaView.m in Sources */,
+				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
+				194B903518FEC09500EA3966 /* ParticipantsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +580,7 @@
 				194B901918FE948C00EA3966 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		194B901A18FE948C00EA3966 /* Build configuration list for PBXNativeTarget "GlassyTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +589,7 @@
 				194B901C18FE948C00EA3966 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

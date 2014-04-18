@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ParticipantsView.h
 //  Glassy
 //
 //  Created by Niek Willems on 16/04/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ParticipantsView : UICollectionView
 
 @end
