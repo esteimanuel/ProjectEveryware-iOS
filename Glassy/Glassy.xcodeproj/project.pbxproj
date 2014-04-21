@@ -33,6 +33,10 @@
 		1992D406190135A900733C9F /* CharityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D405190135A900733C9F /* CharityViewController.m */; };
 		1992D409190135D900733C9F /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D408190135D900733C9F /* ProgressViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+		19D6A17119026A6B00EC8A1C /* NavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A17019026A6B00EC8A1C /* NavigationBarViewController.m */; };
+		19D6A1741902795800EC8A1C /* DropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A1731902795800EC8A1C /* DropDownMenuViewController.m */; };
+		19D6A177190292AB00EC8A1C /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D6A176190292AB00EC8A1C /* AuthenticationViewController.m */; };
+		19E4C32D1905065800866681 /* ios-auth-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E4C32C1905065800866681 /* ios-auth-background.png */; };
 		70C49C0C18FF7C9900D3F1E4 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0618FF7C9900D3F1E4 /* ios-charity.png */; };
 		70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0718FF7C9900D3F1E4 /* ios-map.png */; };
 		70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0818FF7C9900D3F1E4 /* ios-media.png */; };
@@ -96,6 +100,13 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+		19D6A16F19026A6B00EC8A1C /* NavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarViewController.h; sourceTree = "<group>"; };
+		19D6A17019026A6B00EC8A1C /* NavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarViewController.m; sourceTree = "<group>"; };
+		19D6A1721902795800EC8A1C /* DropDownMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuViewController.h; sourceTree = "<group>"; };
+		19D6A1731902795800EC8A1C /* DropDownMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenuViewController.m; sourceTree = "<group>"; };
+		19D6A175190292AB00EC8A1C /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		19D6A176190292AB00EC8A1C /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		19E4C32C1905065800866681 /* ios-auth-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-auth-background.png"; sourceTree = "<group>"; };
 		70C49C0618FF7C9900D3F1E4 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-charity.png"; path = "ios-media/ios-charity.png"; sourceTree = "<group>"; };
 		70C49C0718FF7C9900D3F1E4 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-map.png"; path = "ios-media/ios-map.png"; sourceTree = "<group>"; };
 		70C49C0818FF7C9900D3F1E4 /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-media.png"; path = "ios-media/ios-media.png"; sourceTree = "<group>"; };
@@ -220,6 +231,12 @@
 				1992D408190135D900733C9F /* ProgressViewController.m */,
 				1992D40A190135FB00733C9F /* ParticipantsViewController.h */,
 				1992D40B190135FB00733C9F /* ParticipantsViewController.m */,
+				19D6A16F19026A6B00EC8A1C /* NavigationBarViewController.h */,
+				19D6A17019026A6B00EC8A1C /* NavigationBarViewController.m */,
+				19D6A1721902795800EC8A1C /* DropDownMenuViewController.h */,
+				19D6A1731902795800EC8A1C /* DropDownMenuViewController.m */,
+				19D6A175190292AB00EC8A1C /* AuthenticationViewController.h */,
+				19D6A176190292AB00EC8A1C /* AuthenticationViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -246,6 +263,7 @@
 		1992D3ED1901252D00733C9F /* test-images */ = {
 			isa = PBXGroup;
 			children = (
+				19E4C32C1905065800866681 /* ios-auth-background.png */,
 				70C49C1219016DE700D3F1E4 /* happy-people.jpg */,
 				70C49C0618FF7C9900D3F1E4 /* ios-charity.png */,
 				70C49C0718FF7C9900D3F1E4 /* ios-map.png */,
@@ -337,6 +355,7 @@
 				70C49C1319016DE700D3F1E4 /* happy-people.jpg in Resources */,
 				70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */,
 				70C49C1118FF7C9900D3F1E4 /* ios-progress.png in Resources */,
+				19E4C32D1905065800866681 /* ios-auth-background.png in Resources */,
 				70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */,
 				70C49C1018FF7C9900D3F1E4 /* ios-participants.png in Resources */,
 				70C49C0F18FF7C9900D3F1E4 /* ios-neighborhood.png in Resources */,
@@ -365,6 +384,7 @@
 				194B902318FEBE2600EA3966 /* NeighborhoodView.m in Sources */,
 				194B903218FEC03300EA3966 /* ProgressView.m in Sources */,
 				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
+				19D6A177190292AB00EC8A1C /* AuthenticationViewController.m in Sources */,
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,
 				1992D406190135A900733C9F /* CharityViewController.m in Sources */,
 				1992D409190135D900733C9F /* ProgressViewController.m in Sources */,
@@ -373,7 +393,9 @@
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
 				194B902918FEBF4D00EA3966 /* MediaView.m in Sources */,
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
+				19D6A17119026A6B00EC8A1C /* NavigationBarViewController.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
+				19D6A1741902795800EC8A1C /* DropDownMenuViewController.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
 				194B903518FEC09500EA3966 /* ParticipantsView.m in Sources */,
 			);
