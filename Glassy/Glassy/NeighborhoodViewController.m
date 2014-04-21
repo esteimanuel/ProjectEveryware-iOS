@@ -27,21 +27,25 @@
 {
     [super viewDidLoad];
     
-    [self createNeighborhoodGUI];
+    [self createGUI];
     
 }
 
-- (void) createNeighborhoodGUI
+- (void) createGUI
 {
     // Create frame
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height);
-    
+    [self.view setBackgroundColor: [UIColor blackColor]];
+
     // Create background image
-    UIImage *background = [UIImage imageNamed:@"happy-people.jpg"];
-    UIImageView *imageView = [[UIImageView alloc]init];
-    imageView.contentMode = UIViewContentModeTop;
-    //imageView.clipsToBounds = true;
-    [imageView setImage:background];
+    //NSString *imageUrl = @"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg";
+    NSString *imageUrl = @"http://www.wallpaperspictures.net/image/bruce-lee-iconic-figure-wallpaper-for-2560x1920-886-26.jpg";
+    UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 85.0, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height -85.0)];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.image = background;
+    //imageView.clipsToBounds = NO;
+    imageView.alpha = 0.75;
     
     [self.view addSubview:imageView];
     
@@ -84,22 +88,13 @@
     //[actionButton addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
     [actionButton setTitle:@"Ik doe ook mee" forState:UIControlStateNormal];
     [actionButton.titleLabel setFont: [UIFont fontWithName:@"HelveticaNeue-Light" size:24.0f]];
-    [actionButton setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.6]];
+    [actionButton setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
+    [actionButton.layer setBorderColor:[[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.5] CGColor]];
+    [actionButton.layer setBorderWidth:1.0f];
     actionButton.frame = CGRectMake(5.0, (self.view.frame.size.height - 40.0) - 10.0, self.view.frame.size.width -10.0, 40.0);
     
     [self.view addSubview:actionButton];
     
-}
-
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    //UIGraphicsBeginImageContext(newSize);
-    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
-    // Pass 1.0 to force exact pixel size.
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
 }
 
 - (void)didReceiveMemoryWarning

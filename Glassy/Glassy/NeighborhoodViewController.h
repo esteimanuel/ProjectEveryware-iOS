@@ -15,6 +15,6 @@
 #define IS_LANDSCAPE ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)
 #define IS_RETINA ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0))
 
-@interface NeighborhoodViewController : UIViewController
+@interface NeighborhoodViewController : UIViewController 
 
 @end
