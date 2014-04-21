@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DropDownMenuViewController.h"
+#import "SearchViewController.h"
 
 @interface MainViewController : UIViewController
 
 @property (nonatomic, strong) DropDownMenuViewController *dropDownMenuViewController;
+@property (nonatomic, strong) SearchViewController *searchViewController;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *navigationBarView;

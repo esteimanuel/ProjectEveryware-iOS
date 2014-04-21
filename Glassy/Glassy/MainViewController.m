@@ -42,17 +42,23 @@
     [self createCustomNavigationBar];
     [self createScrollViewWithViewControllers];
     [self createDropDownMenuViewController];
+    [self createSearchViewController];
     
     
     /* Test */
-    AuthenticationViewController *auth = [[AuthenticationViewController alloc] init];
-    [self.view addSubview:auth.view];
+    //AuthenticationViewController *auth = [[AuthenticationViewController alloc] init];
+    //[self.view addSubview:auth.view];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createSearchViewController
+{
+    self.searchViewController = [[SearchViewController alloc] init];
 }
 
 - (void)createDropDownMenuViewController
@@ -84,6 +90,7 @@
     // Create search button
     UIButton *navigationSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 15, 70, 70)];
     [navigationSearchButton setImage:[UIImage imageNamed:@"ios-nav-search-button"] forState:UIControlStateNormal];
+    [navigationSearchButton addTarget:self action:@selector(searchButtonClicked:) forControlEvents:UIControlEventTouchDown];
     
     [self.navigationBarView addSubview:profileImageView];
     [self.navigationBarView addSubview:profileNameLabel];
@@ -96,8 +103,19 @@
 {
     if ([self.dropDownMenuViewController.view isDescendantOfView:self.view]) {
         [self.dropDownMenuViewController.view removeFromSuperview];
+        [self.searchViewController.view removeFromSuperview];
     } else {
         [self.view addSubview:self.dropDownMenuViewController.view];
+    }
+}
+
+- (void)searchButtonClicked:(UIButton *)button
+{
+    if ([self.searchViewController.view isDescendantOfView:self.view]) {
+        [self.searchViewController.view removeFromSuperview];
+        [self.dropDownMenuViewController.view removeFromSuperview];
+    } else {
+        [self.view addSubview:self.searchViewController.view];
     }
 }
 
