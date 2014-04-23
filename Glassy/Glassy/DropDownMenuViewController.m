@@ -27,10 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Set frame origin
-//    CGRect frame = self.view.frame;
-//    frame.origin.y = 85;
-//    self.view.frame = frame;
     // Disable scrolling
     self.tableView.scrollEnabled = NO;
     
@@ -44,6 +40,7 @@
     }
     // Set frame sizes
     self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [self.menuOptionsArray count] * 50);
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
