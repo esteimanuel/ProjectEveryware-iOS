@@ -26,13 +26,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    UIImage *background = [UIImage imageNamed:@"ios-map.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
     
-    [self.view addSubview:imageView];
+    UIWebView* webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 250)];
+    webview.scalesPageToFit = YES;
     
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, background.size.height);
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://glassy-web.avans-project.nl"]]];
+
+    [self.view addSubview:webview];
+    
+    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 250);
+    
+
 }
 
 - (void)didReceiveMemoryWarning
