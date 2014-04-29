@@ -33,10 +33,34 @@
 		1992D406190135A900733C9F /* CharityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D405190135A900733C9F /* CharityViewController.m */; };
 		1992D409190135D900733C9F /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D408190135D900733C9F /* ProgressViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+<<<<<<< HEAD
 		19E127B21907A8A500471CB9 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AB1907A8A500471CB9 /* AuthenticationViewController.m */; };
 		19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AD1907A8A500471CB9 /* DropDownMenuViewController.m */; };
 		19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */; };
 		19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127B11907A8A500471CB9 /* SearchViewController.m */; };
+=======
+		22026A8D1907CD2100EFF574 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22026A741907CD2000EFF574 /* AuthenticationViewController.m */; };
+		22026A8E1907CD2100EFF574 /* DropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22026A761907CD2000EFF574 /* DropDownMenuViewController.m */; };
+		22026A8F1907CD2100EFF574 /* ios-auth-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A771907CD2100EFF574 /* ios-auth-background.png */; };
+		22026A901907CD2100EFF574 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A781907CD2100EFF574 /* ios-charity.png */; };
+		22026A911907CD2100EFF574 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A791907CD2100EFF574 /* ios-map.png */; };
+		22026A921907CD2100EFF574 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7B1907CD2100EFF574 /* ios-charity.png */; };
+		22026A931907CD2100EFF574 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7C1907CD2100EFF574 /* ios-map.png */; };
+		22026A941907CD2100EFF574 /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7D1907CD2100EFF574 /* ios-media.png */; };
+		22026A951907CD2100EFF574 /* ios-neighborhood.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7E1907CD2100EFF574 /* ios-neighborhood.png */; };
+		22026A961907CD2100EFF574 /* ios-participants.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7F1907CD2100EFF574 /* ios-participants.png */; };
+		22026A971907CD2100EFF574 /* ios-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A801907CD2100EFF574 /* ios-progress.png */; };
+		22026A981907CD2100EFF574 /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A811907CD2100EFF574 /* ios-media.png */; };
+		22026A991907CD2100EFF574 /* ios-nav-default-profile-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A821907CD2100EFF574 /* ios-nav-default-profile-image.png */; };
+		22026A9A1907CD2100EFF574 /* ios-nav-dropdown-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */; };
+		22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A841907CD2100EFF574 /* ios-nav-search-button.png */; };
+		22026A9C1907CD2100EFF574 /* ios-neighborhood.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A851907CD2100EFF574 /* ios-neighborhood.png */; };
+		22026A9D1907CD2100EFF574 /* ios-participants.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A861907CD2100EFF574 /* ios-participants.png */; };
+		22026A9E1907CD2100EFF574 /* ios-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A871907CD2100EFF574 /* ios-progress.png */; };
+		22026A9F1907CD2100EFF574 /* ios-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A881907CD2100EFF574 /* ios-search.png */; };
+		22026AA01907CD2100EFF574 /* NavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22026A8A1907CD2100EFF574 /* NavigationBarViewController.m */; };
+		22026AA11907CD2100EFF574 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22026A8C1907CD2100EFF574 /* SearchViewController.m */; };
+>>>>>>> FETCH_HEAD
 		70C49C0C18FF7C9900D3F1E4 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0618FF7C9900D3F1E4 /* ios-charity.png */; };
 		70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0718FF7C9900D3F1E4 /* ios-map.png */; };
 		70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0818FF7C9900D3F1E4 /* ios-media.png */; };
@@ -99,6 +123,7 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		19E127AA1907A8A500471CB9 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
 		19E127AB1907A8A500471CB9 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
 		19E127AC1907A8A500471CB9 /* DropDownMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuViewController.h; sourceTree = "<group>"; };
@@ -107,6 +132,33 @@
 		19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarViewController.m; sourceTree = "<group>"; };
 		19E127B01907A8A500471CB9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		19E127B11907A8A500471CB9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+=======
+		22026A731907CD2000EFF574 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		22026A741907CD2000EFF574 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		22026A751907CD2000EFF574 /* DropDownMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuViewController.h; sourceTree = "<group>"; };
+		22026A761907CD2000EFF574 /* DropDownMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenuViewController.m; sourceTree = "<group>"; };
+		22026A771907CD2100EFF574 /* ios-auth-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-auth-background.png"; sourceTree = "<group>"; };
+		22026A781907CD2100EFF574 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-charity.png"; sourceTree = "<group>"; };
+		22026A791907CD2100EFF574 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-map.png"; sourceTree = "<group>"; };
+		22026A7B1907CD2100EFF574 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-charity.png"; sourceTree = "<group>"; };
+		22026A7C1907CD2100EFF574 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-map.png"; sourceTree = "<group>"; };
+		22026A7D1907CD2100EFF574 /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-media.png"; sourceTree = "<group>"; };
+		22026A7E1907CD2100EFF574 /* ios-neighborhood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-neighborhood.png"; sourceTree = "<group>"; };
+		22026A7F1907CD2100EFF574 /* ios-participants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-participants.png"; sourceTree = "<group>"; };
+		22026A801907CD2100EFF574 /* ios-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-progress.png"; sourceTree = "<group>"; };
+		22026A811907CD2100EFF574 /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-media.png"; sourceTree = "<group>"; };
+		22026A821907CD2100EFF574 /* ios-nav-default-profile-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-nav-default-profile-image.png"; sourceTree = "<group>"; };
+		22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-nav-dropdown-button.png"; sourceTree = "<group>"; };
+		22026A841907CD2100EFF574 /* ios-nav-search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-nav-search-button.png"; sourceTree = "<group>"; };
+		22026A851907CD2100EFF574 /* ios-neighborhood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-neighborhood.png"; sourceTree = "<group>"; };
+		22026A861907CD2100EFF574 /* ios-participants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-participants.png"; sourceTree = "<group>"; };
+		22026A871907CD2100EFF574 /* ios-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-progress.png"; sourceTree = "<group>"; };
+		22026A881907CD2100EFF574 /* ios-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-search.png"; sourceTree = "<group>"; };
+		22026A891907CD2100EFF574 /* NavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarViewController.h; sourceTree = "<group>"; };
+		22026A8A1907CD2100EFF574 /* NavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarViewController.m; sourceTree = "<group>"; };
+		22026A8B1907CD2100EFF574 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		22026A8C1907CD2100EFF574 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+>>>>>>> FETCH_HEAD
 		70C49C0618FF7C9900D3F1E4 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-charity.png"; path = "ios-media/ios-charity.png"; sourceTree = "<group>"; };
 		70C49C0718FF7C9900D3F1E4 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-map.png"; path = "ios-media/ios-map.png"; sourceTree = "<group>"; };
 		70C49C0818FF7C9900D3F1E4 /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-media.png"; path = "ios-media/ios-media.png"; sourceTree = "<group>"; };
@@ -172,6 +224,26 @@
 		194B8FEE18FE948C00EA3966 /* Glassy */ = {
 			isa = PBXGroup;
 			children = (
+				22026A731907CD2000EFF574 /* AuthenticationViewController.h */,
+				22026A741907CD2000EFF574 /* AuthenticationViewController.m */,
+				22026A751907CD2000EFF574 /* DropDownMenuViewController.h */,
+				22026A761907CD2000EFF574 /* DropDownMenuViewController.m */,
+				22026A771907CD2100EFF574 /* ios-auth-background.png */,
+				22026A781907CD2100EFF574 /* ios-charity.png */,
+				22026A791907CD2100EFF574 /* ios-map.png */,
+				22026A7A1907CD2100EFF574 /* ios-media */,
+				22026A811907CD2100EFF574 /* ios-media.png */,
+				22026A821907CD2100EFF574 /* ios-nav-default-profile-image.png */,
+				22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */,
+				22026A841907CD2100EFF574 /* ios-nav-search-button.png */,
+				22026A851907CD2100EFF574 /* ios-neighborhood.png */,
+				22026A861907CD2100EFF574 /* ios-participants.png */,
+				22026A871907CD2100EFF574 /* ios-progress.png */,
+				22026A881907CD2100EFF574 /* ios-search.png */,
+				22026A891907CD2100EFF574 /* NavigationBarViewController.h */,
+				22026A8A1907CD2100EFF574 /* NavigationBarViewController.m */,
+				22026A8B1907CD2100EFF574 /* SearchViewController.h */,
+				22026A8C1907CD2100EFF574 /* SearchViewController.m */,
 				194B8FFA18FE948C00EA3966 /* Main.storyboard */,
 				194B902618FEBE9800EA3966 /* Views */,
 				194B902018FEBC7C00EA3966 /* ViewControllers */,
@@ -274,6 +346,19 @@
 			name = "test-images";
 			sourceTree = "<group>";
 		};
+		22026A7A1907CD2100EFF574 /* ios-media */ = {
+			isa = PBXGroup;
+			children = (
+				22026A7B1907CD2100EFF574 /* ios-charity.png */,
+				22026A7C1907CD2100EFF574 /* ios-map.png */,
+				22026A7D1907CD2100EFF574 /* ios-media.png */,
+				22026A7E1907CD2100EFF574 /* ios-neighborhood.png */,
+				22026A7F1907CD2100EFF574 /* ios-participants.png */,
+				22026A801907CD2100EFF574 /* ios-progress.png */,
+			);
+			path = "ios-media";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,15 +435,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22026A9A1907CD2100EFF574 /* ios-nav-dropdown-button.png in Resources */,
+				22026A931907CD2100EFF574 /* ios-map.png in Resources */,
 				194B900118FE948C00EA3966 /* Images.xcassets in Resources */,
+				22026A9C1907CD2100EFF574 /* ios-neighborhood.png in Resources */,
+				22026A8F1907CD2100EFF574 /* ios-auth-background.png in Resources */,
 				70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */,
+				22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */,
 				70C49C1118FF7C9900D3F1E4 /* ios-progress.png in Resources */,
+				22026A961907CD2100EFF574 /* ios-participants.png in Resources */,
+				22026A9D1907CD2100EFF574 /* ios-participants.png in Resources */,
+				22026A911907CD2100EFF574 /* ios-map.png in Resources */,
 				70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */,
+				22026A951907CD2100EFF574 /* ios-neighborhood.png in Resources */,
+				22026A941907CD2100EFF574 /* ios-media.png in Resources */,
+				22026A9E1907CD2100EFF574 /* ios-progress.png in Resources */,
+				22026A901907CD2100EFF574 /* ios-charity.png in Resources */,
 				70C49C1018FF7C9900D3F1E4 /* ios-participants.png in Resources */,
+				22026A9F1907CD2100EFF574 /* ios-search.png in Resources */,
 				70C49C0F18FF7C9900D3F1E4 /* ios-neighborhood.png in Resources */,
 				194B8FF318FE948C00EA3966 /* InfoPlist.strings in Resources */,
 				70C49C0C18FF7C9900D3F1E4 /* ios-charity.png in Resources */,
+				22026A921907CD2100EFF574 /* ios-charity.png in Resources */,
+				22026A981907CD2100EFF574 /* ios-media.png in Resources */,
+				22026A971907CD2100EFF574 /* ios-progress.png in Resources */,
 				194B8FFC18FE948C00EA3966 /* Main.storyboard in Resources */,
+				22026A991907CD2100EFF574 /* ios-nav-default-profile-image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,23 +479,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
+=======
+				22026AA01907CD2100EFF574 /* NavigationBarViewController.m in Sources */,
+>>>>>>> FETCH_HEAD
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
 				194B902318FEBE2600EA3966 /* NeighborhoodView.m in Sources */,
 				194B903218FEC03300EA3966 /* ProgressView.m in Sources */,
 				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,
+<<<<<<< HEAD
 				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
 				1992D406190135A900733C9F /* CharityViewController.m in Sources */,
 				1992D409190135D900733C9F /* ProgressViewController.m in Sources */,
 				194B902F18FEC01800EA3966 /* CharityView.m in Sources */,
 				19E127B21907A8A500471CB9 /* AuthenticationViewController.m in Sources */,
+=======
+				22026AA11907CD2100EFF574 /* SearchViewController.m in Sources */,
+				1992D406190135A900733C9F /* CharityViewController.m in Sources */,
+				1992D409190135D900733C9F /* ProgressViewController.m in Sources */,
+				194B902F18FEC01800EA3966 /* CharityView.m in Sources */,
+				22026A8D1907CD2100EFF574 /* AuthenticationViewController.m in Sources */,
+>>>>>>> FETCH_HEAD
 				194B902C18FEBFE200EA3966 /* MapView.m in Sources */,
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
 				194B902918FEBF4D00EA3966 /* MediaView.m in Sources */,
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
+<<<<<<< HEAD
 				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
+=======
+				22026A8E1907CD2100EFF574 /* DropDownMenuViewController.m in Sources */,
+>>>>>>> FETCH_HEAD
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
 				194B903518FEC09500EA3966 /* ParticipantsView.m in Sources */,
 			);
