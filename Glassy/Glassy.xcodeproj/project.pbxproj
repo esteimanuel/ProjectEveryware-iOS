@@ -33,6 +33,10 @@
 		1992D406190135A900733C9F /* CharityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D405190135A900733C9F /* CharityViewController.m */; };
 		1992D409190135D900733C9F /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D408190135D900733C9F /* ProgressViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+		19E127B21907A8A500471CB9 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AB1907A8A500471CB9 /* AuthenticationViewController.m */; };
+		19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AD1907A8A500471CB9 /* DropDownMenuViewController.m */; };
+		19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */; };
+		19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127B11907A8A500471CB9 /* SearchViewController.m */; };
 		70C49C0C18FF7C9900D3F1E4 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0618FF7C9900D3F1E4 /* ios-charity.png */; };
 		70C49C0D18FF7C9900D3F1E4 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0718FF7C9900D3F1E4 /* ios-map.png */; };
 		70C49C0E18FF7C9900D3F1E4 /* ios-media.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C49C0818FF7C9900D3F1E4 /* ios-media.png */; };
@@ -95,6 +99,14 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+		19E127AA1907A8A500471CB9 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		19E127AB1907A8A500471CB9 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		19E127AC1907A8A500471CB9 /* DropDownMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuViewController.h; sourceTree = "<group>"; };
+		19E127AD1907A8A500471CB9 /* DropDownMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenuViewController.m; sourceTree = "<group>"; };
+		19E127AE1907A8A500471CB9 /* NavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarViewController.h; sourceTree = "<group>"; };
+		19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarViewController.m; sourceTree = "<group>"; };
+		19E127B01907A8A500471CB9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		19E127B11907A8A500471CB9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		70C49C0618FF7C9900D3F1E4 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-charity.png"; path = "ios-media/ios-charity.png"; sourceTree = "<group>"; };
 		70C49C0718FF7C9900D3F1E4 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-map.png"; path = "ios-media/ios-map.png"; sourceTree = "<group>"; };
 		70C49C0818FF7C9900D3F1E4 /* ios-media.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-media.png"; path = "ios-media/ios-media.png"; sourceTree = "<group>"; };
@@ -204,6 +216,14 @@
 		194B902018FEBC7C00EA3966 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				19E127AA1907A8A500471CB9 /* AuthenticationViewController.h */,
+				19E127AB1907A8A500471CB9 /* AuthenticationViewController.m */,
+				19E127AC1907A8A500471CB9 /* DropDownMenuViewController.h */,
+				19E127AD1907A8A500471CB9 /* DropDownMenuViewController.m */,
+				19E127AE1907A8A500471CB9 /* NavigationBarViewController.h */,
+				19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */,
+				19E127B01907A8A500471CB9 /* SearchViewController.h */,
+				19E127B11907A8A500471CB9 /* SearchViewController.m */,
 				1992D3E719011FA100733C9F /* MainViewController.h */,
 				1992D3E819011FA100733C9F /* MainViewController.m */,
 				1992D3EA190122AE00733C9F /* NeighborhoodViewController.h */,
@@ -357,19 +377,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
 				194B902318FEBE2600EA3966 /* NeighborhoodView.m in Sources */,
 				194B903218FEC03300EA3966 /* ProgressView.m in Sources */,
 				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,
+				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
 				1992D406190135A900733C9F /* CharityViewController.m in Sources */,
 				1992D409190135D900733C9F /* ProgressViewController.m in Sources */,
 				194B902F18FEC01800EA3966 /* CharityView.m in Sources */,
+				19E127B21907A8A500471CB9 /* AuthenticationViewController.m in Sources */,
 				194B902C18FEBFE200EA3966 /* MapView.m in Sources */,
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
 				194B902918FEBF4D00EA3966 /* MediaView.m in Sources */,
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
+				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
 				194B903518FEC09500EA3966 /* ParticipantsView.m in Sources */,
 			);

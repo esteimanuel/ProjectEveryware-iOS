@@ -7,6 +7,7 @@
 //
 
 #import "DropDownMenuViewController.h"
+#import "MainViewController.h"
 
 @interface DropDownMenuViewController ()
 
@@ -81,16 +82,21 @@
     cell.textLabel.textColor = [UIColor darkGrayColor];
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
-    CGRect frame = cell.frame;
-    frame.origin.x = 100;
-    cell.frame = frame;
-    
+
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent createAuthenticationViewController];
+    }
 }
 
 
