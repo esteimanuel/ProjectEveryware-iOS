@@ -10,16 +10,21 @@
 #import "DropDownMenuViewController.h"
 #import "NavigationBarViewController.h"
 #import "SearchViewController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
 @interface MainViewController : UIViewController
 
 @property (nonatomic, strong) DropDownMenuViewController *dropDownMenuViewController;
 @property (nonatomic, strong) SearchViewController *searchViewController;
 @property (nonatomic, strong) NavigationBarViewController *navigationBarViewController;
+@property (nonatomic, strong) LoginViewController *loginViewController;
+@property (nonatomic, strong) RegisterViewController *registerViewController;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
-- (void)createAuthenticationViewController;
+- (void)createLoginViewController;
+- (void)createRegisterViewController;
 - (void)createDropDownMenuView;
 - (void)createSearchView;
 

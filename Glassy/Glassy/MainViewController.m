@@ -14,7 +14,7 @@
 #import "ProgressViewController.h"
 #import "ParticipantsViewController.h"
 #import "NavigationBarViewController.h"
-#import "AuthenticationViewController.h"
+#import "LoginViewController.h"
 
 @interface MainViewController ()
 
@@ -71,10 +71,18 @@
 
 #pragma Child view controller button handlers
 
-- (void)createAuthenticationViewController
+- (void)createRegisterViewController
 {
-    AuthenticationViewController *authenticationViewController = [[AuthenticationViewController alloc] init];
-    [self.view addSubview:authenticationViewController.view];
+    self.registerViewController = [[RegisterViewController alloc] init];
+    [self addChildViewController:self.registerViewController];
+    [self.view addSubview:self.registerViewController.view];
+}
+
+- (void)createLoginViewController
+{
+    self.loginViewController = [[LoginViewController alloc] init];
+    [self addChildViewController:self.loginViewController];
+    [self.view addSubview:self.loginViewController.view];
 }
 
 - (void)createDropDownMenuView

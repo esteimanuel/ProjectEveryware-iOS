@@ -95,7 +95,12 @@
 {
     if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
         MainViewController* parent = (MainViewController*)self.parentViewController;
-        [parent createAuthenticationViewController];
+        NSString *selected = [self.menuOptionsArray objectAtIndex:indexPath.row];
+        if ([selected  isEqual: @"Aanmelden"]) {
+            [parent createLoginViewController];
+        } else if ([selected  isEqual: @"Registreren"]) {
+            [parent createRegisterViewController];
+        }
     }
 }
 
