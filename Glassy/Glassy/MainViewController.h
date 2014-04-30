@@ -23,9 +23,13 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
-- (void)createLoginViewController;
-- (void)createRegisterViewController;
+- (void)createLoginView;
+- (void)removeLoginView;
+- (void)createRegisterView;
 - (void)createDropDownMenuView;
+- (void)removeDropDownMenuView;
 - (void)createSearchView;
+
+- (void)logout;
 
 @end

@@ -173,8 +173,7 @@
 				194B8FFA18FE948C00EA3966 /* Main.storyboard */,
 				194B902018FEBC7C00EA3966 /* ViewControllers */,
 				194B8FEF18FE948C00EA3966 /* Supporting Files */,
-				19E9DF87190F94F1008075F6 /* RESTClient.h */,
-				19E9DF88190F94F1008075F6 /* RESTClient.m */,
+				19EE1352191101A300C1EEE7 /* Services */,
 			);
 			path = Glassy;
 			sourceTree = "<group>";
@@ -241,6 +240,15 @@
 				19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		19EE1352191101A300C1EEE7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				19E9DF87190F94F1008075F6 /* RESTClient.h */,
+				19E9DF88190F94F1008075F6 /* RESTClient.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		22026A7A1907CD2100EFF574 /* ios-media */ = {

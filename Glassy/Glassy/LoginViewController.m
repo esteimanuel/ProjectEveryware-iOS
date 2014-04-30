@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "MainViewController.h"
 #import "RESTClient.h"
 
 @interface LoginViewController ()
@@ -50,6 +51,17 @@
     self.restClient = [[RESTClient alloc] init];
     self.restClient.delegate = self;
     [self.restClient GET:@"http://glassy-api.avans-project.nl/api/account/login?" withParameters:params];
+}
+
+- (void)logout
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"token"];
+    [defaults synchronize];
+    
+    if ([defaults objectForKey:@"token"] == nil) {
+        NSLog(@"User logged out");
+    }
 }
 
 - (NSMutableDictionary *)createDictionaryWithParameters
@@ -129,6 +141,14 @@
     [self.view addSubview:registerView];
 }
 
+- (void)dispose
+{
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent removeLoginView];
+    }
+}
+
 #pragma mark - UITextField delegate methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -150,6 +170,8 @@
     }
     
     NSLog(@"User logged in with token: %@", [defaults objectForKey:@"token"]);
+    
+    [self dispose];
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage

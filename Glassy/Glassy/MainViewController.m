@@ -47,7 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma Initialization view controllers
+#pragma mark - Initialization view controllers
 
 - (void)createSearchViewController
 {
@@ -69,20 +69,33 @@
     [self.view addSubview:self.navigationBarViewController.view];
 }
 
-#pragma Child view controller button handlers
+#pragma mark - Child view controller button handlers
 
-- (void)createRegisterViewController
+- (void)createRegisterView
 {
-    self.registerViewController = [[RegisterViewController alloc] init];
+    if (self.registerViewController == nil) {
+        self.registerViewController = [[RegisterViewController alloc] init];
+    }
     [self addChildViewController:self.registerViewController];
     [self.view addSubview:self.registerViewController.view];
 }
 
-- (void)createLoginViewController
+- (void)createLoginView
 {
-    self.loginViewController = [[LoginViewController alloc] init];
+    if (self.loginViewController == nil) {
+        self.loginViewController = [[LoginViewController alloc] init];
+    }
     [self addChildViewController:self.loginViewController];
     [self.view addSubview:self.loginViewController.view];
+}
+
+- (void)removeLoginView
+{
+    [self.loginViewController.view removeFromSuperview];
+    [self.loginViewController removeFromParentViewController];
+    // Reset menu options after login
+    [self removeDropDownMenuView];
+    [self.dropDownMenuViewController setMenuOptionsArray];
 }
 
 - (void)createDropDownMenuView
@@ -95,6 +108,11 @@
     }
 }
 
+- (void)removeDropDownMenuView
+{
+    [self.dropDownMenuViewController.view removeFromSuperview];
+}
+
 - (void)createSearchView
 {
     if ([self.searchViewController.view isDescendantOfView:self.view]) {
@@ -104,6 +122,19 @@
         [self.view addSubview:self.searchViewController.view];
     }
 }
+
+- (void)logout
+{
+    if (self.loginViewController == nil) {
+        self.loginViewController = [[LoginViewController alloc] init];
+    }
+    [self.loginViewController logout];
+    // Reset menu options after logout
+    [self removeDropDownMenuView];
+    [self.dropDownMenuViewController setMenuOptionsArray];
+}
+
+#pragma mark - General view
 
 - (void)createScrollViewWithViewControllers
 {

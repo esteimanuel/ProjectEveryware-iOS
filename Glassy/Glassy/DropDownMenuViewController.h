@@ -10,6 +10,8 @@
 
 @interface DropDownMenuViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *menuOptionsArray;
+@property (nonatomic, strong) NSMutableArray *menuOptionsArray;
+
+- (void)setMenuOptionsArray;
 
 @end

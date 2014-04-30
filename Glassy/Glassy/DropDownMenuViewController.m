@@ -11,6 +11,9 @@
 
 @interface DropDownMenuViewController ()
 
+@property (nonatomic, strong) NSArray *loggedInMenuOptions;
+@property (nonatomic, strong) NSArray *loggedOutMenuOptions;
+
 @end
 
 @implementation DropDownMenuViewController
@@ -30,29 +33,34 @@
     [super viewDidLoad];
     // Disable scrolling
     self.tableView.scrollEnabled = NO;
-    
     // Initialize menu options array
-    // TODO: check for user token
-    NSString *token = nil;
-    if (token != nil) {
-        self.menuOptionsArray = [[NSArray alloc] initWithObjects:@"Mijn wijk", @"Profiel", @"Instellingen", @"Buddysysteem", nil];
-    } else {
-        self.menuOptionsArray = [[NSArray alloc] initWithObjects:@"Aanmelden", @"Registreren", nil];
-    }
-    // Set frame sizes
-    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [self.menuOptionsArray count] * 50);
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.loggedInMenuOptions = [[NSArray alloc] initWithObjects:@"Mijn wijk", @"Profiel", @"Instellingen", @"Buddysysteem", @"Uitloggen", nil];
+    self.loggedOutMenuOptions = [[NSArray alloc] initWithObjects:@"Aanmelden", @"Registreren", nil];
+    self.menuOptionsArray = [[NSMutableArray alloc] init];
+    [self setMenuOptionsArray];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setMenuOptionsArray
+{
+    if ([self.menuOptionsArray count] > 0) {
+        [self.menuOptionsArray removeAllObjects];
+    }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"token"];
+    if (token != nil) {
+        [self.menuOptionsArray addObjectsFromArray:self.loggedInMenuOptions];
+    } else {
+        [self.menuOptionsArray addObjectsFromArray:self.loggedOutMenuOptions];
+    }
+    [self.tableView reloadData];
+    // Set frame sizes
+    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [self.menuOptionsArray count] * 50);
 }
 
 #pragma mark - Table view data source
@@ -97,9 +105,14 @@
         MainViewController* parent = (MainViewController*)self.parentViewController;
         NSString *selected = [self.menuOptionsArray objectAtIndex:indexPath.row];
         if ([selected  isEqual: @"Aanmelden"]) {
-            [parent createLoginViewController];
+            [parent createLoginView];
         } else if ([selected  isEqual: @"Registreren"]) {
-            [parent createRegisterViewController];
+            [parent createRegisterView];
+        }
+        
+        // Logout
+        else if ([selected  isEqual: @"Uitloggen"]) {
+            [parent logout];
         }
     }
 }

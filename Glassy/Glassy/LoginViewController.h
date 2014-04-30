@@ -14,4 +14,6 @@
 @property (nonatomic, strong) UITextField *emailTextField;
 @property (nonatomic, strong) UITextField *passwordTextField;
 
+- (void)logout;
+
 @end
