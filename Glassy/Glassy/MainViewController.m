@@ -17,6 +17,9 @@
 #import "LoginViewController.h"
 
 #import "Action.h"
+=======
+#import "GPUImage.h"
+
 
 @interface MainViewController ()
 
@@ -24,7 +27,10 @@
 
 @end
 
-@implementation MainViewController
+@implementation MainViewController {
+    GPUImageView *_blurView;
+    GPUImageiOSBlurFilter *blurFilter;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,6 +55,16 @@
 
     [self getAllActions];
     
+    // Set backgroundcolor
+    self.view.backgroundColor = [UIColor blackColor];
+    
+	// Init custom navigation bar view
+    //NavigationBarViewController *navigationBarViewController = [[NavigationBarViewController alloc] init];
+    //[self.view addSubview:navigationBarViewController.view];
+    //[self createCustomNavigationBar];
+    [self createScrollViewBackground];
+    [self createScrollViewWithViewControllers];
+
     [self createDropDownMenuViewController];
     [self createSearchViewController];
     [self createNavigationBarViewController];
@@ -137,6 +153,24 @@
     }
 }
 
+- (void)createScrollViewBackground
+{
+    // Create background image
+    //NSString *imageUrl = @"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg";
+    NSString *imageUrl = @"http://www.wallpaperspictures.net/image/bruce-lee-iconic-figure-wallpaper-for-2560x1920-886-26.jpg";
+    UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [background drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    GPUImageFilter *filter = [[GPUImageGaussianBlurFilter alloc]init];
+    UIImage *blurredImage = [filter imageByFilteringImage: image];
+    
+    UIGraphicsEndImageContext();
+    self.view.contentMode = UIViewContentModeScaleAspectFill;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
+}
+
 - (void)logout
 {
     if (self.loginViewController == nil) {
@@ -165,6 +199,9 @@
     [self.viewControllersDictionary setObject:neighborhoodViewController forKey:@"neighborhoodViewController"];
     // TODO: add viewcontrollers
     
+    
+    // Set background to clear
+    self.scrollView.backgroundColor = [UIColor clearColor];
     
     NSInteger currentHeight = 0;
     // Add ViewControllers to scrollView

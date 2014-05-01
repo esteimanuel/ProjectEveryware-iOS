@@ -46,6 +46,7 @@
 		22026A9A1907CD2100EFF574 /* ios-nav-dropdown-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */; };
 		22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A841907CD2100EFF574 /* ios-nav-search-button.png */; };
 		22026A9F1907CD2100EFF574 /* ios-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A881907CD2100EFF574 /* ios-search.png */; };
+		70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A56BED1911ED0B001CF588 /* libGPUImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 194B8FE418FE948C00EA3966;
 			remoteInfo = Glassy;
+		};
+		70A56BEC1911ED0B001CF588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		70A56BEE1911ED0B001CF588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A34414DDB1EC00852800;
+			remoteInfo = GPUImageTests;
+		};
+		70A56BF01911EDBB001CF588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
+			remoteInfo = GPUImage;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -117,6 +139,7 @@
 		22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-nav-dropdown-button.png"; path = "../ios-nav-dropdown-button.png"; sourceTree = "<group>"; };
 		22026A841907CD2100EFF574 /* ios-nav-search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-nav-search-button.png"; path = "../ios-nav-search-button.png"; sourceTree = "<group>"; };
 		22026A881907CD2100EFF574 /* ios-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-search.png"; path = "../ios-search.png"; sourceTree = "<group>"; };
+		70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */,
 				194B8FEB18FE948C00EA3966 /* CoreGraphics.framework in Frameworks */,
 				194B8FED18FE948C00EA3966 /* UIKit.framework in Frameworks */,
 				194B8FE918FE948C00EA3966 /* Foundation.framework in Frameworks */,
@@ -146,6 +170,7 @@
 		194B8FDC18FE948C00EA3966 = {
 			isa = PBXGroup;
 			children = (
+				70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */,
 				194B8FEE18FE948C00EA3966 /* Glassy */,
 				194B900D18FE948C00EA3966 /* GlassyTests */,
 				194B8FE718FE948C00EA3966 /* Frameworks */,
@@ -279,6 +304,15 @@
 			path = "ios-media";
 			sourceTree = "<group>";
 		};
+		70A56BE71911ED0A001CF588 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70A56BED1911ED0B001CF588 /* libGPUImage.a */,
+				70A56BEF1911ED0B001CF588 /* GPUImageTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +327,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				70A56BF11911EDBB001CF588 /* PBXTargetDependency */,
 			);
 			name = Glassy;
 			productName = Glassy;
@@ -342,6 +377,12 @@
 			mainGroup = 194B8FDC18FE948C00EA3966;
 			productRefGroup = 194B8FE618FE948C00EA3966 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 70A56BE71911ED0A001CF588 /* Products */;
+					ProjectRef = 70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				194B8FE418FE948C00EA3966 /* Glassy */,
@@ -349,6 +390,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		70A56BED1911ED0B001CF588 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 70A56BEC1911ED0B001CF588 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70A56BEF1911ED0B001CF588 /* GPUImageTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests.octest;
+			remoteRef = 70A56BEE1911ED0B001CF588 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		194B8FE318FE948C00EA3966 /* Resources */ = {
@@ -422,6 +480,11 @@
 			isa = PBXTargetDependency;
 			target = 194B8FE418FE948C00EA3966 /* Glassy */;
 			targetProxy = 194B900B18FE948C00EA3966 /* PBXContainerItemProxy */;
+		};
+		70A56BF11911EDBB001CF588 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = 70A56BF01911EDBB001CF588 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -530,6 +593,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Glassy/Glassy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"Submodules/GPUImage/framework/**",
+					"Vendor/UIImageEffects/**",
+				);
 				INFOPLIST_FILE = "Glassy/Glassy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -543,6 +612,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Glassy/Glassy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"Submodules/GPUImage/framework/**",
+					"Vendor/UIImageEffects/**",
+				);
 				INFOPLIST_FILE = "Glassy/Glassy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
