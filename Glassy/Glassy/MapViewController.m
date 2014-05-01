@@ -62,7 +62,7 @@
     
     [mapview addSubview:webview];
     
-    currentHeight += mapview.frame.size.height + margin;
+    currentHeight += mapview.frame.size.height + margin * 4;
     
     // Create frame
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, currentHeight);

@@ -68,7 +68,7 @@
     [mediaview addSubview:placeholder];
     // Placeholder - End
     
-    currentHeight += mediaview.frame.size.height + margin;
+    currentHeight += mediaview.frame.size.height + margin * 4;
     
     // Create frame
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, currentHeight);

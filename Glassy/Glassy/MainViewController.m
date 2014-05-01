@@ -14,9 +14,7 @@
 #import "ProgressViewController.h"
 #import "ParticipantsViewController.h"
 #import "NavigationBarViewController.h"
-
-/* Test */
-#import "AuthenticationViewController.h"
+#import "LoginViewController.h"
 
 #import "GPUImage.h"
 
@@ -47,16 +45,13 @@
 	// Init custom navigation bar view
     //NavigationBarViewController *navigationBarViewController = [[NavigationBarViewController alloc] init];
     //[self.view addSubview:navigationBarViewController.view];
-    [self createCustomNavigationBar];
+    //[self createCustomNavigationBar];
     [self createScrollViewBackground];
     [self createScrollViewWithViewControllers];
     [self createDropDownMenuViewController];
     [self createSearchViewController];
-    
-    
-    /* Test */
-    //AuthenticationViewController *auth = [[AuthenticationViewController alloc] init];
-    //[self.view addSubview:auth.view];
+    [self createNavigationBarViewController];
+    [self createScrollViewWithViewControllers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,50 +60,58 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Initialization view controllers
+
 - (void)createSearchViewController
 {
     self.searchViewController = [[SearchViewController alloc] init];
+    [self addChildViewController:self.searchViewController];
 }
 
 - (void)createDropDownMenuViewController
 {
-    // Create custom dropdown menu view
     self.dropDownMenuViewController = [[DropDownMenuViewController alloc] init];
+    [self addChildViewController:self.dropDownMenuViewController];
 }
 
-- (void)createCustomNavigationBar
+- (void)createNavigationBarViewController
 {
-    // Create navigation bar view
-    self.navigationBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 85)];
-    self.navigationBarView.backgroundColor = [UIColor whiteColor];
-    
-    // Create image profile view
-    UIImageView *profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 30, 33, 33)];
-    profileImageView.image = [UIImage imageNamed:@"ios-nav-default-profile-image.png"];
-    profileImageView.layer.cornerRadius = 5.0;
-    // Create name profile label
-    UILabel *profileNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 130, 35)];
-    profileNameLabel.text = @"Anonieme gebruiker";
-    profileNameLabel.textColor = [UIColor darkGrayColor];
-    profileNameLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    profileNameLabel.font = [UIFont boldSystemFontOfSize:13];
-    // Create dropdown button
-    UIButton *navigationDropDownButton = [[UIButton alloc] initWithFrame:CGRectMake(205, 30, 25, 35)];
-    [navigationDropDownButton setImage:[UIImage imageNamed:@"ios-nav-dropdown-button"] forState:UIControlStateNormal];
-    [navigationDropDownButton addTarget:self action:@selector(dropDownButtonClicked:) forControlEvents:UIControlEventTouchDown];
-    // Create search button
-    UIButton *navigationSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 15, 70, 70)];
-    [navigationSearchButton setImage:[UIImage imageNamed:@"ios-nav-search-button"] forState:UIControlStateNormal];
-    [navigationSearchButton addTarget:self action:@selector(searchButtonClicked:) forControlEvents:UIControlEventTouchDown];
-    
-    [self.navigationBarView addSubview:profileImageView];
-    [self.navigationBarView addSubview:profileNameLabel];
-    [self.navigationBarView addSubview:navigationDropDownButton];
-    [self.navigationBarView addSubview:navigationSearchButton];
-    [self.view addSubview:self.navigationBarView];
+    self.navigationBarViewController = [[NavigationBarViewController alloc] init];
+    [self addChildViewController:self.navigationBarViewController];
+    // Add navigation bar view to subview
+    [self.view addSubview:self.navigationBarViewController.view];
 }
 
-- (void)dropDownButtonClicked:(UIButton *)button
+#pragma mark - Child view controller button handlers
+
+- (void)createRegisterView
+{
+    if (self.registerViewController == nil) {
+        self.registerViewController = [[RegisterViewController alloc] init];
+    }
+    [self addChildViewController:self.registerViewController];
+    [self.view addSubview:self.registerViewController.view];
+}
+
+- (void)createLoginView
+{
+    if (self.loginViewController == nil) {
+        self.loginViewController = [[LoginViewController alloc] init];
+    }
+    [self addChildViewController:self.loginViewController];
+    [self.view addSubview:self.loginViewController.view];
+}
+
+- (void)removeLoginView
+{
+    [self.loginViewController.view removeFromSuperview];
+    [self.loginViewController removeFromParentViewController];
+    // Reset menu options after login
+    [self removeDropDownMenuView];
+    [self.dropDownMenuViewController setMenuOptionsArray];
+}
+
+- (void)createDropDownMenuView
 {
     if ([self.dropDownMenuViewController.view isDescendantOfView:self.view]) {
         [self.dropDownMenuViewController.view removeFromSuperview];
@@ -118,7 +121,12 @@
     }
 }
 
-- (void)searchButtonClicked:(UIButton *)button
+- (void)removeDropDownMenuView
+{
+    [self.dropDownMenuViewController.view removeFromSuperview];
+}
+
+- (void)createSearchView
 {
     if ([self.searchViewController.view isDescendantOfView:self.view]) {
         [self.searchViewController.view removeFromSuperview];
@@ -145,6 +153,19 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
 }
+
+- (void)logout
+{
+    if (self.loginViewController == nil) {
+        self.loginViewController = [[LoginViewController alloc] init];
+    }
+    [self.loginViewController logout];
+    // Reset menu options after logout
+    [self removeDropDownMenuView];
+    [self.dropDownMenuViewController setMenuOptionsArray];
+}
+
+#pragma mark - General view
 
 - (void)createScrollViewWithViewControllers
 {

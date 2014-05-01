@@ -7,6 +7,7 @@
 //
 
 #import "NavigationBarViewController.h"
+#import "MainViewController.h"
 
 @interface NavigationBarViewController ()
 
@@ -27,6 +28,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 85);
+    
     [self createCustomNavigationBar];
 }
 
@@ -59,6 +62,7 @@
     // Create search button
     UIButton *navigationSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 15, 70, 70)];
     [navigationSearchButton setImage:[UIImage imageNamed:@"ios-nav-search-button"] forState:UIControlStateNormal];
+    [navigationSearchButton addTarget:self action:@selector(searchButtonClicked:) forControlEvents:UIControlEventTouchDown];
     
     [self.navigationBarView addSubview:profileImageView];
     [self.navigationBarView addSubview:profileNameLabel];
@@ -69,11 +73,18 @@
 
 - (void)dropDownButtonClicked:(UIButton *)button
 {
-    // Create custom dropdown menu view
-    UIView *dropDownMenuView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.frame.size.height, self.view.frame.size.width, 400)];
-    dropDownMenuView.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:dropDownMenuView];
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent createDropDownMenuView];
+    }
+}
+
+- (void)searchButtonClicked:(UIButton *)button
+{
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent createSearchView];
+    }
 }
 
 @end
