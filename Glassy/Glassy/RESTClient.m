@@ -36,6 +36,7 @@
 
 - (void)GET:(NSString *)url withParameters:(NSMutableDictionary *)params
 {
+    NSLog(@"GET");
     NSMutableString *fullUrl = [[NSMutableString alloc] initWithString:url];
     // Concatenate the given URL
     if (params != nil) {

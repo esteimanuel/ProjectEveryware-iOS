@@ -16,7 +16,11 @@
 #import "NavigationBarViewController.h"
 #import "LoginViewController.h"
 
+#import "Action.h"
+
 @interface MainViewController ()
+
+@property (nonatomic, strong) RESTClient *restClient;
 
 @end
 
@@ -26,15 +30,25 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
+}
+
+- (void)getAllActions
+{
+    // Create REST client and send get request
+    self.restClient = [[RESTClient alloc] init];
+    self.restClient.delegate = self;
+    [self.restClient GET:@"http://glassy-api.avans-project.nl/api/actie" withParameters:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    [self getAllActions];
+    
     [self createDropDownMenuViewController];
     [self createSearchViewController];
     [self createNavigationBarViewController];
@@ -138,6 +152,8 @@
 
 - (void)createScrollViewWithViewControllers
 {
+    // Initiablize ViewControllers dictionary
+    self.viewControllersDictionary = [[NSMutableDictionary alloc] init];
     // Initialize ViewControllers
     NeighborhoodViewController *neighborhoodViewController = [[NeighborhoodViewController alloc] init];
     MediaViewController *mediaViewController = [[MediaViewController alloc] init];
@@ -145,6 +161,10 @@
     CharityViewController *charityViewController = [[CharityViewController alloc] init];
     ProgressViewController *progressViewController = [[ProgressViewController alloc] init];
     ParticipantsViewController *participantsViewController = [[ParticipantsViewController alloc] init];
+    // Add ViewControllers to dictionary
+    [self.viewControllersDictionary setObject:neighborhoodViewController forKey:@"neighborhoodViewController"];
+    // TODO: add viewcontrollers
+    
     
     NSInteger currentHeight = 0;
     // Add ViewControllers to scrollView
@@ -176,6 +196,36 @@
     // Calculate scrollView size
     NSInteger size = currentHeight + participantsViewController.view.frame.size.height;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, size);
+}
+
+#pragma mark - REST client delegate methods
+
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
+{
+    self.actionsArray = [[NSMutableArray alloc] init];
+    
+    for (id key in responseDictionary) {
+        NSDictionary *actionDictionary = (NSDictionary *)key;
+        
+        Action *action = [[Action alloc] init];
+        action.name = [actionDictionary objectForKey:@"naam"];
+        action.instigatorId = [actionDictionary objectForKey:@"initiatiefnemer_id"];
+        action.neighborhoodId = [actionDictionary objectForKey:@"wijk_id"];
+        action.date_end = [actionDictionary objectForKey:@"eind_datum"];
+        action.date_start = [actionDictionary objectForKey:@"start_datum"];
+        action.deposit = [actionDictionary objectForKey:@"borg"];
+        action.id = [actionDictionary objectForKey:@"actie_id"];
+        action.statusId = [actionDictionary objectForKey:@"status_id"];
+        [self.actionsArray addObject:action];
+    }
+    
+    NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
+    [neighborhoodViewController setNeighborhoodFields:[self.actionsArray objectAtIndex:0]];
+}
+
+- (void)restRequestFailed:(NSString *)failedMessage
+{
+
 }
 
 @end

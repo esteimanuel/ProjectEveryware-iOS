@@ -25,6 +25,8 @@
 		1992D3F2190127D600733C9F /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3F1190127D600733C9F /* MediaViewController.m */; };
 		1992D4031901354600733C9F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D4021901354600733C9F /* MapViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+		19DB4F76191247B9002184D3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB4F75191247B9002184D3 /* Account.m */; };
+		19DB4F7C19124B3D002184D3 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB4F7B19124B3D002184D3 /* Action.m */; };
 		19E127B21907A8A500471CB9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AB1907A8A500471CB9 /* LoginViewController.m */; };
 		19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AD1907A8A500471CB9 /* DropDownMenuViewController.m */; };
 		19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */; };
@@ -88,6 +90,10 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+		19DB4F74191247B9002184D3 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		19DB4F75191247B9002184D3 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		19DB4F7A19124B3D002184D3 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		19DB4F7B19124B3D002184D3 /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		19E127AA1907A8A500471CB9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		19E127AB1907A8A500471CB9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		19E127AC1907A8A500471CB9 /* DropDownMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuViewController.h; sourceTree = "<group>"; };
@@ -174,6 +180,10 @@
 				194B902018FEBC7C00EA3966 /* ViewControllers */,
 				194B8FEF18FE948C00EA3966 /* Supporting Files */,
 				19EE1352191101A300C1EEE7 /* Services */,
+				19DB4F74191247B9002184D3 /* Account.h */,
+				19DB4F75191247B9002184D3 /* Account.m */,
+				19DB4F7A19124B3D002184D3 /* Action.h */,
+				19DB4F7B19124B3D002184D3 /* Action.m */,
 			);
 			path = Glassy;
 			sourceTree = "<group>";
@@ -378,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19E9DF86190F9402008075F6 /* CharityViewController.m in Sources */,
+				19DB4F76191247B9002184D3 /* Account.m in Sources */,
 				19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */,
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
@@ -389,6 +400,7 @@
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
 				19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */,
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
+				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
 				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,

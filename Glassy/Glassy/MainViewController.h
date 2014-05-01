@@ -12,8 +12,12 @@
 #import "SearchViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "RESTClient.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <RestClientDelegate>
+
+@property (nonatomic, strong) NSMutableArray *actionsArray;
+@property (nonatomic, strong) NSMutableDictionary *viewControllersDictionary;
 
 @property (nonatomic, strong) DropDownMenuViewController *dropDownMenuViewController;
 @property (nonatomic, strong) SearchViewController *searchViewController;

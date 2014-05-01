@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Action.h"
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IPHONE_5 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0f)
@@ -15,6 +16,13 @@
 #define IS_LANDSCAPE ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)
 #define IS_RETINA ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0))
 
-@interface NeighborhoodViewController : UIViewController 
+@interface NeighborhoodViewController : UIViewController
+
+- (void)setNeighborhoodFields:(Action *)action;
+
+@property (nonatomic, strong) UILabel *neighborhoodTitleLabel;
+@property (nonatomic, strong) UILabel *participantsNumberLabel;
+@property (nonatomic, strong) UILabel *participantsLabel;
+@property (nonatomic, strong) UILabel *percentageLabel;
 
 @end

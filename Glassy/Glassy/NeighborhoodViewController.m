@@ -31,6 +31,11 @@
     
 }
 
+- (void)setNeighborhoodFields:(Action *)action
+{
+    self.neighborhoodTitleLabel.text = action.name;
+}
+
 - (void) createGUI
 {
     // Create frame
@@ -50,36 +55,36 @@
     [self.view addSubview:imageView];
     
     // Create neighborhood title
-    UILabel *NeighborhoodTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, (self.view.frame.size.height - 210.0) - 10.0, self.view.frame.size.width -10.0, 28.0f)];
-    [NeighborhoodTitleLabel setText:@"Martijn's glasvezel buurt"];
-    [NeighborhoodTitleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
-    [NeighborhoodTitleLabel setTextColor:[UIColor whiteColor]];
+    self.neighborhoodTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, (self.view.frame.size.height - 210.0) - 10.0, self.view.frame.size.width -10.0, 28.0f)];
+    [self.neighborhoodTitleLabel setText:@"Martijn's glasvezel buurt"];
+    [self.neighborhoodTitleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
+    [self.neighborhoodTitleLabel setTextColor:[UIColor whiteColor]];
     
-    [self.view addSubview:NeighborhoodTitleLabel];
+    [self.view addSubview:self.neighborhoodTitleLabel];
     
     // Create participants number
-    UILabel *participantsNumberLabel = [[UILabel alloc]initWithFrame:CGRectMake(5.0, (self.view.frame.size.height - 180.0) - 10.0, self.view.frame.size.width -10.0, 50.0f)];
-    [participantsNumberLabel setText:@"106"];
-    [participantsNumberLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:50.0f]];
-    [participantsNumberLabel setTextColor:[UIColor whiteColor]];
+    self.participantsNumberLabel = [[UILabel alloc]initWithFrame:CGRectMake(5.0, (self.view.frame.size.height - 180.0) - 10.0, self.view.frame.size.width -10.0, 50.0f)];
+    [self.participantsNumberLabel setText:@"106"];
+    [self.participantsNumberLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:50.0f]];
+    [self.participantsNumberLabel setTextColor:[UIColor whiteColor]];
     
-    [self.view addSubview:participantsNumberLabel];
+    [self.view addSubview:self.participantsNumberLabel];
     
     // Create participants label
-    UILabel *participantsLabel = [[UILabel alloc]initWithFrame:CGRectMake(100.0, (self.view.frame.size.height - 160.0) - 10.0, self.view.frame.size.width -10.0, 25.0f)];
-    [participantsLabel setText:@"deelnemers"];
-    [participantsLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
-    [participantsLabel setTextColor:[UIColor whiteColor]];
+    self.participantsLabel = [[UILabel alloc]initWithFrame:CGRectMake(100.0, (self.view.frame.size.height - 160.0) - 10.0, self.view.frame.size.width -10.0, 25.0f)];
+    [self.participantsLabel setText:@"deelnemers"];
+    [self.participantsLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
+    [self.participantsLabel setTextColor:[UIColor whiteColor]];
     
-    [self.view addSubview:participantsLabel];
+    [self.view addSubview:self.participantsLabel];
     
     // Create percentage
-    UILabel *percentageLabel = [[UILabel alloc]initWithFrame:CGRectMake(5.0, (self.view.frame.size.height - 140.0) - 10.0, self.view.frame.size.width -10.0, 100.0f)];
-    [percentageLabel setText:@"22%"];
-    [percentageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:100.0f]];
-    [percentageLabel setTextColor:[UIColor whiteColor]];
+    self.percentageLabel = [[UILabel alloc]initWithFrame:CGRectMake(5.0, (self.view.frame.size.height - 140.0) - 10.0, self.view.frame.size.width -10.0, 100.0f)];
+    [self.percentageLabel setText:@"22%"];
+    [self.percentageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:100.0f]];
+    [self.percentageLabel setTextColor:[UIColor whiteColor]];
     
-    [self.view addSubview:percentageLabel];
+    [self.view addSubview:self.percentageLabel];
     
     // Create facebook share button
     
