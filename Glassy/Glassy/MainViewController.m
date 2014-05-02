@@ -26,10 +26,7 @@
 
 @end
 
-@implementation MainViewController {
-    GPUImageView *_blurView;
-    GPUImageiOSBlurFilter *blurFilter;
-}
+@implementation MainViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -44,7 +44,7 @@
     
     // Create neighborhood title
     self.neighborhoodTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, (self.view.frame.size.height - 210.0) - 10.0, self.view.frame.size.width -10.0, 28.0f)];
-    [self.neighborhoodTitleLabel setText:@"Martijn's glasvezel buurt"];
+    //	[self.neighborhoodTitleLabel setText:@"Martijn's glasvezel buurt"];
     [self.neighborhoodTitleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
     [self.neighborhoodTitleLabel setTextColor:[UIColor whiteColor]];
     

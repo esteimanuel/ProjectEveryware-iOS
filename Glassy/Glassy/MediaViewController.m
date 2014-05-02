@@ -58,14 +58,21 @@
     [self.view addSubview:mediaview];
     
     // Add web view
+    // <iframe width="560" height="315" src="//www.youtube.com/embed/vIu85WQTPRc" frameborder="0" allowfullscreen></iframe>
     // TODO
+    UIWebView* webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frameWidth - 2 * margin, mediaview.frame.size.height)];
+    webview.scalesPageToFit = YES;
+    
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.youtube.com/embed/vIu85WQTPRc"]]];
+    
+    [mediaview addSubview:webview];
     
     // Placeholder - Start
-    UIImage *background = [UIImage imageNamed:@"ios-media.png"];
-    UIImageView *placeholder = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frameWidth - margin * 2, frameWidth * 0.6)];
-    placeholder.contentMode = UIViewContentModeScaleAspectFit;
-    placeholder.image = background;
-    [mediaview addSubview:placeholder];
+//    UIImage *background = [UIImage imageNamed:@"ios-media.png"];
+//    UIImageView *placeholder = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frameWidth - margin * 2, frameWidth * 0.6)];
+//    placeholder.contentMode = UIViewContentModeScaleAspectFit;
+//    placeholder.image = background;
+//    [mediaview addSubview:placeholder];
     // Placeholder - End
     
     currentHeight += mediaview.frame.size.height + margin * 4;

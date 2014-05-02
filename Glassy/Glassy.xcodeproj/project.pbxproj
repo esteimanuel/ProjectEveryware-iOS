@@ -47,6 +47,7 @@
 		22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A841907CD2100EFF574 /* ios-nav-search-button.png */; };
 		22026A9F1907CD2100EFF574 /* ios-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A881907CD2100EFF574 /* ios-search.png */; };
 		70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A56BED1911ED0B001CF588 /* libGPUImage.a */; };
+		70A56BFA19129808001CF588 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A56BF919129808001CF588 /* ScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,8 @@
 		22026A841907CD2100EFF574 /* ios-nav-search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-nav-search-button.png"; path = "../ios-nav-search-button.png"; sourceTree = "<group>"; };
 		22026A881907CD2100EFF574 /* ios-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-search.png"; path = "../ios-search.png"; sourceTree = "<group>"; };
 		70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		70A56BF819129808001CF588 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
+		70A56BF919129808001CF588 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,8 @@
 				19DB4F75191247B9002184D3 /* Account.m */,
 				19DB4F7A19124B3D002184D3 /* Action.h */,
 				19DB4F7B19124B3D002184D3 /* Action.m */,
+				70A56BF819129808001CF588 /* ScrollView.h */,
+				70A56BF919129808001CF588 /* ScrollView.m */,
 			);
 			path = Glassy;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				19E127B21907A8A500471CB9 /* LoginViewController.m in Sources */,
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
+				70A56BFA19129808001CF588 /* ScrollView.m in Sources */,
 				19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */,
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
 				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
@@ -591,6 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = Submodules/GPUImage/framework;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Glassy/Glassy-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -610,6 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = Submodules/GPUImage/framework;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Glassy/Glassy-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

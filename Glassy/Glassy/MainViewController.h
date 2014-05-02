@@ -13,6 +13,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "RESTClient.h"
+#import "ScrollView.h"
 
 @interface MainViewController : UIViewController <RestClientDelegate>
 
@@ -25,7 +26,7 @@
 @property (nonatomic, strong) LoginViewController *loginViewController;
 @property (nonatomic, strong) RegisterViewController *registerViewController;
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet ScrollView *scrollView;
 
 - (void)createLoginView;
 - (void)removeLoginView;
