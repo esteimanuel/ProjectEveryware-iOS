@@ -8,7 +8,6 @@
 
 #import "LoginViewController.h"
 #import "MainViewController.h"
-#import "RESTClient.h"
 
 @interface LoginViewController ()
 
@@ -35,6 +34,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self createLoginView];
+    [self createGesture];
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,6 +111,7 @@
     self.passwordTextField.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.passwordTextField.placeholder = @"Wachtwoord";
     self.passwordTextField.delegate = self;
+    self.passwordTextField.secureTextEntry = YES;
     
     UIView *registerView = [[UIView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 140), self.view.frame.size.width, 140)];
     registerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
@@ -139,6 +140,18 @@
     [self.view addSubview:self.emailTextField];
     [self.view addSubview:self.passwordTextField];
     [self.view addSubview:registerView];
+}
+
+- (void)createGesture
+{
+    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
+{
+    [self dispose];
 }
 
 - (void)dispose

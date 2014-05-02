@@ -20,6 +20,7 @@
 #import "GPUImage.h"
 
 
+
 @interface MainViewController ()
 
 @property (nonatomic, strong) RESTClient *restClient;
@@ -54,10 +55,6 @@
     // Set backgroundcolor
     self.view.backgroundColor = [UIColor blackColor];
     
-	// Init custom navigation bar view
-    //NavigationBarViewController *navigationBarViewController = [[NavigationBarViewController alloc] init];
-    //[self.view addSubview:navigationBarViewController.view];
-    //[self createCustomNavigationBar];
     [self createScrollViewBackground];
     [self createScrollViewWithViewControllers];
 
@@ -106,6 +103,16 @@
     [self.view addSubview:self.registerViewController.view];
 }
 
+- (void)removeRegisterView
+{
+    [self.registerViewController.view removeFromSuperview];
+    [self.registerViewController removeFromParentViewController];
+    // Reset menu options after login
+    [self removeDropDownMenuView];
+    [self.dropDownMenuViewController setMenuOptionsArray];
+    // Set navigation bar view
+}
+
 - (void)createLoginView
 {
     if (self.loginViewController == nil) {
@@ -122,6 +129,8 @@
     // Reset menu options after login
     [self removeDropDownMenuView];
     [self.dropDownMenuViewController setMenuOptionsArray];
+    // Set navigation bar view
+    
 }
 
 - (void)createDropDownMenuView
@@ -194,6 +203,9 @@
     // Add ViewControllers to dictionary
     [self.viewControllersDictionary setObject:neighborhoodViewController forKey:@"neighborhoodViewController"];
     // TODO: add viewcontrollers
+    
+    // Add ViewControllers to parent viewcontroller
+    [self addChildViewController:neighborhoodViewController];
     
     
     // Set background to clear
