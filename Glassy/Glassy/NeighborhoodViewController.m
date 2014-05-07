@@ -7,6 +7,7 @@
 //
 
 #import "NeighborhoodViewController.h"
+#import "MainViewController.h"
 
 @interface NeighborhoodViewController ()
 
@@ -77,17 +78,26 @@
     // Create facebook share button
     
     // Create action button
-    UIButton *actionButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    self.actionButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     //[actionButton addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside];
-    [actionButton setTitle:@"Ik doe ook mee!" forState:UIControlStateNormal];
-    [actionButton.titleLabel setFont: [UIFont fontWithName:@"HelveticaNeue-Light" size:24.0f]];
-    [actionButton setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
-    [actionButton.layer setBorderColor:[[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.5] CGColor]];
-    [actionButton.layer setBorderWidth:1.0f];
-    actionButton.frame = CGRectMake(5.0, (self.view.frame.size.height - 40.0) - 10.0, self.view.frame.size.width -10.0, 40.0);
+    [self.actionButton setTitle:@"Ik doe ook mee!" forState:UIControlStateNormal];
+    [self.actionButton.titleLabel setFont: [UIFont fontWithName:@"HelveticaNeue-Light" size:24.0f]];
+    [self.actionButton setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
+    [self.actionButton.layer setBorderColor:[[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.5] CGColor]];
+    [self.actionButton.layer setBorderWidth:1.0f];
+    [self.actionButton addTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchDown];
+    self.actionButton.frame = CGRectMake(5.0, (self.view.frame.size.height - 40.0) - 10.0, self.view.frame.size.width -10.0, 40.0);
     
-    [self.view addSubview:actionButton];
+    [self.view addSubview:self.actionButton];
     
+}
+
+- (void)actionButtonClicked:(UIButton *)button
+{
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent createLoginView];
+    }
 }
 
 - (void)didReceiveMemoryWarning
