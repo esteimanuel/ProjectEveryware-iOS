@@ -21,14 +21,41 @@
 
 - (void)drawView
 {
+    CGFloat currentHeight = 0;
+    CGFloat margin = 5;
+    CGFloat frameWidth = [[UIScreen mainScreen] bounds].size.width;
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    // Set title label
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
+    self.titleLabel.text = @"Stappen";
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    
+    self.titleLabel.textColor = [UIColor whiteColor];
+    [self addSubview:self.titleLabel];
+    
+    currentHeight += self.titleLabel.frame.size.height + margin;
+    
+    self.mediaview = [[UIView alloc]initWithFrame:CGRectMake(margin, currentHeight, frameWidth - margin * 2, 150 + margin * 4)];
+    self.mediaview.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+    self.mediaview.layer.borderColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.5].CGColor;
+    self.mediaview.layer.borderWidth = 1.0;
+    [self addSubview:self.mediaview];
+    
+    currentHeight += self.mediaview.frame.size.height + margin * 4;
+    
+    // Create frame
+    self.frame = CGRectMake(0, 0, self.frame.size.width, currentHeight);
+    
     
     /* --------------- TEMP */
-    UIImage *background = [UIImage imageNamed:@"ios-progress.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
+    //UIImage *background = [UIImage imageNamed:@"ios-progress.png"];
+    //UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
     
-    [self addSubview:imageView];
+    //[self addSubview:imageView];
     //[self createGui];
-    self.frame = CGRectMake(0, 0, self.frame.size.width, background.size.height);
+    //self.frame = CGRectMake(0, 0, self.frame.size.width, background.size.height);
    
     /*
     CGFloat margin = 5.0;

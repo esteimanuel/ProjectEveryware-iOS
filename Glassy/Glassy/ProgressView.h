@@ -10,4 +10,8 @@
 
 @interface ProgressView : UIView
 
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIView *mediaview;
+
+
 @end
