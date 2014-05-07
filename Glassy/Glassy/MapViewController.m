@@ -62,7 +62,8 @@
     UIWebView* webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frameWidth - 2 * margin, 250)];
     webview.scalesPageToFit = YES;
     
-    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://glassy-web.avans-project.nl"]]];
+    // TODO: make wijk_id dynamic
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://glassy-web.avans-project.nl/?wijk=2"]]];
     
     [mapview addSubview:webview];
     
