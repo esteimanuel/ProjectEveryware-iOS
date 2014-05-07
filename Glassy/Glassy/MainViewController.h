@@ -30,6 +30,7 @@
 - (void)createLoginView;
 - (void)removeLoginView;
 - (void)createRegisterView;
+- (void)removeRegisterView;
 - (void)createDropDownMenuView;
 - (void)removeDropDownMenuView;
 - (void)createSearchView;

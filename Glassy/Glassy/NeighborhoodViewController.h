@@ -25,4 +25,6 @@
 @property (nonatomic, strong) UILabel *participantsLabel;
 @property (nonatomic, strong) UILabel *percentageLabel;
 
+@property (nonatomic, strong) UIButton *actionButton;
+
 @end
