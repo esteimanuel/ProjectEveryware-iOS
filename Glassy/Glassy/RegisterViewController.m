@@ -58,7 +58,7 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 
     [params setObject:self.emailTextField.text forKey:@"email"];
-    [params setObject:self.passwordTextField.text forKey:@"password"];
+    [params setObject:self.passwordTextField.text forKey:@"wachtwoord"];
     
     return params;
 }

@@ -83,6 +83,7 @@
 {
     if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
         MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent removeDropDownMenuView];
         [parent createSearchView];
     }
 }
