@@ -1,19 +1,19 @@
 //
-//  CharityViewController.m
+//  CharityDetailViewController.m
 //  Glassy
 //
-//  Created by Niek Willems on 18/04/14.
+//  Created by Niek Willems on 08/05/14.
 //  Copyright (c) 2014 InnoYou. All rights reserved.
 //
 
-#import "CharityViewController.h"
+#import "CharityDetailViewController.h"
 #import "MainViewController.h"
 
-@interface CharityViewController ()
+@interface CharityDetailViewController ()
 
 @end
 
-@implementation CharityViewController
+@implementation CharityDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,10 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    //[self createPlaceholder];
+    
     [self createCharityGui];
     [self createGesture];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)createCharityGui
@@ -40,7 +45,8 @@
     CGFloat frameWidth = self.view.frame.size.width;
     
     // Set background to transparent
-    self.view.backgroundColor = [UIColor clearColor];
+    //self.view.b = [UICol];
+    [self.view setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
     // Set title label
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
@@ -70,38 +76,26 @@
     currentHeight += mediaview.frame.size.height + margin * 4;
     
     // Create frame
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, currentHeight);
-}
-
-- (void)createPlaceholder
-{
-    UIImage *background = [UIImage imageNamed:@"ios-charity.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
-    
-    [self.view addSubview:imageView];
-    
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, background.size.height);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
 }
 
 - (void)createGesture
 {
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
-    gestureRecognizer.numberOfTapsRequired = 1;
-    gestureRecognizer.numberOfTouchesRequired = 1;
+    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
     [self.view addGestureRecognizer:gestureRecognizer];
 }
 
-- (void)panHandler:(UITapGestureRecognizer *)recognizer
+- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
+{
+    [self dispose];
+}
+
+- (void)dispose
 {
     if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
         MainViewController* parent = (MainViewController*)self.parentViewController;
-        [parent createCharityDetailView];
+        [parent removeCharityDetailView];
     }
 }
 

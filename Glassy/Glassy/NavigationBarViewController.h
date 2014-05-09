@@ -12,4 +12,10 @@
 
 @property (nonatomic, strong) UIView *navigationBarView;
 
+@property (nonatomic, strong) UIImageView *profileImageView;
+@property (nonatomic, strong) UILabel *profileNameLabel;
+
+- (void)setProfileName;
+- (void)setProfileImage;
+
 @end

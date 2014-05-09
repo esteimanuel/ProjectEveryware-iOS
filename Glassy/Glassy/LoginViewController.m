@@ -57,6 +57,9 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"token"];
+    [defaults removeObjectForKey:@"email"];
+    [defaults removeObjectForKey:@"account_id"];
+    [defaults removeObjectForKey:@"foto_link"];
     [defaults synchronize];
     
     if ([defaults objectForKey:@"token"] == nil) {
@@ -69,7 +72,7 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     // Objects have to be added in this order
     [params setObject:self.passwordTextField.text forKey:@"wachtwoord"];
-    [params setObject:self.emailTextField.text forKey:@"email"];
+    [params setObject:[self.emailTextField.text lowercaseString] forKey:@"email"];
     
     return params;
 }
@@ -174,20 +177,35 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
 {
-    NSString *token = [responseDictionary objectForKey:@"token"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if (token != nil) {
-        [defaults setObject:token forKey:@"token"];
-        [defaults synchronize];
+    NSDictionary *accountDictionary = (NSDictionary *)[responseDictionary objectForKey:@"account"];
+    if (accountDictionary != nil) {
+        NSString *token = [accountDictionary objectForKey:@"token"];
+        NSString *image = [accountDictionary objectForKey:@"foto_link"];
+        
+        if (token != (NSString *)[NSNull null]) {
+            [defaults setObject:token forKey:@"token"];
+            [defaults setObject:[accountDictionary objectForKey:@"email"] forKey:@"email"];
+            [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
+            if (image != (NSString *)[NSNull null]) [defaults setObject:image forKey:@"foto_link"];
+            [defaults synchronize];
+        } else {
+            [self showAuthenticationError];
+        }
+        
+        NSLog(@"User logged in with token: %@", [defaults objectForKey:@"token"]);
+        
+        [self dispose];
     }
-    
-    NSLog(@"User logged in with token: %@", [defaults objectForKey:@"token"]);
-    
-    [self dispose];
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage
+{
+    [self showAuthenticationError];
+}
+
+- (void)showAuthenticationError
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:@"Authentication failed"

@@ -110,7 +110,9 @@
     // Reset menu options after login
     [self removeDropDownMenuView];
     [self.dropDownMenuViewController setMenuOptionsArray];
-    // Set navigation bar view
+    // Set navigation bar details
+    [self.navigationBarViewController setProfileName];
+    [self.navigationBarViewController setProfileImage];
 }
 
 - (void)createLoginView
@@ -129,7 +131,9 @@
     // Reset menu options after login
     [self removeDropDownMenuView];
     [self.dropDownMenuViewController setMenuOptionsArray];
-    // Set navigation bar view
+    // Set navigation bar details
+    [self.navigationBarViewController setProfileName];
+    [self.navigationBarViewController setProfileImage];
     
 }
 
@@ -162,7 +166,7 @@
 {
     // Create background image
     NSArray *urls = @[@"http://www.wallpaperspictures.net/image/bruce-lee-iconic-figure-wallpaper-for-2560x1920-886-26.jpg", @"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg",@"http://wallpapers.wallbase.cc/rozne/wallpaper-1068132.jpg",@"http://storage4.album.bg/52f/adriana_lima_5.jpg_d70f4_29141858.jpg",@"http://wallpapers.wallbase.cc/rozne/wallpaper-707568.jpg",@"http://2014download.com/images/2013/03/jessica-alba-awards-mtv.jpg"];
-    NSString *imageUrl = urls[1];
+    NSString *imageUrl = urls[5];
     UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [background drawInRect:self.view.bounds];
@@ -185,6 +189,26 @@
     // Reset menu options after logout
     [self removeDropDownMenuView];
     [self.dropDownMenuViewController setMenuOptionsArray];
+    // Reset navigation bar details
+    [self.navigationBarViewController setProfileName];
+    [self.navigationBarViewController setProfileImage];
+}
+
+#pragma mark - Initialization detail view controllers
+
+- (void)createCharityDetailView
+{
+    if (self.charityDetailViewController == nil) {
+        self.charityDetailViewController = [[CharityDetailViewController alloc] init];
+    }
+    [self addChildViewController:self.charityDetailViewController];
+    [self.view addSubview:self.charityDetailViewController.view];
+}
+
+- (void)removeCharityDetailView
+{
+    [self.charityDetailViewController.view removeFromSuperview];
+    [self.charityDetailViewController removeFromParentViewController];    
 }
 
 #pragma mark - General view
@@ -206,6 +230,7 @@
     
     // Add ViewControllers to parent viewcontroller
     [self addChildViewController:neighborhoodViewController];
+    [self addChildViewController:charityViewController];
     
     
     // Set background to clear

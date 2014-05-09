@@ -39,6 +39,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setProfileImage
+{
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    if ([defaults objectForKey:@"foto_link"] != nil) {
+        NSURL *imageUrl = [NSURL URLWithString:[defaults objectForKey:@"foto_link"]];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        self.profileImageView.image = [UIImage imageWithData:imageData];
+    } else {
+        self.profileImageView.image = [UIImage imageNamed:@"ios-nav-default-profile-image.png"];
+    }
+}
+
+- (void)setProfileName
+{
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    if ([defaults objectForKey:@"email"] != nil) {
+        self.profileNameLabel.text = [defaults objectForKey:@"email"];
+    } else {
+        self.profileNameLabel.text = @"Anonieme gebruiker";
+    }
+}
+
 - (void)createCustomNavigationBar
 {
     // Create navigation bar view
@@ -46,15 +68,15 @@
     self.navigationBarView.backgroundColor = [UIColor whiteColor];
     
     // Create image profile view
-    UIImageView *profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 30, 33, 33)];
-    profileImageView.image = [UIImage imageNamed:@"ios-nav-default-profile-image.png"];
-    profileImageView.layer.cornerRadius = 5.0;
+    self.profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 30, 33, 33)];
+    self.profileImageView.layer.cornerRadius = 5.0;
+    [self setProfileImage];
     // Create name profile label
-    UILabel *profileNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 130, 35)];
-    profileNameLabel.text = @"Anonieme gebruiker";
-    profileNameLabel.textColor = [UIColor darkGrayColor];
-    profileNameLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    profileNameLabel.font = [UIFont boldSystemFontOfSize:13];
+    self.profileNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 130, 35)];
+    self.profileNameLabel.textColor = [UIColor darkGrayColor];
+    self.profileNameLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.profileNameLabel.font = [UIFont boldSystemFontOfSize:13];
+    [self setProfileName];
     // Create dropdown button
     UIButton *navigationDropDownButton = [[UIButton alloc] initWithFrame:CGRectMake(205, 30, 25, 35)];
     [navigationDropDownButton setImage:[UIImage imageNamed:@"ios-nav-dropdown-button"] forState:UIControlStateNormal];
@@ -64,8 +86,8 @@
     [navigationSearchButton setImage:[UIImage imageNamed:@"ios-nav-search-button"] forState:UIControlStateNormal];
     [navigationSearchButton addTarget:self action:@selector(searchButtonClicked:) forControlEvents:UIControlEventTouchDown];
     
-    [self.navigationBarView addSubview:profileImageView];
-    [self.navigationBarView addSubview:profileNameLabel];
+    [self.navigationBarView addSubview:self.profileImageView];
+    [self.navigationBarView addSubview:self.profileNameLabel];
     [self.navigationBarView addSubview:navigationDropDownButton];
     [self.navigationBarView addSubview:navigationSearchButton];
     [self.view addSubview:self.navigationBarView];
@@ -83,6 +105,7 @@
 {
     if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
         MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent removeDropDownMenuView];
         [parent createSearchView];
     }
 }

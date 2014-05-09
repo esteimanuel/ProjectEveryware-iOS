@@ -57,8 +57,8 @@
 {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 
-    [params setObject:self.emailTextField.text forKey:@"email"];
-    [params setObject:self.passwordTextField.text forKey:@"password"];
+    [params setObject:[self.emailTextField.text lowercaseString] forKey:@"email"];
+    [params setObject:self.passwordTextField.text forKey:@"wachtwoord"];
     
     return params;
 }
@@ -164,21 +164,33 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
 {
-    NSString *token = [responseDictionary objectForKey:@"token"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    for(id key in responseDictionary)
-        NSLog(@"key: %@ value: %@ \n", key, [responseDictionary objectForKey:key]);
+    NSDictionary *accountDictionary = (NSDictionary *)[responseDictionary objectForKey:@"account"];
+    NSString *token = [accountDictionary objectForKey:@"token"];
+    NSString *image = [accountDictionary objectForKey:@"foto_link"];
     
-    if (token != nil) {
+    if (token != (NSString *)[NSNull null]) {
         [defaults setObject:token forKey:@"token"];
+        [defaults setObject:[accountDictionary objectForKey:@"email"] forKey:@"email"];
+        [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
+        if (image != (NSString *)[NSNull null]) [defaults setObject:image forKey:@"foto_link"];
         [defaults synchronize];
+    } else {
+        [self showAuthenticationError];
     }
     
     NSLog(@"Successfully registered user & logged in with token: %@", [defaults objectForKey:@"token"]);
+    
+    [self dispose];
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage
+{
+    [self showAuthenticationError];
+}
+
+- (void)showAuthenticationError
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:@"Registration failed"

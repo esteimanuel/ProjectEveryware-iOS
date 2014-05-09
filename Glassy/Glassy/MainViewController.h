@@ -15,16 +15,21 @@
 #import "RESTClient.h"
 #import "ScrollView.h"
 
+// DetailViewControllers
+#import "CharityDetailViewController.h"
+
 @interface MainViewController : UIViewController <RestClientDelegate>
 
 @property (nonatomic, strong) NSMutableArray *actionsArray;
 @property (nonatomic, strong) NSMutableDictionary *viewControllersDictionary;
-
+// ViewControllers
 @property (nonatomic, strong) DropDownMenuViewController *dropDownMenuViewController;
 @property (nonatomic, strong) SearchViewController *searchViewController;
 @property (nonatomic, strong) NavigationBarViewController *navigationBarViewController;
 @property (nonatomic, strong) LoginViewController *loginViewController;
 @property (nonatomic, strong) RegisterViewController *registerViewController;
+// DetailViewControllers
+@property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;
 
 @property (strong, nonatomic) IBOutlet ScrollView *scrollView;
 
@@ -37,5 +42,9 @@
 - (void)createSearchView;
 
 - (void)logout;
+
+// DetailViewController methods
+- (void)createCharityDetailView;
+- (void)removeCharityDetailView;
 
 @end
