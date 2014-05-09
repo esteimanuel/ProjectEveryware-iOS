@@ -57,11 +57,7 @@
 {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 
-<<<<<<< HEAD
     [params setObject:[self.emailTextField.text lowercaseString] forKey:@"email"];
-=======
-    [params setObject:self.emailTextField.text forKey:@"email"];
->>>>>>> FETCH_HEAD
     [params setObject:self.passwordTextField.text forKey:@"wachtwoord"];
     
     return params;
