@@ -108,6 +108,8 @@
             [parent createLoginView];
         } else if ([selected  isEqual: @"Registreren"]) {
             [parent createRegisterView];
+        } else if ([selected  isEqual: @"Profiel"]) {
+            [parent createProfileView];
         }
         
         // Logout

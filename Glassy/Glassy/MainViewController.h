@@ -12,6 +12,7 @@
 #import "SearchViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "ProfileViewController.h"
 #import "RESTClient.h"
 #import "ScrollView.h"
 
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) NavigationBarViewController *navigationBarViewController;
 @property (nonatomic, strong) LoginViewController *loginViewController;
 @property (nonatomic, strong) RegisterViewController *registerViewController;
+@property (nonatomic, strong) ProfileViewController *profileViewController;
 // DetailViewControllers
 @property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;
 
@@ -37,6 +39,8 @@
 - (void)removeLoginView;
 - (void)createRegisterView;
 - (void)removeRegisterView;
+- (void)createProfileView;
+- (void)removeProfileView;
 - (void)createDropDownMenuView;
 - (void)removeDropDownMenuView;
 - (void)createSearchView;

@@ -27,5 +27,6 @@
 
 - (void)POST:(NSString *)url withParameters:(NSMutableDictionary *)params;
 - (void)GET:(NSString *)url withParameters:(NSMutableDictionary *)params;
+- (void)PUT:(NSString *)url withParameters:(NSMutableDictionary *)params;
 
 @end

@@ -51,6 +51,22 @@
     [self startConnection:request];
 }
 
+- (void)PUT:(NSString *)url withParameters:(NSMutableDictionary *)params
+{
+    // Create the request from given URL
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    // Specify post request
+    [request setHTTPMethod:@"PUT"];
+    // Set header fields
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    // Set request body
+    NSError *error = nil;
+    NSData *requestBodyData = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    [request setHTTPBody:requestBodyData];
+    // Start the connection
+    [self startConnection:request];
+}
+
 - (void)startConnection:(NSMutableURLRequest *)request
 {
     // Create connection

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B7F88191F895700FB07EC /* ProfileViewController.m */; };
 		194B8FE918FE948C00EA3966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FE818FE948C00EA3966 /* Foundation.framework */; };
 		194B8FEB18FE948C00EA3966 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FEA18FE948C00EA3966 /* CoreGraphics.framework */; };
 		194B8FED18FE948C00EA3966 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FEC18FE948C00EA3966 /* UIKit.framework */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		190B7F87191F895700FB07EC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		190B7F88191F895700FB07EC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		194B8FE518FE948C00EA3966 /* Glassy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glassy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		194B8FE818FE948C00EA3966 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		194B8FEA18FE948C00EA3966 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -282,6 +285,8 @@
 				1992D40B190135FB00733C9F /* ParticipantsViewController.m */,
 				19E9DF8A190FC5BA008075F6 /* RegisterViewController.h */,
 				19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */,
+				190B7F87191F895700FB07EC /* ProfileViewController.h */,
+				190B7F88191F895700FB07EC /* ProfileViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				19D7FF01191B7AB7007039DD /* CharityDetailViewController.m in Sources */,
 				70A56BFA19129808001CF588 /* ScrollView.m in Sources */,
 				19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */,
+				190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */,
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
 				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,

@@ -145,6 +145,8 @@
     [self.view addSubview:registerView];
 }
 
+#pragma mark - Gesture recognizer methods
+
 - (void)createGesture
 {
     UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];

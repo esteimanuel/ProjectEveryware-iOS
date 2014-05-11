@@ -137,6 +137,21 @@
     
 }
 
+- (void)createProfileView
+{
+    if (self.profileViewController == nil) {
+        self.profileViewController = [[ProfileViewController alloc] init];
+    }
+    [self addChildViewController:self.profileViewController];
+    [self.view addSubview:self.profileViewController.view];
+}
+
+- (void)removeProfileView
+{
+    [self.profileViewController.view removeFromSuperview];
+    [self.profileViewController removeFromParentViewController];
+}
+
 - (void)createDropDownMenuView
 {
     if ([self.dropDownMenuViewController.view isDescendantOfView:self.view]) {
@@ -201,8 +216,16 @@
     if (self.charityDetailViewController == nil) {
         self.charityDetailViewController = [[CharityDetailViewController alloc] init];
     }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.charityDetailViewController.view cache:YES];
+    
     [self addChildViewController:self.charityDetailViewController];
     [self.view addSubview:self.charityDetailViewController.view];
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.charityDetailViewController.view cache:YES];
+    [UIView commitAnimations];
 }
 
 - (void)removeCharityDetailView
