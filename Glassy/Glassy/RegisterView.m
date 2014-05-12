@@ -1,0 +1,88 @@
+//
+//  RegisterView.m
+//  Glassy
+//
+//  Created by Niek Willems on 12/05/14.
+//  Copyright (c) 2014 InnoYou. All rights reserved.
+//
+
+#import "RegisterView.h"
+
+@implementation RegisterView
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self drawView];
+    }
+    return self;
+}
+
+- (void)drawView
+{
+    // Create facebook button
+    self.facebookAuthenticationButton = [[UIButton alloc] initWithFrame:CGRectMake(55, (self.frame.size.height - 450.0), 210, 40)];
+    self.facebookAuthenticationButton.backgroundColor = [UIColor lightGrayColor];
+    self.facebookAuthenticationButton.layer.cornerRadius = 5.0;
+    self.facebookAuthenticationButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    [self.facebookAuthenticationButton setTitle:@"Aanmelden via Facebook" forState:UIControlStateNormal];
+    
+    self.orLabel = [[UILabel alloc] initWithFrame:CGRectMake(155, (self.frame.size.height - 380), 30, 30)];
+    self.orLabel.text = @"of";
+    self.orLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.orLabel.font = [UIFont italicSystemFontOfSize:11];
+    self.orLabel.textColor = [UIColor lightGrayColor];
+    
+    self.emailTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, (self.frame.size.height - 320.0), 210, 40)];
+    self.emailTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.emailTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.emailTextField.layer.borderWidth = 0.5;
+    self.emailTextField.layer.cornerRadius = 5.0;
+    self.emailTextField.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.emailTextField.placeholder = @"E-mailadres";
+    //self.emailTextField.delegate = self;
+    
+    self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, (self.frame.size.height - 270.0), 210, 40)];
+    self.passwordTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.passwordTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.passwordTextField.layer.borderWidth = 0.5;
+    self.passwordTextField.layer.cornerRadius = 5.0;
+    self.passwordTextField.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.passwordTextField.placeholder = @"Wachtwoord";
+    //self.passwordTextField.delegate = self;
+    self.passwordTextField.secureTextEntry = YES;
+    
+    UIView *registerView = [[UIView alloc] initWithFrame:CGRectMake(0, (self.frame.size.height - 140), self.frame.size.width, 140)];
+    registerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    
+    self.rememberMeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(50, 20, 15, 10)];
+    self.rememberMeSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
+    UILabel *rememberMeLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, 25, 150, 20)];
+    rememberMeLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    rememberMeLabel.font = [UIFont boldSystemFontOfSize:13];
+    rememberMeLabel.text = @"Onthoud mijn gegevens";
+    rememberMeLabel.textColor = [UIColor darkGrayColor];
+    
+    self.authenticationButton = [[UIButton alloc] initWithFrame:CGRectMake(55, (registerView.frame.size.height - 70.0), 210, 40)];
+    self.authenticationButton.backgroundColor = [UIColor lightGrayColor];
+    self.authenticationButton.layer.cornerRadius = 5.0;
+    self.authenticationButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    //[self.authenticationButton addTarget:self action:@selector(registerButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    [self.authenticationButton setTitle:@"Registreren" forState:UIControlStateNormal];
+    
+    [registerView addSubview:self.rememberMeSwitch];
+    [registerView addSubview:rememberMeLabel];
+    [registerView addSubview:self.authenticationButton];
+    
+    [self addSubview:self.facebookAuthenticationButton];
+    [self addSubview:self.orLabel];
+    [self addSubview:self.emailTextField];
+    [self addSubview:self.passwordTextField];
+    [self addSubview:registerView];
+    // Set background color
+    self.backgroundColor = [UIColor whiteColor];
+}
+
+
+@end

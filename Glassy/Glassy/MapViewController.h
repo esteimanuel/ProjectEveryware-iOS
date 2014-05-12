@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapView.h"
 
 @interface MapViewController : UIViewController
+
+@property (nonatomic, strong) MapView *mapView;
+
+- (void)createView;
+
+- (void)loadRequest:(NSString *)url;
 
 @end

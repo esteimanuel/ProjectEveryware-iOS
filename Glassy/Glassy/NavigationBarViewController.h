@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationBarView.h"
 
 @interface NavigationBarViewController : UIViewController
 
-@property (nonatomic, strong) UIView *navigationBarView;
-
-@property (nonatomic, strong) UIImageView *profileImageView;
-@property (nonatomic, strong) UILabel *profileNameLabel;
+@property (nonatomic, strong) NavigationBarView *navigationBarView;
 
 - (void)setProfileName;
 - (void)setProfileImage;
+
+- (void)createView;
 
 @end

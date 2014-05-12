@@ -29,56 +29,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //[self createPlaceholder];
-    [self createMediaGui];
+    //[self createMediaGui];
 }
 
-- (void)createMediaGui
+- (void)loadRequest:(NSString *)url
 {
-    CGFloat currentHeight = 0;
-    CGFloat margin = 5;
-    CGFloat frameWidth = self.view.frame.size.width;
-    
-    // Set background to transparent
-    self.view.backgroundColor = [UIColor clearColor];
-    
-    // Set title label
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
-    titleLabel.text = @"Buurt video";
-    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
-    titleLabel.textColor = [UIColor whiteColor];
-    [self.view addSubview:titleLabel];
+    [self.mediaView.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+}
 
-    currentHeight += titleLabel.frame.size.height + margin;
-    
-    // Set media view
-    UIView *mediaview = [[UIView alloc]initWithFrame:CGRectMake(margin, currentHeight, frameWidth - margin * 2, frameWidth * 0.6)];
-    mediaview.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    mediaview.layer.borderColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.75].CGColor;
-    mediaview.layer.borderWidth = 1.0;
-    [self.view addSubview:mediaview];
-    
-    // Add web view
-    // <iframe width="560" height="315" src="//www.youtube.com/embed/vIu85WQTPRc" frameborder="0" allowfullscreen></iframe>
-    // TODO
-    UIWebView* webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frameWidth - 2 * margin, mediaview.frame.size.height)];
-    webview.scalesPageToFit = YES;
-    
-    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.youtube.com/embed/vIu85WQTPRc"]]];
-    
-    [mediaview addSubview:webview];
-    
-    // Placeholder - Start
-//    UIImage *background = [UIImage imageNamed:@"ios-media.png"];
-//    UIImageView *placeholder = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frameWidth - margin * 2, frameWidth * 0.6)];
-//    placeholder.contentMode = UIViewContentModeScaleAspectFit;
-//    placeholder.image = background;
-//    [mediaview addSubview:placeholder];
-    // Placeholder - End
-    
-    currentHeight += mediaview.frame.size.height + margin * 4;
-    
-    // Create frame
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, currentHeight);
+- (void)createView
+{
+    self.mediaView = [[MediaView alloc] init];
+    // Load request
+    [self loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
 }
 
 -(void)createPlaceholder

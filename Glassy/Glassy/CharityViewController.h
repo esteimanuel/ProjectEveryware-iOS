@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CharityView.h"
 
 @interface CharityViewController : UIViewController
+
+@property (nonatomic, strong) CharityView *charityView;
+
+- (void)createView;
 
 @end

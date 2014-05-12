@@ -88,8 +88,9 @@
 {
     self.navigationBarViewController = [[NavigationBarViewController alloc] init];
     [self addChildViewController:self.navigationBarViewController];
+    [self.navigationBarViewController createView];
     // Add navigation bar view to subview
-    [self.view addSubview:self.navigationBarViewController.view];
+    [self.view addSubview:self.navigationBarViewController.navigationBarView];
 }
 
 #pragma mark - Child view controller button handlers
@@ -99,13 +100,14 @@
     if (self.registerViewController == nil) {
         self.registerViewController = [[RegisterViewController alloc] init];
     }
+    [self.registerViewController createView];
     [self addChildViewController:self.registerViewController];
-    [self.view addSubview:self.registerViewController.view];
+    [self.view addSubview:self.registerViewController.registerView];
 }
 
 - (void)removeRegisterView
 {
-    [self.registerViewController.view removeFromSuperview];
+    [self.registerViewController.registerView removeFromSuperview];
     [self.registerViewController removeFromParentViewController];
     // Reset menu options after login
     [self removeDropDownMenuView];
@@ -120,13 +122,14 @@
     if (self.loginViewController == nil) {
         self.loginViewController = [[LoginViewController alloc] init];
     }
+    [self.loginViewController createView];
     [self addChildViewController:self.loginViewController];
-    [self.view addSubview:self.loginViewController.view];
+    [self.view addSubview:self.loginViewController.loginView];
 }
 
 - (void)removeLoginView
 {
-    [self.loginViewController.view removeFromSuperview];
+    [self.loginViewController.loginView removeFromSuperview];
     [self.loginViewController removeFromParentViewController];
     // Reset menu options after login
     [self removeDropDownMenuView];
@@ -142,13 +145,14 @@
     if (self.profileViewController == nil) {
         self.profileViewController = [[ProfileViewController alloc] init];
     }
+    [self.profileViewController createView];
     [self addChildViewController:self.profileViewController];
-    [self.view addSubview:self.profileViewController.view];
+    [self.view addSubview:self.profileViewController.profileView];
 }
 
 - (void)removeProfileView
 {
-    [self.profileViewController.view removeFromSuperview];
+    [self.profileViewController.profileView removeFromSuperview];
     [self.profileViewController removeFromParentViewController];
 }
 
@@ -242,10 +246,15 @@
     self.viewControllersDictionary = [[NSMutableDictionary alloc] init];
     // Initialize ViewControllers
     NeighborhoodViewController *neighborhoodViewController = [[NeighborhoodViewController alloc] init];
+    [neighborhoodViewController createView];
     MediaViewController *mediaViewController = [[MediaViewController alloc] init];
+    [mediaViewController createView];
     MapViewController *mapViewController = [[MapViewController alloc] init];
+    [mapViewController createView];
     CharityViewController *charityViewController = [[CharityViewController alloc] init];
+    [charityViewController createView];
     ProgressViewController *progressViewController = [[ProgressViewController alloc] init];
+    [progressViewController createView];
     ParticipantsViewController *participantsViewController = [[ParticipantsViewController alloc] init];
     // Add ViewControllers to dictionary
     [self.viewControllersDictionary setObject:neighborhoodViewController forKey:@"neighborhoodViewController"];
@@ -261,27 +270,27 @@
     
     NSInteger currentHeight = 0;
     // Add ViewControllers to scrollView
-    [self.scrollView addSubview:neighborhoodViewController.view];
-    neighborhoodViewController.view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, neighborhoodViewController.view.frame.size.height);
-    [self.scrollView addSubview:mediaViewController.view];
-    mediaViewController.view.frame = CGRectMake(0, neighborhoodViewController.view.frame.size.height, self.scrollView.frame.size.width, mediaViewController.view.frame.size.height);
+    [self.scrollView addSubview:neighborhoodViewController.neighborhoodView];
+    neighborhoodViewController.neighborhoodView.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, neighborhoodViewController.neighborhoodView.frame.size.height);
+    [self.scrollView addSubview:mediaViewController.mediaView];
+    mediaViewController.mediaView.frame = CGRectMake(0, neighborhoodViewController.neighborhoodView.frame.size.height, self.scrollView.frame.size.width, mediaViewController.mediaView.frame.size.height);
     
-    currentHeight = neighborhoodViewController.view.frame.size.height + mediaViewController.view.frame.size.height;
+    currentHeight = neighborhoodViewController.neighborhoodView.frame.size.height + mediaViewController.mediaView.frame.size.height;
     
-    [self.scrollView addSubview:mapViewController.view];
-    mapViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, mapViewController.view.frame.size.height);
+    [self.scrollView addSubview:mapViewController.mapView];
+    mapViewController.mapView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, mapViewController.mapView.frame.size.height);
     
-    currentHeight += mapViewController.view.frame.size.height;
+    currentHeight += mapViewController.mapView.frame.size.height;
     
-    [self.scrollView addSubview:charityViewController.view];
-    charityViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, charityViewController.view.frame.size.height);
+    [self.scrollView addSubview:charityViewController.charityView];
+    charityViewController.charityView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, charityViewController.charityView.frame.size.height);
     
-    currentHeight += charityViewController.view.frame.size.height;
+    currentHeight += charityViewController.charityView.frame.size.height;
     
-    [self.scrollView addSubview:progressViewController.view];
-    progressViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, progressViewController.view.frame.size.height);
+    [self.scrollView addSubview:progressViewController.progressView];
+    progressViewController.progressView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, progressViewController.progressView.frame.size.height);
     
-    currentHeight += progressViewController.view.frame.size.height;
+    currentHeight += progressViewController.progressView.frame.size.height;
     
     [self.scrollView addSubview:participantsViewController.view];
     participantsViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, participantsViewController.view.frame.size.height);

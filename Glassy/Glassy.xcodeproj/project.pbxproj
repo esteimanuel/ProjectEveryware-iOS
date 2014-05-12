@@ -26,6 +26,7 @@
 		1992D3F2190127D600733C9F /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3F1190127D600733C9F /* MediaViewController.m */; };
 		1992D4031901354600733C9F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D4021901354600733C9F /* MapViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+		19D64E9A1920C46800178A36 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D64E991920C46800178A36 /* RegisterView.m */; };
 		19D7FF01191B7AB7007039DD /* CharityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D7FF00191B7AB7007039DD /* CharityDetailViewController.m */; };
 		19DB4F76191247B9002184D3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB4F75191247B9002184D3 /* Account.m */; };
 		19DB4F7C19124B3D002184D3 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB4F7B19124B3D002184D3 /* Action.m */; };
@@ -33,6 +34,14 @@
 		19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AD1907A8A500471CB9 /* DropDownMenuViewController.m */; };
 		19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */; };
 		19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E127B11907A8A500471CB9 /* SearchViewController.m */; };
+		19E8FB511920F9070030CB7D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB501920F9070030CB7D /* LoginView.m */; };
+		19E8FB561920FCB60030CB7D /* NavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB551920FCB60030CB7D /* NavigationBarView.m */; };
+		19E8FB591920FF0B0030CB7D /* NeighborhoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB581920FF0B0030CB7D /* NeighborhoodView.m */; };
+		19E8FB5C192104120030CB7D /* MediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB5B192104120030CB7D /* MediaView.m */; };
+		19E8FB5F192108610030CB7D /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB5E192108610030CB7D /* MapView.m */; };
+		19E8FB6219210D0B0030CB7D /* CharityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB6119210D0B0030CB7D /* CharityView.m */; };
+		19E8FB65192110730030CB7D /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB64192110730030CB7D /* ProgressView.m */; };
+		19E8FB68192113E10030CB7D /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8FB67192113E10030CB7D /* ProfileView.m */; };
 		19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D408190135D900733C9F /* ProgressViewController.m */; };
 		19E9DF86190F9402008075F6 /* CharityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D405190135A900733C9F /* CharityViewController.m */; };
 		19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E9DF88190F94F1008075F6 /* RESTClient.m */; };
@@ -117,6 +126,8 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+		19D64E981920C46800178A36 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		19D64E991920C46800178A36 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		19D7FEFF191B7AB7007039DD /* CharityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharityDetailViewController.h; sourceTree = "<group>"; };
 		19D7FF00191B7AB7007039DD /* CharityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharityDetailViewController.m; sourceTree = "<group>"; };
 		19DB4F74191247B9002184D3 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -131,6 +142,22 @@
 		19E127AF1907A8A500471CB9 /* NavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarViewController.m; sourceTree = "<group>"; };
 		19E127B01907A8A500471CB9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		19E127B11907A8A500471CB9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		19E8FB4F1920F9070030CB7D /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		19E8FB501920F9070030CB7D /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		19E8FB541920FCB60030CB7D /* NavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBarView.h; sourceTree = "<group>"; };
+		19E8FB551920FCB60030CB7D /* NavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBarView.m; sourceTree = "<group>"; };
+		19E8FB571920FF0B0030CB7D /* NeighborhoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighborhoodView.h; sourceTree = "<group>"; };
+		19E8FB581920FF0B0030CB7D /* NeighborhoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighborhoodView.m; sourceTree = "<group>"; };
+		19E8FB5A192104120030CB7D /* MediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaView.h; sourceTree = "<group>"; };
+		19E8FB5B192104120030CB7D /* MediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaView.m; sourceTree = "<group>"; };
+		19E8FB5D192108610030CB7D /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		19E8FB5E192108610030CB7D /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		19E8FB6019210D0B0030CB7D /* CharityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharityView.h; sourceTree = "<group>"; };
+		19E8FB6119210D0B0030CB7D /* CharityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharityView.m; sourceTree = "<group>"; };
+		19E8FB63192110730030CB7D /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		19E8FB64192110730030CB7D /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		19E8FB66192113E10030CB7D /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
+		19E8FB67192113E10030CB7D /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		19E9DF87190F94F1008075F6 /* RESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClient.h; sourceTree = "<group>"; };
 		19E9DF88190F94F1008075F6 /* RESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClient.m; sourceTree = "<group>"; };
 		19E9DF8A190FC5BA008075F6 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -211,14 +238,13 @@
 			isa = PBXGroup;
 			children = (
 				194B8FFA18FE948C00EA3966 /* Main.storyboard */,
+				19E8FB6A1921241C0030CB7D /* WidgetViewControllers */,
 				19D7FEFC191B7A8C007039DD /* DetailViewControllers */,
 				194B902018FEBC7C00EA3966 /* ViewControllers */,
 				194B8FEF18FE948C00EA3966 /* Supporting Files */,
 				19EE1352191101A300C1EEE7 /* Services */,
-				19DB4F74191247B9002184D3 /* Account.h */,
-				19DB4F75191247B9002184D3 /* Account.m */,
-				19DB4F7A19124B3D002184D3 /* Action.h */,
-				19DB4F7B19124B3D002184D3 /* Action.m */,
+				19D64E9D1920C4DD00178A36 /* Views */,
+				19E8FB69192123CF0030CB7D /* Models */,
 				70A56BF819129808001CF588 /* ScrollView.h */,
 				70A56BF919129808001CF588 /* ScrollView.m */,
 			);
@@ -271,6 +297,62 @@
 				19E127B11907A8A500471CB9 /* SearchViewController.m */,
 				1992D3E719011FA100733C9F /* MainViewController.h */,
 				1992D3E819011FA100733C9F /* MainViewController.m */,
+				19E9DF8A190FC5BA008075F6 /* RegisterViewController.h */,
+				19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */,
+				190B7F87191F895700FB07EC /* ProfileViewController.h */,
+				190B7F88191F895700FB07EC /* ProfileViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		19D64E9D1920C4DD00178A36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19D64E981920C46800178A36 /* RegisterView.h */,
+				19D64E991920C46800178A36 /* RegisterView.m */,
+				19E8FB4F1920F9070030CB7D /* LoginView.h */,
+				19E8FB501920F9070030CB7D /* LoginView.m */,
+				19E8FB541920FCB60030CB7D /* NavigationBarView.h */,
+				19E8FB551920FCB60030CB7D /* NavigationBarView.m */,
+				19E8FB571920FF0B0030CB7D /* NeighborhoodView.h */,
+				19E8FB581920FF0B0030CB7D /* NeighborhoodView.m */,
+				19E8FB5A192104120030CB7D /* MediaView.h */,
+				19E8FB5B192104120030CB7D /* MediaView.m */,
+				19E8FB5D192108610030CB7D /* MapView.h */,
+				19E8FB5E192108610030CB7D /* MapView.m */,
+				19E8FB6019210D0B0030CB7D /* CharityView.h */,
+				19E8FB6119210D0B0030CB7D /* CharityView.m */,
+				19E8FB63192110730030CB7D /* ProgressView.h */,
+				19E8FB64192110730030CB7D /* ProgressView.m */,
+				19E8FB66192113E10030CB7D /* ProfileView.h */,
+				19E8FB67192113E10030CB7D /* ProfileView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		19D7FEFC191B7A8C007039DD /* DetailViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				19D7FEFF191B7AB7007039DD /* CharityDetailViewController.h */,
+				19D7FF00191B7AB7007039DD /* CharityDetailViewController.m */,
+			);
+			name = DetailViewControllers;
+			sourceTree = "<group>";
+		};
+		19E8FB69192123CF0030CB7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19DB4F74191247B9002184D3 /* Account.h */,
+				19DB4F75191247B9002184D3 /* Account.m */,
+				19DB4F7A19124B3D002184D3 /* Action.h */,
+				19DB4F7B19124B3D002184D3 /* Action.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		19E8FB6A1921241C0030CB7D /* WidgetViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				1992D3EA190122AE00733C9F /* NeighborhoodViewController.h */,
 				1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */,
 				1992D3F0190127D600733C9F /* MediaViewController.h */,
@@ -283,21 +365,8 @@
 				1992D408190135D900733C9F /* ProgressViewController.m */,
 				1992D40A190135FB00733C9F /* ParticipantsViewController.h */,
 				1992D40B190135FB00733C9F /* ParticipantsViewController.m */,
-				19E9DF8A190FC5BA008075F6 /* RegisterViewController.h */,
-				19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */,
-				190B7F87191F895700FB07EC /* ProfileViewController.h */,
-				190B7F88191F895700FB07EC /* ProfileViewController.m */,
 			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		19D7FEFC191B7A8C007039DD /* DetailViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				19D7FEFF191B7AB7007039DD /* CharityDetailViewController.h */,
-				19D7FF00191B7AB7007039DD /* CharityDetailViewController.m */,
-			);
-			name = DetailViewControllers;
+			name = WidgetViewControllers;
 			sourceTree = "<group>";
 		};
 		19EE1352191101A300C1EEE7 /* Services */ = {
@@ -473,9 +542,12 @@
 				19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */,
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
+				19E8FB65192110730030CB7D /* ProgressView.m in Sources */,
+				19E8FB5F192108610030CB7D /* MapView.m in Sources */,
 				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,
 				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
+				19E8FB591920FF0B0030CB7D /* NeighborhoodView.m in Sources */,
 				19E127B21907A8A500471CB9 /* LoginViewController.m in Sources */,
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
@@ -484,10 +556,16 @@
 				19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */,
 				190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */,
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
+				19E8FB561920FCB60030CB7D /* NavigationBarView.m in Sources */,
+				19E8FB6219210D0B0030CB7D /* CharityView.m in Sources */,
+				19E8FB511920F9070030CB7D /* LoginView.m in Sources */,
 				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
+				19E8FB68192113E10030CB7D /* ProfileView.m in Sources */,
+				19E8FB5C192104120030CB7D /* MediaView.m in Sources */,
 				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
+				19D64E9A1920C46800178A36 /* RegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

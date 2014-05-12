@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RESTClient.h"
+#import "RegisterView.h"
 
 @interface RegisterViewController : UIViewController <UITextFieldDelegate, RestClientDelegate>
 
-@property (nonatomic, strong) UITextField *emailTextField;
-@property (nonatomic, strong) UITextField *passwordTextField;
+@property (nonatomic, strong) RegisterView *registerView;
+
+- (void)createView;
 
 @end

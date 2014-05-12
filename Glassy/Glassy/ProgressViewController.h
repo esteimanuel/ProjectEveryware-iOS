@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgressView.h"
 
 @interface ProgressViewController : UIViewController
+
+@property (nonatomic, strong) ProgressView *progressView;
+
+- (void)createView;
 
 @end

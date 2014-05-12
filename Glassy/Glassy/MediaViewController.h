@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MediaView.h"
 
 @interface MediaViewController : UIViewController
+
+@property (nonatomic, strong) MediaView *mediaView;
+
+- (void)loadRequest:(NSString *)url;
+
+- (void)createView;
 
 @end

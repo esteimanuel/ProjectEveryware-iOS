@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Action.h"
+#import "NeighborhoodView.h"
 
 @interface NeighborhoodViewController : UIViewController
 
+@property (nonatomic, strong) NeighborhoodView *neighborhoodView;
+
 - (void)setNeighborhoodFields:(Action *)action;
 
-@property (nonatomic, strong) UILabel *neighborhoodTitleLabel;
-@property (nonatomic, strong) UILabel *participantsNumberLabel;
-@property (nonatomic, strong) UILabel *participantsLabel;
-@property (nonatomic, strong) UILabel *percentageLabel;
-
-@property (nonatomic, strong) UIButton *actionButton;
+- (void)createView;
 
 @end
