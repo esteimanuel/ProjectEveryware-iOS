@@ -22,6 +22,7 @@
 - (void)drawView
 {
     NSInteger progressbarSize = 300;
+    NSInteger mediaviewHeight = 0;
     CGFloat currentHeight = 0;
     CGFloat margin = 5;
     CGFloat frameWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -48,21 +49,41 @@
     // Create frame
     self.frame = CGRectMake(0, 0, self.frame.size.width, currentHeight);
 
-    // Set verzamelen label
-    self.verzamelenLbl = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
+    // Set verzamelen
+    self.verzamelenLbl = [[UILabel alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, frameWidth, 24.0f)];
     self.verzamelenLbl.text = @"1. Bewoners verzamelen";
     self.verzamelenLbl.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
 
     self.verzamelenLbl.textColor = [UIColor whiteColor];
     [self.mediaview addSubview:self.verzamelenLbl];
-
+    
+    mediaviewHeight += self.verzamelenLbl.frame.size.height + margin;
     currentHeight += self.verzamelenLbl.frame.size.height + margin;
     
-    self.verzamelenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, 45, progressbarSize, 24.0f)];
-    self.verzamelenProgress.progress = 0.75f;
-    [self.mediaview addSubview:self.verzamelenProgress];
+    self.inschrijvenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, 45, progressbarSize, 24.0f)];
+    self.inschrijvenProgress.progress = 0.75f;
+    [self.mediaview addSubview:self.inschrijvenProgress];
 
+    mediaviewHeight += self.verzamelenProgress.frame.size.height + margin;
     currentHeight += self.verzamelenProgress.frame.size.height + margin;
+    
+    // Set inschrijven
+    self.inschrijvenLbl = [[UILabel alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, frameWidth, 24.0f)];
+    self.inschrijvenLbl.text = @"2. Inschrijven";
+    self.inschrijvenLbl.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    
+    self.inschrijvenLbl.textColor = [UIColor whiteColor];
+    [self.mediaview addSubview:self.inschrijvenLbl];
+    
+    mediaviewHeight += self.inschrijvenLbl.frame.size.height + margin;
+    currentHeight += self.inschrijvenLbl.frame.size.height + margin;
+    
+    self.inschrijvenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, 45, progressbarSize, 24.0f)];
+    self.inschrijvenProgress.progress = 0.75f;
+    [self.mediaview addSubview:self.inschrijvenProgress];
+    
+    mediaviewHeight += self.inschrijvenProgress.frame.size.height + margin;
+    currentHeight += self.inschrijvenProgress.frame.size.height + margin;
     
     /* --------------- TEMP */
     //UIImage *background = [UIImage imageNamed:@"ios-progress.png"];

@@ -16,4 +16,7 @@
 @property (nonatomic, strong) UILabel* verzamelenLbl;
 @property (nonatomic, strong) UIProgressView* verzamelenProgress;
 
+@property (nonatomic, strong) UILabel* inschrijvenLbl;
+@property (nonatomic, strong) UIProgressView* inschrijvenProgress;
+
 @end
