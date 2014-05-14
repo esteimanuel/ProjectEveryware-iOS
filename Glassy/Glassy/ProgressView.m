@@ -21,6 +21,7 @@
 
 - (void)drawView
 {
+    NSInteger progressbarSize = 300;
     CGFloat currentHeight = 0;
     CGFloat margin = 5;
     CGFloat frameWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -31,7 +32,6 @@
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
     self.titleLabel.text = @"Stappen";
     self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
-    
     self.titleLabel.textColor = [UIColor whiteColor];
     [self addSubview:self.titleLabel];
     
@@ -47,7 +47,22 @@
     
     // Create frame
     self.frame = CGRectMake(0, 0, self.frame.size.width, currentHeight);
+
+    // Set verzamelen label
+    self.verzamelenLbl = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
+    self.verzamelenLbl.text = @"1. Bewoners verzamelen";
+    self.verzamelenLbl.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+
+    self.verzamelenLbl.textColor = [UIColor whiteColor];
+    [self.mediaview addSubview:self.verzamelenLbl];
+
+    currentHeight += self.verzamelenLbl.frame.size.height + margin;
     
+    self.verzamelenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, 45, progressbarSize, 24.0f)];
+    self.verzamelenProgress.progress = 0.75f;
+    [self.mediaview addSubview:self.verzamelenProgress];
+
+    currentHeight += self.verzamelenProgress.frame.size.height + margin;
     
     /* --------------- TEMP */
     //UIImage *background = [UIImage imageNamed:@"ios-progress.png"];

@@ -13,5 +13,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIView *mediaview;
 
+@property (nonatomic, strong) UILabel* verzamelenLbl;
+@property (nonatomic, strong) UIProgressView* verzamelenProgress;
 
 @end
