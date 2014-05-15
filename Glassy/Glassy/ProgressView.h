@@ -19,4 +19,12 @@
 @property (nonatomic, strong) UILabel* inschrijvenLbl;
 @property (nonatomic, strong) UIProgressView* inschrijvenProgress;
 
+@property (nonatomic, strong) UILabel* providerLbl;
+@property (nonatomic, strong) UIProgressView* providerProgress;
+
+@property (nonatomic, strong) UILabel* aanlegLbl;
+@property (nonatomic, strong) UIProgressView* aanlegProgress;
+
+@property (nonatomic, strong) UILabel* overstappenLbl;
+@property (nonatomic, strong) UIProgressView* overstappenProgress;
 @end
