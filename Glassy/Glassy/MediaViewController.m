@@ -15,21 +15,10 @@
 
 @implementation MediaViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    //[self createPlaceholder];
-    //[self createMediaGui];
 }
 
 - (void)loadRequest:(NSString *)url
@@ -42,16 +31,6 @@
     self.mediaView = [[MediaView alloc] init];
     // Load request
     [self loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
-}
-
--(void)createPlaceholder
-{
-    UIImage *background = [UIImage imageNamed:@"ios-media.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
-    
-    [self.view addSubview:imageView];
-    
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, background.size.height);
 }
 
 - (void)didReceiveMemoryWarning

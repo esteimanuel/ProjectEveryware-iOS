@@ -59,6 +59,7 @@
 		22026A9F1907CD2100EFF574 /* ios-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A881907CD2100EFF574 /* ios-search.png */; };
 		70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A56BED1911ED0B001CF588 /* libGPUImage.a */; };
 		70A56BFA19129808001CF588 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A56BF919129808001CF588 /* ScrollView.m */; };
+		70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,8 @@
 		70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		70A56BF819129808001CF588 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
 		70A56BF919129808001CF588 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
+		70BB8BC91924EFE30006A4A1 /* ParticipantsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsView.h; sourceTree = "<group>"; };
+		70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +329,8 @@
 				19E8FB64192110730030CB7D /* ProgressView.m */,
 				19E8FB66192113E10030CB7D /* ProfileView.h */,
 				19E8FB67192113E10030CB7D /* ProfileView.m */,
+				70BB8BC91924EFE30006A4A1 /* ParticipantsView.h */,
+				70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
 				19E8FB68192113E10030CB7D /* ProfileView.m in Sources */,
 				19E8FB5C192104120030CB7D /* MediaView.m in Sources */,
+				70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */,
 				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
 				19D64E9A1920C46800178A36 /* RegisterView.m in Sources */,
