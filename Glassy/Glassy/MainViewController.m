@@ -61,7 +61,6 @@
     [self createDropDownMenuViewController];
     [self createSearchViewController];
     [self createNavigationBarViewController];
-    [self createScrollViewWithViewControllers];
 }
 
 - (void)didReceiveMemoryWarning
