@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParticipantsView.h"
 
 @interface ParticipantsViewController : UIViewController
 
+@property (nonatomic, strong) ParticipantsView *participantsView;
+
+- (void)createView;
 @end

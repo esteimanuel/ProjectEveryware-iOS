@@ -53,6 +53,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
+=======
+
+    [self getAllActions];
+    
+    // Set backgroundcolor
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    [self createScrollViewBackground];
+    [self createScrollViewWithViewControllers];
+
+    [self createDropDownMenuViewController];
+    [self createSearchViewController];
+    [self createNavigationBarViewController];
+>>>>>>> FETCH_HEAD
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,8 +79,13 @@
 - (void)createScrollViewBackground
 {
     // Create background image
+<<<<<<< HEAD
     NSArray *urls = @[@"http://www.wallpaperspictures.net/image/bruce-lee-iconic-figure-wallpaper-for-2560x1920-886-26.jpg", @"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg",@"http://wallpapers.wallbase.cc/rozne/wallpaper-1068132.jpg",@"http://storage4.album.bg/52f/adriana_lima_5.jpg_d70f4_29141858.jpg",@"http://wallpapers.wallbase.cc/rozne/wallpaper-707568.jpg",@"http://2014download.com/images/2013/03/jessica-alba-awards-mtv.jpg"];
     NSString *imageUrl = urls[3];
+=======
+    NSArray *urls = @[@"http://www.wallpaperspictures.net/image/bruce-lee-iconic-figure-wallpaper-for-2560x1920-886-26.jpg", @"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg",@"http://wallpapers.wallbase.cc/rozne/wallpaper-1068132.jpg",@"http://storage4.album.bg/52f/adriana_lima_5.jpg_d70f4_29141858.jpg",@"http://wallpapers.wallbase.cc/rozne/wallpaper-707568.jpg",@"http://2014download.com/images/2013/03/jessica-alba-awards-mtv.jpg",@"http://images4.fanpop.com/image/photos/16000000/adriana-victorias-secret-angels-16007539-760-1024.jpg"];
+    NSString *imageUrl = urls[6];
+>>>>>>> FETCH_HEAD
     UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [background drawInRect:self.view.bounds];
@@ -122,6 +142,7 @@
     ProgressViewController *progressViewController = [[ProgressViewController alloc] init];
     [progressViewController createView];
     ParticipantsViewController *participantsViewController = [[ParticipantsViewController alloc] init];
+	[participantsViewController createView];
     // Add ViewControllers to dictionary
     [self.viewControllersDictionary setObject:neighborhoodViewController forKey:@"neighborhoodViewController"];
     [self.viewControllersDictionary setObject:mediaViewController forKey:@"mediaViewController"];
@@ -159,12 +180,16 @@
     
     currentHeight += progressViewController.progressView.frame.size.height;
     
-    [self.scrollView addSubview:participantsViewController.view];
-    participantsViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, participantsViewController.view.frame.size.height);
+    [self.scrollView addSubview:participantsViewController.participantsView];
+    participantsViewController.participantsView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, participantsViewController.participantsView.frame.size.height);
     
     // Calculate scrollView size
+<<<<<<< HEAD
     NSInteger size = currentHeight + participantsViewController.view.frame.size.height;
     self.scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+=======
+    NSInteger size = currentHeight + participantsViewController.participantsView.frame.size.height;
+>>>>>>> FETCH_HEAD
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, size);
     // Add scrollview to view
     [self.view addSubview:self.scrollView];
