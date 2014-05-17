@@ -21,37 +21,45 @@
 
 - (void)drawView
 {
-    // Create facebook button
-    self.facebookAuthenticationButton = [[UIButton alloc] initWithFrame:CGRectMake(55, (self.frame.size.height - 450.0), 210, 40)];
+    CGFloat margin = 15;
+    CGFloat currentHeight = margin;
+    
+    self.facebookAuthenticationButton = [[UIButton alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
     self.facebookAuthenticationButton.backgroundColor = [UIColor lightGrayColor];
     self.facebookAuthenticationButton.layer.cornerRadius = 5.0;
     self.facebookAuthenticationButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     [self.facebookAuthenticationButton setTitle:@"Aanmelden via Facebook" forState:UIControlStateNormal];
     
-    self.orLabel = [[UILabel alloc] initWithFrame:CGRectMake(155, (self.frame.size.height - 380), 30, 30)];
+    currentHeight = currentHeight + self.facebookAuthenticationButton.frame.size.height + margin;
+    
+    self.orLabel = [[UILabel alloc] initWithFrame:CGRectMake(155, currentHeight, 30, 30)];
     self.orLabel.text = @"of";
     self.orLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.orLabel.font = [UIFont italicSystemFontOfSize:11];
     self.orLabel.textColor = [UIColor lightGrayColor];
     
-    self.emailTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, (self.frame.size.height - 320.0), 210, 40)];
+    currentHeight = currentHeight + self.orLabel.frame.size.height + margin;
+    
+    self.emailTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
     self.emailTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
     self.emailTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.emailTextField.layer.borderWidth = 0.5;
     self.emailTextField.layer.cornerRadius = 5.0;
     self.emailTextField.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.emailTextField.placeholder = @"E-mailadres";
-    //self.emailTextField.delegate = self;
     
-    self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, (self.frame.size.height - 270.0), 210, 40)];
+    currentHeight = currentHeight + self.emailTextField.frame.size.height + margin;
+    
+    self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
     self.passwordTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
     self.passwordTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.passwordTextField.layer.borderWidth = 0.5;
     self.passwordTextField.layer.cornerRadius = 5.0;
     self.passwordTextField.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.passwordTextField.placeholder = @"Wachtwoord";
-    //self.passwordTextField.delegate = self;
     self.passwordTextField.secureTextEntry = YES;
+    
+    currentHeight = currentHeight + self.passwordTextField.frame.size.height + margin;
     
     UIView *registerView = [[UIView alloc] initWithFrame:CGRectMake(0, (self.frame.size.height - 140), self.frame.size.width, 140)];
     registerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];

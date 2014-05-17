@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "MainViewController.h"
+//#import "MainViewController.h"
+#import "PagingViewController.h"
 
 @interface LoginViewController ()
 
@@ -104,8 +105,12 @@
 
 - (void)dispose
 {
-    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-        MainViewController* parent = (MainViewController*)self.parentViewController;
+//    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+//        MainViewController* parent = (MainViewController*)self.parentViewController;
+//        [parent removeLoginView];
+//    }
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController* parent = (PagingViewController*)self.parentViewController;
         [parent removeLoginView];
     }
 }

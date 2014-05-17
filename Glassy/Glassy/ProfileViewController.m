@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-#import "MainViewController.h"
+#import "PagingViewController.h"
 
 @interface ProfileViewController ()
 
@@ -89,7 +89,7 @@
     // Set profile image
     [self setProfileImage];
     // Create gestures
-    [self createGesture];
+    //[self createGesture];
 }
 
 #pragma mark - UITextField delegate methods
@@ -117,8 +117,8 @@
 
 - (void)dispose
 {
-    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-        MainViewController* parent = (MainViewController*)self.parentViewController;
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController *parent = (PagingViewController*)self.parentViewController;
         [parent removeProfileView];
     }
 }

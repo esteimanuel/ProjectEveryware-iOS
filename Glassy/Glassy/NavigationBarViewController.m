@@ -7,7 +7,7 @@
 //
 
 #import "NavigationBarViewController.h"
-#import "MainViewController.h"
+#import "PagingViewController.h"
 
 @interface NavigationBarViewController ()
 
@@ -98,16 +98,16 @@
 
 - (void)dropDownButtonClicked:(UIButton *)button
 {
-    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-        MainViewController* parent = (MainViewController*)self.parentViewController;
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController* parent = (PagingViewController*)self.parentViewController;
         [parent createDropDownMenuView];
     }
 }
 
 - (void)searchButtonClicked:(UIButton *)button
 {
-    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-        MainViewController* parent = (MainViewController*)self.parentViewController;
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController* parent = (PagingViewController*)self.parentViewController;
         [parent removeDropDownMenuView];
         [parent createSearchView];
     }

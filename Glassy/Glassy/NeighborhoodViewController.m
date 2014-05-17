@@ -43,12 +43,12 @@
 
 - (void)actionButtonClicked:(UIButton *)button
 {
-    // Check if MainViewController is parent
-    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-        // Cast parentViewController to MainViewController
-        MainViewController* parent = (MainViewController*)self.parentViewController;
-        [parent createLoginView];
-    }
+//    // Check if MainViewController is parent
+//    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+//        // Cast parentViewController to MainViewController
+//        MainViewController* parent = (MainViewController*)self.parentViewController;
+//        [parent createLoginView];
+//    }
 }
 
 - (void)didReceiveMemoryWarning

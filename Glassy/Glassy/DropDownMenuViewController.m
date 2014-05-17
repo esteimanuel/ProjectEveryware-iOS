@@ -7,7 +7,7 @@
 //
 
 #import "DropDownMenuViewController.h"
-#import "MainViewController.h"
+#import "PagingViewController.h"
 
 @interface DropDownMenuViewController ()
 
@@ -101,8 +101,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-        MainViewController* parent = (MainViewController*)self.parentViewController;
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController* parent = (PagingViewController*)self.parentViewController;
         NSString *selected = [self.menuOptionsArray objectAtIndex:indexPath.row];
         if ([selected  isEqual: @"Aanmelden"]) {
             [parent createLoginView];

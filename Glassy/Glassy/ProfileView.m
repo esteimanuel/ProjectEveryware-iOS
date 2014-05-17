@@ -90,6 +90,42 @@
     
     currentHeight = currentHeight + self.passwordTextField.frame.size.height + margin;
     
+
+    
+    //--------------------------------------------- BUDDY
+    
+    self.buddySwitch = [[UISwitch alloc] initWithFrame:CGRectMake(50, currentHeight - 5, 15, 10)];
+    self.buddySwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
+    self.buddyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, currentHeight, 150, 20)];
+    self.buddyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyLabel.font = [UIFont boldSystemFontOfSize:13];
+    self.buddyLabel.text = @"Ik ben een buddy";
+    self.buddyLabel.textColor = [UIColor darkGrayColor];
+    
+    currentHeight = currentHeight + self.buddyLabel.frame.size.height + margin;
+    
+    self.buddyPhone = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
+    self.buddyPhone.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.buddyPhone.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.buddyPhone.layer.borderWidth = 0.5;
+    self.buddyPhone.layer.cornerRadius = 5.0;
+    self.buddyPhone.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyPhone.placeholder = @"Alternatief telefoonnummer";
+    
+    currentHeight = currentHeight + self.buddyPhone.frame.size.height + margin;
+    
+    self.buddyEmail = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
+    self.buddyEmail.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.buddyEmail.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.buddyEmail.layer.borderWidth = 0.5;
+    self.buddyEmail.layer.cornerRadius = 5.0;
+    self.buddyEmail.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyEmail.placeholder = @"Alternatief e-mailadres";
+    
+    currentHeight = currentHeight + self.buddyEmail.frame.size.height + margin;
+    
+    //----------------------------------------------
+    
     self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
     self.saveButton.backgroundColor = [UIColor lightGrayColor];
     self.saveButton.layer.cornerRadius = 5.0;
@@ -98,8 +134,10 @@
     
     currentHeight = currentHeight + self.saveButton.frame.size.height + margin;
     
+    // Set frame size
+    self.frame = CGRectMake(0, 85, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     // Create scroll view
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, currentHeight)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
     // Add all views to scrollview
     [self.scrollView addSubview:self.profileImageView];
     [self.scrollView addSubview:self.firstNameTextField];
@@ -109,12 +147,15 @@
     [self.scrollView addSubview:self.emailTextField];
     [self.scrollView addSubview:self.passwordTextField];
     [self.scrollView addSubview:self.saveButton];
+    
+    [self.scrollView addSubview:self.buddySwitch];
+    [self.scrollView addSubview:self.buddyLabel];
+    [self.scrollView addSubview:self.buddyEmail];
+    [self.scrollView addSubview:self.buddyPhone];
     // Set content size
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, currentHeight);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 880);
     self.scrollView.scrollEnabled = YES;
     self.scrollView.backgroundColor = [UIColor whiteColor];
-    // Set frame size
-    self.frame = CGRectMake(0, 85, [[UIScreen mainScreen] bounds].size.width, self.scrollView.frame.size.height);
     // Add scrollview to view
     [self addSubview:self.scrollView];
 }

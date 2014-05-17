@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B7F88191F895700FB07EC /* ProfileViewController.m */; };
+		19432E671922531E00F26EEF /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19432E661922531E00F26EEF /* PagingViewController.m */; };
 		194B8FE918FE948C00EA3966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FE818FE948C00EA3966 /* Foundation.framework */; };
 		194B8FEB18FE948C00EA3966 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FEA18FE948C00EA3966 /* CoreGraphics.framework */; };
 		194B8FED18FE948C00EA3966 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FEC18FE948C00EA3966 /* UIKit.framework */; };
@@ -95,6 +96,8 @@
 /* Begin PBXFileReference section */
 		190B7F87191F895700FB07EC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		190B7F88191F895700FB07EC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		19432E651922531E00F26EEF /* PagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingViewController.h; sourceTree = "<group>"; };
+		19432E661922531E00F26EEF /* PagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewController.m; sourceTree = "<group>"; };
 		194B8FE518FE948C00EA3966 /* Glassy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glassy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		194B8FE818FE948C00EA3966 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		194B8FEA18FE948C00EA3966 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -301,6 +304,8 @@
 				19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */,
 				190B7F87191F895700FB07EC /* ProfileViewController.h */,
 				190B7F88191F895700FB07EC /* ProfileViewController.m */,
+				19432E651922531E00F26EEF /* PagingViewController.h */,
+				19432E661922531E00F26EEF /* PagingViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
 				19E8FB65192110730030CB7D /* ProgressView.m in Sources */,
+				19432E671922531E00F26EEF /* PagingViewController.m in Sources */,
 				19E8FB5F192108610030CB7D /* MapView.m in Sources */,
 				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,

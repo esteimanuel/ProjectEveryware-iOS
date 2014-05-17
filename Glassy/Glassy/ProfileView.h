@@ -21,4 +21,9 @@
 @property (nonatomic, strong) UITextField *passwordTextField;
 @property (nonatomic, strong) UIButton *saveButton;
 
+@property (nonatomic, strong) UISwitch *buddySwitch;
+@property (nonatomic, strong) UILabel *buddyLabel;
+@property (nonatomic, strong) UITextField *buddyEmail;
+@property (nonatomic, strong) UITextField *buddyPhone;
+
 @end
