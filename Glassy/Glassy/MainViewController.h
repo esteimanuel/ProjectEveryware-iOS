@@ -20,7 +20,7 @@
 // DetailViewControllers
 #import "CharityDetailViewController.h"
 
-@interface MainViewController : UIViewController <RestClientDelegate>
+@interface MainViewController : UIViewController <RestClientDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) Action *action;
 @property (nonatomic, strong) NSMutableDictionary *viewControllersDictionary;

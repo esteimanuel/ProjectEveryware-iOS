@@ -22,6 +22,12 @@
 
 
 @interface MainViewController ()
+{
+	UIImage *backgroundimage;
+	UIImage *blurredBackgroundImage;
+	Boolean *blurred;
+	float blurPoint;
+}
 
 @property (nonatomic, strong) RESTClient *restClient;
 
@@ -44,6 +50,7 @@
     if (self) {
         // Init scrollVIew
         self.scrollView = [[UIScrollView alloc] init];
+		[self.scrollView setDelegate:self];
         
         [self createScrollViewWithViewControllers];
         [self createScrollViewBackground];
@@ -64,16 +71,41 @@
 
 - (void)createScrollViewBackground
 {
+	blurred = NO;
+	blurPoint = [[UIScreen mainScreen] bounds].size.height / 8;
+	
     // Create background image
     UIImage *background = [self getPlaceholderImage];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [background drawInRect:self.view.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    GPUImageFilter *filter = [[GPUImageGaussianBlurFilter alloc]init];
-    UIImage *blurredImage = [filter imageByFilteringImage: image];
+    UIImage *bgimage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+	backgroundimage = bgimage;
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
+	// Create blurred background image
+	
+	// Create background image
+	GPUImageFilter *filter = [[GPUImageGaussianBlurFilter alloc]init];
+	UIImage *blurredImage = [filter imageByFilteringImage: bgimage];
+	UIGraphicsEndImageContext();
+	blurredBackgroundImage = blurredImage;
+	
+	// Set background image
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundimage];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (blurred && scrollView.contentOffset.y < blurPoint)
+    {
+		blurred = NO;
+		self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundimage];
+    }
+    else if (!blurred && scrollView.contentOffset.y > blurPoint)
+    {
+		blurred = YES;
+		self.view.backgroundColor = [UIColor colorWithPatternImage:blurredBackgroundImage];
+    }
 }
 
 // Placeholder image code - Start
