@@ -140,6 +140,19 @@
             [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
             if (image != (NSString *)[NSNull null]) [defaults setObject:image forKey:@"foto_link"];
             [defaults synchronize];
+            
+            Account *account = [[Account alloc] init];
+            //account.accountId = [accountDictionary objectForKey:@"account_id"];
+            account.email = [accountDictionary objectForKey:@"email"];
+            account.accountLevel = [accountDictionary objectForKey:@"accountlevel_id"];
+            account.image = [accountDictionary objectForKey:@"foto_link"];
+            NSDictionary *userDictionary = (NSDictionary *)[accountDictionary objectForKey:@"gebruiker"];
+            if (userDictionary != nil) {
+                if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+                    PagingViewController* parent = (PagingViewController*)self.parentViewController;
+                    [parent setAccountFields:userDictionary];
+                }
+            }
         } else {
             [self showAuthenticationError];
         }

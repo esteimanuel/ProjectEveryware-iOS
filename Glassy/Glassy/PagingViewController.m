@@ -30,6 +30,11 @@
     [super viewDidLoad];
     
     [self getAllActions];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults objectForKey:@"token"]) {
+        //[self getAccount:(int)[defaults objectForKey:@"account_id"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,6 +48,25 @@
     self.restClient = [[RESTClient alloc] init];
     self.restClient.delegate = self;
     [self.restClient GET:@"http://glassy-api.avans-project.nl/api/actie" withParameters:nil];
+}
+
+- (void)getAccount:(int)accountId
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"id", accountId, nil];
+    // Create REST client and send get request
+    self.restClient = [[RESTClient alloc] init];
+    self.restClient.delegate = self;
+    [self.restClient GET:@"http://glassy-api.avans-project.nl/api/gebruiker" withParameters:params];
+}
+
+- (void)setAccountFields:(NSDictionary *)fields
+{
+    self.account = [[Account alloc] init];
+    self.account.firstName = [fields objectForKey:@"voornaam"];
+    self.account.lastName = [fields objectForKey:@"achternaam"];
+    self.account.infix = [fields objectForKey:@"tussenvoegsel"];
+    self.account.phoneNumber = [fields objectForKey:@"telefoonnummer"];
+    self.account.dateOfBirth = [fields objectForKey:@"geboortedatum"];
 }
 
 #pragma mark - Initialization view controllers
@@ -120,8 +144,9 @@
     if (self.profileViewController == nil) {
         self.profileViewController = [[ProfileViewController alloc] init];
     }
-    [self.profileViewController createView];
     [self addChildViewController:self.profileViewController];
+    [self.profileViewController createView];
+    [self.profileViewController setUserFields];
     [self.view addSubview:self.profileViewController.profileView];
 }
 

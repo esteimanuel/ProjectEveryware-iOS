@@ -19,6 +19,8 @@
 
 @interface PagingViewController : UIViewController <RestClientDelegate>
 
+@property (nonatomic, strong) Account *account;
+
 @property (nonatomic, strong) NSMutableArray *actionsArray;
 @property (nonatomic, strong) NSMutableArray *mainViewControllers;
 
@@ -31,6 +33,8 @@
 @property (nonatomic, strong) LoginViewController *loginViewController;
 @property (nonatomic, strong) RegisterViewController *registerViewController;
 @property (nonatomic, strong) ProfileViewController *profileViewController;
+
+- (void)setAccountFields:(NSDictionary *)fields;
 
 - (void)createLoginView;
 - (void)removeLoginView;

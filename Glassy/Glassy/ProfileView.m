@@ -90,12 +90,9 @@
     
     currentHeight = currentHeight + self.passwordTextField.frame.size.height + margin;
     
-
-    
-    //--------------------------------------------- BUDDY
-    
     self.buddySwitch = [[UISwitch alloc] initWithFrame:CGRectMake(50, currentHeight - 5, 15, 10)];
     self.buddySwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
+    self.buddySwitch.on = YES;
     self.buddyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, currentHeight, 150, 20)];
     self.buddyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.buddyLabel.font = [UIFont boldSystemFontOfSize:13];
@@ -104,27 +101,7 @@
     
     currentHeight = currentHeight + self.buddyLabel.frame.size.height + margin;
     
-    self.buddyPhone = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
-    self.buddyPhone.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
-    self.buddyPhone.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.buddyPhone.layer.borderWidth = 0.5;
-    self.buddyPhone.layer.cornerRadius = 5.0;
-    self.buddyPhone.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.buddyPhone.placeholder = @"Alternatief telefoonnummer";
-    
-    currentHeight = currentHeight + self.buddyPhone.frame.size.height + margin;
-    
-    self.buddyEmail = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
-    self.buddyEmail.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
-    self.buddyEmail.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.buddyEmail.layer.borderWidth = 0.5;
-    self.buddyEmail.layer.cornerRadius = 5.0;
-    self.buddyEmail.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.buddyEmail.placeholder = @"Alternatief e-mailadres";
-    
-    currentHeight = currentHeight + self.buddyEmail.frame.size.height + margin;
-    
-    //----------------------------------------------
+    currentHeight = [self drawBuddyView:currentHeight withMargin:margin];
     
     self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
     self.saveButton.backgroundColor = [UIColor lightGrayColor];
@@ -150,14 +127,42 @@
     
     [self.scrollView addSubview:self.buddySwitch];
     [self.scrollView addSubview:self.buddyLabel];
-    [self.scrollView addSubview:self.buddyEmail];
-    [self.scrollView addSubview:self.buddyPhone];
+    [self.scrollView addSubview:self.buddyDetailsView];
     // Set content size
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 880);
     self.scrollView.scrollEnabled = YES;
     self.scrollView.backgroundColor = [UIColor whiteColor];
     // Add scrollview to view
     [self addSubview:self.scrollView];
+}
+
+- (int)drawBuddyView:(int)currentHeight withMargin:(int)margin
+{
+    int buttonHeight = 40;
+    
+    self.buddyDetailsView = [[UIView alloc] initWithFrame:CGRectMake(0, currentHeight, self.frame.size.width, buttonHeight * 2 + margin)];
+    
+    self.buddyPhone = [[UITextField alloc] initWithFrame:CGRectMake(55, 0, 210, 40)];
+    self.buddyPhone.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.buddyPhone.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.buddyPhone.layer.borderWidth = 0.5;
+    self.buddyPhone.layer.cornerRadius = 5.0;
+    self.buddyPhone.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyPhone.placeholder = @"Alternatief telefoonnummer";
+    
+    self.buddyEmail = [[UITextField alloc] initWithFrame:CGRectMake(55, self.buddyPhone.frame.size.height + margin, 210, 40)];
+    self.buddyEmail.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.buddyEmail.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.buddyEmail.layer.borderWidth = 0.5;
+    self.buddyEmail.layer.cornerRadius = 5.0;
+    self.buddyEmail.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyEmail.placeholder = @"Alternatief e-mailadres";
+    
+    [self.buddyDetailsView addSubview:self.buddyPhone];
+    [self.buddyDetailsView addSubview:self.buddyEmail];
+    
+    currentHeight = currentHeight + self.buddyDetailsView.frame.size.height + margin;
+    return currentHeight;
 }
 
 @end
