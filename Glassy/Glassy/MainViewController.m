@@ -79,7 +79,7 @@
 // Placeholder image code - Start
 - (UIImage *)getPlaceholderImage
 {
-	NSArray *urls = @[@"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg",@"http://storage4.album.bg/52f/adriana_lima_5.jpg_d70f4_29141858.jpg",@"http://2014download.com/images/2013/03/jessica-alba-awards-mtv.jpg",@"http://images4.fanpop.com/image/photos/16000000/adriana-victorias-secret-angels-16007539-760-1024.jpg",@"http://jasn.ru/upload/blogs/8916618fbf55b234adcfbb5f5e35dc75-orig.jpg"];
+	NSArray *urls = @[@"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg",@"http://storage4.album.bg/52f/adriana_lima_5.jpg_d70f4_29141858.jpg",@"http://2014download.com/images/2013/03/jessica-alba-awards-mtv.jpg",@"http://images4.fanpop.com/image/photos/16000000/adriana-victorias-secret-angels-16007539-760-1024.jpg",@"http://jasn.ru/upload/blogs/8916618fbf55b234adcfbb5f5e35dc75-orig.jpg", @"http://www.photonization.com/data/Images/Lingerie/67.jpg"];
     NSString *imageUrl = urls[[self getRandomNumberBetween:0 maxNumber:urls.count]];
     UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
 	return background;
