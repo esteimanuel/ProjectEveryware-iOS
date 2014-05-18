@@ -61,6 +61,8 @@
 		70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A56BED1911ED0B001CF588 /* libGPUImage.a */; };
 		70A56BFA19129808001CF588 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A56BF919129808001CF588 /* ScrollView.m */; };
 		70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */; };
+		70BB8BD31928B56A0006A4A1 /* FaqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BD21928B56A0006A4A1 /* FaqViewController.m */; };
+		70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BD71928B69B0006A4A1 /* FaqView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,10 @@
 		70A56BF919129808001CF588 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
 		70BB8BC91924EFE30006A4A1 /* ParticipantsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsView.h; sourceTree = "<group>"; };
 		70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsView.m; sourceTree = "<group>"; };
+		70BB8BD11928B56A0006A4A1 /* FaqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqViewController.h; sourceTree = "<group>"; };
+		70BB8BD21928B56A0006A4A1 /* FaqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqViewController.m; sourceTree = "<group>"; };
+		70BB8BD61928B69B0006A4A1 /* FaqView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqView.h; sourceTree = "<group>"; };
+		70BB8BD71928B69B0006A4A1 /* FaqView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +342,8 @@
 				19E8FB67192113E10030CB7D /* ProfileView.m */,
 				70BB8BC91924EFE30006A4A1 /* ParticipantsView.h */,
 				70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */,
+				70BB8BD61928B69B0006A4A1 /* FaqView.h */,
+				70BB8BD71928B69B0006A4A1 /* FaqView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -375,6 +383,8 @@
 				1992D408190135D900733C9F /* ProgressViewController.m */,
 				1992D40A190135FB00733C9F /* ParticipantsViewController.h */,
 				1992D40B190135FB00733C9F /* ParticipantsViewController.m */,
+				70BB8BD11928B56A0006A4A1 /* FaqViewController.h */,
+				70BB8BD21928B56A0006A4A1 /* FaqViewController.m */,
 			);
 			name = WidgetViewControllers;
 			sourceTree = "<group>";
@@ -552,6 +562,7 @@
 				19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */,
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
+				70BB8BD31928B56A0006A4A1 /* FaqViewController.m in Sources */,
 				19E8FB65192110730030CB7D /* ProgressView.m in Sources */,
 				19432E671922531E00F26EEF /* PagingViewController.m in Sources */,
 				19E8FB5F192108610030CB7D /* MapView.m in Sources */,
@@ -571,6 +582,7 @@
 				19E8FB6219210D0B0030CB7D /* CharityView.m in Sources */,
 				19E8FB511920F9070030CB7D /* LoginView.m in Sources */,
 				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
+				70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
 				19E8FB68192113E10030CB7D /* ProfileView.m in Sources */,
 				19E8FB5C192104120030CB7D /* MediaView.m in Sources */,

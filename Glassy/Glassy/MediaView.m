@@ -8,7 +8,11 @@
 
 #import "MediaView.h"
 
-@implementation MediaView
+@implementation MediaView {
+	CGFloat currentHeight;
+	CGFloat frameWidth;
+	CGFloat margin;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -21,9 +25,10 @@
 
 - (void)drawView
 {
-    CGFloat currentHeight = 0;
-    CGFloat margin = 5;
-    CGFloat frameWidth = [[UIScreen mainScreen] bounds].size.width;
+	// Initialize variables
+    currentHeight = 0;
+	margin = 5;
+    frameWidth = [[UIScreen mainScreen] bounds].size.width;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];

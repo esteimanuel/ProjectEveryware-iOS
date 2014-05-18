@@ -179,6 +179,7 @@
     [self.scrollView setPagingEnabled:YES];
     [self.scrollView setDirectionalLockEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width * count,  1)];
+	[self.scrollView setBackgroundColor: [UIColor blackColor]];
     [self.view addSubview:self.scrollView];
 
     

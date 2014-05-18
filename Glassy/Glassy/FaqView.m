@@ -1,14 +1,14 @@
 //
-//  CharityView.m
+//  FaqView.m
 //  Glassy
 //
-//  Created by Niek Willems on 12/05/14.
+//  Created by Este Tigele on 18/05/14.
 //  Copyright (c) 2014 InnoYou. All rights reserved.
 //
 
-#import "CharityView.h"
+#import "FaqView.h"
 
-@implementation CharityView {
+@implementation FaqView {
 	float currentHeight;
 	float frameWidth;
 	float margin;
@@ -31,13 +31,12 @@
 {
 	// Initialize variables
     currentHeight = 0;
-    margin = 5;
+	margin = 5;
     frameWidth = [[UIScreen mainScreen] bounds].size.width;
 	lineHeight = 24;
-	numberOfLines = 2;
+	numberOfLines = 3;
 	containerHeight = lineHeight * numberOfLines + margin * 4;
 	containerWidth = frameWidth - margin * 2;
-
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
@@ -45,37 +44,29 @@
     // Draw header
     [self drawHeader];
     
-    currentHeight += self.header.frame.size.height + margin;
-    
-	// Draw container
-	[self drawContainer];
-    
-    currentHeight += containerHeight + margin;
+    currentHeight += self.titleLabel.frame.size.height + margin;
+	
+    // Draw container
+    [self drawContainer];
+	
+	currentHeight += self.container.frame.size.height + margin;
 	
 	// Add content
 	[self addContent];
 	
 	currentHeight += margin * 3;
-    
-    // Create frame
-    self.frame = CGRectMake(0, 0, frameWidth, currentHeight);
+	
+	// Create frame
+	self.frame = CGRectMake(0, 0, self.frame.size.width, currentHeight);
 }
 
 - (void)drawHeader
 {
-	// Create header
-	self.header = [[UIView alloc]initWithFrame:CGRectMake(margin, 0, frameWidth, lineHeight)];
-	self.header.backgroundColor = [UIColor clearColor];
-	
-    // Set title label
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:self.header.bounds];
-    titleLabel.text = @"Goede doel";
-    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
-    titleLabel.textColor = [UIColor whiteColor];
-    [self.header addSubview:titleLabel];
-	
-	// Add header
-	[self addSubview:self.header];
+	self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, lineHeight)];
+    self.titleLabel.text = @"Veel gestelde vragen";
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    [self addSubview:self.titleLabel];
 }
 
 - (void)drawContainer
@@ -89,13 +80,13 @@
 
 - (void)addContent
 {
-	// Create contentview
+	// Create content
 	self.content = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
 	self.content.backgroundColor = [UIColor clearColor];
 	
 	// Create textview
-    UITextView *textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
-    textview.text = @"Gratis telefoon, tv, internet en wifi voor Basisschool Antonius 3%";
+	UITextView *textview = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+	textview.text = [self getFaq];
     textview.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     textview.textColor = [UIColor whiteColor];
 	textview.backgroundColor = [UIColor clearColor];
@@ -106,5 +97,20 @@
 	// Add content to container
 	[self.container addSubview:self.content];
 }
+
+- (NSString *)getFaq
+{
+	NSString *faq = @"- Wat is Glassy?\n- Wat is glasvezel?\n- Waarom zou je glasvezel willen?";
+	return faq;
+}
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
+{
+    // Drawing code
+}
+*/
 
 @end

@@ -28,7 +28,10 @@
     //	[self.neighborhoodTitleLabel setText:@"Martijn's glasvezel buurt"];
     [self.neighborhoodTitleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
     [self.neighborhoodTitleLabel setTextColor:[UIColor whiteColor]];
-    
+	self.neighborhoodTitleLabel.layer.shadowColor = (__bridge CGColorRef)([UIColor blackColor]);
+	self.neighborhoodTitleLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+	self.neighborhoodTitleLabel.layer.shadowRadius = 2.0;
+	self.neighborhoodTitleLabel.layer.shadowOpacity = 1.0;
     [self addSubview:self.neighborhoodTitleLabel];
     
     // Create participants number

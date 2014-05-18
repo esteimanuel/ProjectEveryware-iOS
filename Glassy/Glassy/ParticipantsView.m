@@ -7,11 +7,13 @@
 //
 
 #import "ParticipantsView.h"
-float currentHeight = 0;
-float margin = 5;
-int numberOfColumns = 6;
 
-@implementation ParticipantsView
+@implementation ParticipantsView {
+	float currentHeight;
+	float frameWidth;
+	float margin;
+	int numberOfColumns;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -24,7 +26,10 @@ int numberOfColumns = 6;
 
 - (void)drawView
 {
-	float frameWidth = [[UIScreen mainScreen] bounds].size.width;
+	currentHeight = 0;
+	margin = 5;
+	frameWidth = [[UIScreen mainScreen] bounds].size.width;
+	numberOfColumns = 6;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
@@ -57,7 +62,6 @@ int numberOfColumns = 6;
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(margin, currentHeight, frameWidth - margin * 2, 1)];
     separator.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
     [self addSubview:separator];
-	
 	currentHeight += separator.frame.size.height;
     
     // Create participants grid
@@ -74,7 +78,7 @@ int numberOfColumns = 6;
 
 - (void)createParticipantsGrid
 {
-    float frameWidth = [[UIScreen mainScreen] bounds].size.width;
+    frameWidth = [[UIScreen mainScreen] bounds].size.width;
     float gridWidth = frameWidth - margin * 2;
     float cellSize = gridWidth / numberOfColumns;
     
@@ -87,6 +91,7 @@ int numberOfColumns = 6;
     int numberOfEmptyCells = remainder > 0 ? numberOfColumns - remainder : 0;
     
     for (int row = 0 ; row < numberOfRows ; row++) {
+		// Start drawing from the left
         float xpos = margin;
         for (int col = 0; col < numberOfColumns ; col++) {
             // Add empty cells
@@ -95,17 +100,21 @@ int numberOfColumns = 6;
                 col = numberOfEmptyCells;
                 numberOfEmptyCells = 0;
             }
-			
+			// Add participant tile to grid
             [self addSubview:[self createTile:&xpos withCellSize:&cellSize]];
+			// Start new column
 			xpos += cellSize;
         }
+		// Start new row
         currentHeight += cellSize;
     }
+	// Add bottom margin
+	currentHeight += margin * 4;
 }
 
 - (void)addParticipants
 {
-    // http://data3.whicdn.com/images/1263185/original.jpg
+    // TODO add participants
 }
 
 
@@ -121,14 +130,25 @@ int numberOfColumns = 6;
 - (UIImage *)getImage:(float)size withFrame:(CGRect)frame
 {
     // Create background image
-    NSArray *urls = @[@"http://data3.whicdn.com/images/1263185/original.jpg", @"http://1.bp.blogspot.com/-KTNcZKXAsUY/ToGvuEV9smI/AAAAAAAAHnU/nAhs3lG4kPA/s640/kc4.jpg"];
-    NSString *imageUrl = urls[1];
-    UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+    UIImage *background = [self getPlaceholderImage]; // TODO get participants image
 	UIGraphicsBeginImageContext(CGSizeMake(size, size));
     [background drawInRect:frame];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 	return image;
+}
+
+- (UIImage *)getPlaceholderImage
+{
+	NSArray *urls = @[@"https://pbs.twimg.com/profile_images/3341129562/a14b1b2d2719b9a8a2e0d643a0c479a4.jpeg", @"http://1.bp.blogspot.com/-KTNcZKXAsUY/ToGvuEV9smI/AAAAAAAAHnU/nAhs3lG4kPA/s640/kc4.jpg",@"http://wallpaperscraft.com/image/kristin_kreuk_brunette_look_model_smile_black_and_white_48248_256x256.jpg?orig=1",@"http://wallpaperscraft.com/image/doutzen_kroes_victorias_secret_angels_blond_hair_eyes_lips_girl_beauty_person_model_nose_finger_hand_31121_256x256.jpg?orig=1",@"http://1.gravatar.com/avatar/45c82fef8276358132876b49cd8282b6?s=128&d=identicon&r=G"];
+    NSString *imageUrl = urls[[self getRandomNumberBetween:0 maxNumber:urls.count]];
+    UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+	return background;
+}
+
+- (NSInteger)getRandomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
+{
+    return min + arc4random() % (max - min);
 }
 
 /*
