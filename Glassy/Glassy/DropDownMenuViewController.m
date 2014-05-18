@@ -34,7 +34,7 @@
     // Disable scrolling
     self.tableView.scrollEnabled = NO;
     // Initialize menu options array
-    self.loggedInMenuOptions = [[NSArray alloc] initWithObjects:@"Mijn wijk", @"Profiel", @"Instellingen", @"Buddysysteem", @"Uitloggen", nil];
+    self.loggedInMenuOptions = [[NSArray alloc] initWithObjects:@"Mijn wijk", @"Profiel", @"Instellingen", @"Uitloggen", nil];
     self.loggedOutMenuOptions = [[NSArray alloc] initWithObjects:@"Aanmelden", @"Registreren", nil];
     self.menuOptionsArray = [[NSMutableArray alloc] init];
     [self setMenuOptionsArray];

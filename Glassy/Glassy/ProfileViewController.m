@@ -49,29 +49,48 @@
     }
 }
 
-- (void)save
+- (void)setUserFields
 {
-    // Create dictionary with parameters
-    NSMutableDictionary *params = [self createDictionaryWithParameters];
-    // Create REST client and send get request
-    self.restClient = [[RESTClient alloc] init];
-    self.restClient.delegate = self;
-    [self.restClient PUT:@"http://glassy-api.avans-project.nl/api/user" withParameters:params];
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController* parent = (PagingViewController*)self.parentViewController;
+        if (parent.account != nil) {
+            self.profileView.emailTextField.text = parent.account.email;
+            self.profileView.firstNameTextField.text = parent.account.firstName;
+            self.profileView.lastNameTextField.text = parent.account.lastName;
+            //self.profileView.postcodeTextField.text = parent.account.firstName;
+            //self.profileView.houseNumberTextField.text = parent.account.firstName;
+        }
+    }
 }
 
-- (NSMutableDictionary *)createDictionaryWithParameters
-{
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    // Objects have to be added in this order
-    [params setObject:self.profileView.passwordTextField.text forKey:@"wachtwoord"];
-    [params setObject:[self.profileView.emailTextField.text lowercaseString] forKey:@"email"];
-    
-    return params;
-}
+//- (void)save
+//{
+//    // Create dictionary with parameters
+//    NSMutableDictionary *params = [self createDictionaryWithParameters];
+//    // Create REST client and send get request
+//    self.restClient = [[RESTClient alloc] init];
+//    self.restClient.delegate = self;
+//    [self.restClient PUT:@"http://glassy-api.avans-project.nl/api/user" withParameters:params];
+//}
+
+//- (NSMutableDictionary *)createDictionaryWithParameters
+//{
+//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+//    // Objects have to be added in this order
+//    [params setObject:self.profileView.passwordTextField.text forKey:@"wachtwoord"];
+//    [params setObject:[self.profileView.emailTextField.text lowercaseString] forKey:@"email"];
+//    
+//    return params;
+//}
 
 - (void)saveButtonPressed:(id)sender
 {
     //[self save];
+}
+
+- (void)toggleBuddyDetails:(id)sender
+{
+    
 }
 
 - (void)createView
@@ -86,6 +105,7 @@
     self.profileView.passwordTextField.delegate = self;
     // Set button action
     [self.profileView.saveButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    [self.profileView.buddySwitch addTarget:self action:@selector(toggleBuddyDetails:) forControlEvents:UIControlEventTouchDown];
     // Set profile image
     [self setProfileImage];
     // Create gestures

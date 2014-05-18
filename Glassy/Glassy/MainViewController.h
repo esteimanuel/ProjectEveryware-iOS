@@ -7,15 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "DropDownMenuViewController.h"
-//#import "NavigationBarViewController.h"
-//#import "SearchViewController.h"
-//#import "LoginViewController.h"
-//#import "RegisterViewController.h"
-//#import "ProfileViewController.h"
 #import "RESTClient.h"
 #import "ScrollView.h"
 #import "Action.h"
+#import "Account.h"
 
 // DetailViewControllers
 #import "CharityDetailViewController.h"
@@ -23,6 +18,7 @@
 @interface MainViewController : UIViewController <RestClientDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) Action *action;
+//@property (nonatomic, strong) Account *account;
 @property (nonatomic, strong) NSMutableDictionary *viewControllersDictionary;
 // DetailViewControllers
 @property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;

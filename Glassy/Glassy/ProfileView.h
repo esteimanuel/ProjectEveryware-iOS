@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) UISwitch *buddySwitch;
 @property (nonatomic, strong) UILabel *buddyLabel;
+
+@property (nonatomic, strong) UIView *buddyDetailsView;
 @property (nonatomic, strong) UITextField *buddyEmail;
 @property (nonatomic, strong) UITextField *buddyPhone;
 

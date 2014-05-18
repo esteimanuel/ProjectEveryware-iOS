@@ -13,6 +13,17 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *accountLevel;
 @property (nonatomic, strong) NSString *image;
-@property (nonatomic) NSInteger *id;
+@property (nonatomic) int accountId;
 
+@property (nonatomic) NSInteger *userId;
+@property (nonatomic, strong) NSString *deposit_paid;
+@property (nonatomic) NSInteger *houseNumber;
+@property (nonatomic) NSInteger *houseNumberAdd;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *infix;
+@property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *dateOfBirth;
+@property (nonatomic, strong) NSString *sharedInfo;
+@property (nonatomic) NSInteger *actionId;
 @end
