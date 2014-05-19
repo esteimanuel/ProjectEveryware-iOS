@@ -107,7 +107,7 @@
 
 #pragma mark - REST client delegate methods
 
-- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -130,7 +130,7 @@
     [self dispose];
 }
 
-- (void)restRequestFailed:(NSString *)failedMessage
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
     [self showAuthenticationError];
 }

@@ -26,15 +26,7 @@
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
-// ViewControllers
-@property (nonatomic, strong) DropDownMenuViewController *dropDownMenuViewController;
-@property (nonatomic, strong) SearchViewController *searchViewController;
-@property (nonatomic, strong) NavigationBarViewController *navigationBarViewController;
-@property (nonatomic, strong) LoginViewController *loginViewController;
-@property (nonatomic, strong) RegisterViewController *registerViewController;
-@property (nonatomic, strong) ProfileViewController *profileViewController;
-
-- (void)setAccountFields:(NSDictionary *)fields;
+- (void)setAccountByDictionary:(NSDictionary *)fields;
 
 - (void)createLoginView;
 - (void)removeLoginView;
@@ -47,5 +39,13 @@
 - (void)createSearchView;
 
 - (void)logout;
+
+// ViewControllers
+@property (nonatomic, strong) DropDownMenuViewController *dropDownMenuViewController;
+@property (nonatomic, strong) SearchViewController *searchViewController;
+@property (nonatomic, strong) NavigationBarViewController *navigationBarViewController;
+@property (nonatomic, strong) LoginViewController *loginViewController;
+@property (nonatomic, strong) RegisterViewController *registerViewController;
+@property (nonatomic, strong) ProfileViewController *profileViewController;
 
 @end

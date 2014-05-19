@@ -36,7 +36,6 @@
 
 - (void)GET:(NSString *)url withParameters:(NSMutableDictionary *)params
 {
-    NSLog(@"GET");
     NSMutableString *fullUrl = [[NSMutableString alloc] initWithString:url];
     // Concatenate the given URL
     if (params != nil) {
@@ -47,6 +46,8 @@
         [fullUrl deleteCharactersInRange:NSMakeRange([fullUrl length]-1, 1)];
     }
     NSMutableURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
+    
+    NSLog(@"GET=%@", fullUrl);
     // Start the connection
     [self startConnection:request];
 }
@@ -92,8 +93,8 @@
     self.connection = nil;
     self.buffer = nil;
     
-    if ([delegate respondsToSelector:@selector(restRequestFailed:)]) {
-        [delegate restRequestFailed:[error localizedDescription]];
+    if ([delegate respondsToSelector:@selector(restRequestFailed:withClient:)]) {
+        [delegate restRequestFailed:[error localizedDescription] withClient:self];
     }
 }
 
@@ -120,12 +121,13 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             // Check for any error
             if (!error) {
-                if ([delegate respondsToSelector:@selector(restRequestSucceeded:)]) {
-                    [delegate restRequestSucceeded:self.response];
+                NSLog(@"%@", [connection currentRequest]);
+                if ([delegate respondsToSelector:@selector(restRequestSucceeded:withClient:)]) {
+                    [delegate restRequestSucceeded:self.response withClient:self];
                 }
             } else {
-                if ([delegate respondsToSelector:@selector(restRequestFailed:)]) {
-                    [delegate restRequestFailed:@"Request failed"];
+                if ([delegate respondsToSelector:@selector(restRequestFailed:withClient:)]) {
+                    [delegate restRequestFailed:@"Request failed" withClient:self];
                 }
             }
             // Clear connection and buffer

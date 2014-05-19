@@ -10,7 +10,8 @@
 
 @interface PagingViewController ()
 
-@property (nonatomic, strong) RESTClient *restClient;
+@property (nonatomic, strong) RESTClient *restGetActions;
+@property (nonatomic, strong) RESTClient *restGetAccount;
 
 @end
 
@@ -33,7 +34,8 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults objectForKey:@"token"]) {
-        //[self getAccount:(int)[defaults objectForKey:@"account_id"]];
+        NSInteger accountId = [defaults integerForKey:@"gebruiker_id"];
+        [self getAccount:accountId];
     }
 }
 
@@ -45,28 +47,23 @@
 - (void)getAllActions
 {
     // Create REST client and send get request
-    self.restClient = [[RESTClient alloc] init];
-    self.restClient.delegate = self;
-    [self.restClient GET:@"http://glassy-api.avans-project.nl/api/actie" withParameters:nil];
+    self.restGetActions = [[RESTClient alloc] init];
+    self.restGetActions.delegate = self;
+    [self.restGetActions GET:@"http://glassy-api.avans-project.nl/api/actie" withParameters:nil];
 }
 
 - (void)getAccount:(int)accountId
 {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"id", accountId, nil];
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker?id=%d", accountId];
     // Create REST client and send get request
-    self.restClient = [[RESTClient alloc] init];
-    self.restClient.delegate = self;
-    [self.restClient GET:@"http://glassy-api.avans-project.nl/api/gebruiker" withParameters:params];
+    self.restGetAccount = [[RESTClient alloc] init];
+    self.restGetAccount.delegate = self;
+    [self.restGetAccount GET:url withParameters:nil];
 }
 
-- (void)setAccountFields:(NSDictionary *)fields
+- (void)setAccountByDictionary:(NSMutableDictionary *)fields
 {
-    self.account = [[Account alloc] init];
-    self.account.firstName = [fields objectForKey:@"voornaam"];
-    self.account.lastName = [fields objectForKey:@"achternaam"];
-    self.account.infix = [fields objectForKey:@"tussenvoegsel"];
-    self.account.phoneNumber = [fields objectForKey:@"telefoonnummer"];
-    self.account.dateOfBirth = [fields objectForKey:@"geboortedatum"];
+    self.account = [[Account alloc] initWithDictionary:fields];
 }
 
 #pragma mark - Initialization view controllers
@@ -228,50 +225,52 @@
 
 #pragma mark - REST client delegate methods
 
-- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-    self.actionsArray = [[NSMutableArray alloc] init];
-    self.mainViewControllers = [[NSMutableArray alloc] init];
-    
-    for (id key in responseDictionary) {
-        NSDictionary *actionDictionary = (NSDictionary *)key;
+    if (client == self.restGetActions) {
+        self.actionsArray = [[NSMutableArray alloc] init];
+        self.mainViewControllers = [[NSMutableArray alloc] init];
         
-        Action *action = [[Action alloc] init];
-        action.name = [actionDictionary objectForKey:@"naam"];
-        action.instigatorId = [actionDictionary objectForKey:@"initiatiefnemer_id"];
-        action.neighborhoodId = [actionDictionary objectForKey:@"wijk_id"];
-        action.date_end = [actionDictionary objectForKey:@"eind_datum"];
-        action.date_start = [actionDictionary objectForKey:@"start_datum"];
-        action.deposit = [actionDictionary objectForKey:@"borg"];
-        action.id = [actionDictionary objectForKey:@"actie_id"];
-        action.statusId = [actionDictionary objectForKey:@"status_id"];
-        [self.actionsArray addObject:action];
-    }
-    
-    for (int i = 0; i < self.actionsArray.count; i++) {
-        // Initialize new MainViewController
-        MainViewController *mainViewController = [[MainViewController alloc] init];
-        // Add MainViewController to child view controllers
-        [self addChildViewController:mainViewController];
-        [mainViewController didMoveToParentViewController:self];
-        // Add to array
-        [self.mainViewControllers addObject:mainViewController];
-        // Set MainViewController action
-        mainViewController.action = self.actionsArray[i];
-        [mainViewController setNeighborhood];
+        for (id key in responseDictionary) {
+            NSDictionary *actionDictionary = (NSDictionary *)key;
+            
+            Action *action = [[Action alloc] init];
+            action.name = [actionDictionary objectForKey:@"naam"];
+            action.instigatorId = [actionDictionary objectForKey:@"initiatiefnemer_id"];
+            action.neighborhoodId = [actionDictionary objectForKey:@"wijk_id"];
+            action.date_end = [actionDictionary objectForKey:@"eind_datum"];
+            action.date_start = [actionDictionary objectForKey:@"start_datum"];
+            action.deposit = [actionDictionary objectForKey:@"borg"];
+            action.id = [actionDictionary objectForKey:@"actie_id"];
+            action.statusId = [actionDictionary objectForKey:@"status_id"];
+            [self.actionsArray addObject:action];
+        }
         
-//        mainViewController.action = self.actionsArray[i];
-//        [[mainViewController.viewControllersDictionary objectForKey:@"neighborhoodViewController"]setNeighborhoodFields:[self.actionsArray objectAtIndex:0]];
+        for (int i = 0; i < self.actionsArray.count; i++) {
+            // Initialize new MainViewController
+            MainViewController *mainViewController = [[MainViewController alloc] init];
+            // Add MainViewController to child view controllers
+            [self addChildViewController:mainViewController];
+            [mainViewController didMoveToParentViewController:self];
+            // Add to array
+            [self.mainViewControllers addObject:mainViewController];
+            // Set MainViewController action
+            mainViewController.action = self.actionsArray[i];
+            [mainViewController setNeighborhood];
+            [mainViewController setProgress];
+        }
+        
+        [self createPagingScrollView];
+        // Add subviews
+        [self createDropDownMenuViewController];
+        [self createSearchViewController];
+        [self createNavigationBarViewController];
+    } else if (client == self.restGetAccount) {
+        [self setAccountByDictionary:responseDictionary];
     }
-    
-    [self createPagingScrollView];
-    // Add subviews
-    [self createDropDownMenuViewController];
-    [self createSearchViewController];
-    [self createNavigationBarViewController];
 }
 
-- (void)restRequestFailed:(NSString *)failedMessage
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
 
 }

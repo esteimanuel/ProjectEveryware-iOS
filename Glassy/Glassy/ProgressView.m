@@ -60,9 +60,9 @@
     mediaviewHeight += self.verzamelenLbl.frame.size.height + margin;
     currentHeight += self.verzamelenLbl.frame.size.height + margin;
     
-    self.inschrijvenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, progressbarSize, 24.0f)];
-    self.inschrijvenProgress.progress = 0.95f;
-    [self.mediaview addSubview:self.inschrijvenProgress];
+    self.verzamelenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, progressbarSize, 24.0f)];
+    self.verzamelenProgress.progress = 0.95f;
+    [self.mediaview addSubview:self.verzamelenProgress];
 
     mediaviewHeight += self.verzamelenProgress.frame.size.height + margin;
     currentHeight += self.verzamelenProgress.frame.size.height + margin;

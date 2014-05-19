@@ -26,6 +26,7 @@
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 - (void)setNeighborhood;
+- (void)setProgress;
 
 // DetailViewController methods
 - (void)createCharityDetailView;

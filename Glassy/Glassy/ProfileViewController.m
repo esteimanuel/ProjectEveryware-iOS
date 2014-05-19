@@ -55,10 +55,11 @@
         PagingViewController* parent = (PagingViewController*)self.parentViewController;
         if (parent.account != nil) {
             self.profileView.emailTextField.text = parent.account.email;
+            self.profileView.passwordTextField.text = @"wachtwoord";
             self.profileView.firstNameTextField.text = parent.account.firstName;
             self.profileView.lastNameTextField.text = parent.account.lastName;
             //self.profileView.postcodeTextField.text = parent.account.firstName;
-            //self.profileView.houseNumberTextField.text = parent.account.firstName;
+            //self.profileView.houseNumberTextField.text = parent.account.houseNumber;
         }
     }
 }
@@ -145,12 +146,12 @@
 
 #pragma mark - REST client delegate methods
 
-- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
     
 }
 
-- (void)restRequestFailed:(NSString *)failedMessage
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
 
 }

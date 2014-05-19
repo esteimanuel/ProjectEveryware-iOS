@@ -10,20 +10,24 @@
 
 @interface Account : NSObject
 
+- (id)initWithDictionary:(NSMutableDictionary *)fields;
+
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *accountLevel;
 @property (nonatomic, strong) NSString *image;
-@property (nonatomic) int accountId;
+//@property (nonatomic) int accountId;
 
-@property (nonatomic) NSInteger *userId;
+//@property (nonatomic) NSInteger *userId;
 @property (nonatomic, strong) NSString *deposit_paid;
-@property (nonatomic) NSInteger *houseNumber;
-@property (nonatomic) NSInteger *houseNumberAdd;
+@property (nonatomic, strong) NSString *houseNumber;
+@property (nonatomic, strong) NSString *houseNumberAdd;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *infix;
 @property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *dateOfBirth;
 @property (nonatomic, strong) NSString *sharedInfo;
-@property (nonatomic) NSInteger *actionId;
+@property (nonatomic, strong) NSString *postcodeId;
+@property (nonatomic, strong) NSString *actionId;
+@property (nonatomic, strong) NSString *packetId;
 @end

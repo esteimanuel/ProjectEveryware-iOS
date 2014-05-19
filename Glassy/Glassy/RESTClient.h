@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class RESTClient;
+
 @protocol RestClientDelegate
 
 @required
 
-- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary;
-- (void)restRequestFailed:(NSString *)failedMessage;
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client;
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client;
 
 @end
 

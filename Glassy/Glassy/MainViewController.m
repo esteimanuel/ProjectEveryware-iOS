@@ -172,6 +172,7 @@
     // Add ViewControllers to dictionary
     [self.viewControllersDictionary setObject:neighborhoodViewController forKey:@"neighborhoodViewController"];
     [self.viewControllersDictionary setObject:mediaViewController forKey:@"mediaViewController"];
+    [self.viewControllersDictionary setObject:progressViewController forKey:@"progressViewController"];
     // TODO: add viewcontrollers
     
     // Add ViewControllers to parent viewcontroller
@@ -231,15 +232,21 @@
     [neighborhoodViewController setNeighborhoodFields:self.action];
 }
 
+- (void)setProgress
+{
+    ProgressViewController *progressViewController = [self.viewControllersDictionary objectForKey:@"progressViewController"];
+    [progressViewController getProgress:[self.action.id intValue]];
+}
+
 #pragma mark - REST client delegate methods
 
-- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
 //    NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
 //    [neighborhoodViewController setNeighborhoodFields:[self.actionsArray objectAtIndex:0]];
 }
 
-- (void)restRequestFailed:(NSString *)failedMessage
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
 
 }

@@ -125,7 +125,7 @@
 
 #pragma mark - REST client delegate methods
 
-- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -136,7 +136,7 @@
         
         if (token != (NSString *)[NSNull null]) {
             [defaults setObject:token forKey:@"token"];
-            [defaults setObject:[accountDictionary objectForKey:@"email"] forKey:@"email"];
+            //[defaults setObject:[accountDictionary objectForKey:@"email"] forKey:@"email"];
             [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
             if (image != (NSString *)[NSNull null]) [defaults setObject:image forKey:@"foto_link"];
             [defaults synchronize];
@@ -146,11 +146,13 @@
             account.email = [accountDictionary objectForKey:@"email"];
             account.accountLevel = [accountDictionary objectForKey:@"accountlevel_id"];
             account.image = [accountDictionary objectForKey:@"foto_link"];
-            NSDictionary *userDictionary = (NSDictionary *)[accountDictionary objectForKey:@"gebruiker"];
+            NSMutableDictionary *userDictionary = (NSMutableDictionary *)[accountDictionary objectForKey:@"gebruiker"];
             if (userDictionary != nil) {
+                // Save user id to user defaults
+                [defaults setObject:[userDictionary objectForKey:@"gebruiker_id"] forKey:@"gebruiker_id"];
                 if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
                     PagingViewController* parent = (PagingViewController*)self.parentViewController;
-                    [parent setAccountFields:userDictionary];
+                    [parent setAccountByDictionary:userDictionary];
                 }
             }
         } else {
@@ -163,7 +165,7 @@
     }
 }
 
-- (void)restRequestFailed:(NSString *)failedMessage
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
     [self showAuthenticationError];
 }
