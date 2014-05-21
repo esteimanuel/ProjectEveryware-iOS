@@ -83,11 +83,8 @@
 	backgroundimage = bgimage;
     
 	// Create blurred background image
-	
-	// Create background image
 	GPUImageFilter *filter = [[GPUImageGaussianBlurFilter alloc]init];
-	UIImage *blurredImage = [filter imageByFilteringImage: bgimage];
-	UIGraphicsEndImageContext();
+	UIImage *blurredImage = [filter imageByFilteringImage:[filter imageByFilteringImage: bgimage]];
 	blurredBackgroundImage = blurredImage;
 	
 	// Set background image
@@ -216,12 +213,13 @@
     
     [self.scrollView addSubview:participantsViewController.participantsView];
     participantsViewController.participantsView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, participantsViewController.participantsView.frame.size.height);
+	
+    currentHeight += participantsViewController.participantsView.frame.size.height;
     
     // Set frame size
     self.scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 	
 	// Calculate scrollView content size
-    currentHeight += participantsViewController.participantsView.frame.size.height;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, currentHeight);
 	
     // Add scrollview to view

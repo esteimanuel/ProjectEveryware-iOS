@@ -29,7 +29,7 @@
 	currentHeight = 0;
 	margin = 5;
 	frameWidth = [[UIScreen mainScreen] bounds].size.width;
-	numberOfColumns = 6;
+	numberOfColumns = 5;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
@@ -83,7 +83,7 @@
     float cellSize = gridWidth / numberOfColumns;
     
     // Get number of participants
-    int participants = 25;
+    int participants = 26;
     
     int numberOfCells = participants;
     int remainder = numberOfCells % numberOfColumns;
