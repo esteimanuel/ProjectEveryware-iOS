@@ -84,16 +84,32 @@
 	self.content = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
 	self.content.backgroundColor = [UIColor clearColor];
 	
+    self.firstQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+    self.firstQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    self.firstQuestionLabel.textColor = [UIColor whiteColor];
+    
+    int contentHeight = self.firstQuestionLabel.frame.size.height;
+    
+    self.secondQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight)];
+    self.secondQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    self.secondQuestionLabel.textColor = [UIColor whiteColor];
+    
+    contentHeight = contentHeight + self.secondQuestionLabel.frame.size.height;
+    
+    self.thirdQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight)];
+    self.thirdQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    self.thirdQuestionLabel.textColor = [UIColor whiteColor];
 	// Create textview
-	UITextView *textview = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
-	textview.text = [self getFaq];
-    textview.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
-    textview.textColor = [UIColor whiteColor];
-	textview.backgroundColor = [UIColor clearColor];
+//	UITextView *textview = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+//	textview.text = [self getFaq];
+//    textview.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+//    textview.textColor = [UIColor whiteColor];
+//	textview.backgroundColor = [UIColor clearColor];
 	
 	// Add textview to content view
-	[self.content addSubview:textview];
-	
+	[self.content addSubview:self.firstQuestionLabel];
+	[self.content addSubview:self.secondQuestionLabel];
+    [self.content addSubview:self.thirdQuestionLabel];
 	// Add content to container
 	[self.container addSubview:self.content];
 }
