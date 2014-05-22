@@ -13,6 +13,8 @@
 	float frameWidth;
 	float margin;
 	int numberOfColumns;
+	NSArray *participants;
+    int numberOfParticipants;;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -62,16 +64,8 @@
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(margin, currentHeight, frameWidth - margin * 2, 1)];
     separator.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
     [self addSubview:separator];
-	currentHeight += separator.frame.size.height;
-    
-    // Create participants grid
-    [self createParticipantsGrid];
-    
-    // Add participants to participants grid
-    //[self addParticipants];
-    
-    // Add grid to view
-    //[self.view addSubview:participantsGrid];
+	
+	currentHeight += 2;
 	
 	self.frame = CGRectMake(0, 0, frameWidth, currentHeight);
 }
@@ -82,10 +76,7 @@
     float gridWidth = frameWidth - margin * 2;
     float cellSize = gridWidth / numberOfColumns;
     
-    // Get number of participants
-    int participants = 26;
-    
-    int numberOfCells = participants;
+    int numberOfCells = numberOfParticipants;
     int remainder = numberOfCells % numberOfColumns;
     int numberOfRows = remainder > 0 ? (numberOfCells - remainder) / numberOfColumns + 1 : numberOfCells / numberOfColumns;
     int numberOfEmptyCells = remainder > 0 ? numberOfColumns - remainder : 0;
@@ -108,13 +99,22 @@
 		// Start new row
         currentHeight += cellSize;
     }
+	// Create participants grid
+	self.frame = CGRectMake(0, 0, frameWidth, currentHeight);
+	
 	// Add bottom margin
 	currentHeight += margin * 4;
 }
 
-- (void)addParticipants
+- (void)addParticipants:(NSArray*)participantsData
 {
-    // TODO add participants
+	participants = participantsData;
+    
+    // Get number of participants
+    numberOfParticipants = (int)[participants count] > 0 ? numberOfParticipants : 0;
+	
+    // Create participants grid
+    [self createParticipantsGrid];
 }
 
 

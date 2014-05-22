@@ -12,7 +12,9 @@
 
 @end
 
-@implementation ParticipantsViewController
+@implementation ParticipantsViewController {
+	NSArray *participants;
+}
 
 - (void)viewDidLoad
 {
@@ -23,6 +25,21 @@
 - (void)createView
 {
 	self.participantsView = [[ParticipantsView alloc]init];
+}
+
+- (void)retrieveParticipants
+{
+	// retrieve participants asynchronously
+	participants = [[NSArray alloc]initWithObjects:@"Chapter 1",@"Chapter 2",@"Chapter 3",@"Chapter 4",@"Chapter 5",nil];
+	
+	
+	// Add participants to view
+	[self.participantsView addParticipants:participants];
+}
+
+- (void)createPlaceholderParticipants
+{
+	
 }
 
 - (void)didReceiveMemoryWarning

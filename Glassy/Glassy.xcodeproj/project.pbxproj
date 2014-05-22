@@ -63,6 +63,7 @@
 		70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */; };
 		70BB8BD31928B56A0006A4A1 /* FaqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BD21928B56A0006A4A1 /* FaqViewController.m */; };
 		70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BD71928B69B0006A4A1 /* FaqView.m */; };
+		70BB8BDA1929D28B0006A4A1 /* userimageplaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +189,7 @@
 		70BB8BD21928B56A0006A4A1 /* FaqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqViewController.m; sourceTree = "<group>"; };
 		70BB8BD61928B69B0006A4A1 /* FaqView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqView.h; sourceTree = "<group>"; };
 		70BB8BD71928B69B0006A4A1 /* FaqView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqView.m; sourceTree = "<group>"; };
+		70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userimageplaceholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +406,7 @@
 				22026A771907CD2100EFF574 /* ios-auth-background.png */,
 				22026A821907CD2100EFF574 /* ios-nav-default-profile-image.png */,
 				22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */,
+				70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */,
 				22026A841907CD2100EFF574 /* ios-nav-search-button.png */,
 				22026A881907CD2100EFF574 /* ios-search.png */,
 				22026A7B1907CD2100EFF574 /* ios-charity.png */,
@@ -531,6 +534,7 @@
 				22026A8F1907CD2100EFF574 /* ios-auth-background.png in Resources */,
 				22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */,
 				22026A961907CD2100EFF574 /* ios-participants.png in Resources */,
+				70BB8BDA1929D28B0006A4A1 /* userimageplaceholder.png in Resources */,
 				22026A951907CD2100EFF574 /* ios-neighborhood.png in Resources */,
 				22026A941907CD2100EFF574 /* ios-media.png in Resources */,
 				22026A9F1907CD2100EFF574 /* ios-search.png in Resources */,

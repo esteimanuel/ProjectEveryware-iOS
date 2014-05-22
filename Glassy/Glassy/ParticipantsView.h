@@ -10,4 +10,6 @@
 
 @interface ParticipantsView : UIView
 
+- (void)addParticipants:(NSArray*)participants;
+
 @end
