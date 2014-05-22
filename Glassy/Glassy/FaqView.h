@@ -14,4 +14,8 @@
 @property (nonatomic, strong) UIView *container;
 @property (nonatomic, strong) UIView *content;
 
+@property (nonatomic, strong) UILabel *firstQuestionLabel;
+@property (nonatomic, strong) UILabel *secondQuestionLabel;
+@property (nonatomic, strong) UILabel *thirdQuestionLabel;
+
 @end

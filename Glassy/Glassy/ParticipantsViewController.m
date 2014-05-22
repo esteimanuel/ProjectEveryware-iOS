@@ -24,7 +24,7 @@
 
 - (void)createView
 {
-	self.participantsView = [[ParticipantsView alloc]init];
+	self.participantsView = [[ParticipantsView alloc] init];
 }
 
 - (void)retrieveParticipants

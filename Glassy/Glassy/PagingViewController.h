@@ -26,6 +26,8 @@
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
+@property (strong, nonatomic) UIActivityIndicatorView *loadingView;
+
 - (void)setAccountByDictionary:(NSDictionary *)fields;
 
 - (void)createLoginView;

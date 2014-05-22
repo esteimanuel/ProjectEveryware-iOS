@@ -11,6 +11,7 @@
 @interface PagingViewController ()
 
 @property (nonatomic, strong) RESTClient *restGetActions;
+@property (nonatomic, strong) RESTClient *restGetActionCount;
 @property (nonatomic, strong) RESTClient *restGetAccount;
 
 @end
@@ -21,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -29,19 +30,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Create loading view and start animating
+    self.loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.loadingView.center = self.view.center;
+    [self.loadingView startAnimating];
+    [self.view addSubview:self.loadingView];
     
-    [self getAllActions];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([defaults objectForKey:@"token"]) {
-        NSInteger accountId = [defaults integerForKey:@"gebruiker_id"];
-        [self getAccount:accountId];
-    }
+    [self getActionCount];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)getActionCount
+{
+    // Create REST client and send get request
+    self.restGetActionCount = [[RESTClient alloc] init];
+    self.restGetActionCount.delegate = self;
+    [self.restGetActionCount GET:@"http://glassy-api.avans-project.nl/api/actie?calc=count" withParameters:nil];
 }
 
 - (void)getAllActions
@@ -227,9 +235,33 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-    if (client == self.restGetActions) {
-        self.actionsArray = [[NSMutableArray alloc] init];
+    if (client == self.restGetActionCount) {
         self.mainViewControllers = [[NSMutableArray alloc] init];
+        
+        NSString *count = [responseDictionary objectForKey:@"result"];
+        for (int i = 0; i < [count intValue]; i++) {
+            // Initialize new MainViewController
+            MainViewController *mainViewController = [[MainViewController alloc] init];
+            // Add MainViewController to child view controllers
+            [self addChildViewController:mainViewController];
+            [mainViewController didMoveToParentViewController:self];
+            // Add to array
+            [self.mainViewControllers addObject:mainViewController];
+        }
+        [self createPagingScrollView];
+        [self createDropDownMenuViewController];
+        [self createSearchViewController];
+        [self createNavigationBarViewController];
+        
+        [self getAllActions];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if([defaults objectForKey:@"token"]) {
+            NSInteger accountId = [defaults integerForKey:@"gebruiker_id"];
+            [self getAccount:accountId];
+        }
+    } else if (client == self.restGetActions) {
+        self.actionsArray = [[NSMutableArray alloc] init];
         
         for (id key in responseDictionary) {
             NSDictionary *actionDictionary = (NSDictionary *)key;
@@ -248,25 +280,19 @@
         
         for (int i = 0; i < self.actionsArray.count; i++) {
             // Initialize new MainViewController
-            MainViewController *mainViewController = [[MainViewController alloc] init];
-            // Add MainViewController to child view controllers
-            [self addChildViewController:mainViewController];
-            [mainViewController didMoveToParentViewController:self];
-            // Add to array
-            [self.mainViewControllers addObject:mainViewController];
+            MainViewController *mainViewController = [self.mainViewControllers objectAtIndex:i];
             // Set MainViewController action
             mainViewController.action = self.actionsArray[i];
             [mainViewController setNeighborhood];
             [mainViewController setProgress];
+            [mainViewController setMapData];
+            [mainViewController setMediaData];
+            [mainViewController setFaqData];
         }
-        
-        [self createPagingScrollView];
-        // Add subviews
-        [self createDropDownMenuViewController];
-        [self createSearchViewController];
-        [self createNavigationBarViewController];
     } else if (client == self.restGetAccount) {
         [self setAccountByDictionary:responseDictionary];
+        // Stop animating loading view
+        [self.loadingView stopAnimating];
     }
 }
 

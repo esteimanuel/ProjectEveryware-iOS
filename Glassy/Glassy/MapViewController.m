@@ -38,7 +38,7 @@
 {
     self.mapView = [[MapView alloc] init];
     // Load request
-    [self loadRequest:@"http://glassy-web.avans-project.nl/?wijk=2"];
+    //[self loadRequest:@"http://glassy-web.avans-project.nl/?wijk=2"];
 }
 
 - (void)didReceiveMemoryWarning

@@ -163,13 +163,15 @@
     ProgressViewController *progressViewController = [[ProgressViewController alloc] init];
     [progressViewController createView];
     ParticipantsViewController *participantsViewController = [[ParticipantsViewController alloc] init];
-	[participantsViewController createView];
+	//[participantsViewController createView];
 	FaqViewController *faqViewController = [[FaqViewController alloc]init];
 	[faqViewController createView];
     // Add ViewControllers to dictionary
     [self.viewControllersDictionary setObject:neighborhoodViewController forKey:@"neighborhoodViewController"];
     [self.viewControllersDictionary setObject:mediaViewController forKey:@"mediaViewController"];
     [self.viewControllersDictionary setObject:progressViewController forKey:@"progressViewController"];
+    [self.viewControllersDictionary setObject:mapViewController forKey:@"mapViewController"];
+    [self.viewControllersDictionary setObject:faqViewController forKey:@"faqViewController"];
     // TODO: add viewcontrollers
     
     // Add ViewControllers to parent viewcontroller
@@ -234,6 +236,25 @@
 {
     ProgressViewController *progressViewController = [self.viewControllersDictionary objectForKey:@"progressViewController"];
     [progressViewController getProgress:[self.action.id intValue]];
+}
+
+- (void)setMapData
+{
+    MapViewController *mapViewController = [self.viewControllersDictionary objectForKey:@"mapViewController"];
+    NSString *url = [NSString stringWithFormat:@"http://glassy-web.avans-project.nl/?wijk=%d", [self.action.neighborhoodId intValue]];
+    [mapViewController loadRequest:url];
+}
+
+- (void)setMediaData
+{
+    MediaViewController *mediaViewController = [self.viewControllersDictionary objectForKey:@"mediaViewController"];
+    [mediaViewController loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
+}
+
+- (void)setFaqData
+{
+    FaqViewController *faqViewController = [self.viewControllersDictionary objectForKey:@"faqViewController"];
+    [faqViewController getFaq];
 }
 
 #pragma mark - REST client delegate methods

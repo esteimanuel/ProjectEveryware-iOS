@@ -27,6 +27,9 @@
 
 - (void)setNeighborhood;
 - (void)setProgress;
+- (void)setMapData;
+- (void)setMediaData;
+- (void)setFaqData;
 
 // DetailViewController methods
 - (void)createCharityDetailView;

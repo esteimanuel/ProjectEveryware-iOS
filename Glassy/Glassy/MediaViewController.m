@@ -30,7 +30,7 @@
 {
     self.mediaView = [[MediaView alloc] init];
     // Load request
-    [self loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
+    //[self loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
 }
 
 - (void)didReceiveMemoryWarning
