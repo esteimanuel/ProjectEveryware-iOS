@@ -64,6 +64,8 @@
 		70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */; };
 		70BB8BD31928B56A0006A4A1 /* FaqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BD21928B56A0006A4A1 /* FaqViewController.m */; };
 		70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BD71928B69B0006A4A1 /* FaqView.m */; };
+		70BB8BDA1929D28B0006A4A1 /* userimageplaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */; };
+		70BB8BDE192E1BC40006A4A1 /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BDD192E1BC40006A4A1 /* Buddy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,9 @@
 		70BB8BD21928B56A0006A4A1 /* FaqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqViewController.m; sourceTree = "<group>"; };
 		70BB8BD61928B69B0006A4A1 /* FaqView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqView.h; sourceTree = "<group>"; };
 		70BB8BD71928B69B0006A4A1 /* FaqView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqView.m; sourceTree = "<group>"; };
+		70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userimageplaceholder.png; sourceTree = "<group>"; };
+		70BB8BDC192E1BC40006A4A1 /* Buddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buddy.h; sourceTree = "<group>"; };
+		70BB8BDD192E1BC40006A4A1 /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,8 +372,13 @@
 				19DB4F75191247B9002184D3 /* Account.m */,
 				19DB4F7A19124B3D002184D3 /* Action.h */,
 				19DB4F7B19124B3D002184D3 /* Action.m */,
+<<<<<<< HEAD
 				1925A041192E85060089487E /* Charity.h */,
 				1925A042192E85060089487E /* Charity.m */,
+=======
+				70BB8BDC192E1BC40006A4A1 /* Buddy.h */,
+				70BB8BDD192E1BC40006A4A1 /* Buddy.m */,
+>>>>>>> FETCH_HEAD
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -409,6 +419,7 @@
 				22026A771907CD2100EFF574 /* ios-auth-background.png */,
 				22026A821907CD2100EFF574 /* ios-nav-default-profile-image.png */,
 				22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */,
+				70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */,
 				22026A841907CD2100EFF574 /* ios-nav-search-button.png */,
 				22026A881907CD2100EFF574 /* ios-search.png */,
 				22026A7B1907CD2100EFF574 /* ios-charity.png */,
@@ -536,6 +547,7 @@
 				22026A8F1907CD2100EFF574 /* ios-auth-background.png in Resources */,
 				22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */,
 				22026A961907CD2100EFF574 /* ios-participants.png in Resources */,
+				70BB8BDA1929D28B0006A4A1 /* userimageplaceholder.png in Resources */,
 				22026A951907CD2100EFF574 /* ios-neighborhood.png in Resources */,
 				22026A941907CD2100EFF574 /* ios-media.png in Resources */,
 				22026A9F1907CD2100EFF574 /* ios-search.png in Resources */,
@@ -566,6 +578,7 @@
 				19DB4F76191247B9002184D3 /* Account.m in Sources */,
 				19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */,
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
+				70BB8BDE192E1BC40006A4A1 /* Buddy.m in Sources */,
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
 				70BB8BD31928B56A0006A4A1 /* FaqViewController.m in Sources */,
 				19E8FB65192110730030CB7D /* ProgressView.m in Sources */,

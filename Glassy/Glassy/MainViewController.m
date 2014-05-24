@@ -25,7 +25,7 @@
 {
 	UIImage *backgroundimage;
 	UIImage *blurredBackgroundImage;
-	Boolean *blurred;
+	int blurred;
 	float blurPoint;
 }
 
@@ -80,7 +80,7 @@
 
 - (void)createScrollViewBackground
 {
-	blurred = NO;
+	blurred = 0;
 	blurPoint = [[UIScreen mainScreen] bounds].size.height / 8;
 	
     // Create background image
@@ -102,14 +102,14 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (blurred && scrollView.contentOffset.y < blurPoint)
+    if (blurred == 1 && scrollView.contentOffset.y < blurPoint)
     {
-		blurred = NO;
+		blurred = 0;
 		self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundimage];
     }
-    else if (!blurred && scrollView.contentOffset.y > blurPoint)
+    else if (blurred == 0 && scrollView.contentOffset.y > blurPoint)
     {
-		blurred = YES;
+		blurred = 1;
 		self.view.backgroundColor = [UIColor colorWithPatternImage:blurredBackgroundImage];
     }
 }
@@ -172,7 +172,7 @@
     ProgressViewController *progressViewController = [[ProgressViewController alloc] init];
     [progressViewController createView];
     ParticipantsViewController *participantsViewController = [[ParticipantsViewController alloc] init];
-	//[participantsViewController createView];
+	[participantsViewController createView];
 	FaqViewController *faqViewController = [[FaqViewController alloc]init];
 	[faqViewController createView];
     // Add ViewControllers to dictionary

@@ -13,6 +13,9 @@
 	float frameWidth;
 	float margin;
 	int numberOfColumns;
+	NSArray *participants;
+    int numberOfParticipants;
+	int participantsNumber;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -30,19 +33,20 @@
 	margin = 5;
 	frameWidth = [[UIScreen mainScreen] bounds].size.width;
 	numberOfColumns = 5;
+	participantsNumber = 0;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
     
     // Set participants number label
-    UILabel *participantsNumber = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, 60, 36.0f)];
-    participantsNumber.text = @"106";
-    participantsNumber.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
-    participantsNumber.textColor = [UIColor whiteColor];
-    [self addSubview:participantsNumber];
+    UILabel *participantsNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, 60, 36.0f)];
+    participantsNumberLabel.text = [NSString stringWithFormat:@"%d", participantsNumber];
+    participantsNumberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
+    participantsNumberLabel.textColor = [UIColor whiteColor];
+    [self addSubview:participantsNumberLabel];
     
     // Set participants text label
-    UILabel *participantsText = [[UILabel alloc] initWithFrame:CGRectMake(margin + participantsNumber.frame.size.width, margin * 2, 150, 24.0f)];
+    UILabel *participantsText = [[UILabel alloc] initWithFrame:CGRectMake(margin + participantsNumberLabel.frame.size.width, margin * 2, 150, 24.0f)];
     participantsText.text = @"deelnemers";
     participantsText.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0f];
     participantsText.textColor = [UIColor whiteColor];
@@ -56,22 +60,14 @@
     participantsPercentage.textColor = [UIColor whiteColor];
     [self addSubview:participantsPercentage];
     
-    currentHeight += participantsNumber.frame.size.height;
+    currentHeight += participantsNumberLabel.frame.size.height;
     
     // Create separator
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(margin, currentHeight, frameWidth - margin * 2, 1)];
     separator.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
     [self addSubview:separator];
-	currentHeight += separator.frame.size.height;
-    
-    // Create participants grid
-    [self createParticipantsGrid];
-    
-    // Add participants to participants grid
-    //[self addParticipants];
-    
-    // Add grid to view
-    //[self.view addSubview:participantsGrid];
+	
+	currentHeight += 2;
 	
 	self.frame = CGRectMake(0, 0, frameWidth, currentHeight);
 }
@@ -82,10 +78,7 @@
     float gridWidth = frameWidth - margin * 2;
     float cellSize = gridWidth / numberOfColumns;
     
-    // Get number of participants
-    int participants = 26;
-    
-    int numberOfCells = participants;
+    int numberOfCells = numberOfParticipants;
     int remainder = numberOfCells % numberOfColumns;
     int numberOfRows = remainder > 0 ? (numberOfCells - remainder) / numberOfColumns + 1 : numberOfCells / numberOfColumns;
     int numberOfEmptyCells = remainder > 0 ? numberOfColumns - remainder : 0;
@@ -108,13 +101,25 @@
 		// Start new row
         currentHeight += cellSize;
     }
+	// Create participants grid
+	self.frame = CGRectMake(0, 0, frameWidth, currentHeight);
+	
 	// Add bottom margin
 	currentHeight += margin * 4;
 }
 
-- (void)addParticipants
+- (void)addParticipants:(NSArray*)participantsData
 {
-    // TODO add participants
+	participants = participantsData;
+    
+    // Get number of participants
+    numberOfParticipants = (int)[participants count] > 0 ? numberOfParticipants : 0;
+	
+	// Set participants number label
+	[self setParticipantsNumber:numberOfParticipants];
+	
+    // Create participants grid
+    [self createParticipantsGrid];
 }
 
 
@@ -138,6 +143,10 @@
 	return image;
 }
 
+- (void)setParticipantsNumber:(int)number
+{
+	self.participantsNumber = number;
+}
 - (UIImage *)getPlaceholderImage
 {
 	NSArray *urls = @[@"https://pbs.twimg.com/profile_images/3341129562/a14b1b2d2719b9a8a2e0d643a0c479a4.jpeg", @"http://1.bp.blogspot.com/-KTNcZKXAsUY/ToGvuEV9smI/AAAAAAAAHnU/nAhs3lG4kPA/s640/kc4.jpg",@"http://wallpaperscraft.com/image/kristin_kreuk_brunette_look_model_smile_black_and_white_48248_256x256.jpg?orig=1",@"http://wallpaperscraft.com/image/doutzen_kroes_victorias_secret_angels_blond_hair_eyes_lips_girl_beauty_person_model_nose_finger_hand_31121_256x256.jpg?orig=1",@"http://1.gravatar.com/avatar/45c82fef8276358132876b49cd8282b6?s=128&d=identicon&r=G"];
