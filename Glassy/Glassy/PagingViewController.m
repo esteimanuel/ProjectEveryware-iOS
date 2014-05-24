@@ -44,6 +44,13 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)setAccountByDictionary:(NSMutableDictionary *)fields
+{
+    self.account = [[Account alloc] initWithDictionary:fields];
+}
+
+#pragma mark - REST API calls
+
 - (void)getActionCount
 {
     // Create REST client and send get request
@@ -67,11 +74,6 @@
     self.restGetAccount = [[RESTClient alloc] init];
     self.restGetAccount.delegate = self;
     [self.restGetAccount GET:url withParameters:nil];
-}
-
-- (void)setAccountByDictionary:(NSMutableDictionary *)fields
-{
-    self.account = [[Account alloc] initWithDictionary:fields];
 }
 
 #pragma mark - Initialization view controllers
@@ -105,14 +107,15 @@
         self.registerViewController = [[RegisterViewController alloc] init];
     }
     [self.registerViewController createView];
-    [self addChildViewController:self.registerViewController];
-    [self.view addSubview:self.registerViewController.registerView];
+//    [self addChildViewController:self.registerViewController];
+//    [self.view addSubview:self.registerViewController.registerView];
+    [self handleActiveViewController:self.registerViewController];
 }
 
 - (void)removeRegisterView
 {
-    [self.registerViewController.registerView removeFromSuperview];
-    [self.registerViewController removeFromParentViewController];
+    // Reset active viewcontroller
+    [self handleActiveViewController:nil];
     // Reset menu options after login
     [self removeDropDownMenuView];
     [self.dropDownMenuViewController setMenuOptionsArray];
@@ -127,21 +130,21 @@
         self.loginViewController = [[LoginViewController alloc] init];
     }
     [self.loginViewController createView];
-    [self addChildViewController:self.loginViewController];
-    [self.view addSubview:self.loginViewController.loginView];
+    //[self addChildViewController:self.loginViewController];
+    //[self.view addSubview:self.loginViewController.view];
+    [self handleActiveViewController:self.loginViewController];
 }
 
 - (void)removeLoginView
 {
-    [self.loginViewController.loginView removeFromSuperview];
-    [self.loginViewController removeFromParentViewController];
+    // Reset active viewcontroller
+    [self handleActiveViewController:nil];
     // Reset menu options after login
     [self removeDropDownMenuView];
     [self.dropDownMenuViewController setMenuOptionsArray];
     // Set navigation bar details
     [self.navigationBarViewController setProfileName];
     [self.navigationBarViewController setProfileImage];
-    
 }
 
 - (void)createProfileView
@@ -149,16 +152,14 @@
     if (self.profileViewController == nil) {
         self.profileViewController = [[ProfileViewController alloc] init];
     }
-    [self addChildViewController:self.profileViewController];
     [self.profileViewController createView];
     [self.profileViewController setUserFields];
-    [self.view addSubview:self.profileViewController.profileView];
+    [self handleActiveViewController:self.profileViewController];
 }
 
 - (void)removeProfileView
 {
-    [self.profileViewController.profileView removeFromSuperview];
-    [self.profileViewController removeFromParentViewController];
+    [self handleActiveViewController:nil];
 }
 
 - (void)createDropDownMenuView
@@ -200,6 +201,21 @@
     [self.navigationBarViewController setProfileImage];
 }
 
+- (void)handleActiveViewController:(UIViewController *)viewController
+{
+    if (viewController == nil) {
+        [self.activeViewController.view removeFromSuperview];
+        [self.activeViewController removeFromParentViewController];
+        self.activeViewController = nil;
+    } else {
+        self.activeViewController = viewController;
+        [self addChildViewController:self.activeViewController];
+        [self.view addSubview:self.activeViewController.view];
+    }
+}
+
+#pragma mark - Paging scrollview initialization
+
 - (void)createPagingScrollView
 {
     int count = self.mainViewControllers.count;
@@ -237,14 +253,15 @@
 {
     if (client == self.restGetActionCount) {
         self.mainViewControllers = [[NSMutableArray alloc] init];
-        
+        // Get number of actions received from REST call, if no actions set count to 1
         NSString *count = [responseDictionary objectForKey:@"result"];
+        if ([count intValue] <= 0) count = @"1";
         for (int i = 0; i < [count intValue]; i++) {
             // Initialize new MainViewController
             MainViewController *mainViewController = [[MainViewController alloc] init];
             // Add MainViewController to child view controllers
-            [self addChildViewController:mainViewController];
-            [mainViewController didMoveToParentViewController:self];
+            //[self addChildViewController:mainViewController];
+            //[mainViewController didMoveToParentViewController:self];
             // Add to array
             [self.mainViewControllers addObject:mainViewController];
         }
@@ -281,12 +298,16 @@
         for (int i = 0; i < self.actionsArray.count; i++) {
             // Initialize new MainViewController
             MainViewController *mainViewController = [self.mainViewControllers objectAtIndex:i];
+            // Add MainViewController to child viewcontrollers
+            [self addChildViewController:mainViewController];
+            [mainViewController didMoveToParentViewController:self];
             // Set MainViewController action
             mainViewController.action = self.actionsArray[i];
-            [mainViewController setNeighborhood];
-            [mainViewController setProgress];
+            // Set MainViewController data, methods have to be called in this order!
+            [mainViewController getNeighborhoodData:[mainViewController.action.id intValue]];
             [mainViewController setMapData];
             [mainViewController setMediaData];
+            [mainViewController setCharityData];
             [mainViewController setFaqData];
         }
     } else if (client == self.restGetAccount) {

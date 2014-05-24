@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NeighborhoodView *neighborhoodView;
 
-- (void)setNeighborhoodFields:(Action *)action;
+- (void)setNeighborhoodData:(Action *)action;
 
 - (void)createView;
 

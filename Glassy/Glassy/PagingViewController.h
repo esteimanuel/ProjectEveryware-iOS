@@ -49,5 +49,9 @@
 @property (nonatomic, strong) LoginViewController *loginViewController;
 @property (nonatomic, strong) RegisterViewController *registerViewController;
 @property (nonatomic, strong) ProfileViewController *profileViewController;
+// Property indicating active view controller
+@property (nonatomic, strong) UIViewController *activeViewController;
+
+- (void)handleActiveViewController:(UIViewController *)viewController;
 
 @end

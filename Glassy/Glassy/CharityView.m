@@ -53,7 +53,7 @@
     currentHeight += containerHeight + margin;
 	
 	// Add content
-	[self addContent];
+	[self drawContent];
 	
 	currentHeight += margin * 3;
     
@@ -87,21 +87,21 @@
     [self addSubview:self.container];
 }
 
-- (void)addContent
+- (void)drawContent
 {
 	// Create contentview
 	self.content = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
 	self.content.backgroundColor = [UIColor clearColor];
 	
 	// Create textview
-    UITextView *textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
-    textview.text = @"Gratis telefoon, tv, internet en wifi voor Basisschool Antonius 3%";
-    textview.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
-    textview.textColor = [UIColor whiteColor];
-	textview.backgroundColor = [UIColor clearColor];
+    self.textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+    self.textview.text = @"";
+    self.textview.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+    self.textview.textColor = [UIColor whiteColor];
+	self.textview.backgroundColor = [UIColor clearColor];
 	
 	// Add textview to content view
-	[self.content addSubview:textview];
+	[self.content addSubview:self.textview];
 	
 	// Add content to container
 	[self.container addSubview:self.content];

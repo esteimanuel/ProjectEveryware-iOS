@@ -19,4 +19,12 @@
 @property (nonatomic, strong) NSString *neighborhoodId;
 @property (nonatomic, strong) NSString *statusId;
 
+@property (nonatomic) CGFloat participants;
+@property (nonatomic) CGFloat houses;
+@property (nonatomic) CGFloat target;
+@property (nonatomic) CGFloat totalPartPerc;
+@property (nonatomic) CGFloat targetPartPerc;
+@property (nonatomic) CGFloat paidTargetPerc;
+@property (nonatomic) CGFloat providerSelecPerc;
+
 @end

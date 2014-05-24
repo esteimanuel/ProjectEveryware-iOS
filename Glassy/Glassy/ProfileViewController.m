@@ -96,6 +96,7 @@
 
 - (void)createView
 {
+    self.view.frame = CGRectMake(0, 85, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 85);
     self.profileView = [[ProfileView alloc] init];
     // Set delegates
     self.profileView.firstNameTextField.delegate = self;
@@ -111,29 +112,7 @@
     [self setProfileImage];
     // Create gestures
     //[self createGesture];
-}
-
-#pragma mark - UITextField delegate methods
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
-
-#pragma mark - Gesture recognizer methods
-
-- (void)createGesture
-{
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
-    [self.profileView addGestureRecognizer:gestureRecognizer];
-}
-
-- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
-{
-    [self dispose];
+    [self.view addSubview:self.profileView];
 }
 
 - (void)dispose
@@ -142,6 +121,14 @@
         PagingViewController *parent = (PagingViewController*)self.parentViewController;
         [parent removeProfileView];
     }
+}
+
+#pragma mark - UITextField delegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - REST client delegate methods

@@ -52,7 +52,7 @@
 	currentHeight += self.container.frame.size.height + margin;
 	
 	// Add content
-	[self addContent];
+	[self drawContent];
 	
 	currentHeight += margin * 3;
 	
@@ -78,25 +78,25 @@
     [self addSubview:self.container];
 }
 
-- (void)addContent
+- (void)drawContent
 {
 	// Create content
 	self.content = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
 	self.content.backgroundColor = [UIColor clearColor];
 	
-    self.firstQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+    self.firstQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight / 3)];
     self.firstQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.firstQuestionLabel.textColor = [UIColor whiteColor];
     
     int contentHeight = self.firstQuestionLabel.frame.size.height;
     
-    self.secondQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight)];
+    self.secondQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight / 3)];
     self.secondQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.secondQuestionLabel.textColor = [UIColor whiteColor];
     
     contentHeight = contentHeight + self.secondQuestionLabel.frame.size.height;
     
-    self.thirdQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight)];
+    self.thirdQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight / 3)];
     self.thirdQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.thirdQuestionLabel.textColor = [UIColor whiteColor];
 	// Create textview
@@ -113,20 +113,5 @@
 	// Add content to container
 	[self.container addSubview:self.content];
 }
-
-- (NSString *)getFaq
-{
-	NSString *faq = @"- Wat is Glassy?\n- Wat is glasvezel?\n- Waarom zou je glasvezel willen?";
-	return faq;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

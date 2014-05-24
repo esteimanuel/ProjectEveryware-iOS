@@ -29,9 +29,11 @@
     [super viewDidLoad];
 }
 
-- (void)setNeighborhoodFields:(Action *)action
+- (void)setNeighborhoodData:(Action *)action
 {
     self.neighborhoodView.neighborhoodTitleLabel.text = action.name;
+    self.neighborhoodView.participantsNumberLabel.text = [[NSNumber numberWithFloat:action.participants] stringValue];
+    self.neighborhoodView.percentageLabel.text = [NSString stringWithFormat:@"%@%s", [[NSNumber numberWithFloat:action.targetPartPerc] stringValue], "%"];
 }
 
 - (void)createView;

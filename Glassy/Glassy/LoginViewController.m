@@ -79,36 +79,35 @@
 
 - (void)createView
 {
-    self.loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85)];
+    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
+    self.loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85)];
     // Set textfield delegates
     self.loginView.passwordTextField.delegate = self;
     self.loginView.emailTextField.delegate = self;
     // Set button targets
     [self.loginView.authenticationButton addTarget:self action:@selector(authenticationButtonPressed:) forControlEvents:UIControlEventTouchDown];
     // Set view gestures
-    [self createGesture];
+    //[self createGesture];
+    // Add loginView to view
+    [self.view addSubview:self.loginView];
 }
 
-#pragma mark - Gesture recognizer methods
-
-- (void)createGesture
-{
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
-    [self.loginView addGestureRecognizer:gestureRecognizer];
-}
-
-- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
-{
-    [self dispose];
-}
+//#pragma mark - Gesture recognizer methods
+//
+//- (void)createGesture
+//{
+//    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+//    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+//    [self.loginView addGestureRecognizer:gestureRecognizer];
+//}
+//
+//- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
+//{
+//    [self dispose];
+//}
 
 - (void)dispose
 {
-//    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-//        MainViewController* parent = (MainViewController*)self.parentViewController;
-//        [parent removeLoginView];
-//    }
     if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController;
         [parent removeLoginView];
@@ -132,13 +131,10 @@
     NSDictionary *accountDictionary = (NSDictionary *)[responseDictionary objectForKey:@"account"];
     if (accountDictionary != nil) {
         NSString *token = [accountDictionary objectForKey:@"token"];
-        NSString *image = [accountDictionary objectForKey:@"foto_link"];
         
         if (token != (NSString *)[NSNull null]) {
             [defaults setObject:token forKey:@"token"];
-            //[defaults setObject:[accountDictionary objectForKey:@"email"] forKey:@"email"];
             [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
-            if (image != (NSString *)[NSNull null]) [defaults setObject:image forKey:@"foto_link"];
             [defaults synchronize];
             
             Account *account = [[Account alloc] init];

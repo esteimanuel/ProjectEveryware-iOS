@@ -29,7 +29,7 @@
 	float blurPoint;
 }
 
-@property (nonatomic, strong) RESTClient *restClient;
+@property (nonatomic, strong) RESTClient *restGetNeighborhoodData;
 
 @end
 
@@ -67,6 +67,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)getNeighborhoodData:(int)actionId
+{
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/actie/stats?id=%d", actionId];
+    // Create REST client and send get request
+    self.restGetNeighborhoodData = [[RESTClient alloc] init];
+    self.restGetNeighborhoodData.delegate = self;
+    [self.restGetNeighborhoodData GET:url withParameters:nil];
 }
 
 - (void)createScrollViewBackground
@@ -172,6 +181,7 @@
     [self.viewControllersDictionary setObject:progressViewController forKey:@"progressViewController"];
     [self.viewControllersDictionary setObject:mapViewController forKey:@"mapViewController"];
     [self.viewControllersDictionary setObject:faqViewController forKey:@"faqViewController"];
+    [self.viewControllersDictionary setObject:charityViewController forKey:@"charityViewController"];
     // TODO: add viewcontrollers
     
     // Add ViewControllers to parent viewcontroller
@@ -226,16 +236,18 @@
     [self.view addSubview:self.scrollView];
 }
 
-- (void)setNeighborhood
+#pragma mark - Widget ViewController set data methods
+
+- (void)setNeighborhoodData
 {
     NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
-    [neighborhoodViewController setNeighborhoodFields:self.action];
+    [neighborhoodViewController setNeighborhoodData:self.action];
 }
 
-- (void)setProgress
+- (void)setProgressData
 {
     ProgressViewController *progressViewController = [self.viewControllersDictionary objectForKey:@"progressViewController"];
-    [progressViewController getProgress:[self.action.id intValue]];
+    [progressViewController setProgressData:self.action];
 }
 
 - (void)setMapData
@@ -251,6 +263,12 @@
     [mediaViewController loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
 }
 
+- (void)setCharityData
+{
+    CharityViewController *charityViewController = [self.viewControllersDictionary objectForKey:@"charityViewController"];
+    [charityViewController getCharityData:[self.action.id intValue]];
+}
+
 - (void)setFaqData
 {
     FaqViewController *faqViewController = [self.viewControllersDictionary objectForKey:@"faqViewController"];
@@ -261,8 +279,15 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-//    NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
-//    [neighborhoodViewController setNeighborhoodFields:[self.actionsArray objectAtIndex:0]];
+    self.action.participants = [[responseDictionary objectForKey:@"participants"] floatValue];
+    self.action.houses = [[responseDictionary objectForKey:@"houses"] floatValue];
+    self.action.totalPartPerc = [[responseDictionary objectForKey:@"totalPartPerc"] floatValue];
+    self.action.targetPartPerc = [[responseDictionary objectForKey:@"targetPartPerc"] floatValue];
+    self.action.paidTargetPerc = [[responseDictionary objectForKey:@"paidTargetPerc"] floatValue];
+    self.action.providerSelecPerc = [[responseDictionary objectForKey:@"providerSelecPerc"] floatValue];
+        
+    [self setNeighborhoodData];
+    [self setProgressData];
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
