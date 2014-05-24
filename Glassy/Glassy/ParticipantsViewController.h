@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ParticipantsView.h"
+#import "RESTClient.h"
 
-@interface ParticipantsViewController : UIViewController
+@interface ParticipantsViewController : UIViewController <RestClientDelegate>
 
 @property (nonatomic, strong) ParticipantsView *participantsView;
 

@@ -7,14 +7,16 @@
 //
 
 #import "ParticipantsViewController.h"
+#import "Account.h"
 
 @interface ParticipantsViewController ()
 
+@property (nonatomic, strong) RESTClient *restGetParticipants;
+@property NSMutableArray *participants;
+
 @end
 
-@implementation ParticipantsViewController {
-	NSArray *participants;
-}
+@implementation ParticipantsViewController
 
 - (void)viewDidLoad
 {
@@ -25,21 +27,48 @@
 - (void)createView
 {
 	self.participantsView = [[ParticipantsView alloc] init];
+	[self getParticipants];
 }
 
-- (void)retrieveParticipants
+- (void)getParticipants
 {
 	// retrieve participants asynchronously
-	participants = [[NSArray alloc]initWithObjects:@"Chapter 1",@"Chapter 2",@"Chapter 3",@"Chapter 4",@"Chapter 5",nil];
+	//self.participants = [[NSArray alloc]initWithObjects:@"Chapter 1",@"Chapter 2",@"Chapter 3",@"Chapter 4",@"Chapter 5",nil];
 	
+	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/actie/users?id=%d",1];
 	
-	// Add participants to view
-	[self.participantsView addParticipants:participants];
+	// Create REST client and send get request
+	self.restGetParticipants = [[RESTClient alloc] init];
+	self.restGetParticipants.delegate = self;
+	[self.restGetParticipants GET:url withParameters:nil];
 }
 
-- (void)createPlaceholderParticipants
+- (void)setParticipantsNumber:(int)number
 {
-	
+	[self.participantsView setParticipantsNumber:number];
+}
+
+#pragma mark - REST client delegate methods
+
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
+{
+	if (client == self.restGetParticipants) {
+		for (id key in responseDictionary) {
+			NSMutableDictionary *participantsDictionary = (NSMutableDictionary *)key;
+			
+			Account *account = [[Account alloc]initWithDictionary:participantsDictionary];
+			[self.participants addObject:account];
+			
+		}
+		
+		// Add participants to view
+		[self.participantsView addParticipants:self.participants];
+	}
+}
+
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
