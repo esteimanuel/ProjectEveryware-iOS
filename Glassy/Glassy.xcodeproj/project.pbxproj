@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190B7F88191F895700FB07EC /* ProfileViewController.m */; };
+		1925A043192E85060089487E /* Charity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1925A042192E85060089487E /* Charity.m */; };
 		19432E671922531E00F26EEF /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19432E661922531E00F26EEF /* PagingViewController.m */; };
 		194B8FE918FE948C00EA3966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FE818FE948C00EA3966 /* Foundation.framework */; };
 		194B8FEB18FE948C00EA3966 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194B8FEA18FE948C00EA3966 /* CoreGraphics.framework */; };
@@ -101,6 +102,8 @@
 /* Begin PBXFileReference section */
 		190B7F87191F895700FB07EC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		190B7F88191F895700FB07EC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		1925A041192E85060089487E /* Charity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Charity.h; sourceTree = "<group>"; };
+		1925A042192E85060089487E /* Charity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Charity.m; sourceTree = "<group>"; };
 		19432E651922531E00F26EEF /* PagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingViewController.h; sourceTree = "<group>"; };
 		19432E661922531E00F26EEF /* PagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewController.m; sourceTree = "<group>"; };
 		194B8FE518FE948C00EA3966 /* Glassy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glassy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +372,8 @@
 				19DB4F75191247B9002184D3 /* Account.m */,
 				19DB4F7A19124B3D002184D3 /* Action.h */,
 				19DB4F7B19124B3D002184D3 /* Action.m */,
+				1925A041192E85060089487E /* Charity.h */,
+				1925A042192E85060089487E /* Charity.m */,
 				70BB8BDC192E1BC40006A4A1 /* Buddy.h */,
 				70BB8BDD192E1BC40006A4A1 /* Buddy.m */,
 			);
@@ -579,6 +584,7 @@
 				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,
 				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
+				1925A043192E85060089487E /* Charity.m in Sources */,
 				19E8FB591920FF0B0030CB7D /* NeighborhoodView.m in Sources */,
 				19E127B21907A8A500471CB9 /* LoginViewController.m in Sources */,
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,

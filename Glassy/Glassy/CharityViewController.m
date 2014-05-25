@@ -11,6 +11,8 @@
 
 @interface CharityViewController ()
 
+@property (nonatomic, strong) RESTClient *restGetCharity;
+
 @end
 
 @implementation CharityViewController
@@ -42,6 +44,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)getCharityData:(int)actionId
+{
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/goededoel?id=%d", actionId];
+    // Create REST client and send get request
+    self.restGetCharity = [[RESTClient alloc] init];
+    self.restGetCharity.delegate = self;
+    [self.restGetCharity GET:url withParameters:nil];
+}
+
+- (void)setCharityByDictionary:(NSMutableDictionary *)fields
+{
+    self.charity = [[Charity alloc] initWithDictionary:fields];
+}
+
+#pragma mark - PAN gesture methods
+
 - (void)createGesture
 {
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
@@ -56,6 +74,20 @@
         MainViewController* parent = (MainViewController*)self.parentViewController;
         [parent createCharityDetailView];
     }
+}
+
+#pragma mark - REST client delegate methods
+
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
+{
+    [self setCharityByDictionary:responseDictionary];
+    
+    self.charityView.textview.text = self.charity.message;
+}
+
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
+{
+    
 }
 
 

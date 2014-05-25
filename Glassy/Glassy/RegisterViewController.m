@@ -64,29 +64,32 @@
 
 - (void)createView
 {
-    self.registerView = [[RegisterView alloc] initWithFrame:CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85)];
+    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
+    self.registerView = [[RegisterView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85)];
     // Set textfield delegates
     self.registerView.passwordTextField.delegate = self;
     self.registerView.emailTextField.delegate = self;
     // Set button targets
     [self.registerView.authenticationButton addTarget:self action:@selector(registerButtonPressed:) forControlEvents:UIControlEventTouchDown];
     // Set view gestures
-    [self createGesture];
+    //[self createGesture];
+    // Add loginView to view
+    [self.view addSubview:self.registerView];
 }
 
-#pragma mark - Gesture recognizer methods
-
-- (void)createGesture
-{
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
-    [self.registerView addGestureRecognizer:gestureRecognizer];
-}
-
-- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
-{
-    [self dispose];
-}
+//#pragma mark - Gesture recognizer methods
+//
+//- (void)createGesture
+//{
+//    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+//    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+//    [self.registerView addGestureRecognizer:gestureRecognizer];
+//}
+//
+//- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
+//{
+//    [self dispose];
+//}
 
 - (void)dispose
 {

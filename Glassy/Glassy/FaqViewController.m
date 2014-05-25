@@ -46,18 +46,28 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-    for (id key in responseDictionary) {
-        NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
-    }
+    //for (id key in responseDictionary) {
+        //NSArray *array = [responseDictionary allKeys];
+        //NSString *json = [NSString stringWithFormat:@"%@", key];
+        //NSData *data = [array dataUsingEncoding:NSUTF8StringEncoding];
+        
+//        for (id obj in array) {
+//            NSLog(@"%@", obj);
+//        }
+    
+//        NSError *error;
+//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+//        if(!dic) {
+//            NSLog(@"%@", error);
+//        }
+        
+//        for (id k in dic) {
+//            NSLog(@"key: %@ value:", k);
+//        }
+    //}
         //NSLog(@"key: %@", key);
     
-    //NSString *firstQuestion = [responseDictionary objectForKey:@"totalPartPerc"];
-//    CGFloat totalPartPerc = [[responseDictionary objectForKey:@"totalPartPerc"] floatValue];
     self.faqView.firstQuestionLabel.text = @" henk";
-//    CGFloat totalPaidPerc = [[responseDictionary objectForKey:@"totalPaidPerc"] floatValue];
-//    self.progressView.inschrijvenProgress.progress = totalPaidPerc / 100;
-//    CGFloat providerSelecPerc = [[responseDictionary objectForKey:@"providerSelecPerc"] floatValue];
-//    self.progressView.providerProgress.progress = providerSelecPerc / 100;
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

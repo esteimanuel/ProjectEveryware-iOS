@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ProgressView.h"
-#import "RESTClient.h"
+#import "MainViewController.h"
 
-@interface ProgressViewController : UIViewController <RestClientDelegate>
+@interface ProgressViewController : UIViewController
 
 @property (nonatomic, strong) ProgressView *progressView;
 
 - (void)createView;
 
-- (void)getProgress:(int)actionId;
+- (void)setProgressData:(Action *)action;
 
 @end
