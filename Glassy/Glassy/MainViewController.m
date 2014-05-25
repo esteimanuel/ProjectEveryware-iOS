@@ -172,6 +172,7 @@
     [self.viewControllersDictionary setObject:progressViewController forKey:@"progressViewController"];
     [self.viewControllersDictionary setObject:mapViewController forKey:@"mapViewController"];
     [self.viewControllersDictionary setObject:faqViewController forKey:@"faqViewController"];
+    [self.viewControllersDictionary setObject:participantsViewController forKey:@"participantsViewController"];
     // TODO: add viewcontrollers
     
     // Add ViewControllers to parent viewcontroller
@@ -236,6 +237,12 @@
 {
     ProgressViewController *progressViewController = [self.viewControllersDictionary objectForKey:@"progressViewController"];
     [progressViewController getProgress:[self.action.id intValue]];
+}
+
+- (void)setParticipants
+{
+	ParticipantsViewController *participantsViewController = [self.viewControllersDictionary objectForKey:@"participantsViewController"];
+	[participantsViewController setParticipants:[self.action.id intValue]];
 }
 
 - (void)setMapData

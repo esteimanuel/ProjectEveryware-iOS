@@ -11,6 +11,5 @@
 @interface ParticipantsView : UIView
 
 - (void)addParticipants:(NSArray*)participants;
-- (void)setParticipantsNumber:(int)number;
 
 @end

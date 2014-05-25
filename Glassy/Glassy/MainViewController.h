@@ -30,6 +30,7 @@
 - (void)setMapData;
 - (void)setMediaData;
 - (void)setFaqData;
+- (void)setParticipants;
 
 // DetailViewController methods
 - (void)createCharityDetailView;

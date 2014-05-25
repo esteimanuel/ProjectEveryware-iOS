@@ -7,6 +7,7 @@
 //
 
 #import "ParticipantsView.h"
+#import "Account.h"
 
 @implementation ParticipantsView {
 	float currentHeight;
@@ -15,7 +16,6 @@
 	int numberOfColumns;
 	NSArray *participants;
     int numberOfParticipants;
-	int participantsNumber;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -33,14 +33,14 @@
 	margin = 5;
 	frameWidth = [[UIScreen mainScreen] bounds].size.width;
 	numberOfColumns = 5;
-	participantsNumber = 0;
+	numberOfParticipants = 0;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
     
     // Set participants number label
     UILabel *participantsNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, 60, 36.0f)];
-    participantsNumberLabel.text = [NSString stringWithFormat:@"%d", participantsNumber];
+    participantsNumberLabel.text = [NSString stringWithFormat:@"%d", numberOfParticipants];
     participantsNumberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
     participantsNumberLabel.textColor = [UIColor whiteColor];
     [self addSubview:participantsNumberLabel];
@@ -53,12 +53,12 @@
     [self addSubview:participantsText];
     
     // Set participants percentage label
-    UILabel *participantsPercentage = [[UILabel alloc] initWithFrame:CGRectMake(frameWidth - margin - 80, 0, 80, 36.0f)];
-    participantsPercentage.text = @"22%";
-    participantsPercentage.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
-    participantsPercentage.textAlignment = NSTextAlignmentRight;
-    participantsPercentage.textColor = [UIColor whiteColor];
-    [self addSubview:participantsPercentage];
+//    UILabel *participantsPercentage = [[UILabel alloc] initWithFrame:CGRectMake(frameWidth - margin - 80, 0, 80, 36.0f)];
+//    participantsPercentage.text = @"22%";
+//    participantsPercentage.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
+//    participantsPercentage.textAlignment = NSTextAlignmentRight;
+//    participantsPercentage.textColor = [UIColor whiteColor];
+//    [self addSubview:participantsPercentage];
     
     currentHeight += participantsNumberLabel.frame.size.height;
     
@@ -82,6 +82,7 @@
     int remainder = numberOfCells % numberOfColumns;
     int numberOfRows = remainder > 0 ? (numberOfCells - remainder) / numberOfColumns + 1 : numberOfCells / numberOfColumns;
     int numberOfEmptyCells = remainder > 0 ? numberOfColumns - remainder : 0;
+	int i = 0;
     
     for (int row = 0 ; row < numberOfRows ; row++) {
 		// Start drawing from the left
@@ -94,7 +95,8 @@
                 numberOfEmptyCells = 0;
             }
 			// Add participant tile to grid
-            [self addSubview:[self createTile:&xpos withCellSize:&cellSize]];
+            [self addSubview:[self createTile:&xpos withCellSize:&cellSize withParticipant:participants[i]]];
+			i++;
 			// Start new column
 			xpos += cellSize;
         }
@@ -102,7 +104,8 @@
         currentHeight += cellSize;
     }
 	// Create participants grid
-	self.frame = CGRectMake(0, 0, frameWidth, currentHeight);
+	self.superview.frame = CGRectMake(0, 0, frameWidth, self.superview.frame.size.height);
+	self.frame = CGRectMake(0, self.frame.origin.y, frameWidth, currentHeight);
 	
 	// Add bottom margin
 	currentHeight += margin * 4;
@@ -113,7 +116,7 @@
 	participants = participantsData;
     
     // Get number of participants
-    numberOfParticipants = (int)[participants count] > 0 ? numberOfParticipants : 0;
+    numberOfParticipants = [participants count];
 	
 	// Set participants number label
 	[self setParticipantsNumber:numberOfParticipants];
@@ -123,19 +126,19 @@
 }
 
 
-- (UIButton *)createTile:(float *)xpos withCellSize:(float *)cellSize
+- (UIButton *)createTile:(float *)xpos withCellSize:(float *)cellSize withParticipant:(Account *)participant
 {
 	UIButton *participantButton = [[UIButton alloc]init];
 	participantButton.frame = CGRectMake(*xpos, currentHeight, *cellSize, *cellSize);
 	participantButton.contentMode = UIViewContentModeScaleAspectFill;
-	participantButton.backgroundColor = [UIColor colorWithPatternImage: [self getImage:*cellSize withFrame:participantButton.bounds]];
+	participantButton.backgroundColor = [UIColor colorWithPatternImage: [self createImage:*cellSize withFrame:participantButton.bounds withParticipant:participant]];
 	return participantButton;
 }
 
-- (UIImage *)getImage:(float)size withFrame:(CGRect)frame
+- (UIImage *)createImage:(float)size withFrame:(CGRect)frame withParticipant:(Account *)participant
 {
     // Create background image
-    UIImage *background = [self getPlaceholderImage]; // TODO get participants image
+    UIImage *background = [participant.image isEqual: nil] ? [self getImage: participant.image] : [UIImage imageNamed:@"userimageplaceholder.png"];
 	UIGraphicsBeginImageContext(CGSizeMake(size, size));
     [background drawInRect:frame];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -145,19 +148,18 @@
 
 - (void)setParticipantsNumber:(int)number
 {
-	self.participantsNumber = number;
-}
-- (UIImage *)getPlaceholderImage
-{
-	NSArray *urls = @[@"https://pbs.twimg.com/profile_images/3341129562/a14b1b2d2719b9a8a2e0d643a0c479a4.jpeg", @"http://1.bp.blogspot.com/-KTNcZKXAsUY/ToGvuEV9smI/AAAAAAAAHnU/nAhs3lG4kPA/s640/kc4.jpg",@"http://wallpaperscraft.com/image/kristin_kreuk_brunette_look_model_smile_black_and_white_48248_256x256.jpg?orig=1",@"http://wallpaperscraft.com/image/doutzen_kroes_victorias_secret_angels_blond_hair_eyes_lips_girl_beauty_person_model_nose_finger_hand_31121_256x256.jpg?orig=1",@"http://1.gravatar.com/avatar/45c82fef8276358132876b49cd8282b6?s=128&d=identicon&r=G"];
-    NSString *imageUrl = urls[[self getRandomNumberBetween:0 maxNumber:urls.count]];
-    UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
-	return background;
+	numberOfParticipants = number;
 }
 
-- (NSInteger)getRandomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
+- (void)setImage
 {
-    return min + arc4random() % (max - min);
+	
+}
+
+- (UIImage *)getImage:(NSString *)url
+{
+    UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+	return background;
 }
 
 /*

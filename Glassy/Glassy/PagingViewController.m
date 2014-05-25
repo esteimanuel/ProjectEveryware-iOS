@@ -288,6 +288,7 @@
             [mainViewController setMapData];
             [mainViewController setMediaData];
             [mainViewController setFaqData];
+			[mainViewController setParticipants];
         }
     } else if (client == self.restGetAccount) {
         [self setAccountByDictionary:responseDictionary];
