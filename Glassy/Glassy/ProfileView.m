@@ -7,6 +7,9 @@
 //
 
 #import "ProfileView.h"
+#import <MobileCoreServices/UTCoreTypes.h>
+#import <MediaPlayer/MediaPlayer.h>
+
 
 @implementation ProfileView
 
@@ -170,7 +173,12 @@
     self.buddyVideoButton.backgroundColor = [UIColor lightGrayColor];
     self.buddyVideoButton.layer.cornerRadius = 5.0;
     self.buddyVideoButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyVideoButton.enabled = YES;
     [self.buddyVideoButton setTitle:@"Maak video" forState:UIControlStateNormal];
+    [self.buddyVideoButton addTarget:self action:@selector(buddyVideoButtonClick:) forControlEvents:UIControlEventAllEvents];
+
+    //[self.buddyVideoButton addTarget:self action:@selector(buddyVideoButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+
     
     buddyHeight += self.buddyVideoButton.frame.size.height + margin;
     
@@ -196,4 +204,57 @@
     }
 }
 
+- (void)buddyVideoButtonClick:(id)sender
+{
+    NSLog(@"CLICKED");
+}
+
+- (void)enableCamera
+{
+    // Couldn't test it. This feature requires an Iphone.
+    // Implementation based on http://stackoverflow.com/questions/20590346/using-cameraoverlayview-with-uiimagepickercontroller
+    self.toolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, self.scrollView.frame.size.height-54, self.scrollView.frame.size.width, 55)];
+    
+    self.toolBar.barStyle =  UIBarStyleBlackOpaque;
+    NSArray *items=[NSArray arrayWithObjects:
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel  target:self action:@selector(cancelPicture)],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera  target:self action:@selector(shootPicture)],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
+                    nil];
+    [self.toolBar setItems:items];
+    
+    // create the overlay view
+    //self.overlayView = [[OverlayView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44)];
+    
+    // important - it needs to be transparent so the camera preview shows through!
+    //overlayView.opaque=NO;
+    //overlayView.backgroundColor=[UIColor clearColor];
+    
+    // parent view for our overlay
+    UIView *cameraView=[[UIView alloc] initWithFrame:self.scrollView.bounds];
+    //[cameraView addSubview:overlayView];
+    [cameraView addSubview:self.toolBar];
+    
+    self.imagePickerController = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO){
+        UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@"Incompatible Device" message:@"Sorry, This feature requires a camera" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [noCameraAlert show];
+
+        return;
+    }
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    self.imagePickerController.delegate = self;
+    
+    // hide the camera controls
+    self.imagePickerController.showsCameraControls=NO;
+    self.imagePickerController.wantsFullScreenLayout = YES;
+    [self.imagePickerController setCameraOverlayView:cameraView];
+    
+    //[self presentViewController:self.imagePickerController animated:YES completion:nil];
+    
+   }
 @end

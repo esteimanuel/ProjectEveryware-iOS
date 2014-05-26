@@ -29,6 +29,15 @@
 @property (nonatomic, strong) UITextField *buddyEmail;
 @property (nonatomic, strong) UITextField *buddyPhone;
 
+- (void)buddyVideoButtonClick:(id)sender;
 - (void)setState:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+- (IBAction)takePhoto:  (UIButton *)sender;
+- (IBAction)selectPhoto:(UIButton *)sender;
+
+@property UIImagePickerController * imagePickerController;
+@property UIToolbar *toolBar;
+//@property OverlayView *overlayView;
 
 @end
