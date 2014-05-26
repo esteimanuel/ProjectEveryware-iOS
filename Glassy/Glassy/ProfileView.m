@@ -93,6 +93,9 @@
     self.buddySwitch = [[UISwitch alloc] initWithFrame:CGRectMake(50, currentHeight - 5, 15, 10)];
     self.buddySwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
     self.buddySwitch.on = YES;
+    [self.buddySwitch addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+    
+    
     self.buddyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, currentHeight, 150, 20)];
     self.buddyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.buddyLabel.font = [UIFont boldSystemFontOfSize:13];
@@ -100,7 +103,7 @@
     self.buddyLabel.textColor = [UIColor darkGrayColor];
     
     currentHeight = currentHeight + self.buddyLabel.frame.size.height + margin;
-    
+
     currentHeight = [self drawBuddyView:currentHeight withMargin:margin];
     
     self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
@@ -138,9 +141,10 @@
 
 - (int)drawBuddyView:(int)currentHeight withMargin:(int)margin
 {
+    int buddyHeight = 0;
     int buttonHeight = 40;
     
-    self.buddyDetailsView = [[UIView alloc] initWithFrame:CGRectMake(0, currentHeight, self.frame.size.width, buttonHeight * 2 + margin)];
+    self.buddyDetailsView = [[UIView alloc] initWithFrame:CGRectMake(0, currentHeight, self.frame.size.width, buttonHeight * 3 + margin * 2)];
     
     self.buddyPhone = [[UITextField alloc] initWithFrame:CGRectMake(55, 0, 210, 40)];
     self.buddyPhone.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
@@ -150,6 +154,8 @@
     self.buddyPhone.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.buddyPhone.placeholder = @"Alternatief telefoonnummer";
     
+    buddyHeight += self.buddyPhone.frame.size.height + margin;
+    
     self.buddyEmail = [[UITextField alloc] initWithFrame:CGRectMake(55, self.buddyPhone.frame.size.height + margin, 210, 40)];
     self.buddyEmail.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
     self.buddyEmail.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -158,11 +164,36 @@
     self.buddyEmail.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.buddyEmail.placeholder = @"Alternatief e-mailadres";
     
+    buddyHeight += self.buddyEmail.frame.size.height + margin;
+    
+    self.buddyVideoButton = [[UIButton alloc] initWithFrame:CGRectMake(55, buddyHeight, 210, 40)];
+    self.buddyVideoButton.backgroundColor = [UIColor lightGrayColor];
+    self.buddyVideoButton.layer.cornerRadius = 5.0;
+    self.buddyVideoButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    [self.buddyVideoButton setTitle:@"Maak video" forState:UIControlStateNormal];
+    
+    buddyHeight += self.buddyVideoButton.frame.size.height + margin;
+    
     [self.buddyDetailsView addSubview:self.buddyPhone];
     [self.buddyDetailsView addSubview:self.buddyEmail];
+    [self.buddyDetailsView addSubview:self.buddyVideoButton];
     
     currentHeight = currentHeight + self.buddyDetailsView.frame.size.height + margin;
     return currentHeight;
+}
+
+- (void)setState:(id)sender
+{
+    BOOL state = [sender isOn];
+    if(state == YES) {
+        [self.buddyPhone setHidden:NO];
+        [self.buddyEmail setHidden:NO];
+        [self.buddyVideoButton setHidden:NO];
+    }else{
+        [self.buddyPhone setHidden:YES];
+        [self.buddyEmail setHidden:YES];
+        [self.buddyVideoButton setHidden:YES];
+    }
 }
 
 @end
