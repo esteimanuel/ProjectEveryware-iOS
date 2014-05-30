@@ -94,11 +94,13 @@
 	self.content.backgroundColor = [UIColor clearColor];
 	
 	// Create textview
-    self.textview = [[UITextView alloc] initWithFrame:CGRectMake(margin, 0, containerWidth, containerHeight - margin * 2)];
+    self.textview = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, containerWidth, containerHeight - margin * 1)];
     self.textview.text = @"";
     self.textview.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.textview.textColor = [UIColor whiteColor];
 	self.textview.backgroundColor = [UIColor clearColor];
+	self.textview.lineBreakMode = NSLineBreakByTruncatingTail;
+	self.textview.numberOfLines = 0;
 	
 	// Add textview to content view
 	[self.content addSubview:self.textview];

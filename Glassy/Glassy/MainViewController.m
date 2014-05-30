@@ -27,6 +27,8 @@
 	UIImage *blurredBackgroundImage;
 	int blurred;
 	float blurPoint;
+	ParticipantsViewController *participantsViewController;
+	float contentSizeHeight;
 }
 
 @property (nonatomic, strong) RESTClient *restGetNeighborhoodData;
@@ -52,7 +54,7 @@
         // Init scrollVIew
         self.scrollView = [[CustomScrollView alloc] init];
 		[self.scrollView setDelegate:self];
-        
+		
         [self createScrollViewWithViewControllers];
         [self createScrollViewBackground];
     }
@@ -203,7 +205,7 @@
     [charityViewController createView];
     ProgressViewController *progressViewController = [[ProgressViewController alloc] init];
     [progressViewController createView];
-    ParticipantsViewController *participantsViewController = [[ParticipantsViewController alloc] init];
+    participantsViewController = [[ParticipantsViewController alloc] init];
 	[participantsViewController createView];
 	FaqViewController *faqViewController = [[FaqViewController alloc]init];
 	[faqViewController createView];
@@ -268,14 +270,27 @@
 	
 	// Calculate scrollView content size
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, currentHeight);
+	contentSizeHeight = currentHeight;
 	
     // Add scrollview to view
     [self.view addSubview:self.scrollView];
+	[self onParticipantsLoad];
 }
 
-- (void)setContentSize:(CGRect)size
+- (void)onParticipantsLoad
 {
-	NSLog(@"Hello world!");
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+		if (participantsViewController.participantsView.frame.size.height > 38.0f) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				contentSizeHeight += participantsViewController.participantsView.frame.size.height - 18.0f;
+				self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, contentSizeHeight);
+			});
+		} else {
+			usleep(1000000);
+			[self onParticipantsLoad];
+		}
+		
+	});
 }
 
 #pragma mark - Widget ViewController set data methods
@@ -294,7 +309,7 @@
 
 - (void)setParticipantsData
 {
-	ParticipantsViewController *participantsViewController = [self.viewControllersDictionary objectForKey:@"participantsViewController"];
+	participantsViewController = [self.viewControllersDictionary objectForKey:@"participantsViewController"];
 	[participantsViewController setParticipantsData:[self.action.id intValue]];
 }
 
