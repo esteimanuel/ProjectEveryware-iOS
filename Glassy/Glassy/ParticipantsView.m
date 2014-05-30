@@ -145,7 +145,7 @@
 - (UIImage *)createImage:(float)size withFrame:(CGRect)frame withParticipant:(Account *)participant
 {
     // Create background image
-    UIImage *background = [participant.image isEqual: nil] ? [self getImage: participant.image] : [UIImage imageNamed:@"userimageplaceholder.png"];
+    UIImage *background = [participant.image length] > 0 ? [self getImage: participant.image] : [UIImage imageNamed:@"userimageplaceholder.png"];
 	UIGraphicsBeginImageContext(CGSizeMake(size, size));
     [background drawInRect:frame];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

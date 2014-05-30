@@ -58,9 +58,9 @@
     self.faqView.firstQuestionLabel.text = array[0];
 	NSLog(@"First question: %@",array[0]);
     self.faqView.secondQuestionLabel.text = array[1];
-	NSLog(@"First question: %@",array[1]);
+	NSLog(@"Second question: %@",array[1]);
     self.faqView.thirdQuestionLabel.text = array[2];
-	NSLog(@"First question: %@",array[2]);
+	NSLog(@"Third question: %@",array[2]);
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

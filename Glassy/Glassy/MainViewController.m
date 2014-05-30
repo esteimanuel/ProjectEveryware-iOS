@@ -378,20 +378,19 @@
 	else if (client == self.restGetActionData) {
 		
 		NSArray *array = responseDictionary [@"media"];
-		if ([array isKindOfClass:[NSArray class]] && [array count] > 0)
+		if ([array isKindOfClass:[NSArray class]])
 		{
 			for (int i = 0 ; i < [array count] ; i++)
 			{
 				if ([[array[i] valueForKey:@"type"] isEqualToString:@"image"])
 				{
 					self.action.imageUrl = [array[i] valueForKey:@"url"];
-					NSLog(@"%@",self.action.imageUrl);
+					//NSLog(@"%@",self.action.imageUrl);
 				} else if ([[array[i] valueForKey:@"type"] isEqualToString:@"video"])
 				{
 					self.action.movieUrl = [array[i] valueForKey:@"url"];
-					NSLog(@"%@",self.action.movieUrl);
+					//NSLog(@"%@",self.action.movieUrl);
 				}
-				
 			}
 		}
 		[self getScrollViewBackgroundData];
