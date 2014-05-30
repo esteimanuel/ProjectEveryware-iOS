@@ -61,7 +61,7 @@
     currentHeight += self.verzamelenLbl.frame.size.height + margin;
     
     self.verzamelenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, progressbarSize, 24.0f)];
-    self.verzamelenProgress.progress = 0.95f;
+    self.verzamelenProgress.progress = 0;
     [self.mediaview addSubview:self.verzamelenProgress];
 
     mediaviewHeight += self.verzamelenProgress.frame.size.height + margin;
@@ -79,7 +79,7 @@
     currentHeight += self.inschrijvenLbl.frame.size.height + margin;
     
     self.inschrijvenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, progressbarSize, 24.0f)];
-    self.inschrijvenProgress.progress = 0.75f;
+    self.inschrijvenProgress.progress = 0;
     [self.mediaview addSubview:self.inschrijvenProgress];
     
     mediaviewHeight += self.inschrijvenProgress.frame.size.height + margin;
@@ -97,7 +97,7 @@
     currentHeight += self.providerLbl.frame.size.height + margin;
     
     self.providerProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, progressbarSize, 24.0f)];
-    self.providerProgress.progress = 0.65f;
+    self.providerProgress.progress = 0;
     [self.mediaview addSubview:self.providerProgress];
     
     mediaviewHeight += self.providerProgress.frame.size.height + margin;
@@ -115,7 +115,7 @@
     currentHeight += self.aanlegLbl.frame.size.height + margin;
     
     self.aanlegProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, progressbarSize, 24.0f)];
-    self.aanlegProgress.progress = 0.25f;
+    self.aanlegProgress.progress = 0;
     [self.mediaview addSubview:self.aanlegProgress];
     
     mediaviewHeight += self.aanlegProgress.frame.size.height + margin;
@@ -133,7 +133,7 @@
     currentHeight += self.overstappenLbl.frame.size.height + margin;
     
     self.overstappenProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(margin, mediaviewHeight, progressbarSize, 24.0f)];
-    self.overstappenProgress.progress = 0.2f;
+    self.overstappenProgress.progress = 0;
     [self.mediaview addSubview:self.overstappenProgress];
     
     mediaviewHeight += self.overstappenProgress.frame.size.height + margin;

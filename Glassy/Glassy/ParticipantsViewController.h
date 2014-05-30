@@ -15,5 +15,5 @@
 @property (nonatomic, strong) ParticipantsView *participantsView;
 
 - (void)createView;
-- (void)setParticipants:(int)actionId;
+- (void)setParticipantsData:(int)actionId;
 @end

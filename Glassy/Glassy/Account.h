@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *accountLevel;
 @property (nonatomic, strong) NSString *image;
-//@property (nonatomic) int accountId;
+@property (nonatomic) int accountId;
 
 //@property (nonatomic) NSInteger *userId;
 @property (nonatomic, strong) NSString *deposit_paid;
@@ -30,4 +30,5 @@
 @property (nonatomic, strong) NSString *postcodeId;
 @property (nonatomic, strong) NSString *actionId;
 @property (nonatomic, strong) NSString *packetId;
+@property (nonatomic) int buddy;
 @end

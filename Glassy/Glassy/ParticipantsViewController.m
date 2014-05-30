@@ -28,7 +28,7 @@
 	self.participantsView = [[ParticipantsView alloc] init];
 }
 
-- (void)setParticipants:(int)actionId
+- (void)setParticipantsData:(int)actionId
 {
 	// retrieve participants asynchronously
 	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/actie/users?id=%d",actionId];
@@ -39,10 +39,10 @@
 	[self.restGetParticipants GET:url withParameters:nil];
 }
 
-//- (void)setParticipantsNumber:(int)number
-//{
-//	[self.participantsView setParticipantsNumber:number];
-//}
+- (void)setParticipantsNumber:(int)number
+{
+	[self.participantsView setParticipantsNumber:number];
+}
 
 #pragma mark - REST client delegate methods
 
@@ -50,11 +50,12 @@
 {
 	NSMutableArray *participantsArray = [[NSMutableArray alloc]init];
 	for (id key in responseDictionary) {
-		NSMutableDictionary *participantsDictionary = (NSMutableDictionary *)key;
-		
-		Account *account = [[Account alloc]initWithDictionary:participantsDictionary];
+		NSDictionary *participantsDictionary = (NSDictionary *)key;
+		Account *account = [[Account alloc]init];
+		account.accountId = [[participantsDictionary objectForKey:@"gebruiker_id"] intValue];
+		account.image = [participantsDictionary objectForKey:@"email"];
+		account.buddy = [participantsDictionary objectForKey:@"buddy"] != nil ? 1 : 0;
 		[participantsArray addObject:account];
-		
 	}
 	
 	// Add participants to view

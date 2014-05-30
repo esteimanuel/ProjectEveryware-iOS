@@ -305,11 +305,12 @@
             mainViewController.action = self.actionsArray[i];
             // Set MainViewController data, methods have to be called in this order!
             [mainViewController getNeighborhoodData:[mainViewController.action.id intValue]];
+			[mainViewController getActionData:[mainViewController.action.id intValue]];
             [mainViewController setMapData];
             [mainViewController setMediaData];
             [mainViewController setCharityData];
             [mainViewController setFaqData];
-			[mainViewController setParticipants];
+			[mainViewController setParticipantsData];
         }
     } else if (client == self.restGetAccount) {
         [self setAccountByDictionary:responseDictionary];

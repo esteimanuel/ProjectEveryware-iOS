@@ -30,6 +30,7 @@
 }
 
 @property (nonatomic, strong) RESTClient *restGetNeighborhoodData;
+@property (nonatomic, strong) RESTClient *restGetActionData;
 
 @end
 
@@ -78,13 +79,44 @@
     [self.restGetNeighborhoodData GET:url withParameters:nil];
 }
 
+- (void)getActionData:(int)actionId
+{
+	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/actie?id=%d", actionId];
+    // Create REST client and send get request
+    self.restGetActionData = [[RESTClient alloc] init];
+    self.restGetActionData.delegate = self;
+    [self.restGetActionData GET:url withParameters:nil];
+}
+
 - (void)createScrollViewBackground
 {
 	blurred = 0;
 	blurPoint = [[UIScreen mainScreen] bounds].size.height / 8;
 	
+	// Set scroll view background
+	[self setScrollViewBackground: [self getPlaceholderImage]];
+	[self getScrollViewBackgroundData];
+}
+
+- (void)getScrollViewBackgroundData
+{
+	// Get action background image asynchronously
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.action.imageUrl]]];
+		
+		dispatch_async(dispatch_get_main_queue(),^{
+			if (background != nil) {
+				[self setScrollViewBackground:background];
+			}
+		});
+		
+	});
+}
+
+- (void)setScrollViewBackground:(UIImage *)img
+{
     // Create background image
-    UIImage *background = [self getPlaceholderImage];
+    UIImage *background = img;
     UIGraphicsBeginImageContext(self.view.frame.size);
     [background drawInRect:self.view.bounds];
     UIImage *bgimage = UIGraphicsGetImageFromCurrentImageContext();
@@ -237,6 +269,11 @@
     [self.view addSubview:self.scrollView];
 }
 
+- (void)setContentSize:(CGRect)size
+{
+	NSLog(@"Hello world!");
+}
+
 #pragma mark - Widget ViewController set data methods
 
 - (void)setNeighborhoodData
@@ -251,10 +288,10 @@
     [progressViewController setProgressData:self.action];
 }
 
-- (void)setParticipants
+- (void)setParticipantsData
 {
 	ParticipantsViewController *participantsViewController = [self.viewControllersDictionary objectForKey:@"participantsViewController"];
-	[participantsViewController setParticipants:[self.action.id intValue]];
+	[participantsViewController setParticipantsData:[self.action.id intValue]];
 }
 
 - (void)setMapData
@@ -267,7 +304,7 @@
 - (void)setMediaData
 {
     MediaViewController *mediaViewController = [self.viewControllersDictionary objectForKey:@"mediaViewController"];
-    [mediaViewController loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
+    [mediaViewController loadRequest:self.action.movieUrl];
 }
 
 - (void)setCharityData
@@ -286,15 +323,38 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-    self.action.participants = [[responseDictionary objectForKey:@"participants"] floatValue];
-    self.action.houses = [[responseDictionary objectForKey:@"houses"] floatValue];
-    self.action.totalPartPerc = [[responseDictionary objectForKey:@"totalPartPerc"] floatValue];
-    self.action.targetPartPerc = [[responseDictionary objectForKey:@"targetPartPerc"] floatValue];
-    self.action.paidTargetPerc = [[responseDictionary objectForKey:@"paidTargetPerc"] floatValue];
-    self.action.providerSelecPerc = [[responseDictionary objectForKey:@"providerSelecPerc"] floatValue];
-        
-    [self setNeighborhoodData];
-    [self setProgressData];
+	if (client == self.restGetNeighborhoodData) {
+		self.action.participants = [[responseDictionary objectForKey:@"participants"] floatValue];
+		self.action.houses = [[responseDictionary objectForKey:@"houses"] floatValue];
+		self.action.totalPartPerc = [[responseDictionary objectForKey:@"totalPartPerc"] floatValue];
+		self.action.targetPartPerc = [[responseDictionary objectForKey:@"targetPartPerc"] floatValue];
+		self.action.paidTargetPerc = [[responseDictionary objectForKey:@"paidTargetPerc"] floatValue];
+		self.action.providerSelecPerc = [[responseDictionary objectForKey:@"providerSelecPerc"] floatValue];
+		[self setNeighborhoodData];
+		[self setProgressData];
+	}
+	else if (client == self.restGetActionData) {
+		
+		NSArray *array = responseDictionary [@"media"];
+		if ([array isKindOfClass:[NSArray class]] && [array count] > 0)
+		{
+			for (int i = 0 ; i < [array count] ; i++)
+			{
+				if ([[array[i] valueForKey:@"type"] isEqualToString:@"image"])
+				{
+					self.action.imageUrl = [array[i] valueForKey:@"url"];
+					NSLog(@"%@",self.action.imageUrl);
+				} else if ([[array[i] valueForKey:@"type"] isEqualToString:@"video"])
+				{
+					self.action.movieUrl = [array[i] valueForKey:@"url"];
+					NSLog(@"%@",self.action.movieUrl);
+				}
+				
+			}
+		}
+		[self getScrollViewBackgroundData];
+		[self setMediaData];
+	}
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

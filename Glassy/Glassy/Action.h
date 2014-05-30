@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSString *date_end;
 @property (nonatomic, strong) NSString *neighborhoodId;
 @property (nonatomic, strong) NSString *statusId;
+@property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, strong) NSString *movieUrl;
 
 @property (nonatomic) CGFloat participants;
 @property (nonatomic) CGFloat houses;

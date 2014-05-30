@@ -84,19 +84,19 @@
 	self.content = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
 	self.content.backgroundColor = [UIColor clearColor];
 	
-    self.firstQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight / 3)];
+    self.firstQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, containerWidth - margin * 2, containerHeight / 3)];
     self.firstQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.firstQuestionLabel.textColor = [UIColor whiteColor];
     
     int contentHeight = self.firstQuestionLabel.frame.size.height;
     
-    self.secondQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight / 3)];
+    self.secondQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, contentHeight, containerWidth - margin * 2, containerHeight / 3)];
     self.secondQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.secondQuestionLabel.textColor = [UIColor whiteColor];
     
     contentHeight = contentHeight + self.secondQuestionLabel.frame.size.height;
     
-    self.thirdQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, contentHeight, containerWidth, containerHeight / 3)];
+    self.thirdQuestionLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, contentHeight, containerWidth - margin * 2, containerHeight / 3)];
     self.thirdQuestionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.thirdQuestionLabel.textColor = [UIColor whiteColor];
 	// Create textview

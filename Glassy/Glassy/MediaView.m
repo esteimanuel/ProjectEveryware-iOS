@@ -51,6 +51,7 @@
     
     // Add web view
     self.webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frameWidth - 2 * margin, self.mediaview.frame.size.height)];
+	self.webview.backgroundColor = [UIColor clearColor];
     self.webview.scalesPageToFit = YES;
     
     [self.mediaview addSubview:self.webview];

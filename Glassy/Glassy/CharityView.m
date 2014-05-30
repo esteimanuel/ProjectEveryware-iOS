@@ -94,7 +94,7 @@
 	self.content.backgroundColor = [UIColor clearColor];
 	
 	// Create textview
-    self.textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight)];
+    self.textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, containerWidth, containerHeight - margin * 2)];
     self.textview.text = @"";
     self.textview.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.textview.textColor = [UIColor whiteColor];

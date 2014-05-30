@@ -26,6 +26,7 @@
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 - (void)getNeighborhoodData:(int)actionId;
+- (void)getActionData:(int)actionId;
 
 - (void)setNeighborhoodData;
 - (void)setProgressData;
@@ -33,7 +34,7 @@
 - (void)setMediaData;
 - (void)setCharityData;
 - (void)setFaqData;
-- (void)setParticipants;
+- (void)setParticipantsData;
 
 // DetailViewController methods
 - (void)createCharityDetailView;

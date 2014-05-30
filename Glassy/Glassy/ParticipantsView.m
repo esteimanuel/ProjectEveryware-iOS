@@ -16,6 +16,7 @@
 	int numberOfColumns;
 	NSArray *participants;
     int numberOfParticipants;
+	UILabel *participantsNumberLabel;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -39,7 +40,7 @@
     self.backgroundColor = [UIColor clearColor];
     
     // Set participants number label
-    UILabel *participantsNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, 60, 36.0f)];
+    participantsNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, 60, 36.0f)];
     participantsNumberLabel.text = [NSString stringWithFormat:@"%d", numberOfParticipants];
     participantsNumberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
     participantsNumberLabel.textColor = [UIColor whiteColor];
@@ -104,7 +105,6 @@
         currentHeight += cellSize;
     }
 	// Create participants grid
-	self.superview.frame = CGRectMake(0, 0, frameWidth, self.superview.frame.size.height);
 	self.frame = CGRectMake(0, self.frame.origin.y, frameWidth, currentHeight);
 	
 	// Add bottom margin
@@ -118,8 +118,11 @@
     // Get number of participants
     numberOfParticipants = [participants count];
 	
-	// Set participants number label
+	// Set participants number
 	[self setParticipantsNumber:numberOfParticipants];
+	
+	// Set participants number label
+	participantsNumberLabel.text = [NSString stringWithFormat:@"%d", numberOfParticipants];
 	
     // Create participants grid
     [self createParticipantsGrid];
@@ -132,6 +135,10 @@
 	participantButton.frame = CGRectMake(*xpos, currentHeight, *cellSize, *cellSize);
 	participantButton.contentMode = UIViewContentModeScaleAspectFill;
 	participantButton.backgroundColor = [UIColor colorWithPatternImage: [self createImage:*cellSize withFrame:participantButton.bounds withParticipant:participant]];
+	if (participant.buddy == 1) {
+		participantButton.layer.borderColor = [UIColor greenColor].CGColor;
+		participantButton.layer.borderWidth = 2.0f;
+	}
 	return participantButton;
 }
 

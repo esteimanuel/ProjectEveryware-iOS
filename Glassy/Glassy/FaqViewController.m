@@ -46,28 +46,19 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-    //for (id key in responseDictionary) {
-        //NSArray *array = [responseDictionary allKeys];
-        //NSString *json = [NSString stringWithFormat:@"%@", key];
-        //NSData *data = [array dataUsingEncoding:NSUTF8StringEncoding];
-        
-//        for (id obj in array) {
-//            NSLog(@"%@", obj);
-//        }
+	NSMutableArray *array = [[NSMutableArray alloc]init];
+	for (id key in responseDictionary)
+	{
+//		NSLog(@"key: %@ value: %@",[key valueForKey:@"question"],[key valueForKey:@"answer"]);
+		[array addObject:[key valueForKey:@"question" ]];
+	}
     
-//        NSError *error;
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-//        if(!dic) {
-//            NSLog(@"%@", error);
-//        }
-        
-//        for (id k in dic) {
-//            NSLog(@"key: %@ value:", k);
-//        }
-    //}
-        //NSLog(@"key: %@", key);
-    
-    self.faqView.firstQuestionLabel.text = @" henk";
+    self.faqView.firstQuestionLabel.text = array[0];
+	NSLog(@"First question: %@",array[0]);
+    self.faqView.secondQuestionLabel.text = array[1];
+	NSLog(@"First question: %@",array[1]);
+    self.faqView.thirdQuestionLabel.text = array[2];
+	NSLog(@"First question: %@",array[2]);
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
