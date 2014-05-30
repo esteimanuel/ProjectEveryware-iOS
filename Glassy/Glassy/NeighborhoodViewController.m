@@ -41,6 +41,10 @@
     self.neighborhoodView = [[NeighborhoodView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height)];
     // Set button targets
     [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchDown];
+    // Set button invisible
+    [self.neighborhoodView.actionButton setHidden:YES];
+    // Add neighborhoodView to view
+    [self.view addSubview:self.neighborhoodView];
 }
 
 - (void)actionButtonClicked:(UIButton *)button
@@ -51,6 +55,7 @@
 //        MainViewController* parent = (MainViewController*)self.parentViewController;
 //        [parent createLoginView];
 //    }
+    NSLog(@"actionButtonClicked");
 }
 
 - (void)didReceiveMemoryWarning

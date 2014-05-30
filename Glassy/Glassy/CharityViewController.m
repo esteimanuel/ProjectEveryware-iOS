@@ -36,6 +36,8 @@
     self.charityView = [[CharityView alloc] init];
     // Set view gestures
     [self createGesture];
+    // Add chairtyView to view
+    [self.view addSubview:self.charityView];
 }
 
 - (void)didReceiveMemoryWarning

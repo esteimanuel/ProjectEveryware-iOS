@@ -24,7 +24,9 @@
 
 - (void)createView
 {
-	self.faqView = [[FaqView alloc]init];
+	self.faqView = [[FaqView alloc] init];
+    // Add mediaView to view
+    [self.view addSubview:self.faqView];
 }
 
 - (void)getFaq

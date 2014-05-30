@@ -29,8 +29,8 @@
 - (void)createView
 {
     self.mediaView = [[MediaView alloc] init];
-    // Load request
-    //[self loadRequest:@"http://www.youtube.com/embed/vIu85WQTPRc"];
+    // Add mediaView to view
+    [self.view addSubview:self.mediaView];
 }
 
 - (void)didReceiveMemoryWarning

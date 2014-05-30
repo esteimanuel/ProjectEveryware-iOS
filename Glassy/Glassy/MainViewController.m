@@ -50,7 +50,7 @@
     self = [super init];
     if (self) {
         // Init scrollVIew
-        self.scrollView = [[UIScrollView alloc] init];
+        self.scrollView = [[CustomScrollView alloc] init];
 		[self.scrollView setDelegate:self];
         
         [self createScrollViewWithViewControllers];
@@ -220,37 +220,41 @@
     // Add ViewControllers to parent viewcontroller
     [self addChildViewController:neighborhoodViewController];
     [self addChildViewController:mediaViewController];
+    [self addChildViewController:mapViewController];
     [self addChildViewController:charityViewController];
+    [self addChildViewController:progressViewController];
+    //[self addChildViewController:participantsViewController];
+    [self addChildViewController:faqViewController];
     
     // Set background to clear
     self.scrollView.backgroundColor = [UIColor clearColor];
     
     NSInteger currentHeight = 0;
     // Add ViewControllers to scrollView
-    [self.scrollView addSubview:neighborhoodViewController.neighborhoodView];
-    neighborhoodViewController.neighborhoodView.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, neighborhoodViewController.neighborhoodView.frame.size.height);
-    [self.scrollView addSubview:mediaViewController.mediaView];
-    mediaViewController.mediaView.frame = CGRectMake(0, neighborhoodViewController.neighborhoodView.frame.size.height, self.scrollView.frame.size.width, mediaViewController.mediaView.frame.size.height);
+    [self.scrollView addSubview:neighborhoodViewController.view];
+    neighborhoodViewController.view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, neighborhoodViewController.neighborhoodView.frame.size.height);
+    [self.scrollView addSubview:mediaViewController.view];
+    mediaViewController.view.frame = CGRectMake(0, neighborhoodViewController.neighborhoodView.frame.size.height, self.scrollView.frame.size.width, mediaViewController.mediaView.frame.size.height);
     
     currentHeight = neighborhoodViewController.neighborhoodView.frame.size.height + mediaViewController.mediaView.frame.size.height;
     
-    [self.scrollView addSubview:mapViewController.mapView];
-    mapViewController.mapView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, mapViewController.mapView.frame.size.height);
+    [self.scrollView addSubview:mapViewController.view];
+    mapViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, mapViewController.mapView.frame.size.height);
     
     currentHeight += mapViewController.mapView.frame.size.height;
     
-    [self.scrollView addSubview:charityViewController.charityView];
-    charityViewController.charityView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, charityViewController.charityView.frame.size.height);
+    [self.scrollView addSubview:charityViewController.view];
+    charityViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, charityViewController.charityView.frame.size.height);
     
     currentHeight += charityViewController.charityView.frame.size.height;
     
-    [self.scrollView addSubview:progressViewController.progressView];
-    progressViewController.progressView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, progressViewController.progressView.frame.size.height);
+    [self.scrollView addSubview:progressViewController.view];
+    progressViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, progressViewController.progressView.frame.size.height);
     
     currentHeight += progressViewController.progressView.frame.size.height;
 	
-	[self.scrollView addSubview:faqViewController.faqView];
-	faqViewController.faqView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, faqViewController.faqView.frame.size.height);
+	[self.scrollView addSubview:faqViewController.view];
+	faqViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, faqViewController.faqView.frame.size.height);
 	
 	currentHeight += faqViewController.faqView.frame.size.height;
     
@@ -318,6 +322,28 @@
     FaqViewController *faqViewController = [self.viewControllersDictionary objectForKey:@"faqViewController"];
     [faqViewController getFaq];
 }
+
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"MainViewController touches began");
+//    NSLog(@"MainViewController touched %@", self);
+//    NSLog(@"MainViewController nextResponder = %@", [super class]);
+//    //[super touchesBegan:touches withEvent:event];
+//    [super touchesBegan:touches withEvent:event];
+//}
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    //[super touchesMoved:touches withEvent:event];
+//    [super touchesMoved:touches withEvent:event];
+//}
+//
+//-(void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
+//{
+//    NSLog(@"Touches ended: MainViewController");
+//    //[super touchesEnded:touches withEvent:event];
+//    [super touchesEnded:touches withEvent:event];
+//}
 
 #pragma mark - REST client delegate methods
 

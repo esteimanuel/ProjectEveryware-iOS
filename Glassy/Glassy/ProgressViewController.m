@@ -31,6 +31,8 @@
 - (void)createView
 {
     self.progressView = [[ProgressView alloc] init];
+    // Add mediaView to view
+    [self.view addSubview:self.progressView];
 }
 
 - (void)setProgressData:(Action *)action

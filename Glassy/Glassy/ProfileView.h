@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UITextField *emailTextField;
 @property (nonatomic, strong) UITextField *passwordTextField;
 @property (nonatomic, strong) UIButton *saveButton;
+@property (nonatomic, strong) UIButton* buddyVideoButton;
 
 @property (nonatomic, strong) UISwitch *buddySwitch;
 @property (nonatomic, strong) UILabel *buddyLabel;
@@ -27,5 +28,16 @@
 @property (nonatomic, strong) UIView *buddyDetailsView;
 @property (nonatomic, strong) UITextField *buddyEmail;
 @property (nonatomic, strong) UITextField *buddyPhone;
+
+- (void)buddyVideoButtonClick:(id)sender;
+- (void)setState:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+- (IBAction)takePhoto:  (UIButton *)sender;
+- (IBAction)selectPhoto:(UIButton *)sender;
+
+@property UIImagePickerController * imagePickerController;
+@property UIToolbar *toolBar;
+//@property OverlayView *overlayView;
 
 @end
