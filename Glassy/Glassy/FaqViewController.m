@@ -24,7 +24,9 @@
 
 - (void)createView
 {
-	self.faqView = [[FaqView alloc]init];
+	self.faqView = [[FaqView alloc] init];
+    // Add mediaView to view
+    [self.view addSubview:self.faqView];
 }
 
 - (void)getFaq
@@ -46,21 +48,23 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-    //for (id key in responseDictionary) {
-        //NSArray *array = [responseDictionary allKeys];
-        //NSString *json = [NSString stringWithFormat:@"%@", key];
-        //NSData *data = [array dataUsingEncoding:NSUTF8StringEncoding];
+    for (id key in responseDictionary) {
+        NSString *json = [NSString stringWithFormat:@"%@", key];
+        NSString *fixed = [self fixJSON:json];
+        NSData *data = [fixed dataUsingEncoding:NSUTF8StringEncoding];
         
+        NSError *error;
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        if(!dic) {
+            NSLog(@"%@", error);
+        }
+    }
 //        for (id obj in array) {
 //            NSLog(@"%@", obj);
 //        }
     
-//        NSError *error;
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-//        if(!dic) {
-//            NSLog(@"%@", error);
-//        }
-        
+
+    
 //        for (id k in dic) {
 //            NSLog(@"key: %@ value:", k);
 //        }
@@ -73,6 +77,16 @@
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
     
+}
+
+- (NSString *)fixJSON:(NSString *)json {
+    json = [json stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+    json = [json stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    json = [json stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:@""];
+    int lastChar = [json length]-1;
+    json = [json stringByReplacingCharactersInRange:NSMakeRange(lastChar,1) withString:@""];
+    json = [json stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+    return  json;
 }
 
 @end

@@ -13,6 +13,6 @@
 @property (nonatomic, strong) UIView *header;
 @property (nonatomic, strong) UIView *container;
 @property (nonatomic, strong) UIView *content;
-@property (nonatomic, strong) UITextView *textview;
+@property (nonatomic, strong) UILabel *textview;
 
 @end

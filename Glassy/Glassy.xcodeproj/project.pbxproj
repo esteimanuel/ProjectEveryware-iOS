@@ -48,6 +48,7 @@
 		19E9DF86190F9402008075F6 /* CharityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D405190135A900733C9F /* CharityViewController.m */; };
 		19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E9DF88190F94F1008075F6 /* RESTClient.m */; };
 		19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */; };
+		19EDAF4519334F2A00E18475 /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EDAF4419334F2A00E18475 /* CustomScrollView.m */; };
 		22026A8F1907CD2100EFF574 /* ios-auth-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A771907CD2100EFF574 /* ios-auth-background.png */; };
 		22026A921907CD2100EFF574 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7B1907CD2100EFF574 /* ios-charity.png */; };
 		22026A931907CD2100EFF574 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7C1907CD2100EFF574 /* ios-map.png */; };
@@ -173,6 +174,8 @@
 		19E9DF88190F94F1008075F6 /* RESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClient.m; sourceTree = "<group>"; };
 		19E9DF8A190FC5BA008075F6 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		19EDAF4319334F2A00E18475 /* CustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
+		19EDAF4419334F2A00E18475 /* CustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
 		22026A771907CD2100EFF574 /* ios-auth-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-auth-background.png"; path = "../ios-auth-background.png"; sourceTree = "<group>"; };
 		22026A7B1907CD2100EFF574 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-charity.png"; sourceTree = "<group>"; };
 		22026A7C1907CD2100EFF574 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-map.png"; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				19E8FB69192123CF0030CB7D /* Models */,
 				70A56BF819129808001CF588 /* ScrollView.h */,
 				70A56BF919129808001CF588 /* ScrollView.m */,
+				19EDAF4319334F2A00E18475 /* CustomScrollView.h */,
+				19EDAF4419334F2A00E18475 /* CustomScrollView.m */,
 			);
 			path = Glassy;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				19E8FB561920FCB60030CB7D /* NavigationBarView.m in Sources */,
 				19E8FB6219210D0B0030CB7D /* CharityView.m in Sources */,
 				19E8FB511920F9070030CB7D /* LoginView.m in Sources */,
+				19EDAF4519334F2A00E18475 /* CustomScrollView.m in Sources */,
 				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
 				70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,

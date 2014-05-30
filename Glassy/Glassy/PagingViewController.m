@@ -221,12 +221,11 @@
     int count = self.mainViewControllers.count;
     float pageX = 0;
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.scrollView = [[CustomScrollView alloc] initWithFrame:self.view.bounds];
     [self.scrollView setPagingEnabled:YES];
     [self.scrollView setDirectionalLockEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width * count,  1)];
 	[self.scrollView setBackgroundColor: [UIColor blackColor]];
-    [self.view addSubview:self.scrollView];
 
     
     for (int i = 0; i < count; i++)
@@ -245,6 +244,29 @@
     
         pageX += pageFrame.size.width;  
     }
+    [self.view addSubview:self.scrollView];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"PagingViewController touches began");
+    NSLog(@"PagingViewController touched %@", self);
+    NSLog(@"PagingViewController nextResponder = %@", self.nextResponder);
+    //[super touchesBegan:touches withEvent:event];
+    [[self nextResponder] touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //[super touchesMoved:touches withEvent:event];
+    [[self nextResponder] touchesMoved:touches withEvent:event];
+}
+
+-(void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
+{
+    NSLog(@"Touches ended: PagingViewController");
+    //[super touchesEnded:touches withEvent:event];
+    [self.nextResponder touchesEnded:touches withEvent:event];
 }
 
 #pragma mark - REST client delegate methods
@@ -300,7 +322,7 @@
             MainViewController *mainViewController = [self.mainViewControllers objectAtIndex:i];
             // Add MainViewController to child viewcontrollers
             [self addChildViewController:mainViewController];
-            [mainViewController didMoveToParentViewController:self];
+            //[mainViewController didMoveToParentViewController:self];
             // Set MainViewController action
             mainViewController.action = self.actionsArray[i];
             // Set MainViewController data, methods have to be called in this order!

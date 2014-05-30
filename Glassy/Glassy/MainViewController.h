@@ -11,6 +11,7 @@
 #import "ScrollView.h"
 #import "Action.h"
 #import "Account.h"
+#import "CustomScrollView.h"
 
 // DetailViewControllers
 #import "CharityDetailViewController.h"
@@ -23,7 +24,7 @@
 // DetailViewControllers
 @property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;
 
-@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) CustomScrollView *scrollView;
 
 - (void)getNeighborhoodData:(int)actionId;
 
