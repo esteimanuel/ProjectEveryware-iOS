@@ -107,8 +107,6 @@
         self.registerViewController = [[RegisterViewController alloc] init];
     }
     [self.registerViewController createView];
-//    [self addChildViewController:self.registerViewController];
-//    [self.view addSubview:self.registerViewController.registerView];
     [self handleActiveViewController:self.registerViewController];
 }
 
@@ -122,6 +120,8 @@
     // Set navigation bar details
     [self.navigationBarViewController setProfileName];
     [self.navigationBarViewController setProfileImage];
+    // Handle action button stage
+    [self handleActionButtonStage];
 }
 
 - (void)createLoginView
@@ -130,8 +130,6 @@
         self.loginViewController = [[LoginViewController alloc] init];
     }
     [self.loginViewController createView];
-    //[self addChildViewController:self.loginViewController];
-    //[self.view addSubview:self.loginViewController.view];
     [self handleActiveViewController:self.loginViewController];
 }
 
@@ -145,6 +143,8 @@
     // Set navigation bar details
     [self.navigationBarViewController setProfileName];
     [self.navigationBarViewController setProfileImage];
+    // Handle action button stage
+    [self handleActionButtonStage];
 }
 
 - (void)createProfileView
@@ -177,6 +177,35 @@
     [self.dropDownMenuViewController.view removeFromSuperview];
 }
 
+- (void)createProviderView
+{
+    if (self.providerViewController == nil) {
+        self.providerViewController = [[ProviderViewController alloc] init];
+    }
+    [self.providerViewController createView];
+    [self.providerViewController getProviderData];
+    [self handleActiveViewController:self.providerViewController];
+}
+
+- (void)removeProviderView
+{
+    [self handleActiveViewController:nil];
+}
+
+- (void)createDepositView
+{
+    if (self.depositViewController == nil) {
+        self.depositViewController = [[DepositViewController alloc] init];
+    }
+    [self.depositViewController createView];
+    [self handleActiveViewController:self.depositViewController];
+}
+
+- (void)removeDepositView
+{
+    [self handleActiveViewController:nil];
+}
+
 - (void)createSearchView
 {
     if ([self.searchViewController.view isDescendantOfView:self.view]) {
@@ -192,6 +221,7 @@
     if (self.loginViewController == nil) {
         self.loginViewController = [[LoginViewController alloc] init];
     }
+    self.account = nil;
     [self.loginViewController logout];
     // Reset menu options after logout
     [self removeDropDownMenuView];
@@ -199,6 +229,8 @@
     // Reset navigation bar details
     [self.navigationBarViewController setProfileName];
     [self.navigationBarViewController setProfileImage];
+    // Handle action button stage
+    [self handleActionButtonStage];
 }
 
 - (void)handleActiveViewController:(UIViewController *)viewController
@@ -211,6 +243,16 @@
         self.activeViewController = viewController;
         [self addChildViewController:self.activeViewController];
         [self.view addSubview:self.activeViewController.view];
+    }
+}
+
+- (void)handleActionButtonStage
+{
+    int count = self.mainViewControllers.count;
+    for (int i = 0; i < count; i++)
+    {
+        MainViewController *main = self.mainViewControllers[i];
+        [main setNeighborhoodActionButtonStage];
     }
 }
 

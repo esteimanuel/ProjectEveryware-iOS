@@ -13,6 +13,8 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "ProfileViewController.h"
+#import "ProviderViewController.h"
+#import "DepositViewController.h"
 #import "MainViewController.h"
 #import "RESTClient.h"
 #import "Action.h"
@@ -38,6 +40,10 @@
 - (void)removeProfileView;
 - (void)createDropDownMenuView;
 - (void)removeDropDownMenuView;
+- (void)createProviderView;
+- (void)removeProviderView;
+- (void)createDepositView;
+- (void)removeDepositView;
 - (void)createSearchView;
 
 - (void)logout;
@@ -49,6 +55,8 @@
 @property (nonatomic, strong) LoginViewController *loginViewController;
 @property (nonatomic, strong) RegisterViewController *registerViewController;
 @property (nonatomic, strong) ProfileViewController *profileViewController;
+@property (nonatomic, strong) ProviderViewController *providerViewController;
+@property (nonatomic, strong) DepositViewController *depositViewController;
 // Property indicating active view controller
 @property (nonatomic, strong) UIViewController *activeViewController;
 

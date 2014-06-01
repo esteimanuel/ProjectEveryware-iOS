@@ -28,6 +28,11 @@
 		1992D3F2190127D600733C9F /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3F1190127D600733C9F /* MediaViewController.m */; };
 		1992D4031901354600733C9F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D4021901354600733C9F /* MapViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+		199C3A3D193B4AFE00D53A67 /* ProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A3C193B4AFE00D53A67 /* ProviderViewController.m */; };
+		199C3A42193B4B5000D53A67 /* ProviderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A41193B4B5000D53A67 /* ProviderView.m */; };
+		199C3A45193B55E500D53A67 /* Provider.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A44193B55E500D53A67 /* Provider.m */; };
+		199C3A48193B705300D53A67 /* DepositViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A47193B705300D53A67 /* DepositViewController.m */; };
+		199C3A4B193B706700D53A67 /* DepositView.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A4A193B706700D53A67 /* DepositView.m */; };
 		19D64E9A1920C46800178A36 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D64E991920C46800178A36 /* RegisterView.m */; };
 		19D7FF01191B7AB7007039DD /* CharityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D7FF00191B7AB7007039DD /* CharityDetailViewController.m */; };
 		19DB4F76191247B9002184D3 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DB4F75191247B9002184D3 /* Account.m */; };
@@ -138,6 +143,16 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+		199C3A3B193B4AFE00D53A67 /* ProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderViewController.h; sourceTree = "<group>"; };
+		199C3A3C193B4AFE00D53A67 /* ProviderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderViewController.m; sourceTree = "<group>"; };
+		199C3A40193B4B5000D53A67 /* ProviderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderView.h; sourceTree = "<group>"; };
+		199C3A41193B4B5000D53A67 /* ProviderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderView.m; sourceTree = "<group>"; };
+		199C3A43193B55E500D53A67 /* Provider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Provider.h; sourceTree = "<group>"; };
+		199C3A44193B55E500D53A67 /* Provider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Provider.m; sourceTree = "<group>"; };
+		199C3A46193B705300D53A67 /* DepositViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepositViewController.h; sourceTree = "<group>"; };
+		199C3A47193B705300D53A67 /* DepositViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepositViewController.m; sourceTree = "<group>"; };
+		199C3A49193B706700D53A67 /* DepositView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepositView.h; sourceTree = "<group>"; };
+		199C3A4A193B706700D53A67 /* DepositView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepositView.m; sourceTree = "<group>"; };
 		19D64E981920C46800178A36 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		19D64E991920C46800178A36 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		19D7FEFF191B7AB7007039DD /* CharityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharityDetailViewController.h; sourceTree = "<group>"; };
@@ -328,6 +343,10 @@
 				190B7F88191F895700FB07EC /* ProfileViewController.m */,
 				19432E651922531E00F26EEF /* PagingViewController.h */,
 				19432E661922531E00F26EEF /* PagingViewController.m */,
+				199C3A3B193B4AFE00D53A67 /* ProviderViewController.h */,
+				199C3A3C193B4AFE00D53A67 /* ProviderViewController.m */,
+				199C3A46193B705300D53A67 /* DepositViewController.h */,
+				199C3A47193B705300D53A67 /* DepositViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -357,6 +376,10 @@
 				70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */,
 				70BB8BD61928B69B0006A4A1 /* FaqView.h */,
 				70BB8BD71928B69B0006A4A1 /* FaqView.m */,
+				199C3A40193B4B5000D53A67 /* ProviderView.h */,
+				199C3A41193B4B5000D53A67 /* ProviderView.m */,
+				199C3A49193B706700D53A67 /* DepositView.h */,
+				199C3A4A193B706700D53A67 /* DepositView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -381,6 +404,8 @@
 				1925A042192E85060089487E /* Charity.m */,
 				70BB8BDC192E1BC40006A4A1 /* Buddy.h */,
 				70BB8BDD192E1BC40006A4A1 /* Buddy.m */,
+				199C3A43193B55E500D53A67 /* Provider.h */,
+				199C3A44193B55E500D53A67 /* Provider.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -579,6 +604,7 @@
 				19E9DF86190F9402008075F6 /* CharityViewController.m in Sources */,
 				19DB4F76191247B9002184D3 /* Account.m in Sources */,
 				19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */,
+				199C3A45193B55E500D53A67 /* Provider.m in Sources */,
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
 				70BB8BDE192E1BC40006A4A1 /* Buddy.m in Sources */,
 				1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */,
@@ -588,17 +614,20 @@
 				19E8FB5F192108610030CB7D /* MapView.m in Sources */,
 				1992D3EC190122AE00733C9F /* NeighborhoodViewController.m in Sources */,
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,
+				199C3A4B193B706700D53A67 /* DepositView.m in Sources */,
 				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
 				1925A043192E85060089487E /* Charity.m in Sources */,
 				19E8FB591920FF0B0030CB7D /* NeighborhoodView.m in Sources */,
 				19E127B21907A8A500471CB9 /* LoginViewController.m in Sources */,
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
+				199C3A3D193B4AFE00D53A67 /* ProviderViewController.m in Sources */,
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
 				19D7FF01191B7AB7007039DD /* CharityDetailViewController.m in Sources */,
 				70A56BFA19129808001CF588 /* ScrollView.m in Sources */,
 				19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */,
 				190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */,
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
+				199C3A48193B705300D53A67 /* DepositViewController.m in Sources */,
 				19E8FB561920FCB60030CB7D /* NavigationBarView.m in Sources */,
 				19E8FB6219210D0B0030CB7D /* CharityView.m in Sources */,
 				19E8FB511920F9070030CB7D /* LoginView.m in Sources */,
@@ -612,6 +641,7 @@
 				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
 				19D64E9A1920C46800178A36 /* RegisterView.m in Sources */,
+				199C3A42193B4B5000D53A67 /* ProviderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,7 @@
 
 @property (nonatomic, strong) RESTClient *restGetNeighborhoodData;
 @property (nonatomic, strong) RESTClient *restGetActionData;
+@property (nonatomic, strong) RESTClient *restSetActionId;
 
 @end
 
@@ -89,6 +90,29 @@
     self.restGetActionData.delegate = self;
     [self.restGetActionData GET:url withParameters:nil];
 }
+
+- (NSMutableDictionary *)createDictionaryWithParameters:(int)actionId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    // Objects have to be added in this order
+    //[params setObject:actionId forKey:@"actie_id"];
+    [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
+    
+    return params;
+}
+
+- (void)setActionId:(int)actionId
+{
+    // Create dictionary with parameters
+    NSMutableDictionary *params = [self createDictionaryWithParameters:actionId];
+	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker"];
+    // Create REST client and send get request
+    self.restGetActionData = [[RESTClient alloc] init];
+    self.restGetActionData.delegate = self;
+    [self.restGetActionData PUT:url withParameters:params];
+}
+
 
 - (void)createScrollViewBackground
 {
@@ -293,12 +317,17 @@
 	});
 }
 
-#pragma mark - Widget ViewController set data methods
+#pragma mark - Widget ViewController set methods
 
 - (void)setNeighborhoodData
 {
     NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
     [neighborhoodViewController setNeighborhoodData:self.action];
+}
+
+- (void)setNeighborhoodActionButtonStage
+{
+    NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
     [neighborhoodViewController setActionButtonStage];
 }
 
@@ -372,7 +401,9 @@
 		self.action.targetPartPerc = [[responseDictionary objectForKey:@"targetPartPerc"] floatValue];
 		self.action.paidTargetPerc = [[responseDictionary objectForKey:@"paidTargetPerc"] floatValue];
 		self.action.providerSelecPerc = [[responseDictionary objectForKey:@"providerSelecPerc"] floatValue];
-		[self setNeighborhoodData];
+		
+        [self setNeighborhoodData];
+        [self setNeighborhoodActionButtonStage];
 		[self setProgressData];
 	}
 	else if (client == self.restGetActionData) {
@@ -397,6 +428,9 @@
 		[self getScrollViewBackgroundData];
 		[self setMediaData];
 	}
+    else if (client == self.restSetActionId) {
+        
+    }
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

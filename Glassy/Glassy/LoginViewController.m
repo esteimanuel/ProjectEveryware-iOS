@@ -55,12 +55,7 @@
     [defaults removeObjectForKey:@"gebruiker_id"];
     [defaults removeObjectForKey:@"account_id"];
     [defaults synchronize];
-    
-    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
-        PagingViewController* parent = (PagingViewController*)self.parentViewController;
-        parent.account = nil;
-    }
-    
+        
     if ([defaults objectForKey:@"token"] == nil) {
         NSLog(@"User logged out");
     }

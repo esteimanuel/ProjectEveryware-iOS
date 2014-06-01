@@ -28,8 +28,10 @@
 
 - (void)getNeighborhoodData:(int)actionId;
 - (void)getActionData:(int)actionId;
+- (void)setActionId:(int)actionId;
 
 - (void)setNeighborhoodData;
+- (void)setNeighborhoodActionButtonStage;
 - (void)setProgressData;
 - (void)setMapData;
 - (void)setMediaData;
