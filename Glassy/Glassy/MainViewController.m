@@ -29,6 +29,7 @@
 	float blurPoint;
 	ParticipantsViewController *participantsViewController;
 	float contentSizeHeight;
+	float participantsViewHeight;
 }
 
 @property (nonatomic, strong) RESTClient *restGetNeighborhoodData;
@@ -120,7 +121,6 @@
 	blurPoint = [[UIScreen mainScreen] bounds].size.height / 8;
 	
 	// Set scroll view background
-	[self setScrollViewBackground: [self getPlaceholderImage]];
 	[self getScrollViewBackgroundData];
 }
 
@@ -176,7 +176,7 @@
 - (UIImage *)getPlaceholderImage
 {
 	NSArray *urls = @[@"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg",@"http://storage4.album.bg/52f/adriana_lima_5.jpg_d70f4_29141858.jpg",@"http://2014download.com/images/2013/03/jessica-alba-awards-mtv.jpg",@"http://images4.fanpop.com/image/photos/16000000/adriana-victorias-secret-angels-16007539-760-1024.jpg",@"http://jasn.ru/upload/blogs/8916618fbf55b234adcfbb5f5e35dc75-orig.jpg", @"http://www.photonization.com/data/Images/Lingerie/67.jpg"];
-    NSString *imageUrl = urls[[self getRandomNumberBetween:0 maxNumber:urls.count]];
+    NSString *imageUrl = urls[2];
     UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
 	return background;
 }
@@ -286,32 +286,33 @@
     
     [self.scrollView addSubview:participantsViewController.participantsView];
     participantsViewController.participantsView.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, participantsViewController.participantsView.frame.size.height);
-	
+	participantsViewHeight = participantsViewController.participantsView.frame.size.height;
     currentHeight += participantsViewController.participantsView.frame.size.height;
     
     // Set frame size
     self.scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 	
+	contentSizeHeight = currentHeight;
 	// Calculate scrollView content size
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, currentHeight);
-	contentSizeHeight = currentHeight;
 	
     // Add scrollview to view
     [self.view addSubview:self.scrollView];
-	[self onParticipantsLoad];
+	[self onParticipantsLoaded];
 }
 
-- (void)onParticipantsLoad
+- (void)onParticipantsLoaded
 {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-		if (participantsViewController.participantsView.frame.size.height > 38.0f) {
+		if (participantsViewController.participantsView.frame.size.height > participantsViewHeight) {
 			dispatch_async(dispatch_get_main_queue(), ^{
-				contentSizeHeight += participantsViewController.participantsView.frame.size.height - 18.0f;
+				float margin = 5;
+				contentSizeHeight += participantsViewController.participantsView.frame.size.height - participantsViewHeight + margin * 4;
 				self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, contentSizeHeight);
 			});
 		} else {
 			usleep(1000000);
-			[self onParticipantsLoad];
+			[self onParticipantsLoaded];
 		}
 		
 	});
@@ -409,20 +410,19 @@
 	else if (client == self.restGetActionData) {
 		
 		NSArray *array = responseDictionary [@"media"];
-		if ([array isKindOfClass:[NSArray class]] && [array count] > 0)
+		if ([array isKindOfClass:[NSArray class]])
 		{
 			for (int i = 0 ; i < [array count] ; i++)
 			{
 				if ([[array[i] valueForKey:@"type"] isEqualToString:@"image"])
 				{
 					self.action.imageUrl = [array[i] valueForKey:@"url"];
-					NSLog(@"%@",self.action.imageUrl);
+					//NSLog(@"%@",self.action.imageUrl);
 				} else if ([[array[i] valueForKey:@"type"] isEqualToString:@"video"])
 				{
 					self.action.movieUrl = [array[i] valueForKey:@"url"];
-					NSLog(@"%@",self.action.movieUrl);
+					//NSLog(@"%@",self.action.movieUrl);
 				}
-				
 			}
 		}
 		[self getScrollViewBackgroundData];

@@ -17,5 +17,6 @@
 @property (nonatomic, strong) UIButton *actionButton;
 
 //- (void)drawView;
+- (void)setParticipantsLabelPosition:(float)numberOfParticipants;
 
 @end

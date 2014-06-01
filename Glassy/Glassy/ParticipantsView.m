@@ -35,6 +35,10 @@
 	frameWidth = [[UIScreen mainScreen] bounds].size.width;
 	numberOfColumns = 5;
 	numberOfParticipants = 0;
+	struct CGColor *shadowColor = [[UIColor blackColor]CGColor];
+	CGSize shadowOffset = CGSizeMake(0.0, 0.0);
+	float shadowRadius = 3.0f;
+	float shadowOpacity = 0.5f;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
@@ -44,14 +48,22 @@
     participantsNumberLabel.text = [NSString stringWithFormat:@"%d", numberOfParticipants];
     participantsNumberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
     participantsNumberLabel.textColor = [UIColor whiteColor];
+	participantsNumberLabel.layer.shadowColor = shadowColor;
+	participantsNumberLabel.layer.shadowOffset = shadowOffset;
+	participantsNumberLabel.layer.shadowRadius = shadowRadius;
+	participantsNumberLabel.layer.shadowOpacity = shadowOpacity;
     [self addSubview:participantsNumberLabel];
     
     // Set participants text label
-    UILabel *participantsText = [[UILabel alloc] initWithFrame:CGRectMake(margin + participantsNumberLabel.frame.size.width, margin * 2, 150, 24.0f)];
-    participantsText.text = @"deelnemers";
-    participantsText.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0f];
-    participantsText.textColor = [UIColor whiteColor];
-    [self addSubview:participantsText];
+    self.participantsText = [[UILabel alloc] initWithFrame:CGRectMake(margin + participantsNumberLabel.frame.size.width, margin * 2, 150, 24.0f)];
+    self.participantsText.text = @"deelnemers";
+    self.participantsText.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0f];
+    self.participantsText.textColor = [UIColor whiteColor];
+	self.participantsText.layer.shadowColor = shadowColor;
+	self.participantsText.layer.shadowOffset = shadowOffset;
+	self.participantsText.layer.shadowRadius = shadowRadius;
+	self.participantsText.layer.shadowOpacity = shadowOpacity;
+    [self addSubview:self.participantsText];
     
     // Set participants percentage label
 //    UILabel *participantsPercentage = [[UILabel alloc] initWithFrame:CGRectMake(frameWidth - margin - 80, 0, 80, 36.0f)];
@@ -126,6 +138,8 @@
 	
     // Create participants grid
     [self createParticipantsGrid];
+	
+	[self setParticipantsLabelPosition:numberOfParticipants];
 }
 
 
@@ -145,7 +159,7 @@
 - (UIImage *)createImage:(float)size withFrame:(CGRect)frame withParticipant:(Account *)participant
 {
     // Create background image
-    UIImage *background = [participant.image isEqual: nil] ? [self getImage: participant.image] : [UIImage imageNamed:@"userimageplaceholder.png"];
+    UIImage *background = [participant.image length] > 0 ? [self getImage: participant.image] : [UIImage imageNamed:@"userimageplaceholder.png"];
 	UIGraphicsBeginImageContext(CGSizeMake(size, size));
     [background drawInRect:frame];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -158,9 +172,12 @@
 	numberOfParticipants = number;
 }
 
-- (void)setImage
+- (void)setParticipantsLabelPosition:(float)numberOfParticipantsForPos
 {
-	
+	float space = 33;
+	int numberOfSpaces = [[[NSNumber numberWithFloat:numberOfParticipantsForPos] stringValue] length];
+	NSLog(@"%d",numberOfSpaces);
+	self.participantsText.frame = CGRectMake(space * numberOfSpaces, margin * 2, 150, 24.0f);
 }
 
 - (UIImage *)getImage:(NSString *)url

@@ -62,10 +62,19 @@
 
 - (void)drawHeader
 {
+	struct CGColor *shadowColor = [[UIColor blackColor]CGColor];
+	CGSize shadowOffset = CGSizeMake(0.0, 0.0);
+	float shadowRadius = 3.0f;
+	float shadowOpacity = 0.5f;
+	
 	self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, lineHeight)];
     self.titleLabel.text = @"Veel gestelde vragen";
     self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.titleLabel.textColor = [UIColor whiteColor];
+	self.titleLabel.layer.shadowColor = shadowColor;
+	self.titleLabel.layer.shadowOffset = shadowOffset;
+	self.titleLabel.layer.shadowRadius = shadowRadius;
+	self.titleLabel.layer.shadowOpacity = shadowOpacity;
     [self addSubview:self.titleLabel];
 }
 
