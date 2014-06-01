@@ -24,6 +24,10 @@
     CGFloat currentHeight = 0;
     CGFloat margin = 5;
     CGFloat frameWidth = [[UIScreen mainScreen] bounds].size.width;
+	struct CGColor *shadowColor = [[UIColor blackColor]CGColor];
+	CGSize shadowOffset = CGSizeMake(0.0, 0.0);
+	float shadowRadius = 3.0f;
+	float shadowOpacity = 0.5f;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
@@ -33,6 +37,10 @@
     self.titleLabel.text = @"Buurt kaart";
     self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.titleLabel.textColor = [UIColor whiteColor];
+	self.titleLabel.layer.shadowColor = shadowColor;
+	self.titleLabel.layer.shadowOffset = shadowOffset;
+	self.titleLabel.layer.shadowRadius = shadowRadius;
+	self.titleLabel.layer.shadowOpacity = shadowOpacity;
     [self addSubview:self.titleLabel];
     
     currentHeight += self.titleLabel.frame.size.height + margin;

@@ -35,6 +35,10 @@
 	frameWidth = [[UIScreen mainScreen] bounds].size.width;
 	numberOfColumns = 5;
 	numberOfParticipants = 0;
+	struct CGColor *shadowColor = [[UIColor blackColor]CGColor];
+	CGSize shadowOffset = CGSizeMake(0.0, 0.0);
+	float shadowRadius = 3.0f;
+	float shadowOpacity = 0.5f;
     
     // Set background to transparent
     self.backgroundColor = [UIColor clearColor];
@@ -44,6 +48,10 @@
     participantsNumberLabel.text = [NSString stringWithFormat:@"%d", numberOfParticipants];
     participantsNumberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0f];
     participantsNumberLabel.textColor = [UIColor whiteColor];
+	participantsNumberLabel.layer.shadowColor = shadowColor;
+	participantsNumberLabel.layer.shadowOffset = shadowOffset;
+	participantsNumberLabel.layer.shadowRadius = shadowRadius;
+	participantsNumberLabel.layer.shadowOpacity = shadowOpacity;
     [self addSubview:participantsNumberLabel];
     
     // Set participants text label
@@ -51,6 +59,10 @@
     self.participantsText.text = @"deelnemers";
     self.participantsText.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0f];
     self.participantsText.textColor = [UIColor whiteColor];
+	self.participantsText.layer.shadowColor = shadowColor;
+	self.participantsText.layer.shadowOffset = shadowOffset;
+	self.participantsText.layer.shadowRadius = shadowRadius;
+	self.participantsText.layer.shadowOpacity = shadowOpacity;
     [self addSubview:self.participantsText];
     
     // Set participants percentage label
