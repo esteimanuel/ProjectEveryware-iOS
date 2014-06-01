@@ -84,11 +84,8 @@
 {
     [self setCharityByDictionary:responseDictionary];
     
-<<<<<<< HEAD
     self.charityView.textview.text = self.charity.message;
-=======
     self.charityView.textview.text = self.charity.description;
->>>>>>> FETCH_HEAD
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
