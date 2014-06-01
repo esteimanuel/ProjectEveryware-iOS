@@ -47,11 +47,11 @@
     [self addSubview:participantsNumberLabel];
     
     // Set participants text label
-    UILabel *participantsText = [[UILabel alloc] initWithFrame:CGRectMake(margin + participantsNumberLabel.frame.size.width, margin * 2, 150, 24.0f)];
-    participantsText.text = @"deelnemers";
-    participantsText.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0f];
-    participantsText.textColor = [UIColor whiteColor];
-    [self addSubview:participantsText];
+    self.participantsText = [[UILabel alloc] initWithFrame:CGRectMake(margin + participantsNumberLabel.frame.size.width, margin * 2, 150, 24.0f)];
+    self.participantsText.text = @"deelnemers";
+    self.participantsText.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0f];
+    self.participantsText.textColor = [UIColor whiteColor];
+    [self addSubview:self.participantsText];
     
     // Set participants percentage label
 //    UILabel *participantsPercentage = [[UILabel alloc] initWithFrame:CGRectMake(frameWidth - margin - 80, 0, 80, 36.0f)];
@@ -126,6 +126,8 @@
 	
     // Create participants grid
     [self createParticipantsGrid];
+	
+	[self setParticipantsLabelPosition:numberOfParticipants];
 }
 
 
@@ -158,9 +160,12 @@
 	numberOfParticipants = number;
 }
 
-- (void)setImage
+- (void)setParticipantsLabelPosition:(float)numberOfParticipantsForPos
 {
-	
+	float space = 33;
+	int numberOfSpaces = [[[NSNumber numberWithFloat:numberOfParticipantsForPos] stringValue] length];
+	NSLog(@"%d",numberOfSpaces);
+	self.participantsText.frame = CGRectMake(space * numberOfSpaces, margin * 2, 150, 24.0f);
 }
 
 - (UIImage *)getImage:(NSString *)url

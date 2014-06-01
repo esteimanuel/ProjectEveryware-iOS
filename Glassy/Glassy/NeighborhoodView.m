@@ -21,6 +21,11 @@
 
 - (void)drawView
 {
+	struct CGColor *shadowColor = [[UIColor blackColor]CGColor];
+	CGSize shadowOffset = CGSizeMake(0.0, 0.0);
+	float shadowRadius = 3.0f;
+	float shadowOpacity = 0.5f;
+	
     self.backgroundColor = [UIColor clearColor];
     
     // Create neighborhood title
@@ -28,17 +33,22 @@
     //	[self.neighborhoodTitleLabel setText:@"Martijn's glasvezel buurt"];
     [self.neighborhoodTitleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
     [self.neighborhoodTitleLabel setTextColor:[UIColor whiteColor]];
-	self.neighborhoodTitleLabel.layer.shadowColor = (__bridge CGColorRef)([UIColor blackColor]);
-	self.neighborhoodTitleLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-	self.neighborhoodTitleLabel.layer.shadowRadius = 2.0;
-	self.neighborhoodTitleLabel.layer.shadowOpacity = 1.0;
+	self.neighborhoodTitleLabel.layer.shadowColor = shadowColor;
+	self.neighborhoodTitleLabel.layer.shadowOffset = shadowOffset;
+	self.neighborhoodTitleLabel.layer.shadowRadius = shadowRadius;
+	self.neighborhoodTitleLabel.layer.shadowOpacity = shadowOpacity;
+	
     [self addSubview:self.neighborhoodTitleLabel];
     
     // Create participants number
     self.participantsNumberLabel = [[UILabel alloc]initWithFrame:CGRectMake(5.0, (self.frame.size.height - 180.0) - 10.0, self.frame.size.width -10.0, 50.0f)];
-    [self.participantsNumberLabel setText:@"106"];
+    [self.participantsNumberLabel setText:@"0"];
     [self.participantsNumberLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:50.0f]];
     [self.participantsNumberLabel setTextColor:[UIColor whiteColor]];
+	self.participantsNumberLabel.layer.shadowColor = shadowColor;
+	self.participantsNumberLabel.layer.shadowOffset = shadowOffset;
+	self.participantsNumberLabel.layer.shadowRadius = shadowRadius;
+	self.participantsNumberLabel.layer.shadowOpacity = shadowOpacity;
     
     [self addSubview:self.participantsNumberLabel];
     
@@ -47,6 +57,10 @@
     [self.participantsLabel setText:@"deelnemers"];
     [self.participantsLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:25.0f]];
     [self.participantsLabel setTextColor:[UIColor whiteColor]];
+	self.participantsLabel.layer.shadowColor = shadowColor;
+	self.participantsLabel.layer.shadowOffset = shadowOffset;
+	self.participantsLabel.layer.shadowRadius = shadowRadius;
+	self.participantsLabel.layer.shadowOpacity = shadowOpacity;
     
     [self addSubview:self.participantsLabel];
     
@@ -55,6 +69,10 @@
     [self.percentageLabel setText:@"22%"];
     [self.percentageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:100.0f]];
     [self.percentageLabel setTextColor:[UIColor whiteColor]];
+	self.percentageLabel.layer.shadowColor = shadowColor;
+	self.percentageLabel.layer.shadowOffset = shadowOffset;
+	self.percentageLabel.layer.shadowRadius = shadowRadius;
+	self.percentageLabel.layer.shadowOpacity = shadowOpacity;
     
     [self addSubview:self.percentageLabel];
     
@@ -72,6 +90,14 @@
     self.actionButton.frame = CGRectMake(5.0, (self.frame.size.height - 40.0) - 10.0, self.frame.size.width -10.0, 40.0);
     
     [self addSubview:self.actionButton];
+}
+
+- (void)setParticipantsLabelPosition:(float)numberOfParticipants
+{
+	float space = 33;
+	int numberOfSpaces = [[[NSNumber numberWithFloat:numberOfParticipants] stringValue] length];
+	NSLog(@"%d",numberOfSpaces);
+	self.participantsLabel.frame = CGRectMake(space * numberOfSpaces, (self.frame.size.height - 160.0) - 10.0, self.frame.size.width -10.0, 25.0f);
 }
 
 @end
