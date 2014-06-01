@@ -336,6 +336,9 @@
         }
     } else if (client == self.restGetAccount) {
         [self setAccountByDictionary:responseDictionary];
+        // Set navigation bar info
+        [self.navigationBarViewController setProfileImage];
+        [self.navigationBarViewController setProfileName];
         // Stop animating loading view
         [self.loadingView stopAnimating];
     }

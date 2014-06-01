@@ -7,7 +7,7 @@
 //
 
 #import "NeighborhoodViewController.h"
-#import "MainViewController.h"
+#import "PagingViewController.h"
 
 @interface NeighborhoodViewController ()
 
@@ -40,21 +40,43 @@
 {
     self.neighborhoodView = [[NeighborhoodView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height)];
     // Set button targets
-    [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchDown];
+    //[self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchDown];
     // Set button invisible
     [self.neighborhoodView.actionButton setHidden:YES];
     // Add neighborhoodView to view
     [self.view addSubview:self.neighborhoodView];
 }
 
+- (void)setActionButtonStage
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // If token object is null, no user is logged on
+    if ([defaults objectForKey:@"token"] == nil) {
+        //[self.neighborhoodView.actionButton removeTarget:self action:@selector(actionButtonClicked:) forControlEvents:UIControlEventTouchDown];
+        [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonLogin:) forControlEvents:UIControlEventTouchDown];
+        [self.neighborhoodView.actionButton setTitle:@"Ik doe ook mee!" forState:UIControlStateNormal];
+    }
+    [self.neighborhoodView.actionButton setHidden:NO];
+}
+
+- (void)actionButtonLogin:(UIButton *)button
+{
+    // Check if MainViewController is parent
+    if ([self.parentViewController.parentViewController isKindOfClass:[PagingViewController class]]) {
+        // Cast parentViewController to MainViewController
+        PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
+        [parent createLoginView];
+    }
+}
+
 - (void)actionButtonClicked:(UIButton *)button
 {
-//    // Check if MainViewController is parent
-//    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
-//        // Cast parentViewController to MainViewController
-//        MainViewController* parent = (MainViewController*)self.parentViewController;
-//        [parent createLoginView];
-//    }
+    //    // Check if MainViewController is parent
+    //    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+    //        // Cast parentViewController to MainViewController
+    //        MainViewController* parent = (MainViewController*)self.parentViewController;
+    //        [parent createLoginView];
+    //    }
     NSLog(@"actionButtonClicked");
 }
 

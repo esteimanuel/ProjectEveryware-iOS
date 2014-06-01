@@ -299,6 +299,7 @@
 {
     NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
     [neighborhoodViewController setNeighborhoodData:self.action];
+    [neighborhoodViewController setActionButtonStage];
 }
 
 - (void)setProgressData

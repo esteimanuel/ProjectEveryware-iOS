@@ -17,5 +17,6 @@
 - (void)setNeighborhoodData:(Action *)action;
 
 - (void)createView;
+- (void)setActionButtonStage;
 
 @end

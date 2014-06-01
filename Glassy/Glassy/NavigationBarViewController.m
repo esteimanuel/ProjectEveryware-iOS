@@ -67,7 +67,7 @@
     self.navigationBarView = [[NavigationBarView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 85)];
     // Create gesture
     [self createGesture];
-    // Set profile information
+    // Set profile info
     [self setProfileName];
     [self setProfileImage];
     // Set button targets
