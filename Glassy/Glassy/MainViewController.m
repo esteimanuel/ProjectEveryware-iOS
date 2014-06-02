@@ -14,6 +14,7 @@
 #import "ProgressViewController.h"
 #import "ParticipantsViewController.h"
 #import "NavigationBarViewController.h"
+#import "PagingViewController.h"
 #import "LoginViewController.h"
 #import "FaqViewController.h"
 
@@ -109,7 +110,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     // Objects have to be added in this order
-    //[params setObject:actionId forKey:@"actie_id"];
+    [params setObject:[NSNumber numberWithInt:actionId] forKey:@"actie_id"];
     [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
     
     return params;
@@ -121,9 +122,9 @@
     NSMutableDictionary *params = [self createDictionaryWithParameters:actionId];
 	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker"];
     // Create REST client and send get request
-    self.restGetActionData = [[RESTClient alloc] init];
-    self.restGetActionData.delegate = self;
-    [self.restGetActionData PUT:url withParameters:params];
+    self.restSetActionId = [[RESTClient alloc] init];
+    self.restSetActionId.delegate = self;
+    [self.restSetActionId PUT:url withParameters:params];
 }
 
 
@@ -409,6 +410,16 @@
 //    [super touchesEnded:touches withEvent:event];
 //}
 
+- (void)showJoinedAlertView
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Welkom"
+                                                        message:@"Je doet nu mee aan deze actie!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
 #pragma mark - REST client delegate methods
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
@@ -426,7 +437,6 @@
 		[self setProgressData];
 	}
 	else if (client == self.restGetActionData) {
-		
 		NSArray *array = responseDictionary [@"media"];
 		if ([array isKindOfClass:[NSArray class]])
 		{
@@ -447,11 +457,26 @@
 		[self setMediaData];
 	}
     else if (client == self.restSetActionId) {
+<<<<<<< HEAD
+        NSDictionary *array = responseDictionary[@"model"];
+		if ([array isKindOfClass:[NSDictionary class]])
+		{
+            for (id key in array) {
+                if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+                    PagingViewController *parent = (PagingViewController*)self.parentViewController;
+                    parent.account.actionId = [array objectForKey:@"actie_id"];
+                    [parent handleActionButtonStage];
+                }
+            }
+        }
+        [self showJoinedAlertView];
+=======
         
     }else if (client == self.restGetNeighborhoodInfo) {
         self.neighborhood.name = [NSString stringWithFormat:@"%@", [responseDictionary valueForKey:@"wijk_naam" ]];
         
         [self setNeighborhoodInfo];
+>>>>>>> FETCH_HEAD
     }
 }
 

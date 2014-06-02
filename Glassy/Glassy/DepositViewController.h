@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DepositView.h"
+#import "RESTClient.h"
 
-@interface DepositViewController : UIViewController
+@interface DepositViewController : UIViewController <RestClientDelegate>
 
 @property (nonatomic, strong) DepositView *depositView;
 

@@ -7,8 +7,11 @@
 //
 
 #import "DepositViewController.h"
+#import "PagingViewController.h"
 
 @interface DepositViewController ()
+
+@property (nonatomic, strong) RESTClient *restSetDepositPaid;
 
 @end
 
@@ -35,6 +38,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSMutableDictionary *)createDictionaryWithParameters
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    // Objects have to be added in this order
+    [params setObject:@"true" forKey:@"borg_betaald"];
+    [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
+    
+    return params;
+}
+
+- (void)setDepositPaid
+{
+    // Create dictionary with parameters
+    NSMutableDictionary *params = [self createDictionaryWithParameters];
+	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker"];
+    // Create REST client and send get request
+    self.restSetDepositPaid = [[RESTClient alloc] init];
+    self.restSetDepositPaid.delegate = self;
+    [self.restSetDepositPaid PUT:url withParameters:params];
+}
+
 - (void)createView
 {
     self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, 140);
@@ -48,6 +73,29 @@
 #pragma mark - Button handlers
 
 - (void)payButtonPressed:(id)sender
+{
+    [self setDepositPaid];
+}
+
+#pragma mark - REST client delegate methods
+
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
+{
+    NSDictionary *array = responseDictionary[@"model"];
+    if ([array isKindOfClass:[NSDictionary class]])
+    {
+        for (id key in array) {
+            if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+                PagingViewController *parent = (PagingViewController*)self.parentViewController;
+                parent.account.deposit_paid = [array objectForKey:@"borg_betaald"];
+                [parent handleActionButtonStage];
+                [self.view removeFromSuperview];
+            }
+        }
+    }
+}
+
+- (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
     
 }
