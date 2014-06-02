@@ -369,6 +369,7 @@
             mainViewController.action = self.actionsArray[i];
             // Set MainViewController data, methods have to be called in this order!
             [mainViewController getNeighborhoodData:[mainViewController.action.id intValue]];
+            [mainViewController getNeighborhoodInfo:[mainViewController.action.neighborhoodId intValue]];
 			[mainViewController getActionData:[mainViewController.action.id intValue]];
             [mainViewController setMapData];
             [mainViewController setMediaData];

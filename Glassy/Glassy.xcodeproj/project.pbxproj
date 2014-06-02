@@ -65,6 +65,7 @@
 		22026A9A1907CD2100EFF574 /* ios-nav-dropdown-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */; };
 		22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A841907CD2100EFF574 /* ios-nav-search-button.png */; };
 		22026A9F1907CD2100EFF574 /* ios-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A881907CD2100EFF574 /* ios-search.png */; };
+		22026F3C193CB1BB00EFF574 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 22026F3B193CB1BB00EFF574 /* Neighborhood.m */; };
 		70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A56BED1911ED0B001CF588 /* libGPUImage.a */; };
 		70A56BFA19129808001CF588 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A56BF919129808001CF588 /* ScrollView.m */; };
 		70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */; };
@@ -202,6 +203,8 @@
 		22026A831907CD2100EFF574 /* ios-nav-dropdown-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-nav-dropdown-button.png"; path = "../ios-nav-dropdown-button.png"; sourceTree = "<group>"; };
 		22026A841907CD2100EFF574 /* ios-nav-search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-nav-search-button.png"; path = "../ios-nav-search-button.png"; sourceTree = "<group>"; };
 		22026A881907CD2100EFF574 /* ios-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-search.png"; path = "../ios-search.png"; sourceTree = "<group>"; };
+		22026F3A193CB1BB00EFF574 /* Neighborhood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Neighborhood.h; sourceTree = "<group>"; };
+		22026F3B193CB1BB00EFF574 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
 		70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		70A56BF819129808001CF588 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
 		70A56BF919129808001CF588 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
@@ -406,6 +409,8 @@
 				70BB8BDD192E1BC40006A4A1 /* Buddy.m */,
 				199C3A43193B55E500D53A67 /* Provider.h */,
 				199C3A44193B55E500D53A67 /* Provider.m */,
+				22026F3A193CB1BB00EFF574 /* Neighborhood.h */,
+				22026F3B193CB1BB00EFF574 /* Neighborhood.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -636,6 +641,7 @@
 				70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
 				19E8FB68192113E10030CB7D /* ProfileView.m in Sources */,
+				22026F3C193CB1BB00EFF574 /* Neighborhood.m in Sources */,
 				19E8FB5C192104120030CB7D /* MediaView.m in Sources */,
 				70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */,
 				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
