@@ -61,6 +61,8 @@
         [self createScrollViewWithViewControllers];
         [self createScrollViewBackground];
     }
+    
+    self.neighborhood = [[Neighborhood alloc] init];
     return self;
 }
 
@@ -86,7 +88,7 @@
 
 - (void)getNeighborhoodInfo:(int)neighborhoodId
 {
-    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/actie/wijk?id=%d", neighborhoodId];
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/wijk?id=%d", neighborhoodId];
     // Create REST client and send get request
     self.restGetNeighborhoodInfo = [[RESTClient alloc] init];
     self.restGetNeighborhoodInfo.delegate = self;
@@ -338,6 +340,7 @@
 
 - (void)setNeighborhoodInfo
 {
+    self.neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
     [self.neighborhoodViewController setNeighborhoodInfo:self.neighborhood];
 }
 
@@ -446,7 +449,7 @@
     else if (client == self.restSetActionId) {
         
     }else if (client == self.restGetNeighborhoodInfo) {
-        self.neighborhood.name = [responseDictionary valueForKey:@"name"];
+        self.neighborhood.name = [NSString stringWithFormat:@"%@", [responseDictionary valueForKey:@"wijk_naam" ]];
         
         [self setNeighborhoodInfo];
     }
@@ -454,7 +457,7 @@
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
-
+    if(client == self.restGetNeighborhoodInfo) NSLog(@"KAPOET");
 }
 
 @end

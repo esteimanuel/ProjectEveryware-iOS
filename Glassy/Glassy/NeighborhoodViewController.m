@@ -31,7 +31,7 @@
 
 - (void)setNeighborhoodData:(Action *)action
 {
-    self.neighborhoodView.neighborhoodTitleLabel.text = @"tetten";
+    //self.neighborhoodView.neighborhoodTitleLabel.text = @"tetten";
 	float numberOfParticipants = action.participants;
     self.neighborhoodView.participantsNumberLabel.text = [[NSNumber numberWithFloat:numberOfParticipants] stringValue];
 	[self.neighborhoodView setParticipantsLabelPosition:numberOfParticipants];
@@ -40,7 +40,7 @@
 
 - (void)setNeighborhoodInfo:(Neighborhood *)neighborhood
 {
-    self.neighborhoodView.neighborhoodTitleLabel.text = @"Bier";
+    self.neighborhoodView.neighborhoodTitleLabel.text = neighborhood.name;
 }
 
 - (void)createView;
