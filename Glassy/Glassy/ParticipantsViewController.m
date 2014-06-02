@@ -26,6 +26,7 @@
 - (void)createView
 {
 	self.participantsView = [[ParticipantsView alloc] init];
+//	self.participantsView. TODO hier komen arraybuttons
 }
 
 - (void)setParticipantsData:(int)actionId
