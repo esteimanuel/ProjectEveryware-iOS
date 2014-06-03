@@ -61,5 +61,6 @@
 @property (nonatomic, strong) UIViewController *activeViewController;
 
 - (void)handleActiveViewController:(UIViewController *)viewController;
+- (void)handleActionButtonStage;
 
 @end

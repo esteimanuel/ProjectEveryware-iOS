@@ -53,8 +53,9 @@
         if ([self.parentViewController.parentViewController isKindOfClass:[PagingViewController class]]) {
             // Cast parentViewController to PaginViewController
             PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
-            if (parent.account.actionId != nil) {
-                if ([parent.account.deposit_paid boolValue]) {
+            if (parent.account.actionId != (NSString *)[NSNull null]) {
+                NSString *paid = parent.account.deposit_paid;
+                if (paid != (NSString *)[NSNull null] && [paid boolValue]) {
                     // TODO: if/else provider gekozen
                     [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
                     [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonProvider:) forControlEvents:UIControlEventTouchDown];

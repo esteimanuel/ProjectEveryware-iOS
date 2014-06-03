@@ -128,7 +128,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSDictionary *accountDictionary = (NSDictionary *)[responseDictionary objectForKey:@"account"];
-    if (accountDictionary != nil) {
+    
+    if ([accountDictionary isKindOfClass:[NSDictionary class]]) {
         NSString *token = [accountDictionary objectForKey:@"token"];
         
         if (token != (NSString *)[NSNull null]) {
