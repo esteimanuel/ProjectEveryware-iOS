@@ -34,6 +34,7 @@
 }
 
 @property (nonatomic, strong) RESTClient *restGetNeighborhoodData;
+@property (nonatomic, strong) RESTClient *restGetNeighborhoodInfo;
 @property (nonatomic, strong) RESTClient *restGetActionData;
 @property (nonatomic, strong) RESTClient *restSetActionId;
 
@@ -82,6 +83,15 @@
     self.restGetNeighborhoodData = [[RESTClient alloc] init];
     self.restGetNeighborhoodData.delegate = self;
     [self.restGetNeighborhoodData GET:url withParameters:nil];
+}
+
+- (void)getNeighborhoodInfo:(int)neighborhoodId
+{
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/actie/wijk?id=%d", neighborhoodId];
+    // Create REST client and send get request
+    self.restGetNeighborhoodInfo = [[RESTClient alloc] init];
+    self.restGetNeighborhoodInfo.delegate = self;
+    [self.restGetNeighborhoodInfo GET:url withParameters:nil];
 }
 
 - (void)getActionData:(int)actionId
@@ -323,8 +333,13 @@
 
 - (void)setNeighborhoodData
 {
-    NeighborhoodViewController *neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
-    [neighborhoodViewController setNeighborhoodData:self.action];
+    self.neighborhoodViewController = [self.viewControllersDictionary objectForKey:@"neighborhoodViewController"];
+    [self.neighborhoodViewController setNeighborhoodData:self.action];
+}
+
+- (void)setNeighborhoodInfo
+{
+    [self.neighborhoodViewController setNeighborhoodInfo:self.neighborhood];
 }
 
 - (void)setNeighborhoodActionButtonStage
@@ -439,6 +454,7 @@
 		[self setMediaData];
 	}
     else if (client == self.restSetActionId) {
+<<<<<<< HEAD
         NSDictionary *array = responseDictionary[@"model"];
 		if ([array isKindOfClass:[NSDictionary class]])
 		{
@@ -451,6 +467,13 @@
             }
         }
         [self showJoinedAlertView];
+=======
+        
+    }else if (client == self.restGetNeighborhoodInfo) {
+        self.neighborhood.name = [responseDictionary valueForKey:@"name"];
+        
+        [self setNeighborhoodInfo];
+>>>>>>> FETCH_HEAD
     }
 }
 
