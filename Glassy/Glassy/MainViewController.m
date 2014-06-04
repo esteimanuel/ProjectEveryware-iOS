@@ -469,11 +469,8 @@
             }
         }
         [self showJoinedAlertView];
-<<<<<<< HEAD
-=======
-        
->>>>>>> FETCH_HEAD
     }else if (client == self.restGetNeighborhoodInfo) {
+        self.neighborhood.neighborhoodId = [NSString stringWithFormat:@"%@", [responseDictionary valueForKey:@"wijk_id" ]];
         self.neighborhood.name = [NSString stringWithFormat:@"%@", [responseDictionary valueForKey:@"wijk_naam" ]];
         
         [self setNeighborhoodInfo];
@@ -482,7 +479,7 @@
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
-    if(client == self.restGetNeighborhoodInfo) NSLog(@"KAPOET");
+    NSLog(@"Request failed");
 }
 
 @end

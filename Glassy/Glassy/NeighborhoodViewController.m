@@ -8,6 +8,7 @@
 
 #import "NeighborhoodViewController.h"
 #import "PagingViewController.h"
+#import "Account.h"
 
 @interface NeighborhoodViewController ()
 
@@ -40,7 +41,13 @@
 
 - (void)setNeighborhoodInfo:(Neighborhood *)neighborhood
 {
-    self.neighborhoodView.neighborhoodTitleLabel.text = neighborhood.name;
+    if ([self.parentViewController.parentViewController isKindOfClass:[PagingViewController class]] && [self.parentViewController isKindOfClass:[MainViewController class]]) {
+        PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
+        MainViewController* parentMainView = (MainViewController*)self.parentViewController;
+                
+        self.neighborhoodView.neighborhoodTitleLabel.text = (parent.account.actionId == parentMainView.action.id) ? @"Mijn wijk" : neighborhood.name;
+    }
+    
 }
 
 - (void)createView;

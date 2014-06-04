@@ -22,7 +22,6 @@
 
 @property (nonatomic, strong) Action *action;
 @property (nonatomic, strong) Neighborhood *neighborhood;
-//@property (nonatomic, strong) Account *account;
 @property (nonatomic, strong) NSMutableDictionary *viewControllersDictionary;
 // DetailViewControllers
 @property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;

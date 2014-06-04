@@ -10,7 +10,7 @@
 
 @interface Neighborhood : NSObject
 
-@property (nonatomic, strong) NSString* id;
+@property (nonatomic, strong) NSString* neighborhoodId;
 @property (nonatomic, strong) NSString* name;
 
 @end
