@@ -56,7 +56,7 @@
     self.mediaview.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.mediaview.layer.borderColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.75].CGColor;
     self.mediaview.layer.borderWidth = 1.0;
-    [self addSubview:self.mediaview];
+    //[self addSubview:self.mediaview];
     
     // Add web view
     self.webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frameWidth - 2 * margin, self.mediaview.frame.size.height)];
@@ -64,6 +64,7 @@
     self.webview.scalesPageToFit = YES;
 	
     [self.mediaview addSubview:self.webview];
+    [self addSubview:self.mediaview];
     
     currentHeight += self.mediaview.frame.size.height + margin * 4;
     

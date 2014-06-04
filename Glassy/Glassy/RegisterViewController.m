@@ -115,22 +115,37 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSDictionary *accountDictionary = (NSDictionary *)[responseDictionary objectForKey:@"account"];
-    NSString *token = [accountDictionary objectForKey:@"token"];
-    NSString *image = [accountDictionary objectForKey:@"foto_link"];
     
-    if (token != (NSString *)[NSNull null]) {
-        [defaults setObject:token forKey:@"token"];
-        [defaults setObject:[accountDictionary objectForKey:@"email"] forKey:@"email"];
-        [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
-        if (image != (NSString *)[NSNull null]) [defaults setObject:image forKey:@"foto_link"];
-        [defaults synchronize];
-    } else {
-        [self showAuthenticationError];
+    if ([accountDictionary isKindOfClass:[NSDictionary class]]) {
+        NSString *token = [accountDictionary objectForKey:@"token"];
+        
+        if (token != (NSString *)[NSNull null]) {
+            [defaults setObject:token forKey:@"token"];
+            [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
+            [defaults synchronize];
+            
+            Account *account = [[Account alloc] init];
+            //account.accountId = [accountDictionary objectForKey:@"account_id"];
+            account.email = [accountDictionary objectForKey:@"email"];
+            account.accountLevel = [accountDictionary objectForKey:@"accountlevel_id"];
+            account.image = [accountDictionary objectForKey:@"foto_link"];
+            NSMutableDictionary *userDictionary = (NSMutableDictionary *)[accountDictionary objectForKey:@"gebruiker"];
+            if (userDictionary != nil) {
+                // Save user id to user defaults
+                [defaults setObject:[userDictionary objectForKey:@"gebruiker_id"] forKey:@"gebruiker_id"];
+                if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+                    PagingViewController* parent = (PagingViewController*)self.parentViewController;
+                    [parent setAccountByDictionary:userDictionary];
+                }
+            }
+        } else {
+            [self showAuthenticationError];
+        }
+        
+        NSLog(@"User logged in with token: %@", [defaults objectForKey:@"token"]);
+        
+        [self dispose];
     }
-    
-    NSLog(@"Successfully registered user & logged in with token: %@", [defaults objectForKey:@"token"]);
-    
-    [self dispose];
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

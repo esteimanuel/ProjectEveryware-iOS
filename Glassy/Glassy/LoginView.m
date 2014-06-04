@@ -29,6 +29,7 @@
     self.facebookAuthenticationButton.layer.cornerRadius = 5.0;
     self.facebookAuthenticationButton.titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     [self.facebookAuthenticationButton setTitle:@"Aanmelden via Facebook" forState:UIControlStateNormal];
+    [self.facebookAuthenticationButton setHidden:YES];
     
     currentHeight = currentHeight + self.facebookAuthenticationButton.frame.size.height + margin;
     
@@ -37,6 +38,7 @@
     self.orLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.orLabel.font = [UIFont italicSystemFontOfSize:11];
     self.orLabel.textColor = [UIColor lightGrayColor];
+    [self.orLabel setHidden:YES];
     
     currentHeight = currentHeight + self.orLabel.frame.size.height + margin;
     
@@ -66,11 +68,13 @@
     
     self.rememberMeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(50, 20, 15, 10)];
     self.rememberMeSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
+    [self.rememberMeSwitch setHidden:YES];
     UILabel *rememberMeLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, 25, 150, 20)];
     rememberMeLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     rememberMeLabel.font = [UIFont boldSystemFontOfSize:13];
     rememberMeLabel.text = @"Onthoud mijn gegevens";
     rememberMeLabel.textColor = [UIColor darkGrayColor];
+    [rememberMeLabel setHidden:YES];
     
     self.authenticationButton = [[UIButton alloc] initWithFrame:CGRectMake(55, (registerView.frame.size.height - 70.0), 210, 40)];
     self.authenticationButton.backgroundColor = [UIColor lightGrayColor];

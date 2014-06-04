@@ -51,16 +51,13 @@
 	NSMutableArray *array = [[NSMutableArray alloc]init];
 	for (id key in responseDictionary)
 	{
-//		NSLog(@"key: %@ value: %@",[key valueForKey:@"question"],[key valueForKey:@"answer"]);
-		[array addObject:[key valueForKey:@"question" ]];
+        [array addObject:[key valueForKey:@"question" ]];
 	}
-    
-    self.faqView.firstQuestionLabel.text = array[0];
-	NSLog(@"First question: %@",array[0]);
-    self.faqView.secondQuestionLabel.text = array[1];
-	NSLog(@"Second question: %@",array[1]);
-    self.faqView.thirdQuestionLabel.text = array[2];
-	NSLog(@"Third question: %@",array[2]);
+    if ([array count] > 0) {
+        self.faqView.firstQuestionLabel.text = array[0];
+        self.faqView.secondQuestionLabel.text = array[1];
+        self.faqView.thirdQuestionLabel.text = array[2];
+    }
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

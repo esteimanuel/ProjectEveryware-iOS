@@ -454,7 +454,6 @@
 		[self setMediaData];
 	}
     else if (client == self.restSetActionId) {
-<<<<<<< HEAD
         NSDictionary *array = responseDictionary[@"model"];
 		if ([array isKindOfClass:[NSDictionary class]])
 		{
@@ -467,13 +466,10 @@
             }
         }
         [self showJoinedAlertView];
-=======
-        
     }else if (client == self.restGetNeighborhoodInfo) {
         self.neighborhood.name = [responseDictionary valueForKey:@"name"];
         
         [self setNeighborhoodInfo];
->>>>>>> FETCH_HEAD
     }
 }
 
