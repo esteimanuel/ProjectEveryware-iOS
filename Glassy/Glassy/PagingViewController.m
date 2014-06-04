@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) RESTClient *restGetActions;
 @property (nonatomic, strong) RESTClient *restGetActionCount;
+@property (nonatomic, strong) RESTClient *restGetUser;
 @property (nonatomic, strong) RESTClient *restGetAccount;
 
 @end
@@ -67,9 +68,18 @@
     [self.restGetActions GET:@"http://glassy-api.avans-project.nl/api/actie" withParameters:nil];
 }
 
+- (void)getUser:(int)userId
+{
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker?id=%d", userId];
+    // Create REST client and send get request
+    self.restGetUser = [[RESTClient alloc] init];
+    self.restGetUser.delegate = self;
+    [self.restGetUser GET:url withParameters:nil];
+}
+
 - (void)getAccount:(int)accountId
 {
-    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker?id=%d", accountId];
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/account?id=%d", accountId];
     // Create REST client and send get request
     self.restGetAccount = [[RESTClient alloc] init];
     self.restGetAccount.delegate = self;
@@ -153,8 +163,8 @@
         self.profileViewController = [[ProfileViewController alloc] init];
     }
     [self.profileViewController createView];
-    [self.profileViewController setUserFields];
     [self handleActiveViewController:self.profileViewController];
+    [self.profileViewController getProfileData];
 }
 
 - (void)removeProfileView
@@ -338,8 +348,8 @@
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if([defaults objectForKey:@"token"]) {
-            NSInteger accountId = [defaults integerForKey:@"gebruiker_id"];
-            [self getAccount:accountId];
+            NSInteger userId = [defaults integerForKey:@"gebruiker_id"];
+            [self getUser:userId];
         }
     } else if (client == self.restGetActions) {
         self.actionsArray = [[NSMutableArray alloc] init];
@@ -377,8 +387,19 @@
             [mainViewController setFaqData];
 			[mainViewController setParticipantsData];
         }
-    } else if (client == self.restGetAccount) {
+    } else if (client == self.restGetUser) {
         [self setAccountByDictionary:responseDictionary];
+        // Get additional account details
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSInteger accountId = [defaults integerForKey:@"account_id"];
+        [self getAccount:accountId];
+    } else if (client == self.restGetAccount) {
+        for (id key in responseDictionary) {
+            NSLog(@"key: %@ value: %@", key, [responseDictionary objectForKey:key]);
+        }
+        self.account.email = [responseDictionary objectForKey:@"email"];
+        self.account.accountLevel = [responseDictionary objectForKey:@"accountlevel_id"];
+        //self.account.image = [responseDictionary objectForKey:@"foto_link"];
         // Set navigation bar info
         [self.navigationBarViewController setProfileImage];
         [self.navigationBarViewController setProfileName];

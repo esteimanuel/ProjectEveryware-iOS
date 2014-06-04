@@ -59,37 +59,43 @@
 
 - (void)setActionButtonStage
 {
+    // Remove targets and unhide action button
+    [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [self.neighborhoodView.actionButton setHidden:NO];
+    // Create NSUserDefaults object
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // If token object is null, no user is logged on
     if ([defaults objectForKey:@"token"] != nil) {
         if ([self.parentViewController.parentViewController isKindOfClass:[PagingViewController class]]) {
             // Cast parentViewController to PaginViewController
             PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
+            // Cast mainViewController
+            MainViewController* main = (MainViewController*)self.parentViewController;
             if (parent.account.actionId != (NSString *)[NSNull null]) {
-                NSString *paid = parent.account.deposit_paid;
-                if (paid != (NSString *)[NSNull null] && [paid boolValue]) {
-                    if (parent.account.providerId != (NSString *)[NSNull null]) {
-                        [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-                        [self.neighborhoodView.actionButton setTitle:@"Alle stappen voltooid" forState:UIControlStateNormal];
-                        [self.neighborhoodView.actionButton setEnabled:NO];
+                // Compare account actionId to neighborhood actionId,  if they don't match make button invisible
+                if (parent.account.actionId == main.action.id) {
+                    NSString *paid = parent.account.deposit_paid;
+                    if (paid != (NSString *)[NSNull null] && [paid boolValue]) {
+                        if (parent.account.providerId != (NSString *)[NSNull null]) {
+                            [self.neighborhoodView.actionButton setTitle:@"Alle stappen voltooid" forState:UIControlStateNormal];
+                            [self.neighborhoodView.actionButton setEnabled:NO];
+                        } else {
+                            [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonProvider:) forControlEvents:UIControlEventTouchDown];
+                            [self.neighborhoodView.actionButton setTitle:@"Provider Kiezen" forState:UIControlStateNormal];
+                        }
                     } else {
-                        [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-                        [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonProvider:) forControlEvents:UIControlEventTouchDown];
-                        [self.neighborhoodView.actionButton setTitle:@"Provider Kiezen" forState:UIControlStateNormal];
+                        [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonDeposit:) forControlEvents:UIControlEventTouchDown];
+                        [self.neighborhoodView.actionButton setTitle:@"Inschrijven" forState:UIControlStateNormal];
                     }
                 } else {
-                    [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-                    [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonDeposit:) forControlEvents:UIControlEventTouchDown];
-                    [self.neighborhoodView.actionButton setTitle:@"Inschrijven" forState:UIControlStateNormal];
+                    [self.neighborhoodView.actionButton setHidden:YES];
                 }
             } else {
-                [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
                 [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonJoin:) forControlEvents:UIControlEventTouchDown];
                 [self.neighborhoodView.actionButton setTitle:@"Ik doe ook mee!" forState:UIControlStateNormal];
             }
         }
     } else {
-        [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
         [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonJoin:) forControlEvents:UIControlEventTouchDown];
         [self.neighborhoodView.actionButton setTitle:@"Ik doe ook mee!" forState:UIControlStateNormal];
     }

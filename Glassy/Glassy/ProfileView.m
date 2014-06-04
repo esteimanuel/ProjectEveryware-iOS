@@ -77,8 +77,6 @@
     self.emailTextField.layer.cornerRadius = 5.0;
     self.emailTextField.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
     self.emailTextField.placeholder = @"E-mail";
-
-    self.emailTextField.secureTextEntry = YES;
     
     currentHeight = currentHeight + self.emailTextField.frame.size.height + margin;
     

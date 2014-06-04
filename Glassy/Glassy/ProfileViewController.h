@@ -15,6 +15,6 @@
 @property (nonatomic, strong) ProfileView *profileView;
 
 - (void)createView;
-- (void)setUserFields;
+- (void)getProfileData;
 
 @end

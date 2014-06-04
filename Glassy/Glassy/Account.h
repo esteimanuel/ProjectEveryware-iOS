@@ -31,4 +31,6 @@
 @property (nonatomic, strong) NSString *actionId;
 @property (nonatomic, strong) NSString *providerId;
 @property (nonatomic) int buddy;
+
+@property (nonatomic, strong) NSString *postcode;
 @end

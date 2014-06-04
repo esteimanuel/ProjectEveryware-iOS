@@ -113,6 +113,7 @@
                     PagingViewController *parent = (PagingViewController*)self.parentViewController;
                     parent.account.providerId = [array objectForKey:@"provider_id"];
                     [parent handleActionButtonStage];
+                    [self.view removeFromSuperview];
                 }
             }
         }

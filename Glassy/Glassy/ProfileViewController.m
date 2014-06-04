@@ -11,7 +11,8 @@
 
 @interface ProfileViewController ()
 
-@property (nonatomic, strong) RESTClient *restClient;
+@property (nonatomic, strong) RESTClient *restGetPostcode;
+@property (nonatomic, strong) RESTClient *restPutUser;
 
 @end
 
@@ -37,6 +38,60 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)getProfileData
+{
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController *parent = (PagingViewController*)self.parentViewController;
+        
+        if (parent.account.postcodeId != (NSString*)[NSNull null]) [self getPostcodeData:[parent.account.postcodeId intValue]];
+        
+        [self setUserFields];
+    }
+}
+
+- (NSMutableDictionary *)createDictionaryForUser
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    // Objects have to be added in this order
+    [params setObject:self.profileView.firstNameTextField.text forKey:@"voornaam"];
+    [params setObject:[self.profileView.lastNameTextField.text lowercaseString] forKey:@"achternaam"];
+    [params setObject:[self.profileView.houseNumberTextField.text lowercaseString] forKey:@"huisnummer"];
+    [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
+
+    return params;
+}
+
+//- (NSMutableDictionary *)createDictionaryForPostcode
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+//    // Objects have to be added in this order
+//    [params setObject:@"true" forKey:@"borg_betaald"];
+//    [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
+//    
+//    return params;
+//}
+
+- (void)putUserData
+{
+    NSMutableDictionary *params = [self createDictionaryForUser];
+	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker"];
+    // Create REST client and send get request
+    self.restPutUser = [[RESTClient alloc] init];
+    self.restPutUser.delegate = self;
+    [self.restPutUser PUT:url withParameters:params];
+}
+
+- (void)getPostcodeData:(int)postcodeId
+{
+	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/postcode?%d", postcodeId];
+    // Create REST client and send get request
+    self.restGetPostcode = [[RESTClient alloc] init];
+    self.restGetPostcode.delegate = self;
+    [self.restGetPostcode PUT:url withParameters:nil];
+}
+
 - (void)setProfileImage
 {
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
@@ -58,35 +113,20 @@
             self.profileView.passwordTextField.text = @"wachtwoord";
             self.profileView.firstNameTextField.text = parent.account.firstName;
             self.profileView.lastNameTextField.text = parent.account.lastName;
-            //self.profileView.postcodeTextField.text = parent.account.firstName;
+            //self.profileView.postcodeTextField.text = parent.account.postcode;
             //self.profileView.houseNumberTextField.text = parent.account.houseNumber;
         }
     }
 }
 
-//- (void)save
-//{
-//    // Create dictionary with parameters
-//    NSMutableDictionary *params = [self createDictionaryWithParameters];
-//    // Create REST client and send get request
-//    self.restClient = [[RESTClient alloc] init];
-//    self.restClient.delegate = self;
-//    [self.restClient PUT:@"http://glassy-api.avans-project.nl/api/user" withParameters:params];
-//}
-
-//- (NSMutableDictionary *)createDictionaryWithParameters
-//{
-//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-//    // Objects have to be added in this order
-//    [params setObject:self.profileView.passwordTextField.text forKey:@"wachtwoord"];
-//    [params setObject:[self.profileView.emailTextField.text lowercaseString] forKey:@"email"];
-//    
-//    return params;
-//}
+- (void)save
+{
+    [self putUserData];
+}
 
 - (void)saveButtonPressed:(id)sender
 {
-    //[self save];
+    [self save];
 }
 
 - (void)toggleBuddyDetails:(id)sender
@@ -135,7 +175,28 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-    
+    if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+        PagingViewController *parent = (PagingViewController*)self.parentViewController;
+        if (client == self.restGetPostcode) {
+            parent.account.postcode = [responseDictionary objectForKey:@"postcode"];
+        } else if (client == self.restPutUser) {
+            NSLog(@"modelstart");
+            NSDictionary *array = responseDictionary[@"model"];
+            if ([array isKindOfClass:[NSDictionary class]])
+            {
+                NSLog(@"forstart");
+                for (id key in array) {
+                    NSLog(@"voornaam");
+                    parent.account.firstName = [array objectForKey:@"voornaam"];
+                    NSLog(@"achternaam");
+                    parent.account.lastName = [array objectForKey:@"achternaam"];
+                    NSLog(@"huisnummer");
+                    parent.account.houseNumber = [array objectForKey:@"huisnummmer"];
+                }
+            }
+        }
+    }
+    [self setUserFields];
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
