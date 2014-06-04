@@ -56,7 +56,7 @@
 #pragma mark - UIPickerView delegate methods
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
-    // Handle the selection
+    self.currentRow = row;
 }
 
 // tell the picker how many rows are available for a given component

@@ -127,7 +127,7 @@
                 }
             } else {
                 if ([delegate respondsToSelector:@selector(restRequestFailed:withClient:)]) {
-                    [delegate restRequestFailed:@"Request failed" withClient:self];
+                    [delegate restRequestFailed:error.description withClient:self];
                 }
             }
             // Clear connection and buffer

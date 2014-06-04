@@ -29,6 +29,6 @@
 @property (nonatomic, strong) NSString *sharedInfo;
 @property (nonatomic, strong) NSString *postcodeId;
 @property (nonatomic, strong) NSString *actionId;
-@property (nonatomic, strong) NSString *packetId;
+@property (nonatomic, strong) NSString *providerId;
 @property (nonatomic) int buddy;
 @end

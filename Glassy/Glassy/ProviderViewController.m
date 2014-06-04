@@ -7,10 +7,12 @@
 //
 
 #import "ProviderViewController.h"
+#import "PagingViewController.h"
 
 @interface ProviderViewController ()
 
 @property (nonatomic, strong) RESTClient *restGetProviders;
+@property (nonatomic, strong) RESTClient *restSetProviderId;
 
 @end
 
@@ -37,6 +39,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSMutableDictionary *)createDictionaryWithParameters:(int)providerId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    // Objects have to be added in this order
+    [params setObject:[NSNumber numberWithInt:providerId] forKey:@"provider_id"];
+    [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
+    
+    return params;
+}
+
+- (void)setProviderId:(int)providerId
+{
+    // Create dictionary with parameters
+    NSMutableDictionary *params = [self createDictionaryWithParameters:providerId];
+    NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/gebruiker"];
+    // Create REST client and send get request
+    self.restSetProviderId = [[RESTClient alloc] init];
+    self.restSetProviderId.delegate = self;
+    [self.restSetProviderId PUT:url withParameters:params];
+}
+
 - (void)getProviderData
 {
     NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/provider"];
@@ -60,24 +84,39 @@
 
 - (void)saveButtonPressed:(id)sender
 {
-
+    Provider *provider = [self.providerView.providerArray objectAtIndex:self.providerView.currentRow];
+    [self setProviderId:provider.providerId];
 }
 
 #pragma mark - REST client delegate methods
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-	self.providerArray = [[NSMutableArray alloc] init];
-	for (id key in responseDictionary)
-	{
-        Provider *provider = [[Provider alloc] init];
-        provider.name = [key valueForKey:@"naam"];
-        provider.providerId = [[key valueForKey:@"provider_id"] intValue];
-        provider.url = [key valueForKey:@"website_url"];
-		[self.providerArray addObject:provider];
-	}
-    self.providerView.providerArray = self.providerArray;
-    [self.providerView.providerPickerView reloadAllComponents];
+    if (client == self.restGetProviders) {
+        self.providerArray = [[NSMutableArray alloc] init];
+        for (id key in responseDictionary)
+        {
+            Provider *provider = [[Provider alloc] init];
+            provider.name = [key valueForKey:@"naam"];
+            provider.providerId = [[key valueForKey:@"provider_id"] intValue];
+            provider.url = [key valueForKey:@"website_url"];
+            [self.providerArray addObject:provider];
+        }
+        self.providerView.providerArray = self.providerArray;
+        [self.providerView.providerPickerView reloadAllComponents];
+    } else if (client == self.restSetProviderId) {
+        NSDictionary *array = responseDictionary[@"model"];
+		if ([array isKindOfClass:[NSDictionary class]])
+		{
+            for (id key in array) {
+                if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+                    PagingViewController *parent = (PagingViewController*)self.parentViewController;
+                    parent.account.providerId = [array objectForKey:@"provider_id"];
+                    [parent handleActionButtonStage];
+                }
+            }
+        }
+    }
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

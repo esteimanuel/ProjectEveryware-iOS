@@ -29,7 +29,7 @@
         self.sharedInfo = [fields objectForKey:@"shared_info"];
         self.postcodeId = [fields objectForKey:@"postcode_id"];
         self.actionId = [fields objectForKey:@"actie_id"];
-        self.packetId = [fields objectForKey:@"pakket_id"];
+        self.providerId = [fields objectForKey:@"provider_id"];
     }
     return self;
 }

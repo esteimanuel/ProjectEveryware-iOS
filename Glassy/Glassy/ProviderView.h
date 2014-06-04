@@ -14,5 +14,6 @@
 @property (nonatomic, strong) UIPickerView *providerPickerView;
 @property (nonatomic, strong) UIButton *providerSaveButton;
 @property (nonatomic, strong) NSArray *providerArray;
+@property (nonatomic) int currentRow;
 
 @end

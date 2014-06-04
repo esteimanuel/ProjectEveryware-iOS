@@ -68,14 +68,19 @@
             if (parent.account.actionId != (NSString *)[NSNull null]) {
                 NSString *paid = parent.account.deposit_paid;
                 if (paid != (NSString *)[NSNull null] && [paid boolValue]) {
-                    // TODO: if/else provider gekozen
-                    [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-                    [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonProvider:) forControlEvents:UIControlEventTouchDown];
-                    [self.neighborhoodView.actionButton setTitle:@"Provider Kiezen" forState:UIControlStateNormal];
+                    if (parent.account.providerId != (NSString *)[NSNull null]) {
+                        [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+                        [self.neighborhoodView.actionButton setTitle:@"Alle stappen voltooid" forState:UIControlStateNormal];
+                        [self.neighborhoodView.actionButton setEnabled:NO];
+                    } else {
+                        [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+                        [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonProvider:) forControlEvents:UIControlEventTouchDown];
+                        [self.neighborhoodView.actionButton setTitle:@"Provider Kiezen" forState:UIControlStateNormal];
+                    }
                 } else {
                     [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
                     [self.neighborhoodView.actionButton addTarget:self action:@selector(actionButtonDeposit:) forControlEvents:UIControlEventTouchDown];
-                    [self.neighborhoodView.actionButton setTitle:@"Borg betalen" forState:UIControlStateNormal];
+                    [self.neighborhoodView.actionButton setTitle:@"Inschrijven" forState:UIControlStateNormal];
                 }
             } else {
                 [self.neighborhoodView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
