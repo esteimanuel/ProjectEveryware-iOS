@@ -54,9 +54,11 @@
         [array addObject:[key valueForKey:@"question" ]];
 	}
     if ([array count] > 0) {
-        self.faqView.firstQuestionLabel.text = array[0];
-        self.faqView.secondQuestionLabel.text = array[1];
-        self.faqView.thirdQuestionLabel.text = array[2];
+        for(int i=0; i<[array count]; i++) {
+            if(i == 0) self.faqView.firstQuestionLabel.text = array[0];
+            if(i == 1) self.faqView.secondQuestionLabel.text = array[1];
+            if(i == 2) self.faqView.thirdQuestionLabel.text = array[2];
+        }
     }
 }
 
