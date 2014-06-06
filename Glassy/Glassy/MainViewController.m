@@ -465,6 +465,7 @@
                     PagingViewController *parent = (PagingViewController*)self.parentViewController;
                     parent.account.actionId = [array objectForKey:@"actie_id"];
                     [parent handleActionButtonStage];
+                    [self getNeighborhoodData:[self.action.id intValue]];
                 }
             }
         }

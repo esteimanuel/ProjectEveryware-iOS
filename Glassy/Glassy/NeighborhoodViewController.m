@@ -30,6 +30,12 @@
     [super viewDidLoad];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 - (void)setNeighborhoodData:(Action *)action
 {
     //self.neighborhoodView.neighborhoodTitleLabel.text = @"tetten";
@@ -101,6 +107,18 @@
     }
 }
 
+- (void)showProfileAlertView
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Profiel Aanvullen"
+                                                        message:@"Vul a.u.b. uw profiel in voordat u door gaat met inschrijven"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+#pragma mark - Action button handlers
+
 - (void)actionButtonJoin:(UIButton *)button
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -127,14 +145,13 @@
 {
     if ([self.parentViewController.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
-        [parent createDepositView];
+        // Check if profile is completed
+        if (parent.account.firstName != (NSString *)[NSNull null]) {
+            [parent createDepositView];
+        } else {
+            [self showProfileAlertView];
+        }
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
