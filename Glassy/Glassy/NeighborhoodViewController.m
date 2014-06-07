@@ -110,7 +110,7 @@
 - (void)showProfileAlertView
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Profiel Aanvullen"
-                                                        message:@"Vul a.u.b. uw profiel in voordat u door gaat met inschrijven"
+                                                        message:@"Vul a.u.b. uw profiel aan voordat u doorgaat met inschrijven"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
