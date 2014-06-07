@@ -32,6 +32,8 @@
 
 - (void)setAccountByDictionary:(NSDictionary *)fields;
 
+- (void)refreshNavigationBarView;
+
 - (void)createLoginView;
 - (void)removeLoginView;
 - (void)createRegisterView;

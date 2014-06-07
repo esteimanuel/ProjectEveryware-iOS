@@ -399,10 +399,9 @@
         }
         self.account.email = [responseDictionary objectForKey:@"email"];
         self.account.accountLevel = [responseDictionary objectForKey:@"accountlevel_id"];
-        //self.account.image = [responseDictionary objectForKey:@"foto_link"];
+        self.account.image = [responseDictionary objectForKey:@"foto_link"];
         // Set navigation bar info
-        [self.navigationBarViewController setProfileImage];
-        [self.navigationBarViewController setProfileName];
+        [self refreshNavigationBarView];
         // Stop animating loading view
         [self.loadingView stopAnimating];
     }
@@ -411,6 +410,12 @@
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
 
+}
+
+- (void)refreshNavigationBarView
+{
+    [self.navigationBarViewController setProfileImage];
+    [self.navigationBarViewController setProfileName];
 }
 
 @end

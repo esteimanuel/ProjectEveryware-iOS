@@ -12,6 +12,7 @@
 #import "Action.h"
 #import "Neighborhood.h"
 #import "Account.h"
+#import "Charity.h"
 #import "CustomScrollView.h"
 
 // DetailViewControllers
@@ -45,7 +46,7 @@
 - (void)setParticipantsData;
 
 // DetailViewController methods
-- (void)createCharityDetailView;
+- (void)createCharityDetailView:(Charity *)charity;
 - (void)removeCharityDetailView;
 
 @end

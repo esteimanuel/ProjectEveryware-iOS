@@ -202,10 +202,10 @@
 
 #pragma mark - Initialization detail view controllers
 
-- (void)createCharityDetailView
+- (void)createCharityDetailView:(Charity *)charity
 {
     if (self.charityDetailViewController == nil) {
-        self.charityDetailViewController = [[CharityDetailViewController alloc] init];
+        self.charityDetailViewController = [[CharityDetailViewController alloc] initWithCharity:charity];
     }
     
     [UIView beginAnimations:nil context:NULL];

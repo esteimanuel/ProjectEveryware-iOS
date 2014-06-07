@@ -74,7 +74,7 @@
 {
     if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
         MainViewController* parent = (MainViewController*)self.parentViewController;
-        [parent createCharityDetailView];
+        [parent createCharityDetailView:self.charity];
     }
 }
 
@@ -84,7 +84,7 @@
 {
     [self setCharityByDictionary:responseDictionary];
     
-    self.charityView.textview.text = self.charity.message;
+    self.charityView.textview.text = self.charity.description;
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
