@@ -66,6 +66,9 @@
 		22026A9B1907CD2100EFF574 /* ios-nav-search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A841907CD2100EFF574 /* ios-nav-search-button.png */; };
 		22026A9F1907CD2100EFF574 /* ios-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A881907CD2100EFF574 /* ios-search.png */; };
 		22026F3C193CB1BB00EFF574 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 22026F3B193CB1BB00EFF574 /* Neighborhood.m */; };
+		706F289F1944C83100A8D85E /* BuddyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F289E1944C83100A8D85E /* BuddyButton.m */; };
+		7094F47219470A8C00C0B2E7 /* ParticipantsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094F47119470A8C00C0B2E7 /* ParticipantsDetailViewController.m */; };
+		7094F47719470C1900C0B2E7 /* ParticipantsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */; };
 		70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A56BED1911ED0B001CF588 /* libGPUImage.a */; };
 		70A56BFA19129808001CF588 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A56BF919129808001CF588 /* ScrollView.m */; };
 		70BB8BCB1924EFE30006A4A1 /* ParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BCA1924EFE30006A4A1 /* ParticipantsView.m */; };
@@ -205,6 +208,12 @@
 		22026A881907CD2100EFF574 /* ios-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-search.png"; path = "../ios-search.png"; sourceTree = "<group>"; };
 		22026F3A193CB1BB00EFF574 /* Neighborhood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Neighborhood.h; sourceTree = "<group>"; };
 		22026F3B193CB1BB00EFF574 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
+		706F289D1944C83100A8D85E /* BuddyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyButton.h; sourceTree = "<group>"; };
+		706F289E1944C83100A8D85E /* BuddyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyButton.m; sourceTree = "<group>"; };
+		7094F47019470A8C00C0B2E7 /* ParticipantsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsDetailViewController.h; sourceTree = "<group>"; };
+		7094F47119470A8C00C0B2E7 /* ParticipantsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsDetailViewController.m; sourceTree = "<group>"; };
+		7094F47519470C1900C0B2E7 /* ParticipantsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsDetailView.h; sourceTree = "<group>"; };
+		7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsDetailView.m; sourceTree = "<group>"; };
 		70A56BE61911ED0A001CF588 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		70A56BF819129808001CF588 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
 		70A56BF919129808001CF588 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
@@ -357,6 +366,8 @@
 		19D64E9D1920C4DD00178A36 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				706F289D1944C83100A8D85E /* BuddyButton.h */,
+				706F289E1944C83100A8D85E /* BuddyButton.m */,
 				19D64E981920C46800178A36 /* RegisterView.h */,
 				19D64E991920C46800178A36 /* RegisterView.m */,
 				19E8FB4F1920F9070030CB7D /* LoginView.h */,
@@ -383,6 +394,8 @@
 				199C3A41193B4B5000D53A67 /* ProviderView.m */,
 				199C3A49193B706700D53A67 /* DepositView.h */,
 				199C3A4A193B706700D53A67 /* DepositView.m */,
+				7094F47519470C1900C0B2E7 /* ParticipantsDetailView.h */,
+				7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -392,6 +405,8 @@
 			children = (
 				19D7FEFF191B7AB7007039DD /* CharityDetailViewController.h */,
 				19D7FF00191B7AB7007039DD /* CharityDetailViewController.m */,
+				7094F47019470A8C00C0B2E7 /* ParticipantsDetailViewController.h */,
+				7094F47119470A8C00C0B2E7 /* ParticipantsDetailViewController.m */,
 			);
 			name = DetailViewControllers;
 			sourceTree = "<group>";
@@ -418,20 +433,20 @@
 		19E8FB6A1921241C0030CB7D /* WidgetViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1992D3EA190122AE00733C9F /* NeighborhoodViewController.h */,
-				1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */,
-				1992D3F0190127D600733C9F /* MediaViewController.h */,
-				1992D3F1190127D600733C9F /* MediaViewController.m */,
-				1992D4011901354600733C9F /* MapViewController.h */,
-				1992D4021901354600733C9F /* MapViewController.m */,
 				1992D404190135A900733C9F /* CharityViewController.h */,
 				1992D405190135A900733C9F /* CharityViewController.m */,
-				1992D407190135D900733C9F /* ProgressViewController.h */,
-				1992D408190135D900733C9F /* ProgressViewController.m */,
-				1992D40A190135FB00733C9F /* ParticipantsViewController.h */,
-				1992D40B190135FB00733C9F /* ParticipantsViewController.m */,
 				70BB8BD11928B56A0006A4A1 /* FaqViewController.h */,
 				70BB8BD21928B56A0006A4A1 /* FaqViewController.m */,
+				1992D4011901354600733C9F /* MapViewController.h */,
+				1992D4021901354600733C9F /* MapViewController.m */,
+				1992D3F0190127D600733C9F /* MediaViewController.h */,
+				1992D3F1190127D600733C9F /* MediaViewController.m */,
+				1992D3EA190122AE00733C9F /* NeighborhoodViewController.h */,
+				1992D3EB190122AE00733C9F /* NeighborhoodViewController.m */,
+				1992D40A190135FB00733C9F /* ParticipantsViewController.h */,
+				1992D40B190135FB00733C9F /* ParticipantsViewController.m */,
+				1992D407190135D900733C9F /* ProgressViewController.h */,
+				1992D408190135D900733C9F /* ProgressViewController.m */,
 			);
 			name = WidgetViewControllers;
 			sourceTree = "<group>";
@@ -621,6 +636,7 @@
 				1992D4031901354600733C9F /* MapViewController.m in Sources */,
 				199C3A4B193B706700D53A67 /* DepositView.m in Sources */,
 				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
+				706F289F1944C83100A8D85E /* BuddyButton.m in Sources */,
 				1925A043192E85060089487E /* Charity.m in Sources */,
 				19E8FB591920FF0B0030CB7D /* NeighborhoodView.m in Sources */,
 				19E127B21907A8A500471CB9 /* LoginViewController.m in Sources */,
@@ -638,6 +654,7 @@
 				19E8FB511920F9070030CB7D /* LoginView.m in Sources */,
 				19EDAF4519334F2A00E18475 /* CustomScrollView.m in Sources */,
 				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
+				7094F47219470A8C00C0B2E7 /* ParticipantsDetailViewController.m in Sources */,
 				70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
 				19E8FB68192113E10030CB7D /* ProfileView.m in Sources */,
@@ -647,6 +664,7 @@
 				19E127B31907A8A500471CB9 /* DropDownMenuViewController.m in Sources */,
 				194B8FF518FE948C00EA3966 /* main.m in Sources */,
 				19D64E9A1920C46800178A36 /* RegisterView.m in Sources */,
+				7094F47719470C1900C0B2E7 /* ParticipantsDetailView.m in Sources */,
 				199C3A42193B4B5000D53A67 /* ProviderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

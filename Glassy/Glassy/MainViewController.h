@@ -49,4 +49,6 @@
 - (void)createCharityDetailView:(Charity *)charity;
 - (void)removeCharityDetailView;
 
+- (void)createParticipantDetailView:(Account*)account;
+- (void)removeParticipantDetailView;
 @end

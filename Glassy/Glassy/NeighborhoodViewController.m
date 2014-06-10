@@ -38,8 +38,12 @@
 
 - (void)setNeighborhoodData:(Action *)action
 {
-    //self.neighborhoodView.neighborhoodTitleLabel.text = @"tetten";
 	float numberOfParticipants = action.participants;
+	if (numberOfParticipants == 0) {
+		[self.neighborhoodView hideLabels];
+	} else {
+		[self.neighborhoodView showLabels];
+	}
     self.neighborhoodView.participantsNumberLabel.text = [[NSNumber numberWithFloat:numberOfParticipants] stringValue];
 	[self.neighborhoodView setParticipantsLabelPosition:numberOfParticipants];
     self.neighborhoodView.percentageLabel.text = [NSString stringWithFormat:@"%@%s", [[NSNumber numberWithFloat:action.targetPartPerc] stringValue], "%"];

@@ -16,7 +16,8 @@
 @property (nonatomic, strong) UILabel *percentageLabel;
 @property (nonatomic, strong) UIButton *actionButton;
 
-//- (void)drawView;
+- (void)drawView;
 - (void)setParticipantsLabelPosition:(float)numberOfParticipants;
-
+- (void)hideLabels;
+- (void)showLabels;
 @end

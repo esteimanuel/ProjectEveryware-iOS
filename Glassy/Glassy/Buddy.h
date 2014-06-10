@@ -10,4 +10,7 @@
 
 @interface Buddy : NSObject
 
+@property (nonatomic, strong) NSString *telefoonnummer;
+@property (nonatomic, strong) NSString *email;
+
 @end

@@ -225,6 +225,11 @@
     [self.charityDetailViewController removeFromParentViewController];    
 }
 
+- (void)createParticipantDetailView:(Account*)account
+{
+	NSLog(@"Buddy: %@",account.firstName);
+}
+
 #pragma mark - General view
 
 - (void)createScrollViewWithViewControllers
@@ -262,13 +267,13 @@
     [self addChildViewController:mapViewController];
     [self addChildViewController:charityViewController];
     [self addChildViewController:progressViewController];
-    //[self addChildViewController:participantsViewController];
+    [self addChildViewController:participantsViewController];
     [self addChildViewController:faqViewController];
     
     // Set background to clear
     self.scrollView.backgroundColor = [UIColor clearColor];
     
-    NSInteger currentHeight = 0;
+    float currentHeight = 0;
     // Add ViewControllers to scrollView
     [self.scrollView addSubview:neighborhoodViewController.view];
     neighborhoodViewController.view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, neighborhoodViewController.neighborhoodView.frame.size.height);
