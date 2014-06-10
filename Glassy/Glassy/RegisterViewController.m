@@ -64,8 +64,8 @@
 
 - (void)createView
 {
-    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
-    self.registerView = [[RegisterView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85)];
+    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, 300);
+    self.registerView = [[RegisterView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
     // Set textfield delegates
     self.registerView.passwordTextField.delegate = self;
     self.registerView.emailTextField.delegate = self;

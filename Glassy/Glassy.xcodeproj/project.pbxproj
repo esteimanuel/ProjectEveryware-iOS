@@ -54,6 +54,8 @@
 		19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E9DF88190F94F1008075F6 /* RESTClient.m */; };
 		19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */; };
 		19EDAF4519334F2A00E18475 /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EDAF4419334F2A00E18475 /* CustomScrollView.m */; };
+		19F7AD161946F77200CC845C /* FaqDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F7AD151946F77200CC845C /* FaqDetailViewController.m */; };
+		19F7AD1B1946FA2100CC845C /* FaqDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F7AD1A1946FA2100CC845C /* FaqDetailView.m */; };
 		22026A8F1907CD2100EFF574 /* ios-auth-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A771907CD2100EFF574 /* ios-auth-background.png */; };
 		22026A921907CD2100EFF574 /* ios-charity.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7B1907CD2100EFF574 /* ios-charity.png */; };
 		22026A931907CD2100EFF574 /* ios-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A7C1907CD2100EFF574 /* ios-map.png */; };
@@ -195,6 +197,10 @@
 		19E9DF8B190FC5BA008075F6 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		19EDAF4319334F2A00E18475 /* CustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
 		19EDAF4419334F2A00E18475 /* CustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
+		19F7AD141946F77200CC845C /* FaqDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqDetailViewController.h; sourceTree = "<group>"; };
+		19F7AD151946F77200CC845C /* FaqDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqDetailViewController.m; sourceTree = "<group>"; };
+		19F7AD191946FA2100CC845C /* FaqDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqDetailView.h; sourceTree = "<group>"; };
+		19F7AD1A1946FA2100CC845C /* FaqDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqDetailView.m; sourceTree = "<group>"; };
 		22026A771907CD2100EFF574 /* ios-auth-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios-auth-background.png"; path = "../ios-auth-background.png"; sourceTree = "<group>"; };
 		22026A7B1907CD2100EFF574 /* ios-charity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-charity.png"; sourceTree = "<group>"; };
 		22026A7C1907CD2100EFF574 /* ios-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-map.png"; sourceTree = "<group>"; };
@@ -396,6 +402,8 @@
 				199C3A4A193B706700D53A67 /* DepositView.m */,
 				7094F47519470C1900C0B2E7 /* ParticipantsDetailView.h */,
 				7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */,
+				19F7AD191946FA2100CC845C /* FaqDetailView.h */,
+				19F7AD1A1946FA2100CC845C /* FaqDetailView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -407,6 +415,8 @@
 				19D7FF00191B7AB7007039DD /* CharityDetailViewController.m */,
 				7094F47019470A8C00C0B2E7 /* ParticipantsDetailViewController.h */,
 				7094F47119470A8C00C0B2E7 /* ParticipantsDetailViewController.m */,
+				19F7AD141946F77200CC845C /* FaqDetailViewController.h */,
+				19F7AD151946F77200CC845C /* FaqDetailViewController.m */,
 			);
 			name = DetailViewControllers;
 			sourceTree = "<group>";
@@ -638,6 +648,7 @@
 				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
 				706F289F1944C83100A8D85E /* BuddyButton.m in Sources */,
 				1925A043192E85060089487E /* Charity.m in Sources */,
+				19F7AD1B1946FA2100CC845C /* FaqDetailView.m in Sources */,
 				19E8FB591920FF0B0030CB7D /* NeighborhoodView.m in Sources */,
 				19E127B21907A8A500471CB9 /* LoginViewController.m in Sources */,
 				1992D3E919011FA100733C9F /* MainViewController.m in Sources */,
@@ -650,6 +661,7 @@
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
 				199C3A48193B705300D53A67 /* DepositViewController.m in Sources */,
 				19E8FB561920FCB60030CB7D /* NavigationBarView.m in Sources */,
+				19F7AD161946F77200CC845C /* FaqDetailViewController.m in Sources */,
 				19E8FB6219210D0B0030CB7D /* CharityView.m in Sources */,
 				19E8FB511920F9070030CB7D /* LoginView.m in Sources */,
 				19EDAF4519334F2A00E18475 /* CustomScrollView.m in Sources */,

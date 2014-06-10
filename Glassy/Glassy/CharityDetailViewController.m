@@ -32,8 +32,6 @@
         
         [self createCharityGui];
         [self createGesture];
-        
-        
     }
     return self;
 }
