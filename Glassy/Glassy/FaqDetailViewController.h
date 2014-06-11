@@ -12,7 +12,7 @@
 
 @interface FaqDetailViewController : UIViewController <RestClientDelegate>
 
-//@property (nonatomic, strong) FaqDetailView *faqDetailView;
+@property (nonatomic, strong) FaqDetailView *faqDetailView;
 
 @property (nonatomic, strong) UILabel *faqLabel;
 @property (nonatomic, strong) UIScrollView *mediaView;

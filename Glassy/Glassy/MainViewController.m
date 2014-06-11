@@ -332,7 +332,7 @@
 	
 	// Add button overlay
 	UIButton *faqButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, faqViewController.view.frame.size.height)];
-	[faqButton addTarget:self action:@selector(openFaqDetailView) forControlEvents:UIControlEventTouchUpInside];
+	[faqButton addTarget:self action:@selector(createFaqDetailView) forControlEvents:UIControlEventTouchUpInside];
 	faqButton.backgroundColor = [UIColor clearColor];
 	[self.scrollView addSubview:faqButton];
 	

@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *faqLabel;
 @property (nonatomic, strong) UIScrollView *mediaView;
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIButton *closeButton;
 
 
 @end
