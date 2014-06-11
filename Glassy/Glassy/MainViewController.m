@@ -225,6 +225,29 @@
     [self.charityDetailViewController removeFromParentViewController];    
 }
 
+- (void)createFaqDetailView
+{
+    if (self.faqDetailViewController == nil) {
+        self.faqDetailViewController = [[FaqDetailViewController alloc] init];
+    }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.faqDetailViewController.view cache:YES];
+    
+    [self addChildViewController:self.faqDetailViewController];
+    [self.view addSubview:self.faqDetailViewController.view];
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.faqDetailViewController.view cache:YES];
+    [UIView commitAnimations];
+}
+
+- (void)removeFaqDetailView
+{
+    [self.faqDetailViewController.view removeFromSuperview];
+    [self.faqDetailViewController removeFromParentViewController];
+}
+
 #pragma mark - General view
 
 - (void)createScrollViewWithViewControllers
@@ -258,12 +281,12 @@
     
     // Add ViewControllers to parent viewcontroller
     [self addChildViewController:neighborhoodViewController];
+    [self addChildViewController:faqViewController];
     [self addChildViewController:mediaViewController];
     [self addChildViewController:mapViewController];
     [self addChildViewController:charityViewController];
     [self addChildViewController:progressViewController];
-    //[self addChildViewController:participantsViewController];
-    [self addChildViewController:faqViewController];
+    [self addChildViewController:participantsViewController];
     
     // Set background to clear
     self.scrollView.backgroundColor = [UIColor clearColor];

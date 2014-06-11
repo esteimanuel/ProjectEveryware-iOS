@@ -7,6 +7,7 @@
 //
 
 #import "FaqViewController.h"
+#import "MainViewController.h"
 
 @interface FaqViewController ()
 
@@ -16,17 +17,33 @@
 
 @implementation FaqViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)createView
 {
 	self.faqView = [[FaqView alloc] init];
+    // Set view gestures
+    [self createGesture];
     // Add mediaView to view
     [self.view addSubview:self.faqView];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)getFaq
@@ -38,10 +55,22 @@
     [self.restGetFaq GET:url withParameters:nil];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - PAN gesture methods
+
+- (void)createGesture
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
+    gestureRecognizer.numberOfTapsRequired = 1;
+    gestureRecognizer.numberOfTouchesRequired = 1;
+    [self.faqView addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)panHandler:(UITapGestureRecognizer *)recognizer
+{
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent createFaqDetailView];
+    }
 }
 
 #pragma mark - REST client delegate methods

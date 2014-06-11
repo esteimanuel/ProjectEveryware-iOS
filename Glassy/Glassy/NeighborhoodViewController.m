@@ -125,7 +125,7 @@
     if ([self.parentViewController.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
         if ([defaults objectForKey:@"token"] == nil) {
-            [parent createLoginView];
+            [parent createRegisterView];
         } else {
             MainViewController* main = (MainViewController*)self.parentViewController;
             [main setActionId:[main.action.id intValue]];

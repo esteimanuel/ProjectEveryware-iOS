@@ -55,8 +55,8 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     // Objects have to be added in this order
     [params setObject:self.profileView.firstNameTextField.text forKey:@"voornaam"];
-    [params setObject:[self.profileView.lastNameTextField.text lowercaseString] forKey:@"achternaam"];
-    [params setObject:[self.profileView.houseNumberTextField.text lowercaseString] forKey:@"huisnummer"];
+    [params setObject:self.profileView.lastNameTextField.text forKey:@"achternaam"];
+    [params setObject:self.profileView.houseNumberTextField.text forKey:@"huisnummer"];
     [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
 
     return params;
