@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Buddy.h"
 
 @interface Account : NSObject
 
@@ -30,7 +31,7 @@
 @property (nonatomic, strong) NSString *postcodeId;
 @property (nonatomic, strong) NSString *actionId;
 @property (nonatomic, strong) NSString *providerId;
-@property (nonatomic) int buddy;
+@property (nonatomic, strong) Buddy *buddy;
 
 @property (nonatomic, strong) NSString *postcode;
 @end

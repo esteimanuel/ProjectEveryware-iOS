@@ -14,6 +14,7 @@
 - (void)setParticipantsNumber:(int)number;
 - (void)setParticipantsLabelPosition:(float)numberOfParticipantsForPos;
 @property (nonatomic, strong) UILabel *participantsText;
+@property (nonatomic, strong) NSMutableArray *buddies;
 
 
 @end

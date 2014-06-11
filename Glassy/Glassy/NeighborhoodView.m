@@ -66,7 +66,7 @@
     
     // Create percentage
     self.percentageLabel = [[UILabel alloc]initWithFrame:CGRectMake(5.0, (self.frame.size.height - 140.0) - 10.0, self.frame.size.width -10.0, 100.0f)];
-    [self.percentageLabel setText:@"22%"];
+    [self.percentageLabel setText:@"0%"];
     [self.percentageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:100.0f]];
     [self.percentageLabel setTextColor:[UIColor whiteColor]];
 	self.percentageLabel.layer.shadowColor = shadowColor;
@@ -98,6 +98,20 @@
 	int numberOfSpaces = [[[NSNumber numberWithFloat:numberOfParticipants] stringValue] length];
 	NSLog(@"%d",numberOfSpaces);
 	self.participantsLabel.frame = CGRectMake(space * numberOfSpaces, (self.frame.size.height - 160.0) - 10.0, self.frame.size.width -10.0, 25.0f);
+}
+
+- (void)hideLabels
+{
+	self.percentageLabel.textColor = [UIColor clearColor];
+	self.participantsLabel.textColor = [UIColor clearColor];
+	self.participantsNumberLabel.textColor = [UIColor clearColor];
+}
+
+- (void)showLabels
+{
+	self.percentageLabel.textColor = [UIColor whiteColor];
+	self.participantsLabel.textColor = [UIColor whiteColor];
+	self.participantsNumberLabel.textColor = [UIColor whiteColor];
 }
 
 @end

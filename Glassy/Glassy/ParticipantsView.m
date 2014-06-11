@@ -8,6 +8,7 @@
 
 #import "ParticipantsView.h"
 #import "Account.h"
+#import "BuddyButton.h"
 
 @implementation ParticipantsView {
 	float currentHeight;
@@ -23,6 +24,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+		self.buddies = [[NSMutableArray alloc]init];
         [self drawView];
     }
     return self;
@@ -145,15 +147,24 @@
 
 - (UIButton *)createTile:(float *)xpos withCellSize:(float *)cellSize withParticipant:(Account *)participant
 {
-	UIButton *participantButton = [[UIButton alloc]init];
+	BuddyButton *participantButton = [[BuddyButton alloc]init];
 	participantButton.frame = CGRectMake(*xpos, currentHeight, *cellSize, *cellSize);
 	participantButton.contentMode = UIViewContentModeScaleAspectFill;
 	participantButton.backgroundColor = [UIColor colorWithPatternImage: [self createImage:*cellSize withFrame:participantButton.bounds withParticipant:participant]];
-	if (participant.buddy == 1) {
+	if (participant.buddy != nil) {
+		participantButton.buddy = participant;
 		participantButton.layer.borderColor = [UIColor greenColor].CGColor;
 		participantButton.layer.borderWidth = 2.0f;
+//		[participantButton addTarget:self action:@selector(openDetailView) forControlEvents:UIControlEventTouchUpInside];
+		[self.buddies addObject: participantButton];
 	}
 	return participantButton;
+}
+
+- (void)openDetailView
+{
+	NSLog(@"openDetailView called!");
+	
 }
 
 - (UIImage *)createImage:(float)size withFrame:(CGRect)frame withParticipant:(Account *)participant

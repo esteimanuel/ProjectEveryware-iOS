@@ -53,4 +53,6 @@
 - (void)createFaqDetailView;
 - (void)removeFaqDetailView;
 
+- (void)createParticipantDetailView:(Account*)account;
+- (void)removeParticipantDetailView;
 @end
