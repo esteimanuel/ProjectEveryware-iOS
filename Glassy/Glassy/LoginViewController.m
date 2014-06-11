@@ -137,11 +137,6 @@
             [defaults setObject:[accountDictionary objectForKey:@"account_id"] forKey:@"account_id"];
             [defaults synchronize];
             
-            Account *account = [[Account alloc] init];
-            //account.accountId = [accountDictionary objectForKey:@"account_id"];
-            account.email = [accountDictionary objectForKey:@"email"];
-            account.accountLevel = [accountDictionary objectForKey:@"accountlevel_id"];
-            account.image = [accountDictionary objectForKey:@"foto_link"];
             NSMutableDictionary *userDictionary = (NSMutableDictionary *)[accountDictionary objectForKey:@"gebruiker"];
             if (userDictionary != nil) {
                 // Save user id to user defaults
@@ -149,6 +144,9 @@
                 if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
                     PagingViewController* parent = (PagingViewController*)self.parentViewController;
                     [parent setAccountByDictionary:userDictionary];
+                    parent.account.email = [accountDictionary objectForKey:@"email"];
+                    parent.account.accountLevel = [accountDictionary objectForKey:@"accountlevel_id"];
+                    parent.account.image = [accountDictionary objectForKey:@"foto_link"];
                 }
             }
         } else {

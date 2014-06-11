@@ -65,7 +65,7 @@
     
     // Set title label
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
-    self.titleLabel.text = @"Frequently Asked Questions";
+    self.titleLabel.text = @"Veelgestelde vragen";
     self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     self.titleLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:self.titleLabel];

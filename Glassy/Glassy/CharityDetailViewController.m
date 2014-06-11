@@ -55,7 +55,7 @@
     
     // Set background to transparent
     //self.view.b = [UICol];
-    [self.view setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
+    [self.view setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8]];
     
     // Set title label
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];

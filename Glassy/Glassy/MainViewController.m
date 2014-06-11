@@ -56,7 +56,7 @@
     self = [super init];
     if (self) {
         // Init scrollVIew
-        self.scrollView = [[CustomScrollView alloc] init];
+        self.scrollView = [[UIScrollView alloc] init];
 		[self.scrollView setDelegate:self];
 		
         [self createScrollViewWithViewControllers];
@@ -282,6 +282,7 @@
     // Add ViewControllers to parent viewcontroller
     [self addChildViewController:neighborhoodViewController];
     [self addChildViewController:faqViewController];
+    [faqViewController didMoveToParentViewController:self];
     [self addChildViewController:mediaViewController];
     [self addChildViewController:mapViewController];
     [self addChildViewController:charityViewController];

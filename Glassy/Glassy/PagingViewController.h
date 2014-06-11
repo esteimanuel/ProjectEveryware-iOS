@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NSMutableArray *actionsArray;
 @property (nonatomic, strong) NSMutableArray *mainViewControllers;
 
-@property (strong, nonatomic) CustomScrollView *scrollView;
+@property (strong, nonatomic) UIScrollView *scrollView;
 
 @property (strong, nonatomic) UIActivityIndicatorView *loadingView;
 

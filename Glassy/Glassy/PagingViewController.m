@@ -273,7 +273,7 @@
     int count = self.mainViewControllers.count;
     float pageX = 0;
     
-    self.scrollView = [[CustomScrollView alloc] initWithFrame:self.view.bounds];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.scrollView setPagingEnabled:YES];
     [self.scrollView setDirectionalLockEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width * count,  1)];
@@ -299,27 +299,27 @@
     [self.view addSubview:self.scrollView];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"PagingViewController touches began");
-    NSLog(@"PagingViewController touched %@", self);
-    NSLog(@"PagingViewController nextResponder = %@", self.nextResponder);
-    //[super touchesBegan:touches withEvent:event];
-    [[self nextResponder] touchesBegan:touches withEvent:event];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    //[super touchesMoved:touches withEvent:event];
-    [[self nextResponder] touchesMoved:touches withEvent:event];
-}
-
--(void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
-{
-    NSLog(@"Touches ended: PagingViewController");
-    //[super touchesEnded:touches withEvent:event];
-    [self.nextResponder touchesEnded:touches withEvent:event];
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"PagingViewController touches began");
+//    NSLog(@"PagingViewController touched %@", self);
+//    NSLog(@"PagingViewController nextResponder = %@", self.nextResponder);
+//    //[super touchesBegan:touches withEvent:event];
+//    [[self nextResponder] touchesBegan:touches withEvent:event];
+//}
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    //[super touchesMoved:touches withEvent:event];
+//    [[self nextResponder] touchesMoved:touches withEvent:event];
+//}
+//
+//-(void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
+//{
+//    NSLog(@"Touches ended: PagingViewController");
+//    //[super touchesEnded:touches withEvent:event];
+//    [self.nextResponder touchesEnded:touches withEvent:event];
+//}
 
 #pragma mark - REST client delegate methods
 

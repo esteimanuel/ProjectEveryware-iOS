@@ -10,6 +10,7 @@
 
 @interface FaqView : UIView
 
+@property (nonatomic, strong) UIView *header;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIView *container;
 @property (nonatomic, strong) UIView *content;

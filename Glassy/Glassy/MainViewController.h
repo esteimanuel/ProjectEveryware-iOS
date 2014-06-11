@@ -30,7 +30,7 @@
 @property (nonatomic, strong) FaqDetailViewController *faqDetailViewController;
 @property (nonatomic, strong) NeighborhoodViewController* neighborhoodViewController;
 
-@property (strong, nonatomic) CustomScrollView *scrollView;
+@property (strong, nonatomic) UIScrollView *scrollView;
 
 - (void)getNeighborhoodData:(int)actionId;
 - (void)getNeighborhoodInfo:(int)neighborhoodId;

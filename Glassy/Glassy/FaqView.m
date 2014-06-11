@@ -123,4 +123,26 @@
 	[self.container addSubview:self.content];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"FaqView touches began");
+    NSLog(@"FaqView touched %@", self);
+    NSLog(@"FaqView nextResponder = %@", self.nextResponder);
+    //[super touchesBegan:touches withEvent:event];
+    //[[self nextResponder] touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //[super touchesMoved:touches withEvent:event];
+    //[[self nextResponder] touchesMoved:touches withEvent:event];
+}
+
+-(void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
+{
+    NSLog(@"Touches ended: FaqView");
+    //[super touchesEnded:touches withEvent:event];
+    //[self.nextResponder touchesEnded:touches withEvent:event];
+}
+
 @end
