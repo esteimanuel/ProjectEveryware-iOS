@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Charity.h"
 
 @interface CharityDetailViewController : UIViewController
+
+- (id)initWithCharity:(Charity *)charity;
+
+@property (nonatomic, strong) Charity *charity;
 
 @end

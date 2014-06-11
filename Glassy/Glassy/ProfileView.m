@@ -86,7 +86,7 @@
     self.passwordTextField.layer.borderWidth = 0.5;
     self.passwordTextField.layer.cornerRadius = 5.0;
     self.passwordTextField.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
-    self.passwordTextField.placeholder = @"Wachtwoord";
+    self.passwordTextField.placeholder = @"Nieuw wachtwoord";
     self.passwordTextField.secureTextEntry = YES;
     
     currentHeight = currentHeight + self.passwordTextField.frame.size.height + margin;

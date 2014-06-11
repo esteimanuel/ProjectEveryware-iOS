@@ -146,7 +146,17 @@
     
     mediaviewHeight += self.overstappenProgress.frame.size.height + margin;
     currentHeight += self.overstappenProgress.frame.size.height + margin;
+	
+	UIButton *progressButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+	[progressButton addTarget:self action:@selector(openProgressDetailView) forControlEvents:UIControlEventTouchUpInside];
+	progressButton.backgroundColor = [UIColor purpleColor];
+	[self addSubview:progressButton];
 
+}
+
+- (void)openProgressDetailView
+{
+	NSLog(@"openProgressDetailView called!");
 }
 
 @end

@@ -38,8 +38,12 @@
 
 - (void)setNeighborhoodData:(Action *)action
 {
-    //self.neighborhoodView.neighborhoodTitleLabel.text = @"tetten";
 	float numberOfParticipants = action.participants;
+	if (numberOfParticipants == 0) {
+		[self.neighborhoodView hideLabels];
+	} else {
+		[self.neighborhoodView showLabels];
+	}
     self.neighborhoodView.participantsNumberLabel.text = [[NSNumber numberWithFloat:numberOfParticipants] stringValue];
 	[self.neighborhoodView setParticipantsLabelPosition:numberOfParticipants];
     self.neighborhoodView.percentageLabel.text = [NSString stringWithFormat:@"%@%s", [[NSNumber numberWithFloat:action.targetPartPerc] stringValue], "%"];
@@ -110,7 +114,7 @@
 - (void)showProfileAlertView
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Profiel Aanvullen"
-                                                        message:@"Vul a.u.b. uw profiel in voordat u door gaat met inschrijven"
+                                                        message:@"Vul a.u.b. uw profiel aan voordat u doorgaat met inschrijven"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -125,7 +129,7 @@
     if ([self.parentViewController.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
         if ([defaults objectForKey:@"token"] == nil) {
-            [parent createLoginView];
+            [parent createRegisterView];
         } else {
             MainViewController* main = (MainViewController*)self.parentViewController;
             [main setActionId:[main.action.id intValue]];

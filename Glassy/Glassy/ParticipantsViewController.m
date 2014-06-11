@@ -7,7 +7,10 @@
 //
 
 #import "ParticipantsViewController.h"
+#import "MainViewController.h"
 #import "Account.h"
+#import "Buddy.h"
+#import "BuddyButton.h"
 
 @interface ParticipantsViewController ()
 
@@ -56,8 +59,22 @@
 		NSLog(@"account_id: %d",account.accountId);
 		account.email = [participantsDictionary objectForKey:@"email"];
 		NSLog(@"account_email: %@",account.email);
-		account.buddy = [participantsDictionary objectForKey:@"buddy"] != nil ? 1 : 0;
-		NSLog(@"account_isBuddy: %d",account.buddy);
+		
+		// buddy toevoegen
+		//account.buddy = [participantsDictionary objectForKey:@"buddy"] != nil ? 1 : 0;
+		
+		if ([participantsDictionary objectForKey:@"buddy"] != nil) {
+			NSArray *tmp = [participantsDictionary objectForKey:@"buddy"];
+			Buddy *buddy = [[Buddy alloc]init];
+			buddy.telefoonnummer = [tmp valueForKey:@"contact_tel"];
+			buddy.email = [tmp valueForKey:@"contact_email"];
+			account.buddy = buddy;
+		}
+		if (account.buddy != nil) {
+			NSLog(@"account_isBuddy: YES");
+			NSLog(@"buddy_telefoonnummer: %@",account.buddy.telefoonnummer);
+			NSLog(@"buddy_email: %@",account.buddy.email);
+		}
 		NSDictionary *accountData = [key valueForKey:@"account"];
 		NSString *foto_link = [accountData valueForKey:@"foto_link"];
 		if ([foto_link isKindOfClass:[NSString class]]) {
@@ -70,11 +87,28 @@
 	
 	// Add participants to view
 	[self.participantsView addParticipants:participantsArray];
+	
+	NSLog(@"there are %d buddy buttons",[self.participantsView.buddies count]);
+	for (int i = 0 ; i < [self.participantsView.buddies count]; i++) {
+//		NSLog(@"added action to button!");
+		[self.participantsView.buddies[i] addTarget:self action:@selector(openDetailView:) forControlEvents:UIControlEventTouchUpInside];
+	}
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client
 {
     
+}
+
+- (void)openDetailView:(BuddyButton *)buddyButton
+{
+	NSLog(@"openDetailView called in ParticipantsViewController!");
+	if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+			NSLog(@"createParticipantDetailView called!");
+        [parent createParticipantDetailView:buddyButton.buddy];
+    }
+	
 }
 
 - (void)didReceiveMemoryWarning

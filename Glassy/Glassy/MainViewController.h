@@ -12,10 +12,12 @@
 #import "Action.h"
 #import "Neighborhood.h"
 #import "Account.h"
+#import "Charity.h"
 #import "CustomScrollView.h"
 
 // DetailViewControllers
 #import "CharityDetailViewController.h"
+#import "FaqDetailViewController.h"
 #import "NeighborhoodViewController.h"
 
 @interface MainViewController : UIViewController <RestClientDelegate, UIScrollViewDelegate>
@@ -25,9 +27,10 @@
 @property (nonatomic, strong) NSMutableDictionary *viewControllersDictionary;
 // DetailViewControllers
 @property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;
+@property (nonatomic, strong) FaqDetailViewController *faqDetailViewController;
 @property (nonatomic, strong) NeighborhoodViewController* neighborhoodViewController;
 
-@property (strong, nonatomic) CustomScrollView *scrollView;
+@property (strong, nonatomic) UIScrollView *scrollView;
 
 - (void)getNeighborhoodData:(int)actionId;
 - (void)getNeighborhoodInfo:(int)neighborhoodId;
@@ -45,7 +48,11 @@
 - (void)setParticipantsData;
 
 // DetailViewController methods
-- (void)createCharityDetailView;
+- (void)createCharityDetailView:(Charity *)charity;
 - (void)removeCharityDetailView;
+- (void)createFaqDetailView;
+- (void)removeFaqDetailView;
 
+- (void)createParticipantDetailView:(Account*)account;
+- (void)removeParticipantDetailView;
 @end

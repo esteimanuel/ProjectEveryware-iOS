@@ -55,8 +55,8 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     // Objects have to be added in this order
     [params setObject:self.profileView.firstNameTextField.text forKey:@"voornaam"];
-    [params setObject:[self.profileView.lastNameTextField.text lowercaseString] forKey:@"achternaam"];
-    [params setObject:[self.profileView.houseNumberTextField.text lowercaseString] forKey:@"huisnummer"];
+    [params setObject:self.profileView.lastNameTextField.text forKey:@"achternaam"];
+    [params setObject:self.profileView.houseNumberTextField.text forKey:@"huisnummer"];
     [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
 
     return params;
@@ -85,18 +85,17 @@
 
 - (void)getPostcodeData:(int)postcodeId
 {
-	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/postcode?%d", postcodeId];
+	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/postcode?id=%d", postcodeId];
     // Create REST client and send get request
     self.restGetPostcode = [[RESTClient alloc] init];
     self.restGetPostcode.delegate = self;
-    [self.restGetPostcode PUT:url withParameters:nil];
+    [self.restGetPostcode GET:url withParameters:nil];
 }
 
-- (void)setProfileImage
+- (void)setProfileImage:(PagingViewController *)parent
 {
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    if ([defaults objectForKey:@"foto_link"] != nil) {
-        NSURL *imageUrl = [NSURL URLWithString:[defaults objectForKey:@"foto_link"]];
+    if (parent.account.image != (NSString *)[NSNull null]) {
+        NSURL *imageUrl = [NSURL URLWithString:parent.account.image];
         NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
         self.profileView.profileImageView.image = [UIImage imageWithData:imageData];
     } else {
@@ -109,13 +108,15 @@
     if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController;
         if (parent.account != nil) {
-            self.profileView.emailTextField.text = parent.account.email;
-            self.profileView.passwordTextField.text = @"wachtwoord";
-            self.profileView.firstNameTextField.text = parent.account.firstName;
-            self.profileView.lastNameTextField.text = parent.account.lastName;
-            //self.profileView.postcodeTextField.text = parent.account.postcode;
-            //self.profileView.houseNumberTextField.text = parent.account.houseNumber;
+            if (parent.account.email != (NSString *)[NSNull null]) self.profileView.emailTextField.text = parent.account.email;
+            //if (parent.account.email != (NSString *)[NSNull null]) self.profileView.passwordTextField.text = @"wachtwoord";
+            if (parent.account.firstName != (NSString *)[NSNull null]) self.profileView.firstNameTextField.text = parent.account.firstName;
+            if (parent.account.lastName != (NSString *)[NSNull null]) self.profileView.lastNameTextField.text = parent.account.lastName;
+            if (parent.account.postcode != (NSString *)[NSNull null]) self.profileView.postcodeTextField.text = parent.account.postcode;
+            //if (parent.account.houseNumber != (NSString *)[NSNull null]) self.profileView.houseNumberTextField.text = parent.account.houseNumber;
         }
+        [self setProfileImage:parent];
+        [parent refreshNavigationBarView];
     }
 }
 
@@ -148,8 +149,6 @@
     // Set button action
     [self.profileView.saveButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchDown];
     [self.profileView.buddySwitch addTarget:self action:@selector(toggleBuddyDetails:) forControlEvents:UIControlEventTouchDown];
-    // Set profile image
-    [self setProfileImage];
     // Create gestures
     //[self createGesture];
     [self.view addSubview:self.profileView];
@@ -180,17 +179,12 @@
         if (client == self.restGetPostcode) {
             parent.account.postcode = [responseDictionary objectForKey:@"postcode"];
         } else if (client == self.restPutUser) {
-            NSLog(@"modelstart");
             NSDictionary *array = responseDictionary[@"model"];
             if ([array isKindOfClass:[NSDictionary class]])
             {
-                NSLog(@"forstart");
                 for (id key in array) {
-                    NSLog(@"voornaam");
                     parent.account.firstName = [array objectForKey:@"voornaam"];
-                    NSLog(@"achternaam");
                     parent.account.lastName = [array objectForKey:@"achternaam"];
-                    NSLog(@"huisnummer");
                     parent.account.houseNumber = [array objectForKey:@"huisnummmer"];
                 }
             }

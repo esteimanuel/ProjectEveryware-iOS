@@ -56,7 +56,7 @@
     self = [super init];
     if (self) {
         // Init scrollVIew
-        self.scrollView = [[CustomScrollView alloc] init];
+        self.scrollView = [[UIScrollView alloc] init];
 		[self.scrollView setDelegate:self];
 		
         [self createScrollViewWithViewControllers];
@@ -185,27 +185,12 @@
     }
 }
 
-// Placeholder image code - Start
-- (UIImage *)getPlaceholderImage
-{
-	NSArray *urls = @[@"http://www.celebs101.com/gallery/Scarlett_Johansson/201825/allthatgossip_Scarlett_Johansson_GoldenGlobe_01.jpg",@"http://storage4.album.bg/52f/adriana_lima_5.jpg_d70f4_29141858.jpg",@"http://2014download.com/images/2013/03/jessica-alba-awards-mtv.jpg",@"http://images4.fanpop.com/image/photos/16000000/adriana-victorias-secret-angels-16007539-760-1024.jpg",@"http://jasn.ru/upload/blogs/8916618fbf55b234adcfbb5f5e35dc75-orig.jpg", @"http://www.photonization.com/data/Images/Lingerie/67.jpg"];
-    NSString *imageUrl = urls[2];
-    UIImage *background = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
-	return background;
-}
-
-- (NSInteger)getRandomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
-{
-    return min + arc4random() % (max - min);
-}
-// Placeholder image code - End
-
 #pragma mark - Initialization detail view controllers
 
-- (void)createCharityDetailView
+- (void)createCharityDetailView:(Charity *)charity
 {
     if (self.charityDetailViewController == nil) {
-        self.charityDetailViewController = [[CharityDetailViewController alloc] init];
+        self.charityDetailViewController = [[CharityDetailViewController alloc] initWithCharity:charity];
     }
     
     [UIView beginAnimations:nil context:NULL];
@@ -223,6 +208,33 @@
 {
     [self.charityDetailViewController.view removeFromSuperview];
     [self.charityDetailViewController removeFromParentViewController];    
+}
+
+- (void)createParticipantDetailView:(Account*)account
+{
+	NSLog(@"Buddy: %@",account.firstName);
+}
+- (void)createFaqDetailView
+{
+    if (self.faqDetailViewController == nil) {
+        self.faqDetailViewController = [[FaqDetailViewController alloc] init];
+    }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.faqDetailViewController.view cache:YES];
+    
+    [self addChildViewController:self.faqDetailViewController];
+    [self.view addSubview:self.faqDetailViewController.view];
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.faqDetailViewController.view cache:YES];
+    [UIView commitAnimations];
+}
+
+- (void)removeFaqDetailView
+{
+    [self.faqDetailViewController.view removeFromSuperview];
+    [self.faqDetailViewController removeFromParentViewController];
 }
 
 #pragma mark - General view
@@ -258,27 +270,44 @@
     
     // Add ViewControllers to parent viewcontroller
     [self addChildViewController:neighborhoodViewController];
+    [self addChildViewController:faqViewController];
+    [faqViewController didMoveToParentViewController:self];
     [self addChildViewController:mediaViewController];
     [self addChildViewController:mapViewController];
     [self addChildViewController:charityViewController];
     [self addChildViewController:progressViewController];
-    //[self addChildViewController:participantsViewController];
+    [self addChildViewController:participantsViewController];
     [self addChildViewController:faqViewController];
     
     // Set background to clear
     self.scrollView.backgroundColor = [UIColor clearColor];
     
-    NSInteger currentHeight = 0;
+    float currentHeight = 0;
     // Add ViewControllers to scrollView
     [self.scrollView addSubview:neighborhoodViewController.view];
     neighborhoodViewController.view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, neighborhoodViewController.neighborhoodView.frame.size.height);
+	
+	currentHeight += neighborhoodViewController.neighborhoodView.frame.size.height;
+	
     [self.scrollView addSubview:mediaViewController.view];
-    mediaViewController.view.frame = CGRectMake(0, neighborhoodViewController.neighborhoodView.frame.size.height, self.scrollView.frame.size.width, mediaViewController.mediaView.frame.size.height);
+    mediaViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, mediaViewController.mediaView.frame.size.height);
+	
+	// Add button overlay
+	UIButton *mediaButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, mediaViewController.view.frame.size.height)];
+	[mediaButton addTarget:self action:@selector(openMediaDetailView) forControlEvents:UIControlEventTouchUpInside];
+	mediaButton.backgroundColor = [UIColor clearColor];
+	[self.scrollView addSubview:mediaButton];
     
-    currentHeight = neighborhoodViewController.neighborhoodView.frame.size.height + mediaViewController.mediaView.frame.size.height;
+    currentHeight += mediaViewController.mediaView.frame.size.height;
     
     [self.scrollView addSubview:mapViewController.view];
     mapViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, mapViewController.mapView.frame.size.height);
+	
+	// Add button overlay
+	UIButton *mapButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, mapViewController.view.frame.size.height)];
+	[mapButton addTarget:self action:@selector(openMapDetailView) forControlEvents:UIControlEventTouchUpInside];
+	mapButton.backgroundColor = [UIColor clearColor];
+	[self.scrollView addSubview:mapButton];
     
     currentHeight += mapViewController.mapView.frame.size.height;
     
@@ -289,11 +318,23 @@
     
     [self.scrollView addSubview:progressViewController.view];
     progressViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, progressViewController.progressView.frame.size.height);
+	
+	// Add button overlay
+	UIButton *progressButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, progressViewController.view.frame.size.height)];
+	[progressButton addTarget:self action:@selector(openProgressDetailView) forControlEvents:UIControlEventTouchUpInside];
+	progressButton.backgroundColor = [UIColor clearColor];
+	[self.scrollView addSubview:progressButton];
     
     currentHeight += progressViewController.progressView.frame.size.height;
 	
 	[self.scrollView addSubview:faqViewController.view];
 	faqViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, faqViewController.faqView.frame.size.height);
+	
+	// Add button overlay
+	UIButton *faqButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, faqViewController.view.frame.size.height)];
+	[faqButton addTarget:self action:@selector(openFaqDetailView) forControlEvents:UIControlEventTouchUpInside];
+	faqButton.backgroundColor = [UIColor clearColor];
+	[self.scrollView addSubview:faqButton];
 	
 	currentHeight += faqViewController.faqView.frame.size.height;
     
@@ -312,6 +353,26 @@
     // Add scrollview to view
     [self.view addSubview:self.scrollView];
 	[self onParticipantsLoaded];
+}
+
+- (void)openProgressDetailView
+{
+	NSLog(@"openProgressDetailView called!");
+}
+
+- (void)openFaqDetailView
+{
+	NSLog(@"openFaqDetailView called!");
+}
+
+- (void)openMediaDetailView
+{
+	NSLog(@"openMediaDetailView called!");
+}
+
+- (void)openMapDetailView
+{
+	NSLog(@"openMapDetailView called!");
 }
 
 - (void)onParticipantsLoaded

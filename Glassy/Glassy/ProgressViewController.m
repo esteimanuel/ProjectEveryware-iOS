@@ -31,6 +31,8 @@
 - (void)createView
 {
     self.progressView = [[ProgressView alloc] init];
+    // Add gesture
+    [self createGesture];
     // Add mediaView to view
     [self.view addSubview:self.progressView];
 }
@@ -73,5 +75,23 @@
 //{
 //
 //}
+
+#pragma mark - PAN gesture methods
+
+- (void)createGesture
+{
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
+    gestureRecognizer.numberOfTapsRequired = 1;
+    gestureRecognizer.numberOfTouchesRequired = 1;
+    [self.progressView addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)panHandler:(UITapGestureRecognizer *)recognizer
+{
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent createFaqDetailView];
+    }
+}
 
 @end

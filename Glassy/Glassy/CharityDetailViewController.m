@@ -24,12 +24,21 @@
     return self;
 }
 
+- (id)initWithCharity:(Charity *)charity
+{
+    self = [super init];
+    if (self) {
+        self.charity = charity;
+        
+        [self createCharityGui];
+        [self createGesture];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self createCharityGui];
-    [self createGesture];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,11 +55,11 @@
     
     // Set background to transparent
     //self.view.b = [UICol];
-    [self.view setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
+    [self.view setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8]];
     
     // Set title label
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
-    titleLabel.text = @"Goede doel";
+    titleLabel.text = self.charity.title;
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     titleLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:titleLabel];
@@ -68,7 +77,7 @@
     UILabel *charityText = [[UILabel alloc] initWithFrame:CGRectMake(margin * 2, margin * 2, frameWidth, 48.0f)];
     charityText.numberOfLines = 0;
     charityText.preferredMaxLayoutWidth = frameWidth - margin * 4;
-    charityText.text = @"Gratis telefoon, tv, internet en wifi \nvoor Basisschool Antonius 3%";
+    charityText.text = self.charity.message;
     charityText.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
     charityText.textColor = [UIColor whiteColor];
     [mediaview addSubview:charityText];
