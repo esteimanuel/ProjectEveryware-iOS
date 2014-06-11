@@ -18,8 +18,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.leftMargin = 80;
+        self.labelHeight = 0;
     }
+    
     return self;
 }
 
@@ -41,19 +43,29 @@
 
 - (void)createSearchView
 {
-    UIView *searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
-    searchView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-search.png"]];
+    float currentHeight = 0;
     
-    UITextField *searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(80, 36, 150, 25)];
-    searchTextField.placeholder = @"Zoek wijken";
+    self.searchView = [[UIView alloc] initWithFrame:CGRectMake(0, currentHeight, self.view.frame.size.width, 100)];
+    self.searchView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-search.png"]];
     
+    currentHeight += self.searchView.frame.size.height;
     
-    // TODO: Create table view
+    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(85, 40, 150, 25)];
+    self.searchTextField.textColor = [UIColor whiteColor];
+    [self.searchTextField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     
+    self.searchTextField.placeholder = @"Zoek wijken";
+    [self.searchTextField addTarget:self action:@selector(searchHandle) forControlEvents:UIControlEventEditingChanged];
     
-    [searchView addSubview:searchTextField];
+    self.resultView = [[UIView alloc] initWithFrame:CGRectMake(0, currentHeight, self.searchView.frame.size.width, 500)];
+    self.resultView.backgroundColor = [UIColor whiteColor];
+    [self.resultView setBackgroundColor:[UIColor whiteColor]];
     
-    [self.view addSubview:searchView];
+    [self.searchView addSubview:self.resultView];
+
+    [self.searchView addSubview:self.searchTextField];
+    
+    [self.view addSubview:self.searchView];
 }
 
 #pragma mark - Table view data source
@@ -76,6 +88,69 @@
     // Configure the cell...
     
     return cell;
+}
+
+-(void)searchHandle
+{
+    [self getNeighborhoodData:self.searchTextField.text];
+}
+
+-(void)getNeighborhoodData:(NSString*)searchText
+{
+    NSString *url = [NSString stringWithFormat:[@"http://glassy-api.avans-project.nl/api/wijk/search?sq=" stringByAppendingString:searchText]];
+    // Create REST client and send get request
+    self.restGetNeighborhood = [[RESTClient alloc] init];
+    self.restGetNeighborhood.delegate = self;
+    [self.restGetNeighborhood GET:url withParameters:nil];
+}
+
+-(void)setNeighborhoodData
+{
+    
+}
+
+- (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
+{
+    if(client == self.restGetNeighborhood) {
+        if([responseDictionary count] > 0) {
+            [self clearResult];
+            
+            for(id key in responseDictionary) {
+                NSDictionary *neighborhoodDict = (NSDictionary *)key;
+                NSString* neighborhoodName = [neighborhoodDict objectForKey:@"wijk_naam"];
+                NSLog(neighborhoodName);
+                
+                UILabel* lbl = [[UILabel alloc] initWithFrame:CGRectMake(self.leftMargin, self.labelHeight, self.searchView.frame.size.width, 25)];
+                [lbl setBackgroundColor:[UIColor whiteColor]];
+                
+                [lbl setText:neighborhoodName];
+                [self.resultView addSubview:lbl];
+                
+                self.labelHeight += lbl.frame.size.height;
+            }
+        }else [self noResult];
+    }
+}
+
+- (void) clearResult
+{
+    NSArray *viewsToRemove = [self.resultView subviews];
+    for (UIView *v in viewsToRemove) {
+        [v removeFromSuperview];
+    }
+    
+    self.labelHeight = 0;
+}
+
+- (void) noResult
+{
+    [self clearResult];
+    
+    UILabel* lbl = [[UILabel alloc] initWithFrame:CGRectMake(self.leftMargin, 0, self.searchView.frame.size.width, 25)];
+    [lbl setBackgroundColor:[UIColor whiteColor]];
+    
+    [lbl setText:@"Geen wijken gevonden"];
+    [self.resultView addSubview:lbl];
 }
 
 
