@@ -123,6 +123,7 @@
                         frame.origin.x = frame.size.width * actionIndex;
                         frame.origin.y = 0;
                         [parent.scrollView scrollRectToVisible:frame animated:YES];
+                        break;
                     }
                 }
             }else{
