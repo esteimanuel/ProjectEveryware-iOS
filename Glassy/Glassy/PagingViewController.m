@@ -243,7 +243,6 @@
     [self handleActionButtonStage];
     // Handle neighborhood text
     [self handleNeighborhoodText];
-    
 }
 
 - (bool)handleGoToNeighborhood
@@ -436,6 +435,9 @@
         [self refreshNavigationBarView];
         // Stop animating loading view
         [self.loadingView stopAnimating];
+        
+        // Go to their neighborhood
+        [self handleGoToNeighborhood];
     }
 }
 
