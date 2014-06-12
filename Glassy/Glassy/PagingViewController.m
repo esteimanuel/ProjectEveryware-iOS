@@ -246,6 +246,27 @@
     
 }
 
+- (bool)handleGoToNeighborhood
+{
+    if(self.account.actionId != nil) {
+        NSInteger actionIndex = -1;
+        
+        for(Action* action in self.actionsArray){
+            actionIndex++;
+            
+            if(action.id == self.account.actionId){
+                CGRect frame = self.scrollView.frame;
+                frame.origin.x = frame.size.width * actionIndex;
+                frame.origin.y = 0;
+                [self.scrollView scrollRectToVisible:frame animated:YES];
+                
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 - (void)handleNeighborhoodText
 {
     // Set "Mijn wijk" if available

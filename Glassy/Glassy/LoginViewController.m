@@ -150,6 +150,8 @@
                     
                     // Set "Mijn wijk" if available
                     [parent handleNeighborhoodText];
+                    // go to my own neighborhood
+                    [parent handleGoToNeighborhood];
                 }
             }
         } else {
