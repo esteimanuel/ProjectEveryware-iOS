@@ -110,6 +110,26 @@
             [parent createRegisterView];
         } else if ([selected  isEqual: @"Profiel"]) {
             [parent createProfileView];
+        } else if ([selected isEqual: @"Mijn wijk"]) {
+            NSString* actionId = parent.account.actionId;
+            if(actionId != nil) {
+                NSInteger actionIndex = -1;
+
+                for(Action* action in parent.actionsArray){
+                    actionIndex++;
+                    
+                    if(action.id == actionId){
+                        CGRect frame = parent.scrollView.frame;
+                        frame.origin.x = frame.size.width * actionIndex;
+                        frame.origin.y = 0;
+                        [parent.scrollView scrollRectToVisible:frame animated:YES];
+                    }
+                }
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Geen wijk" message:@"Geen wijk gevonden" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+
         }
         
         // Logout
