@@ -241,6 +241,17 @@
     [self.navigationBarViewController setProfileImage];
     // Handle action button stage
     [self handleActionButtonStage];
+    // Handle neighborhood text
+    [self handleNeighborhoodText];
+    
+}
+
+- (void)handleNeighborhoodText
+{
+    // Set "Mijn wijk" if available
+    for(MainViewController* mv in self.mainViewControllers) {
+        [mv.neighborhoodViewController setNeighborhoodInfo:mv.neighborhood];
+    }
 }
 
 - (void)handleActiveViewController:(UIViewController *)viewController

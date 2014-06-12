@@ -149,9 +149,7 @@
                     parent.account.image = [accountDictionary objectForKey:@"foto_link"];
                     
                     // Set "Mijn wijk" if available
-                    for(MainViewController* mv in parent.mainViewControllers) {                        
-                        [mv.neighborhoodViewController setNeighborhoodInfo:mv.neighborhood];
-                    }
+                    [parent handleNeighborhoodText];
                 }
             }
         } else {
