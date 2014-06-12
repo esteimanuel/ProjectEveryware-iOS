@@ -212,8 +212,27 @@
 
 - (void)createParticipantDetailView:(Account*)account
 {
-	NSLog(@"Buddy: %@",account.firstName);
+	if (self.participantsDetailViewController == nil) {
+        self.participantsDetailViewController = [[ParticipantsDetailViewController alloc] initWithAccount:account];
+    }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.participantsDetailViewController.view cache:YES];
+    
+    [self addChildViewController:self.participantsDetailViewController];
+    [self.view addSubview:self.participantsDetailViewController.view];
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.participantsDetailViewController.view cache:YES];
+    [UIView commitAnimations];
 }
+
+- (void)removeParticipantDetailView
+{
+    [self.participantsDetailViewController.view removeFromSuperview];
+    [self.participantsDetailViewController removeFromParentViewController];
+}
+
 - (void)createFaqDetailView
 {
     if (self.faqDetailViewController == nil) {
@@ -332,7 +351,7 @@
 	
 	// Add button overlay
 	UIButton *faqButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, faqViewController.view.frame.size.height)];
-	[faqButton addTarget:self action:@selector(openFaqDetailView) forControlEvents:UIControlEventTouchUpInside];
+	[faqButton addTarget:self action:@selector(createFaqDetailView) forControlEvents:UIControlEventTouchUpInside];
 	faqButton.backgroundColor = [UIColor clearColor];
 	[self.scrollView addSubview:faqButton];
 	

@@ -50,48 +50,9 @@
 
 - (void)createView
 {
-    //self.faqDetailView = [[FaqDetailView alloc] init];
-    //[self.view addSubview:self.faqDetailView];
+    self.faqDetailView = [[FaqDetailView alloc] init];
+    [self.view addSubview:self.faqDetailView];
     
-    
-    
-    CGFloat currentHeight = 0;
-    CGFloat margin = 5;
-    CGFloat frameWidth = self.view.frame.size.width;
-    
-    // Set background to transparent
-    //self.view.b = [UICol];
-    [self.view setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
-    
-    // Set title label
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, frameWidth, 24.0f)];
-    self.titleLabel.text = @"Veelgestelde vragen";
-    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
-    self.titleLabel.textColor = [UIColor whiteColor];
-    [self.view addSubview:self.titleLabel];
-    
-    currentHeight += self.titleLabel.frame.size.height + margin;
-    
-    // Set faq view
-    self.mediaView = [[UIScrollView alloc]initWithFrame:CGRectMake(margin, currentHeight, frameWidth - margin * 2, [[UIScreen mainScreen] bounds].size.height - 85 - currentHeight - margin)];
-    self.mediaView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    self.mediaView.layer.borderColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.5].CGColor;
-    self.mediaView.layer.borderWidth = 1.0;
-    
-    // Set faq label
-    self.faqLabel = [[UILabel alloc] initWithFrame:CGRectMake(margin * 2, margin * 2, frameWidth, 48.0f)];
-    self.faqLabel.numberOfLines = 0;
-    self.faqLabel.preferredMaxLayoutWidth = frameWidth - margin * 4;
-    self.faqLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
-    self.faqLabel.textColor = [UIColor whiteColor];
-    
-    [self.mediaView addSubview:self.faqLabel];
-    [self.view addSubview:self.mediaView];
-    
-    currentHeight += self.mediaView.frame.size.height + margin * 4;
-    
-    // Create frame
-    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
 }
 
 #pragma mark - UISwipeGestureRecognizer delegate methods
