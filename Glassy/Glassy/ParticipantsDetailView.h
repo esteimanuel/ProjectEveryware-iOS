@@ -10,4 +10,12 @@
 
 @interface ParticipantsDetailView : UIView
 
+@property (nonatomic, strong) UIScrollView *mediaView;
+@property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong) UILabel *buddyNameLabel;
+@property (nonatomic, strong) UILabel *buddyEmailLabel;
+@property (nonatomic, strong) UILabel *buddyPhoneLabel;
+@property (nonatomic, strong) UIImageView *buddyProfileImage;
+
 @end
