@@ -7,6 +7,8 @@
 //
 
 #import "SearchViewController.h"
+#import "PagingViewController.h"
+#import "Action.h"
 
 @interface SearchViewController ()
 
@@ -112,24 +114,50 @@
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
     if(client == self.restGetNeighborhood) {
-        if([responseDictionary count] > 0) {
+        NSMutableArray* actions = [[NSMutableArray alloc] init];
+        
+        for(id neighborhood in responseDictionary) {
+            if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+                PagingViewController *parent = (PagingViewController*)self.parentViewController;
+                
+                for(Action* action in parent.actionsArray) {
+                    if([neighborhood objectForKey:@"wijk_id"] == action.neighborhoodId) {
+                        [actions addObject:neighborhood];
+                        
+                        break;
+                    }
+                }
+            }
+            
+        }
+        
+        if([actions count] > 0) {
             [self clearResult];
             
-            for(id key in responseDictionary) {
+            for(id key in actions) {
                 NSDictionary *neighborhoodDict = (NSDictionary *)key;
                 NSString* neighborhoodName = [neighborhoodDict objectForKey:@"wijk_naam"];
                 NSLog(neighborhoodName);
                 
-                UILabel* lbl = [[UILabel alloc] initWithFrame:CGRectMake(self.leftMargin, self.labelHeight, self.searchView.frame.size.width, 25)];
-                [lbl setBackgroundColor:[UIColor whiteColor]];
+                UIButton* button = [UIButton buttonWithType:UIButtonTypeSystem];
                 
-                [lbl setText:neighborhoodName];
-                [self.resultView addSubview:lbl];
+                [button setTitle:neighborhoodName forState:UIControlStateNormal];
+                button.frame = CGRectMake(self.leftMargin, self.labelHeight, self.searchView.frame.size.width, 25);
+                [button sizeToFit];
                 
-                self.labelHeight += lbl.frame.size.height;
+                [button addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventAllEvents];
+                
+                [self.resultView addSubview:button];
+                
+                self.labelHeight += button.frame.size.height + 5;
             }
         }else [self noResult];
     }
+}
+
+-(void)clicked:(UIButton*) sender
+{
+    NSLog(@"clicked");
 }
 
 - (void) clearResult

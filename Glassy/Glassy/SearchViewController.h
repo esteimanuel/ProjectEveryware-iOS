@@ -17,6 +17,7 @@
     @property(nonatomic) int labelHeight;
     @property(nonatomic) int leftMargin;
 
+    -(void)clicked:(UIButton*) sender;
     -(void)clearResult;
     -(void)noResult;
     -(void)getNeighborhoodData:(NSString*)searchText;
