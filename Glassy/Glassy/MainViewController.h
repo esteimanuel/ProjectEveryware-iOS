@@ -17,6 +17,7 @@
 
 // DetailViewControllers
 #import "CharityDetailViewController.h"
+#import "ParticipantsDetailViewController.h"
 #import "FaqDetailViewController.h"
 #import "NeighborhoodViewController.h"
 #import "ProgressDetailViewController.h"
@@ -30,6 +31,7 @@
 // DetailViewControllers
 @property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;
 @property (nonatomic, strong) FaqDetailViewController *faqDetailViewController;
+@property (nonatomic, strong) ParticipantsDetailViewController *participantsDetailViewController;
 @property (nonatomic, strong) NeighborhoodViewController* neighborhoodViewController;
 @property (nonatomic, strong) ProgressDetailViewController *progressDetailViewController;
 

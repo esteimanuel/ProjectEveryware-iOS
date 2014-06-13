@@ -147,6 +147,11 @@
                     parent.account.email = [accountDictionary objectForKey:@"email"];
                     parent.account.accountLevel = [accountDictionary objectForKey:@"accountlevel_id"];
                     parent.account.image = [accountDictionary objectForKey:@"foto_link"];
+                    
+                    // Set "Mijn wijk" if available
+                    for(MainViewController* mv in parent.mainViewControllers) {                        
+                        [mv.neighborhoodViewController setNeighborhoodInfo:mv.neighborhood];
+                    }
                 }
             }
         } else {

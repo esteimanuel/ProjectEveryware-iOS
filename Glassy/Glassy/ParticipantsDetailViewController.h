@@ -12,6 +12,8 @@
 
 @interface ParticipantsDetailViewController : UIViewController
 
+- (id)initWithAccount:(Account *)account;
+
 @property (nonatomic, strong) ParticipantsDetailView *participantsDetailView;
 
 @property (nonatomic, strong) Account *account;
