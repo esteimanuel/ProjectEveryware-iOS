@@ -69,6 +69,10 @@
 		22026A9F1907CD2100EFF574 /* ios-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 22026A881907CD2100EFF574 /* ios-search.png */; };
 		22026F3C193CB1BB00EFF574 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 22026F3B193CB1BB00EFF574 /* Neighborhood.m */; };
 		706F289F1944C83100A8D85E /* BuddyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F289E1944C83100A8D85E /* BuddyButton.m */; };
+		70942815194B0688007479FF /* ProgressDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70942814194B0688007479FF /* ProgressDetailView.m */; };
+		7094281A194B06BD007479FF /* MapDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70942819194B06BD007479FF /* MapDetailView.m */; };
+		7094281D194B06CD007479FF /* MediaDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094281C194B06CD007479FF /* MediaDetailView.m */; };
+		70942820194B0F8C007479FF /* ProgressDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094281F194B0F8C007479FF /* ProgressDetailViewController.m */; };
 		7094F47219470A8C00C0B2E7 /* ParticipantsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094F47119470A8C00C0B2E7 /* ParticipantsDetailViewController.m */; };
 		7094F47719470C1900C0B2E7 /* ParticipantsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */; };
 		70A56BF6191214D0001CF588 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A56BED1911ED0B001CF588 /* libGPUImage.a */; };
@@ -216,6 +220,14 @@
 		22026F3B193CB1BB00EFF574 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
 		706F289D1944C83100A8D85E /* BuddyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyButton.h; sourceTree = "<group>"; };
 		706F289E1944C83100A8D85E /* BuddyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyButton.m; sourceTree = "<group>"; };
+		70942813194B0688007479FF /* ProgressDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressDetailView.h; sourceTree = "<group>"; };
+		70942814194B0688007479FF /* ProgressDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressDetailView.m; sourceTree = "<group>"; };
+		70942818194B06BD007479FF /* MapDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDetailView.h; sourceTree = "<group>"; };
+		70942819194B06BD007479FF /* MapDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDetailView.m; sourceTree = "<group>"; };
+		7094281B194B06CD007479FF /* MediaDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDetailView.h; sourceTree = "<group>"; };
+		7094281C194B06CD007479FF /* MediaDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDetailView.m; sourceTree = "<group>"; };
+		7094281E194B0F8C007479FF /* ProgressDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressDetailViewController.h; sourceTree = "<group>"; };
+		7094281F194B0F8C007479FF /* ProgressDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressDetailViewController.m; sourceTree = "<group>"; };
 		7094F47019470A8C00C0B2E7 /* ParticipantsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsDetailViewController.h; sourceTree = "<group>"; };
 		7094F47119470A8C00C0B2E7 /* ParticipantsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsDetailViewController.m; sourceTree = "<group>"; };
 		7094F47519470C1900C0B2E7 /* ParticipantsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsDetailView.h; sourceTree = "<group>"; };
@@ -404,6 +416,12 @@
 				7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */,
 				19F7AD191946FA2100CC845C /* FaqDetailView.h */,
 				19F7AD1A1946FA2100CC845C /* FaqDetailView.m */,
+				70942813194B0688007479FF /* ProgressDetailView.h */,
+				70942814194B0688007479FF /* ProgressDetailView.m */,
+				70942818194B06BD007479FF /* MapDetailView.h */,
+				70942819194B06BD007479FF /* MapDetailView.m */,
+				7094281B194B06CD007479FF /* MediaDetailView.h */,
+				7094281C194B06CD007479FF /* MediaDetailView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -417,6 +435,8 @@
 				7094F47119470A8C00C0B2E7 /* ParticipantsDetailViewController.m */,
 				19F7AD141946F77200CC845C /* FaqDetailViewController.h */,
 				19F7AD151946F77200CC845C /* FaqDetailViewController.m */,
+				7094281E194B0F8C007479FF /* ProgressDetailViewController.h */,
+				7094281F194B0F8C007479FF /* ProgressDetailViewController.m */,
 			);
 			name = DetailViewControllers;
 			sourceTree = "<group>";
@@ -632,6 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19E9DF86190F9402008075F6 /* CharityViewController.m in Sources */,
+				7094281A194B06BD007479FF /* MapDetailView.m in Sources */,
 				19DB4F76191247B9002184D3 /* Account.m in Sources */,
 				19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */,
 				199C3A45193B55E500D53A67 /* Provider.m in Sources */,
@@ -656,6 +677,7 @@
 				1992D3F2190127D600733C9F /* MediaViewController.m in Sources */,
 				19D7FF01191B7AB7007039DD /* CharityDetailViewController.m in Sources */,
 				70A56BFA19129808001CF588 /* ScrollView.m in Sources */,
+				70942820194B0F8C007479FF /* ProgressDetailViewController.m in Sources */,
 				19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */,
 				190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */,
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
@@ -665,8 +687,10 @@
 				19E8FB6219210D0B0030CB7D /* CharityView.m in Sources */,
 				19E8FB511920F9070030CB7D /* LoginView.m in Sources */,
 				19EDAF4519334F2A00E18475 /* CustomScrollView.m in Sources */,
+				70942815194B0688007479FF /* ProgressDetailView.m in Sources */,
 				19DB4F7C19124B3D002184D3 /* Action.m in Sources */,
 				7094F47219470A8C00C0B2E7 /* ParticipantsDetailViewController.m in Sources */,
+				7094281D194B06CD007479FF /* MediaDetailView.m in Sources */,
 				70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */,
 				194B8FF918FE948C00EA3966 /* AppDelegate.m in Sources */,
 				19E8FB68192113E10030CB7D /* ProfileView.m in Sources */,

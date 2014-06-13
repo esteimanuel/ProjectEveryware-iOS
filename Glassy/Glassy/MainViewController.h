@@ -19,16 +19,19 @@
 #import "CharityDetailViewController.h"
 #import "FaqDetailViewController.h"
 #import "NeighborhoodViewController.h"
+#import "ProgressDetailViewController.h"
 
 @interface MainViewController : UIViewController <RestClientDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) Action *action;
 @property (nonatomic, strong) Neighborhood *neighborhood;
 @property (nonatomic, strong) NSMutableDictionary *viewControllersDictionary;
+
 // DetailViewControllers
 @property (nonatomic, strong) CharityDetailViewController *charityDetailViewController;
 @property (nonatomic, strong) FaqDetailViewController *faqDetailViewController;
 @property (nonatomic, strong) NeighborhoodViewController* neighborhoodViewController;
+@property (nonatomic, strong) ProgressDetailViewController *progressDetailViewController;
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
@@ -55,4 +58,7 @@
 
 - (void)createParticipantDetailView:(Account*)account;
 - (void)removeParticipantDetailView;
+
+- (void)createProgressDetailView;
+- (void)removeProgressDetailView;
 @end

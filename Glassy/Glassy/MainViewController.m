@@ -220,21 +220,35 @@
         self.faqDetailViewController = [[FaqDetailViewController alloc] init];
     }
     
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:1];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.faqDetailViewController.view cache:YES];
-    
+	//    [UIView beginAnimations:nil context:NULL];
+	//    [UIView setAnimationDuration:1];
+	//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.faqDetailViewController.view cache:YES];
+	//
     [self addChildViewController:self.faqDetailViewController];
     [self.view addSubview:self.faqDetailViewController.view];
-    
-    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.faqDetailViewController.view cache:YES];
-    [UIView commitAnimations];
+	//
+	//    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.faqDetailViewController.view cache:YES];
+	//    [UIView commitAnimations];
 }
 
 - (void)removeFaqDetailView
 {
     [self.faqDetailViewController.view removeFromSuperview];
     [self.faqDetailViewController removeFromParentViewController];
+}
+- (void)createProgressDetailView
+{
+    if (self.progressDetailViewController == nil) {
+        self.progressDetailViewController = [[ProgressDetailViewController alloc] init];
+    }
+    [self addChildViewController:self.progressDetailViewController];
+    [self.view addSubview:self.progressDetailViewController.view];
+}
+
+- (void)removeProgressDetailView
+{
+    [self.progressDetailViewController.view removeFromSuperview];
+    [self.progressDetailViewController removeFromParentViewController];
 }
 
 #pragma mark - General view
@@ -271,7 +285,7 @@
     // Add ViewControllers to parent viewcontroller
     [self addChildViewController:neighborhoodViewController];
     [self addChildViewController:faqViewController];
-    [faqViewController didMoveToParentViewController:self];
+    //[faqViewController didMoveToParentViewController:self];
     [self addChildViewController:mediaViewController];
     [self addChildViewController:mapViewController];
     [self addChildViewController:charityViewController];
@@ -321,7 +335,7 @@
 	
 	// Add button overlay
 	UIButton *progressButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, progressViewController.view.frame.size.height)];
-	[progressButton addTarget:self action:@selector(openProgressDetailView) forControlEvents:UIControlEventTouchUpInside];
+	[progressButton addTarget:self action:@selector(createProgressDetailView) forControlEvents:UIControlEventTouchUpInside];
 	progressButton.backgroundColor = [UIColor clearColor];
 	[self.scrollView addSubview:progressButton];
     
@@ -353,16 +367,6 @@
     // Add scrollview to view
     [self.view addSubview:self.scrollView];
 	[self onParticipantsLoaded];
-}
-
-- (void)openProgressDetailView
-{
-	NSLog(@"openProgressDetailView called!");
-}
-
-- (void)openFaqDetailView
-{
-	NSLog(@"openFaqDetailView called!");
 }
 
 - (void)openMediaDetailView
