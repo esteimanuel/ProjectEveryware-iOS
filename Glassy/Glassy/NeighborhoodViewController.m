@@ -9,6 +9,7 @@
 #import "NeighborhoodViewController.h"
 #import "PagingViewController.h"
 #import "Account.h"
+#import "NullCheck.h"
 
 @interface NeighborhoodViewController ()
 
@@ -81,7 +82,7 @@
             PagingViewController* parent = (PagingViewController*)self.parentViewController.parentViewController;
             // Cast mainViewController
             MainViewController* main = (MainViewController*)self.parentViewController;
-            if (parent.account.actionId != (NSString *)[NSNull null]) {
+            if ([NullCheck isNotNilOrEmpty:parent.account.actionId]) {
                 // Compare account actionId to neighborhood actionId,  if they don't match make button invisible
                 if (parent.account.actionId == main.action.id) {
                     NSString *paid = parent.account.deposit_paid;

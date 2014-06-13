@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Charity.h"
+#import "CharityDetailView.h"
 
 @interface CharityDetailViewController : UIViewController
 
 - (id)initWithCharity:(Charity *)charity;
+
+@property (nonatomic, strong) CharityDetailView *charityDetailView;
 
 @property (nonatomic, strong) Charity *charity;
 

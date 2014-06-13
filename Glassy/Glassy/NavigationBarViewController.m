@@ -39,7 +39,7 @@
 {
     if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController;
-        if (parent.account.image != nil) {
+        if ([self isNotNilOrEmpty:parent.account.image]) {
             NSURL *imageUrl = [NSURL URLWithString:parent.account.image];
             NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
             self.navigationBarView.profileImageView.image = [UIImage imageWithData:imageData];
@@ -59,6 +59,23 @@
         } else {
             self.navigationBarView.profileNameLabel.text = @"Anonieme gebruiker";
         }
+    }
+}
+
+- (BOOL)isNotNilOrEmpty:(NSString *)string
+{
+    if (string != nil) {
+        if (![string isKindOfClass:[NSNull class]]) {
+            if ([string length] > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        return false;
     }
 }
 

@@ -399,7 +399,7 @@
         }
         self.account.email = [responseDictionary objectForKey:@"email"];
         self.account.accountLevel = [responseDictionary objectForKey:@"accountlevel_id"];
-        //self.account.image = [responseDictionary objectForKey:@"foto_link"];
+        self.account.image = [responseDictionary objectForKey:@"foto_link"];
         // Set navigation bar info
         [self refreshNavigationBarView];
         // Stop animating loading view

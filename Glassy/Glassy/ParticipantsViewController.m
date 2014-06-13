@@ -59,7 +59,7 @@
 		account.email = [participantsDictionary objectForKey:@"email"];
         account.firstName = [participantsDictionary objectForKey:@"voornaam"];
         account.lastName = [participantsDictionary objectForKey:@"achternaam"];
-		
+		account.infix = [participantsDictionary objectForKey:@"tussenvoegsel"];
 		// buddy toevoegen
 		//account.buddy = [participantsDictionary objectForKey:@"buddy"] != nil ? 1 : 0;
         

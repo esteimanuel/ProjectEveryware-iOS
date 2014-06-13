@@ -12,6 +12,7 @@
 @interface ProfileViewController ()
 
 @property (nonatomic, strong) RESTClient *restGetPostcode;
+@property (nonatomic, strong) RESTClient *restGetBuddy;
 @property (nonatomic, strong) RESTClient *restPutUser;
 
 @end
@@ -73,6 +74,17 @@
 //    return params;
 //}
 
+//- (void)getBuddyData:(int)postcodeId
+//{
+//	// retrieve participants asynchronously
+//	NSString *url = [NSString stringWithFormat:@"http://glassy-api.avans-project.nl/api/actie/users?id=%d", actionId];
+//	
+//	// Create REST client and send get request
+//	self.restGetBuddy = [[RESTClient alloc] init];
+//	self.restGetBuddy.delegate = self;
+//	[self.restGetBuddy GET:url withParameters:nil];
+//}
+
 - (void)putUserData
 {
     NSMutableDictionary *params = [self createDictionaryForUser];
@@ -113,7 +125,7 @@
             if (parent.account.firstName != (NSString *)[NSNull null]) self.profileView.firstNameTextField.text = parent.account.firstName;
             if (parent.account.lastName != (NSString *)[NSNull null]) self.profileView.lastNameTextField.text = parent.account.lastName;
             if (parent.account.postcode != (NSString *)[NSNull null]) self.profileView.postcodeTextField.text = parent.account.postcode;
-            //if (parent.account.houseNumber != (NSString *)[NSNull null]) self.profileView.houseNumberTextField.text = parent.account.houseNumber;
+            if (parent.account.houseNumber != (NSString *)[NSNull null]) self.profileView.houseNumberTextField.text = [NSString stringWithFormat:@"%@", parent.account.houseNumber];
         }
         [self setProfileImage:parent];
         [parent refreshNavigationBarView];
