@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Glassy/FaqDetailViewController.m"
-            timestampString = "424190971.923587"
+            filePath = "Glassy/SearchViewController.m"
+            timestampString = "424193214.058969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-dispose"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-restRequestSucceeded:withClient:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
