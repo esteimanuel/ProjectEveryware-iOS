@@ -422,17 +422,14 @@
 				7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */,
 				19F7AD191946FA2100CC845C /* FaqDetailView.h */,
 				19F7AD1A1946FA2100CC845C /* FaqDetailView.m */,
-<<<<<<< HEAD
 				19984316194B169700D57811 /* CharityDetailView.h */,
 				19984317194B169700D57811 /* CharityDetailView.m */,
-=======
 				70942813194B0688007479FF /* ProgressDetailView.h */,
 				70942814194B0688007479FF /* ProgressDetailView.m */,
 				70942818194B06BD007479FF /* MapDetailView.h */,
 				70942819194B06BD007479FF /* MapDetailView.m */,
 				7094281B194B06CD007479FF /* MediaDetailView.h */,
 				7094281C194B06CD007479FF /* MediaDetailView.m */,
->>>>>>> FETCH_HEAD
 			);
 			name = Views;
 			sourceTree = "<group>";
