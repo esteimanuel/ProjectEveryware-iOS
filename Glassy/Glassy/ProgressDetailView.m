@@ -36,7 +36,7 @@
     frameWidth = [[UIScreen mainScreen] bounds].size.width;
 	lineHeight = 24;
 	numberOfLines = 2;
-	containerHeight = [[UIScreen mainScreen] bounds].size.height - (85.0f + margin * 2);
+	containerHeight = [[UIScreen mainScreen] bounds].size.height - 85.0f;
 	containerWidth = frameWidth - margin * 2;
 	
     
@@ -64,7 +64,7 @@
 - (void)drawContainer
 {
 	self.container = [[UIView alloc]initWithFrame:CGRectMake(margin, currentHeight, containerWidth, containerHeight - margin * 2)];
-    self.container.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    self.container.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7];
     self.container.layer.borderColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.75].CGColor;
     self.container.layer.borderWidth = 1.0;
     [self addSubview:self.container];

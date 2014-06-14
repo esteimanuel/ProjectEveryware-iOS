@@ -7,6 +7,7 @@
 //
 
 #import "ParticipantsDetailViewController.h"
+#import "MainViewController.h"
 
 @interface ParticipantsDetailViewController ()
 
@@ -20,6 +21,7 @@
     if (self) {
         self.account = account;
         [self createView];
+        [self createGesture];
     }
     return self;
 }
@@ -31,18 +33,61 @@
 
 - (void)createView
 {
-    // Create frame
-    self.view.frame = CGRectMake(0, 85, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
 	self.participantsDetailView = [[ParticipantsDetailView alloc] init];
     [self.view addSubview:self.participantsDetailView];
     
-    self.participantsDetailView.buddyEmailLabel.text = self.account.email;
+    if (self.account.buddy.email != (NSString*)[NSNull null]) self.participantsDetailView.buddyEmailLabel.text = self.account.buddy.email;
+    if (self.account.firstName != (NSString*)[NSNull null]) [self setProfileName];
+    if (self.account.buddy.telefoonnummer != (NSString*)[NSNull null]) self.participantsDetailView.buddyPhoneLabel.text = [NSString stringWithFormat:@"%@", self.account.buddy.telefoonnummer];
+    [self setProfileImage:self.account.image];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setProfileImage:(NSString *)url
+{
+    if (url != (NSString *)[NSNull null]) {
+        NSURL *imageUrl = [NSURL URLWithString:url];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        self.participantsDetailView.buddyProfileImage.image = [UIImage imageWithData:imageData];
+    } else {
+        self.participantsDetailView.buddyProfileImage.image = [UIImage imageNamed:@"ios-nav-default-profile-image.png"];
+    }
+}
+
+- (void)setProfileName
+{
+    if (self.account.infix != (NSString *)[NSNull null]) {
+        self.participantsDetailView.buddyNameLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.account.firstName, self.account.infix, self.account.lastName];
+    } else {
+        self.participantsDetailView.buddyNameLabel.text = [NSString stringWithFormat:@"%@ %@", self.account.firstName, self.account.lastName];
+    }
+}
+
+#pragma mark - UISwipeGestureRecognizer delegate methods
+
+- (void)createGesture
+{
+    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
+{
+    [self dispose];
+}
+
+- (void)dispose
+{
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent removeParticipantDetailView];
+    }
 }
 
 @end

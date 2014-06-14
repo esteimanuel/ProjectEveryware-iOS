@@ -64,5 +64,7 @@
 
 - (void)handleActiveViewController:(UIViewController *)viewController;
 - (void)handleActionButtonStage;
+- (void)handleNeighborhoodText;
+- (bool)handleGoToNeighborhood;
 
 @end

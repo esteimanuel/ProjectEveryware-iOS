@@ -212,25 +212,24 @@
 
 - (void)createParticipantDetailView:(Account*)account
 {
-	if (self.participantsDetailViewController == nil) {
-        self.participantsDetailViewController = [[ParticipantsDetailViewController alloc] initWithAccount:account];
-    }
+    self.participantsDetailViewController = [[ParticipantsDetailViewController alloc] initWithAccount:account];
     
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:1];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.participantsDetailViewController.view cache:YES];
+    //[UIView beginAnimations:nil context:NULL];
+    //[UIView setAnimationDuration:1];
+    //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.participantsDetailViewController.view cache:YES];
     
     [self addChildViewController:self.participantsDetailViewController];
     [self.view addSubview:self.participantsDetailViewController.view];
     
-    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.participantsDetailViewController.view cache:YES];
-    [UIView commitAnimations];
+    //[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.participantsDetailViewController.view cache:YES];
+    //[UIView commitAnimations];
 }
 
 - (void)removeParticipantDetailView
 {
     [self.participantsDetailViewController.view removeFromSuperview];
     [self.participantsDetailViewController removeFromParentViewController];
+    self.participantsDetailViewController = nil;
 }
 
 - (void)createFaqDetailView

@@ -8,6 +8,7 @@
 
 #import "NavigationBarViewController.h"
 #import "PagingViewController.h"
+#import "NullCheck.h"
 
 @interface NavigationBarViewController ()
 
@@ -39,7 +40,7 @@
 {
     if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController;
-        if (parent.account.image != nil) {
+        if ([NullCheck isNotNilOrEmpty:parent.account.image]) {
             NSURL *imageUrl = [NSURL URLWithString:parent.account.image];
             NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
             self.navigationBarView.profileImageView.image = [UIImage imageWithData:imageData];
@@ -53,7 +54,7 @@
 {
     if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
         PagingViewController* parent = (PagingViewController*)self.parentViewController;
-        if (parent.account.firstName != nil) {
+        if ([NullCheck isNotNilOrEmpty:parent.account.firstName]) {
             NSString *msg = [NSString stringWithFormat:@"Hallo, %@", parent.account.firstName];
             self.navigationBarView.profileNameLabel.text = msg;
         } else {

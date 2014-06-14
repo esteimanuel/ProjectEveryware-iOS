@@ -31,7 +31,7 @@
 - (void)createView
 {
 	self.progressDetailView = [[ProgressDetailView alloc] init];
-	self.view = self.progressDetailView;
+    [self.view addSubview:self.progressDetailView];
 }
 
 #pragma mark - UISwipeGestureRecognizer delegate methods

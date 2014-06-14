@@ -28,6 +28,8 @@
 		1992D3F2190127D600733C9F /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D3F1190127D600733C9F /* MediaViewController.m */; };
 		1992D4031901354600733C9F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D4021901354600733C9F /* MapViewController.m */; };
 		1992D40C190135FB00733C9F /* ParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992D40B190135FB00733C9F /* ParticipantsViewController.m */; };
+		19984318194B169700D57811 /* CharityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19984317194B169700D57811 /* CharityDetailView.m */; };
+		1998431E194B381B00D57811 /* NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1998431D194B381B00D57811 /* NullCheck.m */; };
 		199C3A3D193B4AFE00D53A67 /* ProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A3C193B4AFE00D53A67 /* ProviderViewController.m */; };
 		199C3A42193B4B5000D53A67 /* ProviderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A41193B4B5000D53A67 /* ProviderView.m */; };
 		199C3A45193B55E500D53A67 /* Provider.m in Sources */ = {isa = PBXBuildFile; fileRef = 199C3A44193B55E500D53A67 /* Provider.m */; };
@@ -153,6 +155,10 @@
 		1992D408190135D900733C9F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		1992D40A190135FB00733C9F /* ParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsViewController.h; sourceTree = "<group>"; };
 		1992D40B190135FB00733C9F /* ParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsViewController.m; sourceTree = "<group>"; };
+		19984316194B169700D57811 /* CharityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharityDetailView.h; sourceTree = "<group>"; };
+		19984317194B169700D57811 /* CharityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharityDetailView.m; sourceTree = "<group>"; };
+		1998431C194B381B00D57811 /* NullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullCheck.h; sourceTree = "<group>"; };
+		1998431D194B381B00D57811 /* NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullCheck.m; sourceTree = "<group>"; };
 		199C3A3B193B4AFE00D53A67 /* ProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderViewController.h; sourceTree = "<group>"; };
 		199C3A3C193B4AFE00D53A67 /* ProviderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderViewController.m; sourceTree = "<group>"; };
 		199C3A40193B4B5000D53A67 /* ProviderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderView.h; sourceTree = "<group>"; };
@@ -416,6 +422,8 @@
 				7094F47619470C1900C0B2E7 /* ParticipantsDetailView.m */,
 				19F7AD191946FA2100CC845C /* FaqDetailView.h */,
 				19F7AD1A1946FA2100CC845C /* FaqDetailView.m */,
+				19984316194B169700D57811 /* CharityDetailView.h */,
+				19984317194B169700D57811 /* CharityDetailView.m */,
 				70942813194B0688007479FF /* ProgressDetailView.h */,
 				70942814194B0688007479FF /* ProgressDetailView.m */,
 				70942818194B06BD007479FF /* MapDetailView.h */,
@@ -486,6 +494,8 @@
 			children = (
 				19E9DF87190F94F1008075F6 /* RESTClient.h */,
 				19E9DF88190F94F1008075F6 /* RESTClient.m */,
+				1998431C194B381B00D57811 /* NullCheck.h */,
+				1998431D194B381B00D57811 /* NullCheck.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -654,6 +664,7 @@
 				19E9DF86190F9402008075F6 /* CharityViewController.m in Sources */,
 				7094281A194B06BD007479FF /* MapDetailView.m in Sources */,
 				19DB4F76191247B9002184D3 /* Account.m in Sources */,
+				1998431E194B381B00D57811 /* NullCheck.m in Sources */,
 				19E9DF85190F93D5008075F6 /* ProgressViewController.m in Sources */,
 				199C3A45193B55E500D53A67 /* Provider.m in Sources */,
 				19E127B41907A8A500471CB9 /* NavigationBarViewController.m in Sources */,
@@ -668,6 +679,7 @@
 				199C3A4B193B706700D53A67 /* DepositView.m in Sources */,
 				19E127B51907A8A500471CB9 /* SearchViewController.m in Sources */,
 				706F289F1944C83100A8D85E /* BuddyButton.m in Sources */,
+				19984318194B169700D57811 /* CharityDetailView.m in Sources */,
 				1925A043192E85060089487E /* Charity.m in Sources */,
 				19F7AD1B1946FA2100CC845C /* FaqDetailView.m in Sources */,
 				19E8FB591920FF0B0030CB7D /* NeighborhoodView.m in Sources */,
