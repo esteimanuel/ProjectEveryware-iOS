@@ -42,7 +42,6 @@
 - (void)createView
 {
     self.faqDetailView = [[FaqDetailView alloc] init];
-	[self.faqDetailView.closeButton addTarget:self action:@selector(dispose) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.faqDetailView];
     
 }
@@ -51,8 +50,7 @@
 
 - (void)createGesture
 {
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
     [self.view addGestureRecognizer:gestureRecognizer];
 }
 

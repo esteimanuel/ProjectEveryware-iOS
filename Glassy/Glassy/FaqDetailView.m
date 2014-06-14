@@ -25,8 +25,7 @@
     CGFloat margin = 5;
     CGFloat frameWidth = [[UIScreen mainScreen] bounds].size.width;
     
-    // Set background to transparent
-    //self.view.b = [UICol];
+    // Set background color
     [self setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8]];
     
     
@@ -43,12 +42,12 @@
 	self.titleLabel.textColor = [UIColor whiteColor];
 	[self.mediaView addSubview:self.titleLabel];
 	
-	self.closeButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-	self.closeButton.frame = CGRectMake(frameWidth - (32.0f + margin * 3), margin, 32.0f, 32.0f);
-	[self.closeButton setTitle:@"X" forState:UIControlStateNormal];
-	self.closeButton.layer.backgroundColor = [UIColor purpleColor].CGColor;
-	
-	[self.mediaView addSubview:self.closeButton];
+//	self.closeButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+//	self.closeButton.frame = CGRectMake(frameWidth - (32.0f + margin * 3), margin, 32.0f, 32.0f);
+//	[self.closeButton setTitle:@"X" forState:UIControlStateNormal];
+//	self.closeButton.layer.backgroundColor = [UIColor purpleColor].CGColor;
+//	
+//	[self.mediaView addSubview:self.closeButton];
 	
 	currentHeight += self.titleLabel.frame.size.height + margin;
     
