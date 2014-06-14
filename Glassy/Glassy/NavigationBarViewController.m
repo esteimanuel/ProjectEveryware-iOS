@@ -63,23 +63,6 @@
     }
 }
 
-- (BOOL)isNotNilOrEmpty:(NSString *)string
-{
-    if (string != nil) {
-        if (![string isKindOfClass:[NSNull class]]) {
-            if ([string length] > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
-}
-
 - (void)createView
 {
     self.navigationBarView = [[NavigationBarView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 85)];

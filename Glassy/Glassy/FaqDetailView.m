@@ -27,7 +27,7 @@
     
     // Set background to transparent
     //self.view.b = [UICol];
-    [self setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8]];
+    [self setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
     
     
     // Set faq view
