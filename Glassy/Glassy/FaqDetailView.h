@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) NSMutableArray *questionsArray;
 @property (nonatomic, strong) NSMutableArray *answersArray;
+
 - (void)drawView;
+- (void)addAllQuestions;
 
 @end

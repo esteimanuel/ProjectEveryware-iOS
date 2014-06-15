@@ -24,6 +24,17 @@ CGFloat currentHeight = 0;
     return self;
 }
 
+- (void)addAllQuestions
+{
+    for (int i = 0; i < [self.questionsArray count]; i++) {
+		[self addQuestion:self.questionsArray[i] withAnswer:self.answersArray[i]];
+		
+	}
+    self.mediaView.contentSize = CGSizeMake(self.frame.size.width, 880);
+    self.mediaView.scrollEnabled = YES;
+    [self addSubview:self.mediaView];
+}
+
 - (void)drawView
 {
 	self.questionsArray = [[NSMutableArray alloc] init];
@@ -31,7 +42,7 @@ CGFloat currentHeight = 0;
     frameWidth = [[UIScreen mainScreen] bounds].size.width;
     
     // Set background color
-    [self setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
+    [self setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.9]];
     
     
     // Set faq view
@@ -57,16 +68,8 @@ CGFloat currentHeight = 0;
     self.faqLabel.textColor = [UIColor whiteColor];
     
     [self.mediaView addSubview:self.faqLabel];
-	
-	
-	for (int i = 0; i < [self.questionsArray count]; i++) {
-		[self addQuestion:self.questionsArray[i] withAnswer:self.answersArray[i]];
-		
-	}
-	
-    [self addSubview:self.mediaView];
     
-    currentHeight += self.mediaView.frame.size.height + margin * 4;
+    //currentHeight += self.mediaView.frame.size.height + margin * 4;
     
     // Create frame
     self.frame = CGRectMake(0, 85, self.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
@@ -74,12 +77,15 @@ CGFloat currentHeight = 0;
 
 - (void)addQuestion:(NSString *)question withAnswer:(NSString *)answer
 {
+    currentHeight += 10.0f;
+    
 	UILabel *q = [[UILabel alloc] initWithFrame:CGRectMake(margin, currentHeight, frameWidth, 24.0f)];
 	q.text = question;
 	q.numberOfLines = 0;
 	q.preferredMaxLayoutWidth = frameWidth - margin * 4;
 	q.font = [UIFont fontWithName:@"HelveticaNeue-Normal" size:20.0f];
 	q.textColor = [UIColor whiteColor];
+    [q sizeToFit];
 	[self.mediaView addSubview:q];
 	
 	currentHeight += q.frame.size.height;
@@ -88,8 +94,9 @@ CGFloat currentHeight = 0;
 	a.text = answer;
 	a.numberOfLines = 0;
 	a.preferredMaxLayoutWidth = frameWidth - margin * 4;
-	a.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+	a.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0f];
 	a.textColor = [UIColor whiteColor];
+    [a sizeToFit];
 	[self.mediaView addSubview:a];
 	
 	currentHeight += a.frame.size.height;

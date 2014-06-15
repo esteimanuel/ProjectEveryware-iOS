@@ -33,8 +33,8 @@
     FaqDetailView *faq = [[FaqDetailView alloc] init];
 	faq.answersArray = self.answersArray;
 	faq.questionsArray = self.questionsArray;
+    [faq addAllQuestions];
     [self.view addSubview:faq];
-    
 }
 
 #pragma mark - UISwipeGestureRecognizer delegate methods
