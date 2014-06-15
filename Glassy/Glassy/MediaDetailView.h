@@ -10,4 +10,8 @@
 
 @interface MediaDetailView : UIView
 
+@property (nonatomic, strong)UIView *mediaView;
+@property (nonatomic, strong)UILabel *titleLabel;
+@property (nonatomic, strong)UILabel *faqLabel;
+
 @end

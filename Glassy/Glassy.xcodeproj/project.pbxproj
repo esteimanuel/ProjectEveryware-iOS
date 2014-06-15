@@ -84,6 +84,7 @@
 		70BB8BD81928B69B0006A4A1 /* FaqView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BD71928B69B0006A4A1 /* FaqView.m */; };
 		70BB8BDA1929D28B0006A4A1 /* userimageplaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */; };
 		70BB8BDE192E1BC40006A4A1 /* Buddy.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB8BDD192E1BC40006A4A1 /* Buddy.m */; };
+		70D44B39194BDBEC00476BA0 /* MediaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D44B38194BDBEC00476BA0 /* MediaDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +251,8 @@
 		70BB8BD91929D28B0006A4A1 /* userimageplaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userimageplaceholder.png; sourceTree = "<group>"; };
 		70BB8BDC192E1BC40006A4A1 /* Buddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buddy.h; sourceTree = "<group>"; };
 		70BB8BDD192E1BC40006A4A1 /* Buddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buddy.m; sourceTree = "<group>"; };
+		70D44B37194BDBEC00476BA0 /* MediaDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaDetailViewController.h; sourceTree = "<group>"; };
+		70D44B38194BDBEC00476BA0 /* MediaDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,6 +448,8 @@
 				19F7AD151946F77200CC845C /* FaqDetailViewController.m */,
 				7094281E194B0F8C007479FF /* ProgressDetailViewController.h */,
 				7094281F194B0F8C007479FF /* ProgressDetailViewController.m */,
+				70D44B37194BDBEC00476BA0 /* MediaDetailViewController.h */,
+				70D44B38194BDBEC00476BA0 /* MediaDetailViewController.m */,
 			);
 			name = DetailViewControllers;
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 				19E9DF8C190FC5BA008075F6 /* RegisterViewController.m in Sources */,
 				190B7F89191F895700FB07EC /* ProfileViewController.m in Sources */,
 				19E9DF89190F94F1008075F6 /* RESTClient.m in Sources */,
+				70D44B39194BDBEC00476BA0 /* MediaDetailViewController.m in Sources */,
 				199C3A48193B705300D53A67 /* DepositViewController.m in Sources */,
 				19E8FB561920FCB60030CB7D /* NavigationBarView.m in Sources */,
 				19F7AD161946F77200CC845C /* FaqDetailViewController.m in Sources */,

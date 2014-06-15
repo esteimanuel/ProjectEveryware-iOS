@@ -54,7 +54,7 @@
     [self.view addGestureRecognizer:gestureRecognizer];
 }
 
-- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
+- (void)swipeHandler:(UITapGestureRecognizer *)recognizer
 {
     [self dispose];
 }

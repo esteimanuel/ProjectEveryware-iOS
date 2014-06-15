@@ -72,12 +72,11 @@
 
 - (void)createGesture
 {
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
     [self.view addGestureRecognizer:gestureRecognizer];
 }
 
-- (void)swipeHandler:(UISwipeGestureRecognizer *)recognizer
+- (void)swipeHandler:(UITapGestureRecognizer *)recognizer
 {
     [self dispose];
 }

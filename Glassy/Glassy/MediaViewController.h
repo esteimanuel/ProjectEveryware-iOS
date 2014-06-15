@@ -12,6 +12,7 @@
 @interface MediaViewController : UIViewController
 
 @property (nonatomic, strong) MediaView *mediaView;
+@property (nonatomic, strong) UIWebView *webView;
 
 - (void)loadRequest:(NSString *)url;
 

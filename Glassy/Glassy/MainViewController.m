@@ -325,10 +325,9 @@
     mediaViewController.view.frame = CGRectMake(0, currentHeight, self.scrollView.frame.size.width, mediaViewController.mediaView.frame.size.height);
 	
 	// Add button overlay
-	UIButton *mediaButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, mediaViewController.view.frame.size.height)];
-	[mediaButton addTarget:self action:@selector(openMediaDetailView) forControlEvents:UIControlEventTouchUpInside];
-	mediaButton.backgroundColor = [UIColor clearColor];
-	[self.scrollView addSubview:mediaButton];
+	self.mediaButton = [[UIWebView alloc]initWithFrame:CGRectMake(5, currentHeight + 29.0f, 310, 192)];
+	self.mediaButton.backgroundColor = [UIColor purpleColor];
+	[self.scrollView addSubview:self.mediaButton];
     
     currentHeight += mediaViewController.mediaView.frame.size.height;
     
@@ -337,7 +336,7 @@
 	
 	// Add button overlay
 	UIButton *mapButton = [[UIButton alloc]initWithFrame:CGRectMake(0, currentHeight, 500, mapViewController.view.frame.size.height)];
-	[mapButton addTarget:self action:@selector(openMapDetailView) forControlEvents:UIControlEventTouchUpInside];
+	[mapButton addTarget:self action:@selector(createMapDetailView) forControlEvents:UIControlEventTouchUpInside];
 	mapButton.backgroundColor = [UIColor clearColor];
 	[self.scrollView addSubview:mapButton];
     
@@ -387,14 +386,51 @@
 	[self onParticipantsLoaded];
 }
 
-- (void)openMediaDetailView
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-	NSLog(@"openMediaDetailView called!");
+	NSLog(@"Hoi");
+    NSEnumerator *reverseE = [self.view.subviews reverseObjectEnumerator];
+    UIView *iSubView;
+	
+    while ((iSubView = [reverseE nextObject])) {
+		
+        UIView *viewWasHit = [iSubView hitTest:[self.view convertPoint:point toView:iSubView] withEvent:event];
+        if(viewWasHit) {
+            return viewWasHit;
+        }
+		
+    }
+    return [super.view hitTest:point withEvent:event];
 }
 
-- (void)openMapDetailView
+- (void)createMediaDetailView
 {
-	NSLog(@"openMapDetailView called!");
+    if (self.mediaDetailViewController == nil) {
+        self.mediaDetailViewController = [[MediaDetailViewController alloc] init];
+    }
+    [self addChildViewController:self.mediaDetailViewController];
+    [self.view addSubview:self.mediaDetailViewController.view];
+}
+
+- (void)removeMediaDetailView
+{
+    [self.mediaDetailViewController.view removeFromSuperview];
+    [self.mediaDetailViewController removeFromParentViewController];
+}
+
+- (void)createMapDetailView
+{
+//    if (self.mapDetailViewController == nil) {
+//        self.mapDetailViewController = [[MapDetailViewController alloc] init];
+//    }
+//    [self addChildViewController:self.mapDetailViewController];
+//    [self.view addSubview:self.mapDetailViewController.view];
+}
+
+- (void)removeMapDetailView
+{
+//    [self.mapDetailViewController.view removeFromSuperview];
+//    [self.mapDetailViewController removeFromParentViewController];
 }
 
 - (void)onParticipantsLoaded
@@ -457,6 +493,7 @@
 {
     MediaViewController *mediaViewController = [self.viewControllersDictionary objectForKey:@"mediaViewController"];
     [mediaViewController loadRequest:self.action.movieUrl];
+	[self.mediaButton loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.action.movieUrl]]];
 }
 
 - (void)setCharityData
@@ -470,28 +507,6 @@
     FaqViewController *faqViewController = [self.viewControllersDictionary objectForKey:@"faqViewController"];
     [faqViewController getFaq];
 }
-
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    NSLog(@"MainViewController touches began");
-//    NSLog(@"MainViewController touched %@", self);
-//    NSLog(@"MainViewController nextResponder = %@", [super class]);
-//    //[super touchesBegan:touches withEvent:event];
-//    [super touchesBegan:touches withEvent:event];
-//}
-//
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    //[super touchesMoved:touches withEvent:event];
-//    [super touchesMoved:touches withEvent:event];
-//}
-//
-//-(void) touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event
-//{
-//    NSLog(@"Touches ended: MainViewController");
-//    //[super touchesEnded:touches withEvent:event];
-//    [super touchesEnded:touches withEvent:event];
-//}
 
 - (void)showJoinedAlertView
 {
@@ -543,14 +558,12 @@
         NSDictionary *array = responseDictionary[@"model"];
 		if ([array isKindOfClass:[NSDictionary class]])
 		{
-            for (id key in array) {
-                if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
-                    PagingViewController *parent = (PagingViewController*)self.parentViewController;
-                    parent.account.actionId = [array objectForKey:@"actie_id"];
-                    [parent handleActionButtonStage];
-                    [self getNeighborhoodData:[self.action.id intValue]];
-                }
-            }
+			if ([self.parentViewController isKindOfClass:[PagingViewController class]]) {
+				PagingViewController *parent = (PagingViewController*)self.parentViewController;
+				parent.account.actionId = [array objectForKey:@"actie_id"];
+				[parent handleActionButtonStage];
+				[self getNeighborhoodData:[self.action.id intValue]];
+			}
         }
         [self showJoinedAlertView];
     }else if (client == self.restGetNeighborhoodInfo) {

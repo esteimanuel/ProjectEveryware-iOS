@@ -21,6 +21,8 @@
 #import "FaqDetailViewController.h"
 #import "NeighborhoodViewController.h"
 #import "ProgressDetailViewController.h"
+#import "MediaDetailViewController.h"
+//#import "MapDetailViewController.h"
 
 @interface MainViewController : UIViewController <RestClientDelegate, UIScrollViewDelegate>
 
@@ -34,6 +36,9 @@
 @property (nonatomic, strong) ParticipantsDetailViewController *participantsDetailViewController;
 @property (nonatomic, strong) NeighborhoodViewController* neighborhoodViewController;
 @property (nonatomic, strong) ProgressDetailViewController *progressDetailViewController;
+@property (nonatomic, strong) MediaDetailViewController *mediaDetailViewController;
+//@property (nonatomic, strong) MapDetailViewController *mapDetailViewController;
+@property (nonatomic, strong)UIWebView *mediaButton;
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
@@ -63,4 +68,10 @@
 
 - (void)createProgressDetailView;
 - (void)removeProgressDetailView;
+
+- (void)createMediaDetailView;
+- (void)removeMediaDetailView;
+
+- (void)createMapDetailView;
+- (void)removeMeapDetailView;
 @end
