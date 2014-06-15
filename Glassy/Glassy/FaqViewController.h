@@ -13,6 +13,8 @@
 @interface FaqViewController : UIViewController <RestClientDelegate>
 
 @property (nonatomic, strong) FaqView *faqView;
+@property (nonatomic, strong) NSMutableArray *questionsArray;
+@property (nonatomic, strong) NSMutableArray *answersArray;
 
 - (void)createView;
 

@@ -8,22 +8,27 @@
 
 #import "FaqDetailView.h"
 
+CGFloat margin = 5;
+CGFloat frameWidth;
+CGFloat tempHeight;
+CGFloat currentHeight = 0;
+
 @implementation FaqDetailView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self drawView];
+		[self drawView];
     }
     return self;
 }
 
 - (void)drawView
 {
-    CGFloat currentHeight = 0;
-    CGFloat margin = 5;
-    CGFloat frameWidth = [[UIScreen mainScreen] bounds].size.width;
+	self.questionsArray = [[NSMutableArray alloc] init];
+	self.answersArray = [[NSMutableArray alloc]init];
+    frameWidth = [[UIScreen mainScreen] bounds].size.width;
     
     // Set background color
     [self setBackgroundColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.7]];
@@ -52,11 +57,42 @@
     self.faqLabel.textColor = [UIColor whiteColor];
     
     [self.mediaView addSubview:self.faqLabel];
+	
+	
+	for (int i = 0; i < [self.questionsArray count]; i++) {
+		[self addQuestion:self.questionsArray[i] withAnswer:self.answersArray[i]];
+		
+	}
+	
     [self addSubview:self.mediaView];
     
     currentHeight += self.mediaView.frame.size.height + margin * 4;
     
     // Create frame
     self.frame = CGRectMake(0, 85, self.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 85);
+}
+
+- (void)addQuestion:(NSString *)question withAnswer:(NSString *)answer
+{
+	UILabel *q = [[UILabel alloc] initWithFrame:CGRectMake(margin, currentHeight, frameWidth, 24.0f)];
+	q.text = question;
+	q.numberOfLines = 0;
+	q.preferredMaxLayoutWidth = frameWidth - margin * 4;
+	q.font = [UIFont fontWithName:@"HelveticaNeue-Normal" size:20.0f];
+	q.textColor = [UIColor whiteColor];
+	[self.mediaView addSubview:q];
+	
+	currentHeight += q.frame.size.height;
+	
+	UILabel *a = [[UILabel alloc] initWithFrame:CGRectMake(margin, currentHeight, frameWidth, 24.0f)];
+	a.text = answer;
+	a.numberOfLines = 0;
+	a.preferredMaxLayoutWidth = frameWidth - margin * 4;
+	a.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
+	a.textColor = [UIColor whiteColor];
+	[self.mediaView addSubview:a];
+	
+	currentHeight += a.frame.size.height;
+	
 }
 @end

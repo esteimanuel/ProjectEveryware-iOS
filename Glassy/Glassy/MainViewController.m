@@ -58,7 +58,8 @@
         // Init scrollVIew
         self.scrollView = [[UIScrollView alloc] init];
 		[self.scrollView setDelegate:self];
-		
+		self.questionsArray = [[NSMutableArray alloc] init];
+		self.answersArray = [[NSMutableArray alloc]init];
         [self createScrollViewWithViewControllers];
         [self createScrollViewBackground];
     }
@@ -242,11 +243,19 @@
 	//    [UIView setAnimationDuration:1];
 	//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.faqDetailViewController.view cache:YES];
 	//
+	
+	self.faqDetailViewController.questionsArray = self.questionsArray;
+	self.faqDetailViewController.answersArray = self.answersArray;
     [self addChildViewController:self.faqDetailViewController];
     [self.view addSubview:self.faqDetailViewController.view];
 	//
 	//    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.faqDetailViewController.view cache:YES];
 	//    [UIView commitAnimations];
+}
+- (void)addQuestions:(NSMutableArray *)q withAnswers:(NSMutableArray *)a
+{
+	self.questionsArray = q;
+	self.answersArray = a;
 }
 
 - (void)removeFaqDetailView

@@ -15,5 +15,10 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *closeButton;
 
+- (void)addQuestion:(NSString *)question withAnswer:(NSString *)answer;
+
+@property (nonatomic, strong) NSMutableArray *questionsArray;
+@property (nonatomic, strong) NSMutableArray *answersArray;
+- (void)drawView;
 
 @end

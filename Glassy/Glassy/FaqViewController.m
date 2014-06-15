@@ -17,6 +17,9 @@
 
 @implementation FaqViewController
 
+@synthesize questionsArray;
+@synthesize answersArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -77,18 +80,27 @@
 
 - (void)restRequestSucceeded:(NSMutableDictionary *)responseDictionary withClient:(RESTClient *)client
 {
-	NSMutableArray *array = [[NSMutableArray alloc]init];
+	self.questionsArray = [[NSMutableArray alloc] init];
+	self.answersArray = [[NSMutableArray alloc] init];
 	for (id key in responseDictionary)
 	{
-        [array addObject:[key valueForKey:@"question" ]];
+		if ([[key valueForKey:@"question"] isKindOfClass:[NSString class]] || [[key valueForKey:@"answer"]  isKindOfClass:[NSString class]]) {
+			
+			NSLog(@"xxx%@",[key valueForKey:@"question"]);
+			[self.questionsArray addObject:[key valueForKey:@"question"]];
+			NSLog(@"xxx%@",self.questionsArray[0]);
+//			NSLog(@"xxx%@",[key valueForKey:@"answer"]);
+			[self.answersArray addObject:[key valueForKey:@"answer"]];
+		}
 	}
-    if ([array count] > 0) {
-        for(int i=0; i<[array count]; i++) {
-            if(i == 0) self.faqView.firstQuestionLabel.text = array[0];
-            if(i == 1) self.faqView.secondQuestionLabel.text = array[1];
-            if(i == 2) self.faqView.thirdQuestionLabel.text = array[2];
-        }
+    if ([self.parentViewController isKindOfClass:[MainViewController class]]) {
+        MainViewController* parent = (MainViewController*)self.parentViewController;
+        [parent addQuestions:self.questionsArray withAnswers:self.answersArray];
     }
+	NSLog(@"xxx%@",self.questionsArray[0]);
+	self.faqView.firstQuestionLabel.text = self.questionsArray[0];
+	self.faqView.secondQuestionLabel.text = self.questionsArray[1];
+	self.faqView.thirdQuestionLabel.text = self.questionsArray[2];
 }
 
 - (void)restRequestFailed:(NSString *)failedMessage withClient:(RESTClient *)client

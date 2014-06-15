@@ -10,12 +10,15 @@
 #import "RESTClient.h"
 #import "FaqDetailView.h"
 
-@interface FaqDetailViewController : UIViewController <RestClientDelegate>
+@interface FaqDetailViewController : UIViewController
 
 @property (nonatomic, strong) FaqDetailView *faqDetailView;
 
 @property (nonatomic, strong) UILabel *faqLabel;
 @property (nonatomic, strong) UIScrollView *mediaView;
 @property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong) NSMutableArray *questionsArray;
+@property (nonatomic, strong) NSMutableArray *answersArray;
 
 @end

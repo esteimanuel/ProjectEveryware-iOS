@@ -73,5 +73,9 @@
 - (void)removeMediaDetailView;
 
 - (void)createMapDetailView;
-- (void)removeMeapDetailView;
+- (void)removeMapDetailView;
+
+- (void)addQuestions:(NSMutableArray *)q withAnswers:(NSMutableArray *)a;
+@property (nonatomic, strong) NSMutableArray *questionsArray;
+@property (nonatomic, strong) NSMutableArray *answersArray;
 @end
