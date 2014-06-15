@@ -425,9 +425,6 @@
         NSInteger accountId = [defaults integerForKey:@"account_id"];
         [self getAccount:accountId];
     } else if (client == self.restGetAccount) {
-        for (id key in responseDictionary) {
-            NSLog(@"key: %@ value: %@", key, [responseDictionary objectForKey:key]);
-        }
         self.account.email = [responseDictionary objectForKey:@"email"];
         self.account.accountLevel = [responseDictionary objectForKey:@"accountlevel_id"];
         self.account.image = [responseDictionary objectForKey:@"foto_link"];

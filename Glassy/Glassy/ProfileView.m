@@ -105,7 +105,27 @@
     
     currentHeight = currentHeight + self.buddyLabel.frame.size.height + margin;
 
-    currentHeight = [self drawBuddyView:currentHeight withMargin:margin];
+    //currentHeight = [self drawBuddyView:currentHeight withMargin:margin];
+    
+    self.buddyPhone = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
+    self.buddyPhone.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.buddyPhone.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.buddyPhone.layer.borderWidth = 0.5;
+    self.buddyPhone.layer.cornerRadius = 5.0;
+    self.buddyPhone.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyPhone.placeholder = @"Alternatief telefoonnummer";
+    
+    currentHeight += self.buddyPhone.frame.size.height + margin;
+    
+    self.buddyEmail = [[UITextField alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
+    self.buddyEmail.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-auth-background.png"]];
+    self.buddyEmail.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.buddyEmail.layer.borderWidth = 0.5;
+    self.buddyEmail.layer.cornerRadius = 5.0;
+    self.buddyEmail.font = [UIFont fontWithName:@"Helvetica Neue" size:13];
+    self.buddyEmail.placeholder = @"Alternatief e-mailadres";
+    
+    currentHeight += self.buddyEmail.frame.size.height + margin;
     
     self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(55, currentHeight, 210, 40)];
     self.saveButton.backgroundColor = [UIColor lightGrayColor];
@@ -131,7 +151,9 @@
     
     [self.scrollView addSubview:self.buddySwitch];
     [self.scrollView addSubview:self.buddyLabel];
-    [self.scrollView addSubview:self.buddyDetailsView];
+    [self.scrollView addSubview:self.buddyPhone];
+    [self.scrollView addSubview:self.buddyEmail];
+    //[self.scrollView addSubview:self.buddyDetailsView];
     // Set content size
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 880);
     self.scrollView.scrollEnabled = YES;

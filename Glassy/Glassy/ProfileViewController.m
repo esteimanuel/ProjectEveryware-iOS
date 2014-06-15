@@ -59,7 +59,18 @@
     [params setObject:self.profileView.lastNameTextField.text forKey:@"achternaam"];
     [params setObject:self.profileView.houseNumberTextField.text forKey:@"huisnummer"];
     [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
-
+    // Add postcode details
+    NSMutableDictionary *pc = [[NSMutableDictionary alloc] init];
+    [pc setObject:self.profileView.postcodeTextField.text forKey:@"postcode"];
+    [params setObject:pc forKey:@"postcode"];
+    if (self.profileView.buddySwitch.isOn) {
+        // Add buddy details
+        NSMutableDictionary *buddy = [[NSMutableDictionary alloc] init];
+        [buddy setObject:self.profileView.buddyPhone.text forKey:@"contact_email"];
+        [buddy setObject:self.profileView.buddyEmail.text forKey:@"contact_tel"];
+        [params setObject:buddy forKey:@"buddy"];
+    }
+    
     return params;
 }
 
@@ -158,6 +169,8 @@
     self.profileView.houseNumberTextField.delegate = self;
     self.profileView.emailTextField.delegate = self;
     self.profileView.passwordTextField.delegate = self;
+    self.profileView.buddyPhone.delegate = self;
+    self.profileView.buddyEmail.delegate = self;
     // Set button action
     [self.profileView.saveButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchDown];
     [self.profileView.buddySwitch addTarget:self action:@selector(toggleBuddyDetails:) forControlEvents:UIControlEventTouchDown];
