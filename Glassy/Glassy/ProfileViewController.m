@@ -1,4 +1,4 @@
-//
+	//
 //  ProfileViewController.m
 //  Glassy
 //
@@ -57,20 +57,20 @@
     // Objects have to be added in this order
     [params setObject:self.profileView.firstNameTextField.text forKey:@"voornaam"];
     [params setObject:self.profileView.lastNameTextField.text forKey:@"achternaam"];
-    [params setObject:self.profileView.houseNumberTextField.text forKey:@"huisnummer"];
+    //[params setObject:self.profileView.houseNumberTextField.text forKey:@"huisnummer"];
     [params setObject:[defaults objectForKey:@"token"] forKey:@"_token"];
-    // Add postcode details
-    NSMutableDictionary *pc = [[NSMutableDictionary alloc] init];
-    [pc setObject:self.profileView.postcodeTextField.text forKey:@"postcode"];
-    [params setObject:pc forKey:@"postcode"];
-    if (self.profileView.buddySwitch.isOn) {
-        // Add buddy details
-        NSMutableDictionary *buddy = [[NSMutableDictionary alloc] init];
-        [buddy setObject:self.profileView.buddyPhone.text forKey:@"contact_email"];
-        [buddy setObject:self.profileView.buddyEmail.text forKey:@"contact_tel"];
-        [params setObject:buddy forKey:@"buddy"];
-    }
-    
+//    // Add postcode details
+//    NSMutableDictionary *pc = [[NSMutableDictionary alloc] init];
+//    [pc setObject:self.profileView.postcodeTextField.text forKey:@"postcode"];
+//    [params setObject:pc forKey:@"postcode"];
+//    if (self.profileView.buddySwitch.isOn) {
+//        // Add buddy details
+//        NSMutableDictionary *buddy = [[NSMutableDictionary alloc] init];
+//        [buddy setObject:self.profileView.buddyPhone.text forKey:@"contact_email"];
+//        [buddy setObject:self.profileView.buddyEmail.text forKey:@"contact_tel"];
+//        [params setObject:buddy forKey:@"buddy"];
+//    }
+//    
     return params;
 }
 
@@ -136,7 +136,7 @@
             if (parent.account.firstName != (NSString *)[NSNull null]) self.profileView.firstNameTextField.text = parent.account.firstName;
             if (parent.account.lastName != (NSString *)[NSNull null]) self.profileView.lastNameTextField.text = parent.account.lastName;
             if (parent.account.postcode != (NSString *)[NSNull null]) self.profileView.postcodeTextField.text = parent.account.postcode;
-            if (parent.account.houseNumber != (NSString *)[NSNull null]) self.profileView.houseNumberTextField.text = [NSString stringWithFormat:@"%@", parent.account.houseNumber];
+            //if (parent.account.houseNumber != (NSString *)[NSNull null]) self.profileView.houseNumberTextField.text = [NSString stringWithFormat:@"%@", parent.account.houseNumber];
         }
         [self setProfileImage:parent];
         [parent refreshNavigationBarView];
